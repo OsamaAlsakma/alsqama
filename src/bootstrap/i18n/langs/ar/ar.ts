@@ -8,7 +8,7 @@ const ar: typeof langKey = {
     createAccount: "إنشاء حساب",
     login: " تسجيل الدخول ",
   },
-  navbar: {
+  header: {
     hotels: "فنادق",
     chalets: "شاليهات",
     resorts: "منتجعات",

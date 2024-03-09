@@ -11,10 +11,10 @@ const langKey = {
     createAccount: "global.createAccount",
     login: "global.login",
   },
-  navbar: {
-    hotels: "navbar.hotels",
-    chalets: "navbar.chalets",
-    resorts: "navbar.resorts",
+  header: {
+    hotels: "header.hotels",
+    chalets: "header.chalets",
+    resorts: "header.resorts",
   },
   mainPage: {
     createNewAccount: "mainPage.createNewAccount",

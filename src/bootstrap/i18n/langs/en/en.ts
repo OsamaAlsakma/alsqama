@@ -8,7 +8,7 @@ const en: typeof langKey = {
     createAccount: "Create account",
     login: "Login",
   },
-  navbar: {
+  header: {
     hotels: "Hotels",
     chalets: "Chalets",
     resorts: "Resorts",

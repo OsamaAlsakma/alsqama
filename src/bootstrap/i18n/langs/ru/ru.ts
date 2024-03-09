@@ -8,7 +8,7 @@ const ru: typeof langKey = {
     createAccount: "Создать аккаунт",
     login: " Войти ",
   },
-  navbar: {
+  header: {
     hotels: "Отели",
     chalets: "Шале",
     resorts: "Курорты",
