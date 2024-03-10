@@ -4,8 +4,8 @@ const HeaderTabs = () => {
   const vm = new HeaderTabsVM().useVM();
   return (
     <div>
-      {vm.props.headerTabs.map((tab) => (
-        <span key={tab} style={{ backgroundColor: "red" }}>
+      {vm.props.headerTabs.map((tab, index) => (
+        <span key={index} style={{ backgroundColor: "red" }}>
           {tab}
         </span>
       ))}

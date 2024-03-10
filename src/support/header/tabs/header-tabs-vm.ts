@@ -6,6 +6,7 @@ export default class HeaderTabsVM {
   useVM(): IHeaderTabsVM {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { t } = useTranslation();
+    console.log("tabs", t(langKey.header.chalets));
     return {
       props: {
         headerTabs: [
