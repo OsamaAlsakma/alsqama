@@ -6,17 +6,18 @@ import ChaletsPage from "./core/chalets/page/chalets-page";
 import HallsPage from "./core/halls/page/halls-page";
 import ResortsPage from "./core/resorts/page/resorts-page";
 import HotelsPage from "./core/hotels/page/hotels-page";
+import { servicesPageEndpoint } from "./bootstrap/helper/endpoints";
 
 function App() {
   return (
     <>
       <MainHeader />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/chalets" element={<ChaletsPage />} />
-        <Route path="/halls" element={<HallsPage />} />
-        <Route path="/resorts" element={<ResortsPage />} />
-        <Route path="/hotels" element={<HotelsPage />} />
+        <Route path={servicesPageEndpoint.main} element={<MainPage />} />
+        <Route path={servicesPageEndpoint.chalets} element={<ChaletsPage />} />
+        <Route path={servicesPageEndpoint.halls} element={<HallsPage />} />
+        <Route path={servicesPageEndpoint.hotels} element={<HotelsPage />} />
+        <Route path={servicesPageEndpoint.resorts} element={<ResortsPage />} />
       </Routes>
     </>
   );

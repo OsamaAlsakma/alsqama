@@ -1,10 +1,11 @@
+import { servicesPageEndpoint } from "../../../../bootstrap/helper/endpoints";
 import { StyledMainServicesAppButton, StyledMainServicesLink } from "../style";
 import MainServicesResortsButtonVM from "./main-services-resorts-button-vm";
 
 const MainServicesResortsButton = () => {
   const vm = new MainServicesResortsButtonVM().useVM();
   return (
-    <StyledMainServicesLink to={"/resorts"}>
+    <StyledMainServicesLink to={servicesPageEndpoint.resorts}>
       <StyledMainServicesAppButton vm={vm} />
     </StyledMainServicesLink>
   );
