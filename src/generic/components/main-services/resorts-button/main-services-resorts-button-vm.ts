@@ -5,12 +5,12 @@ import IAppButtonVM, {
   AppButtonColors,
 } from "../../app-button/i-app-button-vm";
 
-export default class MainServicesHotelsButtonVM {
+export default class MainServicesResortsButtonVM {
   useVM(): IAppButtonVM {
     const { t } = useTranslation();
     return {
       props: {
-        title: t(langKey.header.hotels),
+        title: t(langKey.header.resorts),
         isDisabled: false,
         color: AppButtonColors.INHERIT,
       },

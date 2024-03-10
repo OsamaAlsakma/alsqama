@@ -1,9 +1,13 @@
-import { StyledMainServicesAppButton } from "../style";
+import { StyledMainServicesAppButton, StyledMainServicesLink } from "../style";
 import MainServicesHallsButtonVM from "./main-services-halls-button-vm";
 
 const MainServicesHallsButton = () => {
   const vm = new MainServicesHallsButtonVM().useVM();
-  return <StyledMainServicesAppButton vm={vm} />;
+  return (
+    <StyledMainServicesLink to={"/halls"}>
+      <StyledMainServicesAppButton vm={vm} />
+    </StyledMainServicesLink>
+  );
 };
 
 export default MainServicesHallsButton;

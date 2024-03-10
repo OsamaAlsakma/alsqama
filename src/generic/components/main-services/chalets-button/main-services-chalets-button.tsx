@@ -1,9 +1,13 @@
 import MainServicesChaletsButtonVM from "./main-services-chalets-button-vm";
-import { StyledMainServicesAppButton } from "../style";
+import { StyledMainServicesAppButton, StyledMainServicesLink } from "../style";
 
 const MainServicesChaletsButton = () => {
   const vm = new MainServicesChaletsButtonVM().useVM();
-  return <StyledMainServicesAppButton vm={vm} />;
+  return (
+    <StyledMainServicesLink to={"/chalets"}>
+      <StyledMainServicesAppButton vm={vm} />
+    </StyledMainServicesLink>
+  );
 };
 
 export default MainServicesChaletsButton;
