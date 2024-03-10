@@ -5,10 +5,7 @@ import IAppButtonVM, {
   AppButtonColors,
 } from "../../app-button/i-app-button-vm";
 
-/**
- * This class returns the list of tabs in the header
- */
-export default class MainServicesHallsButtonVM {
+export default class MainServicesHotelsButtonVM {
   useVM(): IAppButtonVM {
     const { t } = useTranslation();
     return {

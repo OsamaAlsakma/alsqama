@@ -1,8 +1,8 @@
-import HotelsButtonVM from "./main-services-hotels-button-vm";
 import { StyledMainServicesAppButton } from "../style";
+import MainServicesHotelsButtonVM from "./main-services-hotels-button-vm";
 
 const MainServicesHotelsButton = () => {
-  const vm = new HotelsButtonVM().useVM();
+  const vm = new MainServicesHotelsButtonVM().useVM();
   return <StyledMainServicesAppButton vm={vm} />;
 };
 

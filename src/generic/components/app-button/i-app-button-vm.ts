@@ -43,6 +43,7 @@ export default interface IAppButtonVM {
     size?: AppButtonSize;
     type?: AppButtonTypes;
     color?: AppButtonColors;
+    href?: string;
   };
   onClick?: ButtonCallback;
 }
