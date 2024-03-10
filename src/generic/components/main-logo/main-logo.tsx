@@ -1,11 +1,7 @@
-import styled from "styled-components";
+import { StyledMainLogo } from "./style";
 
-export const StyledLogo = styled.h4`
-  font-size: 24px;
-  width: fit-content;
-`;
 const MainLogo = () => {
-  return <StyledLogo>حجزي</StyledLogo>;
+  return <StyledMainLogo>حجزي</StyledMainLogo>;
 };
 
 export default MainLogo;
