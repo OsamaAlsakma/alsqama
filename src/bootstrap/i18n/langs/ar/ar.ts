@@ -15,7 +15,7 @@ const ar: typeof langKey = {
     halls: "صالات",
   },
   mainPage: {
-    createNewAccount: "إنشاء حساب جديد",
+    signinOrSignup: "الدخول أو إنشاء حساب",
     username: "اسم المستخدم",
     email: "البريد الإلكتروني",
     password: "كلمة المرور",

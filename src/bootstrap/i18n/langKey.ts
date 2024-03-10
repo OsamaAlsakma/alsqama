@@ -18,7 +18,7 @@ const langKey = {
     halls: "header.halls",
   },
   mainPage: {
-    createNewAccount: "mainPage.createNewAccount",
+    signinOrSignup: "mainPage.signinOrSignup",
     username: "mainPage.username",
     email: "mainPage.email",
     password: "mainPage.password",

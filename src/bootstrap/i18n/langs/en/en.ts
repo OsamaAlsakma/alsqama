@@ -15,7 +15,7 @@ const en: typeof langKey = {
     halls: "Halls",
   },
   mainPage: {
-    createNewAccount: "Create new account",
+    signinOrSignup: "Sign in or sign up",
     username: "Username",
     email: "Email",
     password: "Password",

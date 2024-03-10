@@ -15,7 +15,7 @@ const ru: typeof langKey = {
     halls: "Залы",
   },
   mainPage: {
-    createNewAccount: "Создать новый аккаунт",
+    signinOrSignup: "войдите или зарегистрируйтесь",
     username: "Имя пользователя",
     email: "Электронная почта",
     password: "Пароль",

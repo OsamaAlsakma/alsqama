@@ -21,3 +21,8 @@ export const StyledMainHeader = styled.div`
     padding: 0 ${palette.paddingSmallScreens};
   }
 `;
+
+export const StyledLocalizationAndLoginSignup = styled.div`
+  display: flex;
+  gap: 8px;
+`;
