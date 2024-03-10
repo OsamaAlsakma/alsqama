@@ -12,6 +12,7 @@ const en: typeof langKey = {
     hotels: "Hotels",
     chalets: "Chalets",
     resorts: "Resorts",
+    halls: "Halls",
   },
   mainPage: {
     createNewAccount: "Create new account",

@@ -15,6 +15,7 @@ const langKey = {
     hotels: "header.hotels",
     chalets: "header.chalets",
     resorts: "header.resorts",
+    halls: "header.halls",
   },
   mainPage: {
     createNewAccount: "mainPage.createNewAccount",

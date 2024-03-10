@@ -12,6 +12,7 @@ const ar: typeof langKey = {
     hotels: "فنادق",
     chalets: "شاليهات",
     resorts: "منتجعات",
+    halls: "صالات",
   },
   mainPage: {
     createNewAccount: "إنشاء حساب جديد",

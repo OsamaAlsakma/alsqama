@@ -12,6 +12,7 @@ const ru: typeof langKey = {
     hotels: "Отели",
     chalets: "Шале",
     resorts: "Курорты",
+    halls: "Залы",
   },
   mainPage: {
     createNewAccount: "Создать новый аккаунт",

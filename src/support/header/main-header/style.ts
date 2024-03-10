@@ -2,7 +2,6 @@ import styled from "styled-components";
 import * as palette from "./../../../bootstrap/helper/global-helper";
 
 export const StyledMainHeader = styled.div`
-  width: 100%;
   background-color: ${palette.primaryColor};
 
   display: flex;
