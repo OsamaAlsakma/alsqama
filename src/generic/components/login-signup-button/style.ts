@@ -7,6 +7,7 @@ export const StyledLoginSignupButton = styled(AppButton)`
     background-color: white;
     color: black;
     gap: 4px;
+    font-size: 16px;
 
     &:hover {
       background-color: ${palette.secondaryColor};
