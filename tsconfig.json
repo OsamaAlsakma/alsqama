@@ -20,8 +20,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "typeRoots" : ["node_modules/@types", "src/types"]
-
+    "typeRoots" : ["node_modules/@types", "src/types"],
+    
+    "paths": {
+      "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
+      "~/*": [
+        "./src/*"
+      ],
+    },
 
   },
   "include": ["src"],
