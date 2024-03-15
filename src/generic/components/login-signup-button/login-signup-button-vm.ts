@@ -42,7 +42,7 @@ export default class LoginSignupButtonVM {
 
   /* -------------------------------------------------------------------------- */
   private handleOnClick(setIsOpen: SetState<boolean>) {
-    setIsOpen((pre) => !pre);
+    setIsOpen(true);
   }
   /* -------------------------------------------------------------------------- */
 }
