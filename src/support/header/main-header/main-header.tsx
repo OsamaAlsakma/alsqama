@@ -3,6 +3,7 @@ import LoginSignupButton from "~/generic/components/login-signup-button/login-si
 import LoginSignupModal from "~/generic/components/login-signup-modal/login-signup-modal";
 import MainLogo from "~/generic/components/main-logo/main-logo";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
+import HeaderLoginSignupIcon from "~/support/header/header-login-signup-icon/header-login-signup-icon";
 import HeaderLocalizationSelectBox from "~/support/header/localization-select-box/header-localization-select-box";
 import {
   StyledMainHeader,
@@ -21,6 +22,7 @@ const MainHeader = () => {
         <OpenModlaProvider>
           <LoginSignupButton />
           <LoginSignupModal />
+          <HeaderLoginSignupIcon />
         </OpenModlaProvider>
       </StyledLocalizationAndLoginSignup>
     </StyledMainHeader>

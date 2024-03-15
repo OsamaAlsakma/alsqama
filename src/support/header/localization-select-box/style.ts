@@ -10,4 +10,10 @@ export const StyledLocalizationButtonFormControl = styled(FormControl)`
   border-radius: 8px;
   background-color: white;
   outline: none;
+
+  && {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
 `;
