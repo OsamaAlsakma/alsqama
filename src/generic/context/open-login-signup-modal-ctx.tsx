@@ -1,13 +1,10 @@
 import { ReactNode, createContext, useMemo, useState } from "react";
+import { singleton } from "tsyringe";
 import { SetState } from "~/bootstrap/helper/global-types";
 import BaseContext from "~/generic/context/base-ctx";
 
-
-/* -------------------------------------------------------------------------- */
-/**
- * With this context will handle opening and closing in lower level of components
- */
-export default abstract class OpenLoginSignUpModalCTX extends BaseContext<{
+@singleton()
+export default class OpenLoginSignUpModalCTX extends BaseContext<{
   isOpen: boolean;
   setIsOpen: SetState<boolean>;
 }> {

@@ -20,15 +20,16 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "typeRoots" : ["node_modules/@types", "src/types"],
-    
+    "typeRoots": ["node_modules/@types", "src/types"],
+
     "paths": {
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"],
-      "~/*": [
-        "./src/*"
-      ],
+      "~/*": ["./src/*"]
     },
 
+    // injection
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

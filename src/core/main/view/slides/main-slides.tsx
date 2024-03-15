@@ -28,9 +28,10 @@ const MainSlides = () => {
       className="mySwiper"
     >
       {mainPageSlides.map(
-        (slide: { image: string; title: string; subtitle: string }) => {
+        (slide: { image: string; title: string; subtitle: string }, index) => {
           return (
             <StyledSwiperSlide
+              key={index}
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <TransparentOverlayLayer />
