@@ -55,10 +55,8 @@ font-size: 28px !important;
 
 export const CustomPrevButton = styled(ArrowForwardIosIcon)`
   ${commonProps}
-  left: 10px;
 `;
 
 export const CustomNextButton = styled(ArrowBackIosNewIcon)`
   ${commonProps}
-  right: 10px;
 `;
