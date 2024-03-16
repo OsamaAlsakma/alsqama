@@ -10,13 +10,12 @@ const langKey = {
     ar: "global.ar",
     createAccount: "global.createAccount",
     login: "global.login",
+    hotels: "global.hotels",
+    chalets: "global.chalets",
+    resorts: "global.resorts",
+    halls: "global.halls",
   },
-  header: {
-    hotels: "header.hotels",
-    chalets: "header.chalets",
-    resorts: "header.resorts",
-    halls: "header.halls",
-  },
+
   mainPage: {
     signinOrSignup: "mainPage.signinOrSignup",
     username: "mainPage.username",

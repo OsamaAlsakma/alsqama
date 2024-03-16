@@ -1,6 +1,9 @@
-import { servicesPageEndpoint } from "../../../../bootstrap/helper/endpoints";
-import { StyledMainServicesAppButton, StyledMainServicesLink } from "../style";
-import MainServicesHotelsButtonVM from "./main-services-hotels-button-vm";
+import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
+import MainServicesHotelsButtonVM from "~/generic/components/main-services/hotels-button/main-services-hotels-button-vm";
+import {
+  StyledMainServicesLink,
+  StyledMainServicesAppButton,
+} from "~/generic/components/main-services/style";
 
 const MainServicesHotelsButton = () => {
   const vm = new MainServicesHotelsButtonVM().useVM();

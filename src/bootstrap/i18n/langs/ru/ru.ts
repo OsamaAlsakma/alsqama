@@ -7,8 +7,6 @@ const ru: typeof langKey = {
     ar: "AR",
     createAccount: "Создать аккаунт",
     login: " Войти ",
-  },
-  header: {
     hotels: "Отели",
     chalets: "Шале",
     resorts: "Курорты",

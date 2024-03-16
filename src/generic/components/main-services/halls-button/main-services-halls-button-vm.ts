@@ -10,7 +10,7 @@ export default class MainServicesHallsButtonVM {
     const { t } = useTranslation();
     return {
       props: {
-        title: t(langKey.header.halls),
+        title: t(langKey.global.halls),
         isDisabled: false,
         color: AppButtonColors.INHERIT,
       },

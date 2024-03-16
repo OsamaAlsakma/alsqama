@@ -9,12 +9,14 @@ import {
   StyledLocalizationAndLoginSignup,
   StyledMainHeader,
 } from "~/support/header/main-header/style";
+import ServicesBurger from "~/support/header/services-burger/services-burger";
 import HeaderTabs from "~/support/header/tabs/header-tabs";
 
 const MainHeader = () => {
   const { Provider: OpenModlaProvider } = di.resolve(OpenLoginSignUpModalCTX);
   return (
     <StyledMainHeader>
+      <ServicesBurger />
       <MainLogo />
       <HeaderTabs />
       <StyledLocalizationAndLoginSignup>

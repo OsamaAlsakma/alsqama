@@ -10,7 +10,7 @@ export default class MainServicesResortsButtonVM {
     const { t } = useTranslation();
     return {
       props: {
-        title: t(langKey.header.resorts),
+        title: t(langKey.global.resorts),
         isDisabled: false,
         color: AppButtonColors.INHERIT,
       },

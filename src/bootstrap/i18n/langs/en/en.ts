@@ -7,8 +7,6 @@ const en: typeof langKey = {
     ar: "AR",
     createAccount: "Create account",
     login: "Login",
-  },
-  header: {
     hotels: "Hotels",
     chalets: "Chalets",
     resorts: "Resorts",

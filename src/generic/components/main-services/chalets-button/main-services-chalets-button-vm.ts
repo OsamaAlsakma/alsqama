@@ -10,7 +10,7 @@ export default class MainServicesChaletsButtonVM {
     const { t } = useTranslation();
     return {
       props: {
-        title: t(langKey.header.chalets),
+        title: t(langKey.global.chalets),
         isDisabled: false,
         color: AppButtonColors.INHERIT,
       },

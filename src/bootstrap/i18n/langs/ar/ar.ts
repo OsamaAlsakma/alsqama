@@ -7,13 +7,12 @@ const ar: typeof langKey = {
     ru: "RU",
     createAccount: "إنشاء حساب",
     login: " تسجيل الدخول ",
-  },
-  header: {
     hotels: "فنادق",
     chalets: "شاليهات",
     resorts: "منتجعات",
     halls: "صالات",
   },
+
   mainPage: {
     signinOrSignup: "الدخول أو إنشاء حساب",
     username: "اسم المستخدم",
