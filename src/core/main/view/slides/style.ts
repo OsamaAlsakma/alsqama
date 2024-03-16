@@ -51,6 +51,10 @@ cursor: pointer;
 color: white;
 padding: 8px;
 font-size: 28px !important;
+&:hover {
+  border-color: ${palette.secondaryColor};
+  color: ${palette.secondaryColor};
+}
 `;
 
 export const CustomPrevButton = styled(ArrowForwardIosIcon)`
