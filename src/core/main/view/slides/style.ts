@@ -12,7 +12,19 @@ export const StyledSwiperSlide = styled(SwiperSlide)`
 
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
-  height: calc(100vh - ${palette.appHeaderHeight});
+  height: calc(90vh - ${palette.appHeaderHeight});
+
+  @media (max-width: 1024px) {
+    height: calc(70vh - ${palette.appHeaderHeight});
+  }
+
+  @media (max-width: 768px) {
+    height: calc(60vh - ${palette.appHeaderHeight});
+  }
+
+  @media (max-width: 480px) {
+    height: calc(50vh - ${palette.appHeaderHeight});
+  }
 `;
 
 const overlayColor = "rgba(31, 13, 45, 0.61)";
