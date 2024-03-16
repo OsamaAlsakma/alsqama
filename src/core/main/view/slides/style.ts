@@ -44,8 +44,6 @@ const commonProps = `
 position: absolute;
 top: 50%;
 transform: translateY(-50%);
-width: 40px;
-height: 40px;
 background-color: transparent;
 border: 3px solid white;
 border-radius: 50%;
