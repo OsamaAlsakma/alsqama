@@ -3,12 +3,12 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import { mainPageSlides } from "./data";
-import MainSlideDescription from "../slide-description/main-slide-description";
+import MainSlideDescription from "~/core/main/view/slide-description/main-slide-description";
 import {
   StyledSwiper,
   StyledSwiperSlide,
   TransparentOverlayLayer,
-} from "./style";
+} from "~/core/main/view/slides/style";
 
 const MainSlides = () => {
   return (
