@@ -1,10 +1,12 @@
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { mainPageSlides } from "./data";
 import MainSlideDescription from "~/core/main/view/slide-description/main-slide-description";
 import {
+  CustomNextButton,
+  CustomPrevButton,
   StyledSwiper,
   StyledSwiperSlide,
   TransparentOverlayLayer,
@@ -14,7 +16,10 @@ const MainSlides = () => {
   return (
     <StyledSwiper
       spaceBetween={30}
-      navigation={true}
+      navigation={{
+        prevEl: ".swiper-button-prev",
+        nextEl: ".swiper-button-next",
+      }}
       pagination={{
         clickable: true,
       }}
@@ -43,6 +48,8 @@ const MainSlides = () => {
           );
         }
       )}
+      <CustomPrevButton className="swiper-button-prev" />
+      <CustomNextButton className="swiper-button-next" />
     </StyledSwiper>
   );
 };

@@ -1,6 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 import * as palette from "./../../../../bootstrap/helper/global-helper";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 export const StyledSwiper = styled(Swiper)`
   width: 100%;
@@ -36,4 +38,29 @@ export const TransparentOverlayLayer = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${overlayColor};
+`;
+
+const commonProps = `
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+width: 40px;
+height: 40px;
+background-color: transparent;
+border: 3px solid white;
+border-radius: 50%;
+cursor: pointer;
+color: white;
+padding: 8px;
+font-size: 28px !important;
+`;
+
+export const CustomPrevButton = styled(ArrowForwardIosIcon)`
+  ${commonProps}
+  left: 10px;
+`;
+
+export const CustomNextButton = styled(ArrowBackIosNewIcon)`
+  ${commonProps}
+  right: 10px;
 `;
