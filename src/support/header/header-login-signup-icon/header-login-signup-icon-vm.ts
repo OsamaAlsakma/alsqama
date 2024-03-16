@@ -1,10 +1,8 @@
-import IAppButtonVM, {
-  AppButtonColors,
-} from "~/generic/components/app-button/i-app-button-vm";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import { inject, singleton } from "tsyringe";
 import { SetState } from "~/bootstrap/helper/global-types";
+import IAppButtonVM from "~/generic/components/app-button/i-app-button-vm";
+import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 
 /**
  * onClick on this icon, login sign modal will be open
@@ -24,7 +22,6 @@ export default class HeaderLoginSignupIconVM {
       props: {
         isDisabled: false,
         leadingIcon: AccountCircleIcon,
-        color: AppButtonColors.INHERIT,
       },
       onClick: () => this.handleOnClick(setIsOpen),
     };

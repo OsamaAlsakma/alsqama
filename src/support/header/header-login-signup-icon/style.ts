@@ -1,11 +1,16 @@
+import { IconButton } from "@mui/material";
 import styled from "styled-components";
-import AppButton from "~/generic/components/app-button/app-button";
 
-export const StyledHeaderLoginSignupIcon = styled(AppButton)`
+export const StyledHeaderLoginSignupIcon = styled(IconButton)`
   && {
+    padding: 0;
+    color: white;
     display: none;
+    font-size: 36px;
     @media (max-width: 1024px) {
-      display: block;
+      && {
+        display: flex;
+      }
     }
   }
 `;
