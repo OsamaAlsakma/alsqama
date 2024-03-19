@@ -57,10 +57,7 @@ padding: 8px;
     padding: 6px;
   }
   @media (max-width: 480px) {
-    width: 14px;
-    height: 14px;
-    padding: 4px;
-    border-width: 2px;
+    display: none
   }
 }
 

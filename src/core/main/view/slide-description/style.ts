@@ -17,15 +17,14 @@ export const MainPageSlideDescription = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 80%;
     font-size: 24px;
     right: 11%;
   }
 
   @media (max-width: 480px) {
-    width: 70%;
+    width: 80%;
     font-size: 18px;
-    right: 13%;
+    right: 5%;
   }
 `;
 
