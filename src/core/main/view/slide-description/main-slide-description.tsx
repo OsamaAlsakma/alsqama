@@ -1,7 +1,7 @@
 import {
   MainPageSlideDescription,
   MainPageSlideDescriptionTitle,
-} from "./style";
+} from "~/core/main/view/slide-description/style";
 
 type IProps = {
   title: string;

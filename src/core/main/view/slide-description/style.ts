@@ -5,28 +5,46 @@ export const MainPageSlideDescription = styled.div`
   position: absolute;
   top: 50%;
   color: white;
-  right: 5%;
   transform: translateY(-50%);
   width: 45%;
   font-size: 36px;
+  right: 7%;
 
   @media (max-width: 1024px) {
     width: 60%;
+    font-size: 32px;
+    right: 9%;
   }
 
   @media (max-width: 768px) {
     width: 80%;
+    font-size: 24px;
+    right: 11%;
   }
 
   @media (max-width: 480px) {
-    width: 90%;
+    width: 70%;
+    font-size: 18px;
+    right: 13%;
   }
 `;
 
 export const MainPageSlideDescriptionTitle = styled.span`
   display: block;
-  font-size: 48px;
   padding-bottom: 8px;
   font-weight: bold;
   color: ${pallete.secondaryColor};
+  font-size: 48px;
+
+  @media (max-width: 1024px) {
+    font-size: 42px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 36px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+  }
 `;

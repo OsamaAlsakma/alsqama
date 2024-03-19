@@ -50,7 +50,20 @@ border-radius: 50%;
 cursor: pointer;
 color: white;
 padding: 8px;
-font-size: 28px !important;
+&& {
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+    padding: 6px;
+  }
+  @media (max-width: 480px) {
+    width: 14px;
+    height: 14px;
+    padding: 4px;
+    border-width: 2px;
+  }
+}
+
 &:hover {
   border-color: ${palette.secondaryColor};
   color: ${palette.secondaryColor};
