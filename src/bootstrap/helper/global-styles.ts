@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import styled from "styled-components";
 import * as palette from "./../helper/global-helper";
 
@@ -20,5 +21,15 @@ export const HandlingSectionPaddingWrapper = styled.div`
 
   @media (max-width: ${palette.smallScreenSize}) {
     padding: 16px ${palette.paddingSmallScreens};
+  }
+`;
+
+export const StyledMainAppButton = styled(Button)`
+  && {
+    font-family: Tajawal;
+    background-color: ${palette.secondaryColor};
+    font-weight: bold;
+    font-size: 16px;
+    color: black;
   }
 `;
