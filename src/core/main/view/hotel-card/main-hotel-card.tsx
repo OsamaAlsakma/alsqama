@@ -1,15 +1,15 @@
 import Button from "@mui/material/Button/Button";
-import Card from "@mui/material/Card/Card";
 import CardActions from "@mui/material/CardActions/CardActions";
 import CardContent from "@mui/material/CardContent/CardContent";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import Typography from "@mui/material/Typography/Typography";
 import IMainHotelCardProps from "~/core/main/view/hotel-card/i-main-hotel-card-props";
+import { StyledCard } from "~/core/main/view/hotel-card/style";
 
 const MainHotelCard = (props: IMainHotelCardProps) => {
   const { vm } = props;
   return (
-    <Card sx={{ maxWidth: 315 }}>
+    <StyledCard sx={{ boxShadow: 4 }}>
       <CardMedia
         sx={{ height: 180 }}
         image={`${vm.props.image}`}
@@ -26,7 +26,7 @@ const MainHotelCard = (props: IMainHotelCardProps) => {
       <CardActions>
         <Button size="small">Share</Button>
       </CardActions>
-    </Card>
+    </StyledCard>
   );
 };
 
