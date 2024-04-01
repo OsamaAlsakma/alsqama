@@ -13,7 +13,7 @@ import {
   StyledMainDiscountsTitleAndSubtitle,
 } from "~/core/main/view/discounts-section/wrapper/style";
 
-const MainDiscountsSection = () => {
+const MainDiscountsWrapper = () => {
   const swiperConfig = {
     slidesPerView: 1.75,
     spaceBetween: 10,
@@ -79,4 +79,4 @@ const MainDiscountsSection = () => {
   );
 };
 
-export default MainDiscountsSection;
+export default MainDiscountsWrapper;

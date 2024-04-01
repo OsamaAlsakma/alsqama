@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MainDiscountsSection from "~/core/main/view/discounts-section/wrapper/main-discounts-section";
+import MainDiscountsWrapper from "~/core/main/view/discounts-section/wrapper/main-discounts-wrapper";
 import MainHotelCardsWrapper from "~/core/main/view/hotel-cards-wrapper/main-hotel-cards-wrapper";
 import MainOurServicesWrapper from "~/core/main/view/our-services-section/wrapper/main-our-services-wrapper";
 import MainRepeatedQuestionsWrapper from "~/core/main/view/repeated-questions-section/wrapper/main-repeated-questions-wrapper";
@@ -20,7 +20,7 @@ const MainPage = () => {
       <MainSlides />
       <MainHotelCardsWrapper />
       <MainOurServicesWrapper />
-      <MainDiscountsSection />
+      <MainDiscountsWrapper />
       <MainRepeatedQuestionsWrapper />
       <StyledDiv>salar</StyledDiv>
     </div>
