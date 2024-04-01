@@ -1,19 +1,14 @@
-import styled from "styled-components";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import {
   HandlingSectionPaddingWrapper,
   StyledAppTitleWrapper,
 } from "~/bootstrap/helper/global-styles";
 import MainHotelCard from "~/core/main/view/hotel-card/main-hotel-card";
 import MainHotelCardVM from "~/core/main/view/hotel-card/main-hotel-card-vm";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import { Pagination } from "swiper/modules";
-import { SwiperSlide, Swiper } from "swiper/react";
-
-export const StyledSwiper = styled(Swiper)``;
-
-const StyledSwiperSlide = styled(SwiperSlide)``;
 
 const MainHotelCardsWrapper = () => {
   const vm = new MainHotelCardVM("one").useVM();
@@ -22,7 +17,7 @@ const MainHotelCardsWrapper = () => {
       <StyledAppTitleWrapper>
         أكثر من 94,000 من بيوت العطلات في كافة المدن حول اليمن
       </StyledAppTitleWrapper>
-      <StyledSwiper
+      <Swiper
         slidesPerView={1}
         spaceBetween={10}
         breakpoints={{
@@ -46,22 +41,22 @@ const MainHotelCardsWrapper = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <StyledSwiperSlide>
+        <SwiperSlide>
           <MainHotelCard vm={vm} />
-        </StyledSwiperSlide>
-        <StyledSwiperSlide>
+        </SwiperSlide>
+        <SwiperSlide>
           <MainHotelCard vm={vm} />
-        </StyledSwiperSlide>
-        <StyledSwiperSlide>
+        </SwiperSlide>
+        <SwiperSlide>
           <MainHotelCard vm={vm} />
-        </StyledSwiperSlide>
-        <StyledSwiperSlide>
+        </SwiperSlide>
+        <SwiperSlide>
           <MainHotelCard vm={vm} />
-        </StyledSwiperSlide>
-        <StyledSwiperSlide>
+        </SwiperSlide>
+        <SwiperSlide>
           <MainHotelCard vm={vm} />
-        </StyledSwiperSlide>
-      </StyledSwiper>
+        </SwiperSlide>
+      </Swiper>
     </HandlingSectionPaddingWrapper>
   );
 };
