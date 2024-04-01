@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
-import * as palette from "./../../../../bootstrap/helper/global-helper";
+import * as palette from "~/bootstrap/helper/global-helper";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 

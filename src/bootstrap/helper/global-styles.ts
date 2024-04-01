@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import styled from "styled-components";
-import * as palette from "./../helper/global-helper";
+import * as palette from "~/bootstrap/helper/global-helper";
 
 export const StyledAppTitleWrapper = styled.h3`
   font-size: 32px;
@@ -31,5 +31,10 @@ export const StyledMainAppButton = styled(Button)`
     font-weight: bold;
     font-size: 16px;
     color: black;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: ${palette.secondaryColor};
+    }
   }
 `;

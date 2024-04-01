@@ -3,7 +3,7 @@ import AccordionSummary, {
 } from "@mui/material/AccordionSummary/AccordionSummary";
 import styled from "styled-components";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import * as palette from "../../../../../bootstrap/helper/global-helper";
+import * as palette from "~/bootstrap/helper/global-helper";
 
 export const StyledMainRepeatedQuestionsWrapper = styled.div`
   background-color: "#F9F9F9";

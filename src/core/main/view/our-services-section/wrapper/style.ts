@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import * as palette from "../../../../../bootstrap/helper/global-helper";
+import * as palette from "~/bootstrap/helper/global-helper";
+
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon/SvgIcon";
 
 export const StyledMainOurServicesCard = styled.div`

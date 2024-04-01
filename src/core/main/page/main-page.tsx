@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import MainContactUsWrapper from "~/core/main/view/contact-us-section/wrapper/main-contact-us-wrapper";
 import MainDiscountsWrapper from "~/core/main/view/discounts-section/wrapper/main-discounts-wrapper";
 import MainHotelCardsWrapper from "~/core/main/view/hotel-cards-wrapper/main-hotel-cards-wrapper";
 import MainOurServicesWrapper from "~/core/main/view/our-services-section/wrapper/main-our-services-wrapper";
@@ -22,6 +23,7 @@ const MainPage = () => {
       <MainOurServicesWrapper />
       <MainDiscountsWrapper />
       <MainRepeatedQuestionsWrapper />
+      <MainContactUsWrapper />
       <StyledDiv>salar</StyledDiv>
     </div>
   );
