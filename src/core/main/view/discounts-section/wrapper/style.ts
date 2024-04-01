@@ -48,3 +48,7 @@ export const StyledHandlingSectionPaddingWrapper = styled(
     grid-template-columns: repeat(1, 1fr);
   }
 `;
+
+export const MainDiscountsSwipersWrapper = styled.div`
+  display: flex;
+`;

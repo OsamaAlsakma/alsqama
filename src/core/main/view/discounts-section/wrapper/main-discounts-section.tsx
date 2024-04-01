@@ -1,9 +1,10 @@
-import { Card, CardMedia } from "@mui/material";
+import { CardMedia } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel } from "swiper/modules";
 import { mainDiscountsSectionData } from "~/core/main/view/discounts-section/wrapper/data";
 import {
+  MainDiscountsSwipersWrapper,
   StyledHandlingSectionPaddingWrapper,
   StyledMainDiscountsSubtitle,
   StyledMainDiscountsSwiper,
@@ -14,115 +15,66 @@ import {
 
 const MainDiscountsSection = () => {
   const swiperConfig = {
-    direction: "vertical",
     slidesPerView: 1.75,
     spaceBetween: 10,
     mousewheel: true,
     modules: [Mousewheel],
     className: "mySwiper",
   };
+
+  const cardMediaStyle = { width: "100%", height: "240px" };
+
   return (
     <StyledHandlingSectionPaddingWrapper>
-      {/* first section */}
-      <div style={{ display: "flex" }}>
-        <StyledMainDiscountsSwiper
-          {...swiperConfig}
-          direction={"vertical"}
-          // slidesPerView={1.75}
-          // spaceBetween={10}
-          // mousewheel={true}
-          // modules={[Mousewheel]}
-          // className="mySwiper"
-        >
-          {mainDiscountsSectionData.map((image: { image: string }, index) => {
-            return (
+      <MainDiscountsSwipersWrapper>
+        <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
+          {mainDiscountsSectionData.firstSwiperImages.map(
+            (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <Card>
-                  <CardMedia
-                    image={`${image.image}`}
-                    sx={{ width: "100%", height: "240px" }}
-                  />
-                </Card>
+                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
               </StyledMainDiscountsSwiperSlide>
-            );
-          })}
+            )
+          )}
         </StyledMainDiscountsSwiper>
-        <StyledMainDiscountsSwiper
-          direction={"vertical"}
-          slidesPerView={1.75}
-          spaceBetween={10}
-          mousewheel={true}
-          modules={[Mousewheel]}
-          className="mySwiper"
-        >
-          {mainDiscountsSectionData.map((image: { image: string }, index) => {
-            return (
+        <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
+          {mainDiscountsSectionData.secondSwiperImages.map(
+            (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <Card>
-                  <CardMedia
-                    image={`${image.image}`}
-                    sx={{ width: "100%", height: "240px" }}
-                  />
-                </Card>
+                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
               </StyledMainDiscountsSwiperSlide>
-            );
-          })}
+            )
+          )}
         </StyledMainDiscountsSwiper>
-      </div>
+      </MainDiscountsSwipersWrapper>
       <StyledMainDiscountsTitleAndSubtitle>
-        <StyledMainDiscountsTitle>عروض اللحظة الأخيرة</StyledMainDiscountsTitle>
+        <StyledMainDiscountsTitle>
+          {mainDiscountsSectionData.title}
+        </StyledMainDiscountsTitle>
         <StyledMainDiscountsSubtitle>
-          من الجَمْعة الدافئة مع الأهل، إلى صحبة الأصدقاء الحلوة، استمتعوا
-          بالعروض والخصومات التي تصل الى 50%، عروض رائعة و مستمرة على الشاليهات
-          والمخيمات والمزارع والفلل والشقق.
+          {mainDiscountsSectionData.subTitle}
         </StyledMainDiscountsSubtitle>
       </StyledMainDiscountsTitleAndSubtitle>
-      {/* Third part */}
-      <div style={{ display: "flex" }}>
-        <StyledMainDiscountsSwiper
-          direction={"vertical"}
-          slidesPerView={1.75}
-          spaceBetween={10}
-          mousewheel={true}
-          modules={[Mousewheel]}
-          className="mySwiper"
-        >
-          {mainDiscountsSectionData.map((image: { image: string }, index) => {
-            return (
+      <MainDiscountsSwipersWrapper>
+        <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
+          {mainDiscountsSectionData.thirdSwiperImages.map(
+            (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <Card>
-                  <CardMedia
-                    image={`${image.image}`}
-                    sx={{ width: "100%", height: "240px" }}
-                  />
-                </Card>
+                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
               </StyledMainDiscountsSwiperSlide>
-            );
-          })}
+            )
+          )}
         </StyledMainDiscountsSwiper>
 
-        <StyledMainDiscountsSwiper
-          direction={"vertical"}
-          slidesPerView={1.75}
-          spaceBetween={10}
-          mousewheel={true}
-          modules={[Mousewheel]}
-          className="mySwiper"
-        >
-          {mainDiscountsSectionData.map((image: { image: string }, index) => {
-            return (
+        <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
+          {mainDiscountsSectionData.fourthSwiperImages.map(
+            (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <Card>
-                  <CardMedia
-                    image={`${image.image}`}
-                    sx={{ width: "100%", height: "240px" }}
-                  />
-                </Card>
+                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
               </StyledMainDiscountsSwiperSlide>
-            );
-          })}
+            )
+          )}
         </StyledMainDiscountsSwiper>
-      </div>
+      </MainDiscountsSwipersWrapper>
     </StyledHandlingSectionPaddingWrapper>
   );
 };
