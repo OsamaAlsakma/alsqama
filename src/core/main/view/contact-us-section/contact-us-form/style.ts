@@ -12,7 +12,7 @@ export const MainContactUsFormWrapper = styled.div`
 `;
 
 export const StyledMainContactUsForm = styled.form`
-  width: 75%;
+  width: 90%;
   color: white;
 
   @media (max-width: ${palette.smallScreenSize}) {

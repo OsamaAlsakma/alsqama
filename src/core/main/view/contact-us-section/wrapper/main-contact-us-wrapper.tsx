@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 import MainContactUsForm from "~/core/main/view/contact-us-section/contact-us-form/main-contact-us-form";
 import * as palette from "~/bootstrap/helper/global-helper";
+import MainContactUsSwiper from "~/core/main/view/contact-us-section/swiper/main-contact-us-swiper";
 
 export const StyledHandlingSectionPaddingWrapper = styled(
   HandlingSectionPaddingWrapper
@@ -20,7 +21,7 @@ export const StyledHandlingSectionPaddingWrapper = styled(
 const MainContactUsWrapper = () => {
   return (
     <StyledHandlingSectionPaddingWrapper>
-      <div style={{ backgroundColor: "red" }}>swiper</div>
+      <MainContactUsSwiper />
       <MainContactUsForm />
     </StyledHandlingSectionPaddingWrapper>
   );

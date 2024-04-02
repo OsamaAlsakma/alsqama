@@ -17,30 +17,3 @@ export const mainDiscountsSectionData = {
   thirdSwiperImages: [image7, image8, image1],
   fourthSwiperImages: [image2, image4, image3],
 };
-
-export const mainDiscountsSectionData1 = [
-  {
-    image: image1,
-  },
-  {
-    image: image2,
-  },
-  {
-    image: image3,
-  },
-  {
-    image: image4,
-  },
-  {
-    image: image5,
-  },
-  {
-    image: image6,
-  },
-  {
-    image: image7,
-  },
-  {
-    image: image8,
-  },
-];
