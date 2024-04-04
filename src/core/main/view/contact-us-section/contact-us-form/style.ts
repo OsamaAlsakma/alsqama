@@ -7,12 +7,18 @@ import * as palette from "~/bootstrap/helper/global-helper";
 export const MainContactUsFormWrapper = styled.div`
   display: flex;
   justify-content: center;
-  max-width: 100%;
+  width: 25%;
   margin: 0 auto;
+  @media (max-width: 1024px) {
+    width: 40%;
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const StyledMainContactUsForm = styled.form`
-  width: 90%;
+  width: 100%;
   color: white;
 
   @media (max-width: ${palette.smallScreenSize}) {

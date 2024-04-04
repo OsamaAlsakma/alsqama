@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 
 export const StyledMainDiscountsSwiper = styled(Swiper)`
-  width: 48%;
+  width: 31%;
   height: 350px;
   border-radius: 8px;
 `;
@@ -31,6 +31,15 @@ const MainContactUsSwiper = () => {
     <MainDiscountsSwipersWrapper>
       <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
         {mainContactUsSwiperData.firstSwiperImages.map(
+          (image: string, index) => (
+            <StyledMainDiscountsSwiperSlide key={index}>
+              <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
+            </StyledMainDiscountsSwiperSlide>
+          )
+        )}
+      </StyledMainDiscountsSwiper>
+      <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
+        {mainContactUsSwiperData.secondSwiperImages.map(
           (image: string, index) => (
             <StyledMainDiscountsSwiperSlide key={index}>
               <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
