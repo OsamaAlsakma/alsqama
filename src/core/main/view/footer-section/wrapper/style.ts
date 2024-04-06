@@ -1,0 +1,53 @@
+import styled from "styled-components";
+import { StyledMainServicesLink } from "~/generic/components/main-services/style";
+import * as palette from "~/bootstrap/helper/global-helper";
+
+export const MainFooterLogoAndServices = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  @media (max-width: ${palette.smallScreenSize}) {
+    flex-direction: column;
+    align-items: start;
+  }
+`;
+
+export const StyleMainLogo = styled(StyledMainServicesLink)`
+  && {
+    font-size: 32px;
+    width: fit-content;
+    color: inherit;
+  }
+`;
+
+export const MainFooterMainServices = styled.div`
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+`;
+
+export const MainFooterMainService = styled(StyledMainServicesLink)`
+  && {
+    color: inherit;
+    font-size: 18px;
+  }
+`;
+
+export const MainFooter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: ${palette.smallScreenSize}) {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+`;
+
+export const FooterIconsWrapper = styled.div`
+  display: flex;
+  align-content: center;
+  gap: 8px;
+  padding-top: 8px;
+`;

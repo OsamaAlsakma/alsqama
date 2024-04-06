@@ -2,71 +2,38 @@ import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import MailRoundedIcon from "@mui/icons-material/MailRounded";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
-import * as palette from "~/bootstrap/helper/global-helper";
 import {
   HandlingSectionPaddingWrapper,
   StyledAppDivider,
 } from "~/bootstrap/helper/global-styles";
+import {
+  FooterIconsWrapper,
+  MainFooter,
+  MainFooterLogoAndServices,
+  MainFooterMainService,
+  MainFooterMainServices,
+  StyleMainLogo,
+} from "~/core/main/view/footer-section/wrapper/style";
 import LoginSignupButton from "~/generic/components/login-signup-button/login-signup-button";
-import { StyledMainServicesLink } from "~/generic/components/main-services/style";
-
-const MainFooterLogoAndServices = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  @media (max-width: ${palette.smallScreenSize}) {
-    flex-direction: column;
-    align-items: start;
-  }
-`;
-
-const StyleMainLogo = styled(StyledMainServicesLink)`
-  && {
-    font-size: 32px;
-    width: fit-content;
-    color: inherit;
-  }
-`;
-
-const MainFooterMainServices = styled.div`
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-`;
-
-const MainFooterMainService = styled(StyledMainServicesLink)`
-  && {
-    color: inherit;
-    font-size: 18px;
-  }
-`;
-
-const MainFooter = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  @media (max-width: ${palette.smallScreenSize}) {
-    flex-direction: column;
-    text-align: center;
-    gap: 6px;
-  }
-`;
-
-const FooterIconsWrapper = styled.div`
-  display: flex;
-  align-content: center;
-  gap: 8px;
-  padding-top: 8px;
-`;
 
 const MainFooterWrapper = () => {
   const iconsDimensions = {
     width: "32px",
     height: "32px",
   };
+
+  // whatsapp
+  const whatsappPhoneNumber = "+79214490788";
+  const whatsappURL = `https://wa.me/${whatsappPhoneNumber}`;
+
+  // Email
+  const recipientEmail = "salar.sali97@gmail.com";
+  const subject = "Subject of the email";
+  const body = "Body of the email";
+  const mailtoURL = `mailto:${recipientEmail}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
 
   return (
     <HandlingSectionPaddingWrapper>
@@ -103,14 +70,15 @@ const MainFooterWrapper = () => {
           >
             <FacebookRoundedIcon style={{ ...iconsDimensions }} />
           </MainFooterMainService>
-          <MainFooterMainService
-            to={"https://www.facebook.com/profile.php?id=100035171442539"}
-            target="_blank"
-          >
+          <MainFooterMainService to={"https://t.me/OSAMA_AYLA"} target="_blank">
             <TelegramIcon style={{ ...iconsDimensions }} />
           </MainFooterMainService>
-          <WhatsAppIcon style={{ ...iconsDimensions }} />
-          <MailRoundedIcon style={{ ...iconsDimensions }} />
+          <MainFooterMainService to={whatsappURL} target="_blank">
+            <WhatsAppIcon style={{ ...iconsDimensions }} />
+          </MainFooterMainService>
+          <MainFooterMainService to={mailtoURL} target="_blank">
+            <MailRoundedIcon style={{ ...iconsDimensions }} />
+          </MainFooterMainService>
         </FooterIconsWrapper>
       </MainFooter>
     </HandlingSectionPaddingWrapper>
