@@ -38,3 +38,8 @@ export const StyledMainAppButton = styled(Button)`
     }
   }
 `;
+
+export const StyledAppDivider = styled.hr`
+  color: #e4e5eb;
+  margin: 16px 0;
+`;
