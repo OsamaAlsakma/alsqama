@@ -15,7 +15,7 @@ import {
   SwitchLoginSignupButton,
   SignupFormIcon,
   LoginFormErrorMessage,
-} from "~/support/login-signup-form/style";
+} from "~/support/login-signup-forms/style";
 
 interface ISignupFormProps {
   setCurrentForm: SetState<LoginSignupForms>;

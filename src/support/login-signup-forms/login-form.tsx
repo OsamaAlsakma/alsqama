@@ -15,7 +15,7 @@ import {
   SubmitButton,
   SwitchLoginSignupButton,
   SwitchLoginSignupDiv,
-} from "~/support/login-signup-form/style";
+} from "~/support/login-signup-forms/style";
 
 interface ILoginFormProps {
   setCurrentForm: SetState<LoginSignupForms>;
