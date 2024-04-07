@@ -18,7 +18,7 @@ export const StyledAppModalBox = styled(Box)`
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 8px;
-  height: clamp(35%, 110px, 40%);
+  /* height: clamp(35%, 110px, 40%); */
   width: 25%;
 
   @media (max-width: 1024px) {
