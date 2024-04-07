@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import { DependencyContainer, container } from "tsyringe";
+import initStoresDI from "~/bootstrap/di/init-stores-di";
 
 /**
  * Serves as a central point for initializing and configuring
@@ -8,6 +9,7 @@ import { DependencyContainer, container } from "tsyringe";
  */
 const InitDI = (): DependencyContainer => {
   const di = container;
+  initStoresDI(di);
   return di;
 };
 

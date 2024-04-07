@@ -27,7 +27,8 @@
     "reflect-metadata": "^0.2.1",
     "styled-components": "^6.1.8",
     "swiper": "^11.0.7",
-    "tsyringe": "^4.8.0"
+    "tsyringe": "^4.8.0",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.24.0",

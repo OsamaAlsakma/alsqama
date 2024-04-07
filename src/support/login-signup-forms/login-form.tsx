@@ -2,9 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import di from "~/bootstrap/di";
 import { SetState } from "~/bootstrap/helper/global-types";
+import Store from "~/bootstrap/helper/store/store-type";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import { LoginSignupForms } from "~/generic/components/login-signup-modal/login-signup-modal";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
+import NUserStore from "~/support/login-signup-forms/store/i-user-store";
+import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
 import {
   LoginFormErrorMessage,
   LoginFormIcon,
@@ -27,8 +30,9 @@ const LoginForm = (props: ILoginFormProps) => {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
   const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
+
+  const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -39,8 +43,11 @@ const LoginForm = (props: ILoginFormProps) => {
         password,
       });
       if (response.status === 200) {
-        // store the token
-        console.log("token", response.data.token);
+        userStore.getState().storeUser({
+          username: response.data.username,
+          email: response.data.email,
+          token: response.data.token,
+        });
 
         setIsOpen(false);
         setEmail("");
