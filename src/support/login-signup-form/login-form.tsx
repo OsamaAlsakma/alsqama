@@ -1,15 +1,20 @@
+import axios from "axios";
 import { useState } from "react";
+import di from "~/bootstrap/di";
 import { SetState } from "~/bootstrap/helper/global-types";
+import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import { LoginSignupForms } from "~/generic/components/login-signup-modal/login-signup-modal";
+import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import {
-  LoginSignupFormContainer,
-  LoginSignupFormTitleAndIcon,
-  LoginSignupFormTitle,
+  LoginFormErrorMessage,
   LoginFormIcon,
   LoginSignUpInput,
+  LoginSignupFormContainer,
+  LoginSignupFormTitle,
+  LoginSignupFormTitleAndIcon,
   SubmitButton,
-  SwitchLoginSignupDiv,
   SwitchLoginSignupButton,
+  SwitchLoginSignupDiv,
 } from "~/support/login-signup-form/style";
 
 interface ILoginFormProps {
@@ -18,27 +23,47 @@ interface ILoginFormProps {
 
 const LoginForm = (props: ILoginFormProps) => {
   const { setCurrentForm } = props;
-  const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // post
-    // validate
-    setEmail("");
-    setPassword("");
+    setIsLoading(true);
+    try {
+      const response = await axios.post("https://dummyjson.com/auth/login", {
+        username: email,
+        password,
+      });
+      if (response.status === 200) {
+        // store the token
+        console.log("token", response.data.token);
+
+        setIsOpen(false);
+        setEmail("");
+        setPassword("");
+        setIsError(false);
+      }
+    } catch (error) {
+      setIsError(true);
+    }
+    setIsLoading(false);
   };
 
   return (
     <LoginSignupFormContainer onSubmit={handleSubmit}>
+      {isLoading && <CircularLoader />}
       <LoginSignupFormTitleAndIcon>
         <LoginSignupFormTitle>تسجيل الدخول</LoginSignupFormTitle>
         <LoginFormIcon />
       </LoginSignupFormTitleAndIcon>
       <LoginSignUpInput
         disableUnderline
-        type="email"
-        placeholder="البريد الإلكتروني*"
+        type="text"
+        placeholder="اسم المستخدم*"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
@@ -52,6 +77,9 @@ const LoginForm = (props: ILoginFormProps) => {
         required
       />
       <SubmitButton type="submit">تسجيل الدخول</SubmitButton>
+      {isError && (
+        <LoginFormErrorMessage>حدث خطأ في التسجيل</LoginFormErrorMessage>
+      )}
       <SwitchLoginSignupDiv>
         ليس لديك حساب؟
         <SwitchLoginSignupButton

@@ -76,3 +76,8 @@ export const SwitchLoginSignupButton = styled(Button)`
     }
   }
 `;
+
+export const LoginFormErrorMessage = styled.span`
+  font-size: 12px;
+  color: red;
+`;
