@@ -34,6 +34,8 @@ export const MainFooterMainService = styled(StyledMainServicesLink)`
   }
 `;
 
+export const MainFooterContactIcon = styled(MainFooterMainService)``;
+
 export const MainFooter = styled.div`
   display: flex;
   align-items: center;
@@ -45,9 +47,6 @@ export const MainFooter = styled.div`
   }
 `;
 
-export const FooterIconsWrapper = styled.div`
-  display: flex;
-  align-content: center;
-  gap: 8px;
-  padding-top: 8px;
+export const CopyrightNotice = styled.div`
+  font-size: 18px;
 `;

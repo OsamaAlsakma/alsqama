@@ -1,14 +1,11 @@
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import MailRoundedIcon from "@mui/icons-material/MailRounded";
-import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import {
   HandlingSectionPaddingWrapper,
   StyledAppDivider,
 } from "~/bootstrap/helper/global-styles";
+import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
 import {
-  FooterIconsWrapper,
+  CopyrightNotice,
   MainFooter,
   MainFooterLogoAndServices,
   MainFooterMainService,
@@ -18,28 +15,11 @@ import {
 import LoginSignupButton from "~/generic/components/login-signup-button/login-signup-button";
 
 const MainFooterWrapper = () => {
-  const iconsDimensions = {
-    width: "32px",
-    height: "32px",
-  };
-
-  // whatsapp
-  const whatsappPhoneNumber = "+79214490788";
-  const whatsappURL = `https://wa.me/${whatsappPhoneNumber}`;
-
-  // Email
-  const recipientEmail = "salar.sali97@gmail.com";
-  const subject = "Subject of the email";
-  const body = "Body of the email";
-  const mailtoURL = `mailto:${recipientEmail}?subject=${encodeURIComponent(
-    subject
-  )}&body=${encodeURIComponent(body)}`;
-
   return (
     <HandlingSectionPaddingWrapper>
       <MainFooterLogoAndServices>
-        <StyleMainLogo to={servicesPageEndpoint.chalets}>حجزي</StyleMainLogo>
-        <MainFooterMainServices style={{ display: "flex", gap: "12px" }}>
+        <StyleMainLogo to={servicesPageEndpoint.main}>حجزي</StyleMainLogo>
+        <MainFooterMainServices>
           <MainFooterMainService to={servicesPageEndpoint.hotels}>
             فنادق
           </MainFooterMainService>
@@ -59,27 +39,9 @@ const MainFooterWrapper = () => {
       </MainFooterLogoAndServices>
       <StyledAppDivider />
       <MainFooter>
-        <div style={{ fontSize: "18px" }}>
-          جميع الحقوق محفوظة © 2016-2024 حجزي
-        </div>
+        <CopyrightNotice>جميع الحقوق محفوظة © 2016-2024 حجزي</CopyrightNotice>
         <LoginSignupButton />
-        <FooterIconsWrapper>
-          <MainFooterMainService
-            to={"https://www.facebook.com/profile.php?id=100035171442539"}
-            target="_blank"
-          >
-            <FacebookRoundedIcon style={{ ...iconsDimensions }} />
-          </MainFooterMainService>
-          <MainFooterMainService to={"https://t.me/OSAMA_AYLA"} target="_blank">
-            <TelegramIcon style={{ ...iconsDimensions }} />
-          </MainFooterMainService>
-          <MainFooterMainService to={whatsappURL} target="_blank">
-            <WhatsAppIcon style={{ ...iconsDimensions }} />
-          </MainFooterMainService>
-          <MainFooterMainService to={mailtoURL} target="_blank">
-            <MailRoundedIcon style={{ ...iconsDimensions }} />
-          </MainFooterMainService>
-        </FooterIconsWrapper>
+        <MainFooterIcons />
       </MainFooter>
     </HandlingSectionPaddingWrapper>
   );
