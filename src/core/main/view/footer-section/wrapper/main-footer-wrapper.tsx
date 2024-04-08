@@ -15,10 +15,22 @@ import {
 import LoginSignupButton from "~/generic/components/login-signup-button/login-signup-button";
 
 const MainFooterWrapper = () => {
+  const scrollToTopOnClickOnLogo = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <HandlingSectionPaddingWrapper>
       <MainFooterLogoAndServices>
-        <StyleMainLogo to={servicesPageEndpoint.main}>حجزي</StyleMainLogo>
+        <StyleMainLogo
+          to={servicesPageEndpoint.main}
+          onClick={scrollToTopOnClickOnLogo}
+        >
+          حجزي
+        </StyleMainLogo>
         <MainFooterMainServices>
           <MainFooterMainService to={servicesPageEndpoint.hotels}>
             فنادق
