@@ -5,6 +5,9 @@ import styled from "styled-components";
 import * as palette from "~/bootstrap/helper/global-helper";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 import StarIcon from "@mui/icons-material/Star";
+import { Swiper, SwiperSlide } from "swiper/react";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 
 export const ChaletsCardsCardActions = styled(CardActions)`
   && {
@@ -84,4 +87,39 @@ export const ChaletsCardsCardRatingStars = styled.span`
 
 export const ChaletsCardsCardFeatureIcon = styled.img`
   width: 24px;
+`;
+
+/* -------------------------------------------------------------------------- */
+/*                           ChaletsCardsCardImages                           */
+/* -------------------------------------------------------------------------- */
+export const ChaletsCardsCardImagesSwiper = styled(Swiper)`
+  height: 100%;
+  width: 100%;
+`;
+
+export const ChaletsCardsCardImagesSwiperSlide = styled(SwiperSlide)`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+`;
+
+const commonProps = `
+color: white;
+  position: absolute;
+  transform: translateY(-50%);
+  padding: 2px;
+  border: 2px white solid;
+  border-radius: 100%;
+`;
+
+export const ChaletsCardsCardImagesPrevButton = styled(ArrowForwardIosIcon)`
+  ${commonProps};
+  top: 65%;
+`;
+
+export const ChaletsCardsCardImagesNextButton = styled(ArrowBackIosNewIcon)`
+  ${commonProps};
+  top: 66%;
 `;
