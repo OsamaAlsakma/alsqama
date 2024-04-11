@@ -1,7 +1,7 @@
 export const appHeaderHeight = "70px";
-export const paddingBigScreens = "15%";
-export const paddingMediumScreens = "10%";
-export const paddingSmallScreens = "5%";
+export const paddingBigScreens = "5%";
+export const paddingMediumScreens = "3.5%";
+export const paddingSmallScreens = "3%";
 export const primaryColor = "#5a409b";
 export const secondaryColor = "#F2C900";
 

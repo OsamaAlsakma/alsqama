@@ -7,7 +7,7 @@ const ChaletsCardsCardFooter = () => {
   return (
     <ChaletsCardsCardActions>
       <ChaletsCardsCardActionsButton size="small">
-        المزيد من التفاصيل
+        المزيد
       </ChaletsCardsCardActionsButton>
       <ChaletsCardsCardActionsButton size="small">
         احجز الآن

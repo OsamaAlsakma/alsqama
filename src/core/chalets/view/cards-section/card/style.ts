@@ -70,8 +70,16 @@ export const ChaletsCardsCardFeatureTitle = styled.span`
 
 export const StyledChaletsCardsCard = styled(Card)`
   && {
-    max-width: 355px;
+    /* max-width: 355px; */
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+    width: 32%;
+    @media (max-width: ${palette.largeScreenSize}) {
+      width: 48%;
+    }
+
+    @media (max-width: ${palette.smallScreenSize}) {
+      width: 100%;
+    }
   }
 `;
 
