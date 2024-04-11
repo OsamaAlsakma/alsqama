@@ -19,6 +19,7 @@ export const ChaletsCardsCardActionsButton = styled(StyledMainAppButton)`
   && {
     flex: 1;
     margin: 0;
+    line-height: 1.5;
     padding-top: 9px;
   }
 `;
