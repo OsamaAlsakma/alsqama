@@ -12,20 +12,22 @@ const ChaletsCardsCardBody = () => {
       <ChaletsCardsCardFeature>
         <PlaceIcon />
         <ChaletsCardsCardFeatureTitle>
-          عدن، شارع الأطفال
+          عدن، شارع خالد أبن الوليد
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
-        <ChaletsCardsCardFeatureTitle>test2</ChaletsCardsCardFeatureTitle>
+        <ChaletsCardsCardFeatureTitle>
+          20دولار \ ليلة
+        </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/rooms.svg" alt="rooms" />
-        <ChaletsCardsCardFeatureTitle>test3</ChaletsCardsCardFeatureTitle>
+        <ChaletsCardsCardFeatureTitle>5 غرف</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/calender.svg" alt="rooms" />
-        <ChaletsCardsCardFeatureTitle>test4</ChaletsCardsCardFeatureTitle>
+        <ChaletsCardsCardFeatureTitle>4 أيلول</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
     </ChaletsCardsCardFeaturesWrapper>
   );
