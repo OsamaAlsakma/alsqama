@@ -6,28 +6,41 @@ import {
 } from "~/core/chalets/view/cards-section/card/style";
 import PlaceIcon from "@mui/icons-material/Place";
 
-const ChaletsCardsCardBody = () => {
+type IChaletsCardsCardBodyProps = {
+  cardBody: {
+    location: string;
+    price: string;
+    numberOfRooms: number;
+    nearestTimeAvailable: string;
+  };
+};
+
+const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
+  const { location, nearestTimeAvailable, numberOfRooms, price } =
+    props.cardBody;
   return (
     <ChaletsCardsCardFeaturesWrapper>
       <ChaletsCardsCardFeature>
         <PlaceIcon />
-        <ChaletsCardsCardFeatureTitle>
-          عدن، شارع خالد أبن الوليد
-        </ChaletsCardsCardFeatureTitle>
+        <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
         <ChaletsCardsCardFeatureTitle>
-          20دولار \ ليلة
+          {price}\ ليلة
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/rooms.svg" alt="rooms" />
-        <ChaletsCardsCardFeatureTitle>5 غرف</ChaletsCardsCardFeatureTitle>
+        <ChaletsCardsCardFeatureTitle>
+          {numberOfRooms} غرف
+        </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/calender.svg" alt="rooms" />
-        <ChaletsCardsCardFeatureTitle>4 أيلول</ChaletsCardsCardFeatureTitle>
+        <ChaletsCardsCardFeatureTitle>
+          {nearestTimeAvailable}
+        </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
     </ChaletsCardsCardFeaturesWrapper>
   );

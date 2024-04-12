@@ -6,13 +6,21 @@ import {
   ChaletsCardsCardTitle,
 } from "~/core/chalets/view/cards-section/card/style";
 
-const ChaletsCardsCardMainTitle = () => {
+type IChaletsCardsCardMainTitleProps = {
+  name: string;
+  numberOfStars: number;
+};
+
+const ChaletsCardsCardMainTitle = (props: IChaletsCardsCardMainTitleProps) => {
+  const { name, numberOfStars } = props;
   return (
     <ChaletsCardsCardTitleWrapper>
-      <ChaletsCardsCardTitle>شاليه الوادي</ChaletsCardsCardTitle>
+      <ChaletsCardsCardTitle>{name}</ChaletsCardsCardTitle>
       <ChaletsCardsCardRatingWrapper>
         <ChaletsCardsCardStarIcon />
-        <ChaletsCardsCardRatingStars>4.5</ChaletsCardsCardRatingStars>
+        <ChaletsCardsCardRatingStars>
+          {numberOfStars}
+        </ChaletsCardsCardRatingStars>
       </ChaletsCardsCardRatingWrapper>
     </ChaletsCardsCardTitleWrapper>
   );

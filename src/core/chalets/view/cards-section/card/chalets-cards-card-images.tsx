@@ -2,7 +2,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
-import { mainPageSlides } from "~/core/main/view/slides/data";
 
 import {
   ChaletsCardsCardImagesNextButton,
@@ -11,7 +10,12 @@ import {
   ChaletsCardsCardImagesSwiperSlide,
 } from "~/core/chalets/view/cards-section/card/style";
 
-const ChaletsCardsCardImages = () => {
+type IChaletsCardsCardImagesProps = {
+  images: string[];
+};
+
+const ChaletsCardsCardImages = (props: IChaletsCardsCardImagesProps) => {
+  const { images } = props;
   return (
     <ChaletsCardsCardImagesSwiper
       loop={true}
@@ -22,11 +26,11 @@ const ChaletsCardsCardImages = () => {
       modules={[Navigation, Pagination]}
       className="mySwiper"
     >
-      {mainPageSlides.map((slide: { image: string }, index) => {
+      {images.map((image: string, index) => {
         return (
           <ChaletsCardsCardImagesSwiperSlide
             key={index}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ backgroundImage: `url(${image})` }}
           />
         );
       })}
