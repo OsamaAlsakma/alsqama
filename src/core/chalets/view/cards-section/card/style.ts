@@ -13,6 +13,7 @@ export const StyledChaletsCardsCard = styled(Card)`
   && {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     width: 32%;
+    height: fit-content;
     @media (max-width: ${palette.largeScreenSize}) {
       width: 48%;
     }
