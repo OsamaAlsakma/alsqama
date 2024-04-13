@@ -22,22 +22,33 @@ padding: 6px;
 
 const ChaletsFilterationSearchInput = styled(Input)`
   && {
-    width: 70%;
     padding-right: 16px !important;
     ${inputCommonProps}
+    width: 40%;
+    @media (max-width: ${palette.largeScreenSize}) {
+      width: 60%;
+    }
+    @media (max-width: ${palette.mediumScreenSize}) {
+      width: 100%;
+    }
   }
 `;
 
 const ChaletsFilterationSpecificSearchWrapper = styled.div`
-  width: 60%;
   display: flex;
   justify-content: center;
   gap: 8px;
+  width: 40%;
+  @media (max-width: ${palette.largeScreenSize}) {
+    width: 60%;
+  }
+  @media (max-width: ${palette.mediumScreenSize}) {
+    width: 100%;
+  }
 `;
 
 const ChaletsFilterationSpecificSearchInput = styled(Input)`
   && {
-    width: 49%;
     ${inputCommonProps}
     color: black;
     border: none;
@@ -45,6 +56,8 @@ const ChaletsFilterationSpecificSearchInput = styled(Input)`
     input::placeholder {
       opacity: 0.8;
     }
+    width: 49%;
+    font-size: 14px;
   }
 `;
 
@@ -75,9 +88,9 @@ const ChaletsFilterationWrapper = () => {
       <ChaletsFilterationSpecificSearchWrapper className="price-city">
         <ChaletsFilterationSpecificSearchInput
           disableUnderline
-          placeholder="أبحث حسب السعر.."
+          placeholder="أكتب السعر.."
           startAdornment={
-            <img src="./icons/input-money.svg" style={{ width: "36px" }} />
+            <img src="./icons/input-money.svg" style={{ width: "32px" }} />
           }
           inputProps={{
             style: inputPaddingStyle,
@@ -85,9 +98,9 @@ const ChaletsFilterationWrapper = () => {
         />
         <ChaletsFilterationSpecificSearchInput
           disableUnderline
-          placeholder="أبحث حسب المدينة.."
+          placeholder="أكتب المدينة.."
           startAdornment={
-            <img src="./icons/input-city.svg" style={{ width: "36px" }} />
+            <img src="./icons/input-city.svg" style={{ width: "32px" }} />
           }
           inputProps={{
             style: inputPaddingStyle,
