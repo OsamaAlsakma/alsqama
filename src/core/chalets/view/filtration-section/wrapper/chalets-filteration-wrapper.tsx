@@ -1,7 +1,7 @@
+import SearchIcon from "@mui/icons-material/Search";
 import { Input } from "@mui/material";
 import styled from "styled-components";
 import * as palette from "~/bootstrap/helper/global-helper";
-import SearchIcon from "@mui/icons-material/Search";
 
 const StyledChaletsFilterationWrapper = styled.div`
   width: 100%;
@@ -17,19 +17,19 @@ const inputCommonProps = `
 border-radius: 32px;
 border: 1px solid black;
 font-family: Tajawal;
-padding: 8px;
-padding-right: 16px;
+padding: 6px;
 `;
 
 const ChaletsFilterationSearchInput = styled(Input)`
   && {
     width: 70%;
+    padding-right: 16px !important;
     ${inputCommonProps}
   }
 `;
 
 const ChaletsFilterationSpecificSearchWrapper = styled.div`
-  width: 50%;
+  width: 60%;
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -58,12 +58,19 @@ const StyledSearchIcon = styled(SearchIcon)`
 `;
 
 const ChaletsFilterationWrapper = () => {
+  const inputPaddingStyle = {
+    paddingTop: "6px",
+    paddingBottom: "0px",
+  };
   return (
     <StyledChaletsFilterationWrapper>
       <ChaletsFilterationSearchInput
         placeholder="أبحث عن أي شاليه.."
         disableUnderline
         endAdornment={<StyledSearchIcon />}
+        inputProps={{
+          style: inputPaddingStyle,
+        }}
       />
       <ChaletsFilterationSpecificSearchWrapper className="price-city">
         <ChaletsFilterationSpecificSearchInput
@@ -72,6 +79,9 @@ const ChaletsFilterationWrapper = () => {
           startAdornment={
             <img src="./icons/input-money.svg" style={{ width: "36px" }} />
           }
+          inputProps={{
+            style: inputPaddingStyle,
+          }}
         />
         <ChaletsFilterationSpecificSearchInput
           disableUnderline
@@ -79,6 +89,9 @@ const ChaletsFilterationWrapper = () => {
           startAdornment={
             <img src="./icons/input-city.svg" style={{ width: "36px" }} />
           }
+          inputProps={{
+            style: inputPaddingStyle,
+          }}
         />
       </ChaletsFilterationSpecificSearchWrapper>
     </StyledChaletsFilterationWrapper>
