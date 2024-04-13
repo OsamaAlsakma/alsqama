@@ -5,6 +5,7 @@ import {
   ChaletsCardsWrapperMessages,
   StyledChaletsCardsWrapper,
 } from "~/core/chalets/view/cards-section/wrapper/style";
+import ChaletsFilterationWrapper from "~/core/chalets/view/filtration-section/wrapper/chalets-filteration-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
 export type Chalet = {
@@ -47,6 +48,7 @@ const ChaletsCardsWrapper = () => {
   if (isLoading) return <CircularLoader />;
   return (
     <StyledChaletsCardsWrapper>
+      <ChaletsFilterationWrapper />
       {isError ? (
         <ChaletsCardsWrapperMessages>
           المعذرة حصل خطأ، يرجى المحاولة لاحقا
