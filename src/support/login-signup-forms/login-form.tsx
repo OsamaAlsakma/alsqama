@@ -54,7 +54,7 @@ const LoginForm = (props: ILoginFormProps) => {
         setPassword("");
         setIsError(false);
       }
-    } catch (error) {
+    } catch (_error) {
       setIsError(true);
     }
     setIsLoading(false);

@@ -12,3 +12,8 @@ export const StyledChaletsCardsWrapper = styled(HandlingSectionPaddingWrapper)`
     justify-content: space-between;
   }
 `;
+
+export const ChaletsCardsWrapperMessages = styled.div`
+  width: 100%;
+  text-align: center;
+`;
