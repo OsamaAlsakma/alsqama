@@ -14,7 +14,7 @@ export type Chalet = {
   name: string;
   numberOfStars: number;
   location: string;
-  price: string;
+  price: number;
   numberOfRooms: number;
   nearestTimeAvailable: string;
 };
@@ -28,7 +28,7 @@ const ChaletsCardsWrapper = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://run.mocky.io/v3/055c2231-9637-4222-9378-2edec88cbf60"
+        "https://run.mocky.io/v3/50e80a86-d9c7-410b-b5d1-b978cd8a2b40"
       );
       if (response.status === 200) {
         const chalets: Chalet[] = response.data;
@@ -48,7 +48,7 @@ const ChaletsCardsWrapper = () => {
   if (isLoading) return <CircularLoader />;
   return (
     <StyledChaletsCardsWrapper>
-      <ChaletsFilterationWrapper />
+      <ChaletsFilterationWrapper setChalets={setChalets} />
       {isError ? (
         <ChaletsCardsWrapperMessages>
           المعذرة حصل خطأ، يرجى المحاولة لاحقا

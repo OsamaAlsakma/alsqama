@@ -1,80 +1,38 @@
-import SearchIcon from "@mui/icons-material/Search";
-import { Input } from "@mui/material";
-import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import { ChangeEvent } from "react";
+import { SetState } from "~/bootstrap/helper/global-types";
+import { Chalet } from "~/core/chalets/view/cards-section/wrapper/chalets-cards-wrapper";
+import {
+  StyledChaletsFilterationWrapper,
+  ChaletsFilterationSearchInput,
+  StyledSearchIcon,
+  ChaletsFilterationSpecificSearchWrapper,
+  ChaletsFilterationSpecificSearchInput,
+  ChaletsFilterationSpecificSearchInputIcon,
+} from "~/core/chalets/view/filtration-section/wrapper/style";
 
-const StyledChaletsFilterationWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 16px 0px 32px 0px;
-`;
+type IChaletsFilterationWrapperProps = {
+  setChalets: SetState<Chalet[]>;
+};
 
-const inputCommonProps = `
-border-radius: 32px;
-border: 1px solid black;
-font-family: Tajawal;
-padding: 6px;
-`;
-
-const ChaletsFilterationSearchInput = styled(Input)`
-  && {
-    padding-right: 16px !important;
-    ${inputCommonProps}
-    width: 40%;
-    @media (max-width: ${palette.largeScreenSize}) {
-      width: 60%;
-    }
-    @media (max-width: ${palette.mediumScreenSize}) {
-      width: 100%;
-    }
-  }
-`;
-
-const ChaletsFilterationSpecificSearchWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  width: 40%;
-  @media (max-width: ${palette.largeScreenSize}) {
-    width: 60%;
-  }
-  @media (max-width: ${palette.mediumScreenSize}) {
-    width: 100%;
-  }
-`;
-
-const ChaletsFilterationSpecificSearchInput = styled(Input)`
-  && {
-    ${inputCommonProps}
-    color: black;
-    border: none;
-    background-color: ${palette.secondaryColor};
-    input::placeholder {
-      opacity: 0.8;
-    }
-    width: 49%;
-    font-size: 14px;
-  }
-`;
-
-const StyledSearchIcon = styled(SearchIcon)`
-  background-color: ${palette.primaryColor};
-  padding: 4px;
-  border-radius: 50%;
-  color: white;
-  width: 32px !important;
-  height: 32px !important;
-`;
-
-const ChaletsFilterationWrapper = () => {
+const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
+  const { setChalets } = props;
   const inputPaddingStyle = {
     paddingTop: "6px",
     paddingBottom: "0px",
   };
+
+  const handleOnPriceChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    const numericValue: number = parseFloat(value);
+
+    setChalets((chalets) => {
+      const filteredChalets = numericValue
+        ? chalets.filter((chalet) => chalet.price <= numericValue)
+        : chalets;
+      return filteredChalets;
+    });
+  };
+
   return (
     <StyledChaletsFilterationWrapper>
       <ChaletsFilterationSearchInput
@@ -85,12 +43,13 @@ const ChaletsFilterationWrapper = () => {
           style: inputPaddingStyle,
         }}
       />
-      <ChaletsFilterationSpecificSearchWrapper className="price-city">
+      <ChaletsFilterationSpecificSearchWrapper>
         <ChaletsFilterationSpecificSearchInput
+          onChange={handleOnPriceChange}
           disableUnderline
           placeholder="أكتب السعر.."
           startAdornment={
-            <img src="./icons/input-money.svg" style={{ width: "32px" }} />
+            <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-money.svg" />
           }
           inputProps={{
             style: inputPaddingStyle,
@@ -100,7 +59,7 @@ const ChaletsFilterationWrapper = () => {
           disableUnderline
           placeholder="أكتب المدينة.."
           startAdornment={
-            <img src="./icons/input-city.svg" style={{ width: "32px" }} />
+            <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-city.svg" />
           }
           inputProps={{
             style: inputPaddingStyle,
