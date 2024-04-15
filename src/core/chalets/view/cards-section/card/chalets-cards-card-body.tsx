@@ -9,7 +9,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 type IChaletsCardsCardBodyProps = {
   cardBody: {
     location: string;
-    price: string;
+    price: number;
     numberOfRooms: number;
     nearestTimeAvailable: string;
   };
@@ -27,7 +27,7 @@ const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
         <ChaletsCardsCardFeatureTitle>
-          {price}\ ليلة
+          {price}دولار \ ليلة
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>

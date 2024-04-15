@@ -1,4 +1,6 @@
-import { ChangeEvent } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { ChangeEvent, useEffect } from "react";
+import { delayExecutionFor } from "~/bootstrap/helper/global-helper";
 import { SetState } from "~/bootstrap/helper/global-types";
 import { Chalet } from "~/core/chalets/view/cards-section/wrapper/chalets-cards-wrapper";
 import {
@@ -11,26 +13,53 @@ import {
 } from "~/core/chalets/view/filtration-section/wrapper/style";
 
 type IChaletsFilterationWrapperProps = {
-  setChalets: SetState<Chalet[]>;
+  setFilteredChalets: SetState<Chalet[]>;
+  chalets: Chalet[];
 };
 
 const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
-  const { setChalets } = props;
+  const { setFilteredChalets, chalets } = props;
+
   const inputPaddingStyle = {
     paddingTop: "6px",
     paddingBottom: "0px",
   };
 
+  useEffect(() => {
+    setFilteredChalets(chalets);
+  }, []);
+
   const handleOnPriceChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     const numericValue: number = parseFloat(value);
-
-    setChalets((chalets) => {
+    delayExecutionFor((numericValue: number) => {
       const filteredChalets = numericValue
         ? chalets.filter((chalet) => chalet.price <= numericValue)
         : chalets;
-      return filteredChalets;
-    });
+      setFilteredChalets(filteredChalets);
+    }, 500)(numericValue);
+  };
+
+  const handleOnCityChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+
+    delayExecutionFor((value: string) => {
+      const filteredChalets = value
+        ? chalets.filter((chalet) => chalet.location.includes(value))
+        : chalets;
+      setFilteredChalets(filteredChalets);
+    }, 500)(value);
+  };
+
+  const handleOnNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+
+    delayExecutionFor((value: string) => {
+      const filteredChalets = value
+        ? chalets.filter((chalet) => chalet.name.includes(value))
+        : chalets;
+      setFilteredChalets(filteredChalets);
+    }, 500)(value);
   };
 
   return (
@@ -42,6 +71,7 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
         inputProps={{
           style: inputPaddingStyle,
         }}
+        onChange={handleOnNameChange}
       />
       <ChaletsFilterationSpecificSearchWrapper>
         <ChaletsFilterationSpecificSearchInput
@@ -56,6 +86,7 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
           }}
         />
         <ChaletsFilterationSpecificSearchInput
+          onChange={handleOnCityChange}
           disableUnderline
           placeholder="أكتب المدينة.."
           startAdornment={

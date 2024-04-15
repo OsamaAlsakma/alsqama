@@ -8,3 +8,18 @@ export const secondaryColor = "#F2C900";
 export const smallScreenSize = "480px";
 export const mediumScreenSize = "768px";
 export const largeScreenSize = "1024px";
+
+export const delayExecutionFor = <T extends string | number>(
+  func: (arg: T) => void,
+  delay: number
+) => {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  return (arg: T) => {
+    if (timeoutId !== null) {
+      clearTimeout(timeoutId);
+    }
+    timeoutId = setTimeout(() => {
+      func(arg);
+    }, delay);
+  };
+};

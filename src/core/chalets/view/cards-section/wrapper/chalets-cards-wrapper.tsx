@@ -21,6 +21,7 @@ export type Chalet = {
 
 const ChaletsCardsWrapper = () => {
   const [chalets, setChalets] = useState<Chalet[]>([]);
+  const [filteredChalets, setFilteredChalets] = useState<Chalet[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -48,7 +49,10 @@ const ChaletsCardsWrapper = () => {
   if (isLoading) return <CircularLoader />;
   return (
     <StyledChaletsCardsWrapper>
-      <ChaletsFilterationWrapper setChalets={setChalets} />
+      <ChaletsFilterationWrapper
+        setFilteredChalets={setFilteredChalets}
+        chalets={chalets}
+      />
       {isError ? (
         <ChaletsCardsWrapperMessages>
           المعذرة حصل خطأ، يرجى المحاولة لاحقا
@@ -58,7 +62,7 @@ const ChaletsCardsWrapper = () => {
           لم يتم العثور على أية شاليه
         </ChaletsCardsWrapperMessages>
       ) : (
-        chalets.map((chalet: Chalet, index: number) => (
+        filteredChalets.map((chalet: Chalet, index: number) => (
           <ChaletsCardsCard key={index} chalet={chalet} />
         ))
       )}
