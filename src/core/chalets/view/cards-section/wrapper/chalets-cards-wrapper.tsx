@@ -29,7 +29,7 @@ const ChaletsCardsWrapper = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        "https://run.mocky.io/v3/50e80a86-d9c7-410b-b5d1-b978cd8a2b40"
+        "https://run.mocky.io/v3/b4171e2e-3880-49ff-ac5a-0b67d58bd7d2"
       );
       if (response.status === 200) {
         const chalets: Chalet[] = response.data;
