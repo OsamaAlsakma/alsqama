@@ -8,6 +8,7 @@ import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-c
 import HeaderLoginSignupIcon from "~/support/header/header-login-signup-icon/header-login-signup-icon";
 import HeaderLocalizationSelectBox from "~/support/header/localization-select-box/header-localization-select-box";
 import {
+  FixedHeader,
   StyledLocalizationAndLoginSignup,
   StyledMainHeader,
 } from "~/support/header/main-header/style";
@@ -23,19 +24,21 @@ const MainHeader = () => {
   const token = useStoreSelector(userStore, (store) => store.user.token);
 
   return (
-    <StyledMainHeader>
-      <ServicesBurger />
-      <MainLogo />
-      <HeaderTabs />
-      <StyledLocalizationAndLoginSignup>
-        <HeaderLocalizationSelectBox />
-        <OpenModlaProvider>
-          {token ? <HeaderUserAvatar /> : <LoginSignupButton />}
-          <LoginSignupModal />
-          <HeaderLoginSignupIcon />
-        </OpenModlaProvider>
-      </StyledLocalizationAndLoginSignup>
-    </StyledMainHeader>
+    <FixedHeader>
+      <StyledMainHeader>
+        <ServicesBurger />
+        <MainLogo />
+        <HeaderTabs />
+        <StyledLocalizationAndLoginSignup>
+          <HeaderLocalizationSelectBox />
+          <OpenModlaProvider>
+            {token ? <HeaderUserAvatar /> : <LoginSignupButton />}
+            <LoginSignupModal />
+            <HeaderLoginSignupIcon />
+          </OpenModlaProvider>
+        </StyledLocalizationAndLoginSignup>
+      </StyledMainHeader>
+    </FixedHeader>
   );
 };
 

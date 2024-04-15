@@ -1,5 +1,13 @@
 import styled from "styled-components";
-import * as palette from "./../../../bootstrap/helper/global-helper";
+import * as palette from "~/bootstrap/helper/global-helper";
+
+export const FixedHeader = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+`;
 
 export const StyledMainHeader = styled.div`
   background-color: ${palette.primaryColor};
@@ -13,11 +21,11 @@ export const StyledMainHeader = styled.div`
   padding: 0 ${palette.paddingBigScreens};
   height: ${palette.appHeaderHeight};
 
-  @media (max-width: 768px) {
+  @media (max-width: ${palette.mediumScreenSize}) {
     padding: 0 ${palette.paddingMediumScreens};
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: ${palette.smallScreenSize}) {
     padding: 0 ${palette.paddingSmallScreens};
   }
 `;
