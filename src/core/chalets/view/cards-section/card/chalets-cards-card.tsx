@@ -34,7 +34,7 @@ const ChaletsCardsCard = (props: IChaletsCardsCardProps) => {
           }}
         />
       </CardContent>
-      <ChaletsCardsCardFooter />
+      <ChaletsCardsCardFooter chaletId={chalet.id} />
     </StyledChaletsCardsCard>
   );
 };

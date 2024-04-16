@@ -1,12 +1,23 @@
+import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import {
   ChaletsCardsCardActions,
   ChaletsCardsCardActionsButton,
 } from "~/core/chalets/view/cards-section/card/style";
 
-const ChaletsCardsCardFooter = () => {
+type IChaletsCardsCardFooterProps = {
+  chaletId: string;
+};
+
+const ChaletsCardsCardFooter = (props: IChaletsCardsCardFooterProps) => {
+  const { chaletId } = props;
+  console.log("chaletId", chaletId);
+
   return (
     <ChaletsCardsCardActions>
-      <ChaletsCardsCardActionsButton size="small">
+      <ChaletsCardsCardActionsButton
+        href={`${servicesPageEndpoint.chalets}/${chaletId}`}
+        size="small"
+      >
         المزيد
       </ChaletsCardsCardActionsButton>
       <ChaletsCardsCardActionsButton size="small">
