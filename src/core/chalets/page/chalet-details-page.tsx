@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
+import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
@@ -72,6 +73,9 @@ const ChaletDetailsPage = () => {
     <div>
       <ChaletsDetailsTitleWrapper title={chaletSections[0]?.name || ""} />
       <ChaletsDetailsPhotoViewer />
+      <ChaletsDetailsDescriptionWrapper
+        description={chaletSections[0]?.description || ""}
+      />
     </div>
   );
 };
