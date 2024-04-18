@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
@@ -60,7 +61,12 @@ const ChaletDetailsPage = () => {
     fetchChaletsData();
   }, []);
 
-  if (isError) return <div>يرجى المحاولة لاحقا</div>;
+  if (isError)
+    return (
+      <DetailsPageEdgeCaseMessage>
+        يرجى المحاولة لاحقا
+      </DetailsPageEdgeCaseMessage>
+    );
   if (isLoading) return <CircularLoader />;
   return (
     <div>

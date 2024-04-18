@@ -24,6 +24,7 @@ const StyledImage = styled.img`
   height: 400px;
   margin: 10px;
   object-fit: cover;
+  border-radius: 12px;
 
   @media (max-width: 1024px) {
     width: calc(33.33% - 20px);
