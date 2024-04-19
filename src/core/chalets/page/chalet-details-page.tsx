@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
+import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/wrapper/chalets-details-info-tabs-and-booking-card-wrapper";
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
@@ -45,7 +46,7 @@ const ChaletDetailsPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://run.mocky.io/v3/d86bfdca-7717-43de-b60e-89bdb5c99a92`
+        `https://run.mocky.io/v3/b5e1f59e-9140-4716-bcf8-be8a7979cc1c`
       );
       if (response.status === 200) {
         const chaletSections: ChaletSectionType[] = response.data;
@@ -75,6 +76,18 @@ const ChaletDetailsPage = () => {
       <ChaletsDetailsPhotoViewer />
       <ChaletsDetailsDescriptionWrapper
         description={chaletSections[0]?.description || ""}
+      />
+      <ChaletsDetailsInfoTabsAndBookingCardWrapper
+        infoTabs={{
+          features: chaletSections[0]?.features || [],
+          bookingConditions: chaletSections[0]?.bookingConditions || "",
+          cancelingConditions: chaletSections[0]?.cancelingConditions || "",
+          coordinates: chaletSections[0]?.coordinates || {
+            latitude: 0,
+            longitude: 0,
+          },
+        }}
+        pricePerNight={chaletSections[0]?.pricePerNight}
       />
     </div>
   );
