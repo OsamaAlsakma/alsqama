@@ -7,6 +7,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import * as palette from "~/bootstrap/helper/global-helper";
 import StarIcon from "@mui/icons-material/Star";
+import ChaletsDetailsInfoTabsMap from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-map";
+import ChaletsDetailsInfoTabsBookingCancellingConditions from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-booking-cancelling-conditions";
+import { TabPanelMapPadding } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
 
 interface IChaletsDetailsInfoTabsProps {
   infoTabs: {
@@ -23,6 +26,7 @@ interface IChaletsDetailsInfoTabsProps {
 const DetailsInfoTabsBox = styled(Box)`
   width: calc(50% - 20px);
   border-radius: 16px;
+  overflow: hidden;
   border: 1px solid black;
   @media (max-width: ${palette.mediumScreenSize}) {
     width: 100%;
@@ -69,13 +73,10 @@ const DetailsInfoTabsFeatureIcon = styled(StarIcon)`
   color: ${palette.primaryColor};
 `;
 
-const DetailsInfoTabsBookingCancelingConditions = styled.div`
-  margin-bottom: 12px;
-`;
-
 const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
   const { infoTabs } = props;
-  const { features, bookingConditions, cancelingConditions } = infoTabs;
+  const { features, bookingConditions, cancelingConditions, coordinates } =
+    infoTabs;
   const [value, setValue] = useState("1");
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
@@ -106,13 +107,15 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
           ))}
         </TabPanel>
         <TabPanel value="2">
-          <DetailsInfoTabsBookingCancelingConditions>
-            {bookingConditions}
-          </DetailsInfoTabsBookingCancelingConditions>
-          <div>{cancelingConditions}</div>
+          <ChaletsDetailsInfoTabsBookingCancellingConditions
+            bookingConditions={bookingConditions}
+            cancelingConditions={cancelingConditions}
+          />
         </TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
-        <TabPanel value="4">Item Three</TabPanel>
+        <TabPanelMapPadding value="3">
+          <ChaletsDetailsInfoTabsMap coordinates={coordinates} />
+        </TabPanelMapPadding>
+        <TabPanel value="4">Revews</TabPanel>
       </TabContext>
     </DetailsInfoTabsBox>
   );
