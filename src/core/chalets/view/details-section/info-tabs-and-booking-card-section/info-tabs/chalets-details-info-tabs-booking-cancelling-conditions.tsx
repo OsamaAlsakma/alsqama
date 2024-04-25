@@ -1,4 +1,10 @@
-import { DetailsInfoTabsBookingCancelingConditions } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
+import { StyledAppDivider } from "~/bootstrap/helper/global-styles";
+import {
+  StyledBookingCancellingConditionsTitle,
+  BookingCancelingConditionsEdgeCase,
+  StyledBookingCancelingConditionsTitle,
+  StyledBookingCancellingConditionsIcon,
+} from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
 
 interface IChaletsDetailsInfoTabsBookingCancellingConditionsProps {
   bookingConditions: string;
@@ -11,10 +17,33 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
   const { bookingConditions, cancelingConditions } = props;
   return (
     <>
-      <DetailsInfoTabsBookingCancelingConditions>
-        {bookingConditions}
-      </DetailsInfoTabsBookingCancelingConditions>
-      <div>{cancelingConditions}</div>
+      <StyledBookingCancellingConditionsTitle>
+        شروط الحجز والإلغاء
+      </StyledBookingCancellingConditionsTitle>
+      {!bookingConditions && !cancelingConditions && (
+        <BookingCancelingConditionsEdgeCase>
+          لا يوجد شروط للحجز و الإلغاء
+        </BookingCancelingConditionsEdgeCase>
+      )}
+      {bookingConditions && (
+        <div className="booking">
+          <StyledBookingCancelingConditionsTitle>
+            <StyledBookingCancellingConditionsIcon src="/icons/booking-conditions.svg" />
+            شروط الحجز
+          </StyledBookingCancelingConditionsTitle>
+          <p>{bookingConditions}</p>
+        </div>
+      )}
+      {bookingConditions && cancelingConditions && <StyledAppDivider />}
+      {cancelingConditions && (
+        <div className="canceling">
+          <StyledBookingCancelingConditionsTitle>
+            <StyledBookingCancellingConditionsIcon src="/icons/cancelling-conditions.svg" />
+            شروط الإلغاء
+          </StyledBookingCancelingConditionsTitle>
+          <p>{cancelingConditions}</p>
+        </div>
+      )}
     </>
   );
 };

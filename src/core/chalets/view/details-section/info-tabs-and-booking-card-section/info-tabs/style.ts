@@ -1,6 +1,7 @@
 import TabPanel from "@mui/lab/TabPanel";
 import { Map } from "@pbe/react-yandex-maps";
 import styled from "styled-components";
+import * as palette from "~/bootstrap/helper/global-helper";
 
 /* -------------------------------------------------------------------------- */
 /*                                  All Tabs                                  */
@@ -9,8 +10,24 @@ import styled from "styled-components";
 /* -------------------------------------------------------------------------- */
 /*                              Booking canceling                             */
 /* -------------------------------------------------------------------------- */
-export const DetailsInfoTabsBookingCancelingConditions = styled.div`
-  margin-bottom: 12px;
+export const StyledBookingCancellingConditionsTitle = styled.h2`
+  color: ${palette.primaryColor};
+`;
+
+export const StyledBookingCancellingConditionsIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-bottom: 8px;
+`;
+
+export const StyledBookingCancelingConditionsTitle = styled.h3`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+`;
+
+export const BookingCancelingConditionsEdgeCase = styled.p`
+  text-align: center;
 `;
 
 /* -------------------------------------------------------------------------- */
