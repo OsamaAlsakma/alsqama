@@ -1,15 +1,16 @@
 import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Box from "@mui/material/Box/Box";
-import Tab from "@mui/material/Tab/Tab";
 import { useState } from "react";
-import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
-import StarIcon from "@mui/icons-material/Star";
-import ChaletsDetailsInfoTabsMap from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-map";
 import ChaletsDetailsInfoTabsBookingCancellingConditions from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-booking-cancelling-conditions";
-import { TabPanelMapPadding } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
+import ChaletsDetailsInfoTabsfeatures from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-features";
+import ChaletsDetailsInfoTabsMap from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-map";
+import {
+  DetailsInfoTabsBox,
+  DetailsInfoTabsTab,
+  DetailsInfoTabsTabList,
+  TabPanelMapPadding,
+} from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
 
 interface IChaletsDetailsInfoTabsProps {
   infoTabs: {
@@ -22,56 +23,6 @@ interface IChaletsDetailsInfoTabsProps {
     };
   };
 }
-
-const DetailsInfoTabsBox = styled(Box)`
-  width: calc(50% - 20px);
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid black;
-  @media (max-width: ${palette.mediumScreenSize}) {
-    width: 100%;
-  }
-`;
-
-const DetailsInfoTabsTabList = styled(TabList)`
-  && {
-    display: flex;
-    justify-content: center;
-    margin: 0px 4px;
-    .MuiTabs-indicator {
-      background-color: transparent;
-    }
-  }
-`;
-
-const DetailsInfoTabsTab = styled(Tab)`
-  && {
-    border-radius: 16px;
-    color: black;
-    min-width: fit-content;
-    padding: 12px;
-    font-family: Tajawal;
-    margin: 4px;
-    font-size: 16px;
-    &.Mui-selected {
-      background-color: ${palette.primaryColor};
-      color: white;
-      text-decoration: none;
-      border-bottom: none;
-    }
-  }
-`;
-
-const DetailsInfoTabsFeatureWrapper = styled.div`
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  line-height: 2;
-`;
-
-const DetailsInfoTabsFeatureIcon = styled(StarIcon)`
-  color: ${palette.primaryColor};
-`;
 
 const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
   const { infoTabs } = props;
@@ -100,11 +51,7 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
           </DetailsInfoTabsTabList>
         </Box>
         <TabPanel value="1">
-          {features.map((feature) => (
-            <DetailsInfoTabsFeatureWrapper>
-              <DetailsInfoTabsFeatureIcon /> {feature}
-            </DetailsInfoTabsFeatureWrapper>
-          ))}
+          <ChaletsDetailsInfoTabsfeatures features={features} />
         </TabPanel>
         <TabPanel value="2">
           <ChaletsDetailsInfoTabsBookingCancellingConditions
