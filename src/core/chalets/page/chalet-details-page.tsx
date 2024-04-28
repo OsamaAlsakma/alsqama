@@ -86,6 +86,7 @@ const ChaletDetailsPage = () => {
             latitude: 0,
             longitude: 0,
           },
+          reviews: chaletSections[0]?.reviews || [],
         }}
         pricePerNight={chaletSections[0]?.pricePerNight}
       />

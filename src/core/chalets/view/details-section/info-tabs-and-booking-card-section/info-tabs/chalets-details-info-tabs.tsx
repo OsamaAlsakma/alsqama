@@ -2,9 +2,11 @@ import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
 import Box from "@mui/material/Box/Box";
 import { useState } from "react";
+import { ReviewType } from "~/core/chalets/page/chalet-details-page";
 import ChaletsDetailsInfoTabsBookingCancellingConditions from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-booking-cancelling-conditions";
 import ChaletsDetailsInfoTabsfeatures from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-features";
 import ChaletsDetailsInfoTabsMap from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-map";
+import ChaletsDetailsInfoTabsReviews from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-reviews";
 import {
   DetailsInfoTabsBox,
   DetailsInfoTabsTab,
@@ -21,13 +23,19 @@ interface IChaletsDetailsInfoTabsProps {
       latitude: number;
       longitude: number;
     };
+    reviews: ReviewType[];
   };
 }
 
 const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
   const { infoTabs } = props;
-  const { features, bookingConditions, cancelingConditions, coordinates } =
-    infoTabs;
+  const {
+    features,
+    bookingConditions,
+    cancelingConditions,
+    coordinates,
+    reviews,
+  } = infoTabs;
   const [value, setValue] = useState("1");
 
   const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
@@ -62,7 +70,9 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
         <TabPanelMapPadding value="3">
           <ChaletsDetailsInfoTabsMap coordinates={coordinates} />
         </TabPanelMapPadding>
-        <TabPanel value="4">Revews</TabPanel>
+        <TabPanel value="4">
+          <ChaletsDetailsInfoTabsReviews reviews={reviews} />
+        </TabPanel>
       </TabContext>
     </DetailsInfoTabsBox>
   );

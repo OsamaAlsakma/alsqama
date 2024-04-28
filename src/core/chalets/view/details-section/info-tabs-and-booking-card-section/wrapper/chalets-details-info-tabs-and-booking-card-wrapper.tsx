@@ -1,8 +1,7 @@
-import styled from "styled-components";
-import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 import ChaletsDetailsBookingCard from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card";
 import ChaletsDetailsInfoTabs from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs";
-import * as palette from "~/bootstrap/helper/global-helper";
+import { ReviewType } from "~/core/chalets/page/chalet-details-page";
+import { InfoTabsAndBookingCardWrapperPadded } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/wrapper/style";
 
 interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
   infoTabs: {
@@ -13,19 +12,10 @@ interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
       latitude: number;
       longitude: number;
     };
+    reviews: ReviewType[];
   };
   pricePerNight: number;
 }
-
-const InfoTabsAndBookingCardWrapperPadded = styled(
-  HandlingSectionPaddingWrapper
-)`
-  display: flex;
-  gap: 16px;
-  @media (max-width: ${palette.mediumScreenSize}) {
-    flex-direction: column;
-  }
-`;
 
 const ChaletsDetailsInfoTabsAndBookingCardWrapper = (
   props: IChaletsDetailsInfoTabsAndBookingCardWrapperProps
