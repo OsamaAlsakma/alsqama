@@ -50,10 +50,6 @@ export const DetailsInfoTabsTab = styled(Tab)`
   }
 `;
 
-export const StyledInfoTabTitle = styled.h2`
-  color: ${palette.primaryColor};
-`;
-
 /* -------------------------------------------------------------------------- */
 /*                                  Features                                  */
 /* -------------------------------------------------------------------------- */

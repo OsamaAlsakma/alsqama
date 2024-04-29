@@ -1,6 +1,8 @@
-import { StyledAppDivider } from "~/bootstrap/helper/global-styles";
 import {
-  StyledInfoTabTitle,
+  StyledAppDivider,
+  StyledAppSubTitleWrapper,
+} from "~/bootstrap/helper/global-styles";
+import {
   BookingCancelingConditionsEdgeCase,
   StyledBookingCancelingConditionsTitle,
   StyledBookingCancellingConditionsIcon,
@@ -17,7 +19,7 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
   const { bookingConditions, cancelingConditions } = props;
   return (
     <>
-      <StyledInfoTabTitle>شروط الحجز والإلغاء</StyledInfoTabTitle>
+      <StyledAppSubTitleWrapper>شروط الحجز والإلغاء</StyledAppSubTitleWrapper>
       {!bookingConditions && !cancelingConditions && (
         <BookingCancelingConditionsEdgeCase>
           لا يوجد شروط للحجز و الإلغاء

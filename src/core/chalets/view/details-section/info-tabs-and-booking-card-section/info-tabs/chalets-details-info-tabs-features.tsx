@@ -1,7 +1,7 @@
+import { StyledAppSubTitleWrapper } from "~/bootstrap/helper/global-styles";
 import {
   DetailsInfoTabsFeatureIcon,
   DetailsInfoTabsFeatureWrapper,
-  StyledInfoTabTitle,
 } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
 
 interface IChaletsDetailsInfoTabsMapProps {
@@ -15,7 +15,7 @@ const ChaletsDetailsInfoTabsfeatures = (
 
   return (
     <>
-      <StyledInfoTabTitle>ميزات وملحقات</StyledInfoTabTitle>
+      <StyledAppSubTitleWrapper>ميزات وملحقات</StyledAppSubTitleWrapper>
       {features.map((feature) => (
         <DetailsInfoTabsFeatureWrapper>
           <DetailsInfoTabsFeatureIcon /> {feature}

@@ -3,12 +3,22 @@ import styled from "styled-components";
 import * as palette from "~/bootstrap/helper/global-helper";
 
 export const StyledAppTitleWrapper = styled.h3`
-  font-size: 32px;
   color: ${palette.primaryColor};
   margin: 16px 0;
 
+  font-size: 36px;
   @media (max-width: ${palette.smallScreenSize}) {
-    font-size: 22px;
+    font-size: 26px;
+  }
+`;
+
+export const StyledAppSubTitleWrapper = styled.h4`
+  color: ${palette.primaryColor};
+  margin: 8px 0px;
+  font-size: 26px;
+  width: fit-content;
+  @media (max-width: ${palette.smallScreenSize}) {
+    font-size: 20px;
   }
 `;
 
