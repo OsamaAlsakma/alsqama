@@ -10,9 +10,9 @@ const DetailsBookingCardDiv = styled.div`
   width: calc(50% - 20px);
   border-radius: 16px;
   height: fit-content;
-  padding: 16px;
+  padding: 24px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-
+  box-sizing: border-box;
   @media (max-width: ${palette.mediumScreenSize}) {
     width: 100%;
   }
@@ -26,6 +26,9 @@ const ChaletsDetailsBookingCard = (props: IChaletsDetailsBookingCardProps) => {
       <StyledAppSubTitleWrapper>
         أحجز الجناح الغربي من شاليع مونتكارلو
       </StyledAppSubTitleWrapper>
+      <div>
+        <span>200</span> ريال لليلة الواحدة
+      </div>
     </DetailsBookingCardDiv>
   );
 };
