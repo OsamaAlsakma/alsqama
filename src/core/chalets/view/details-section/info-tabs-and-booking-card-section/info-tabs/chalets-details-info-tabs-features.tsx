@@ -16,8 +16,8 @@ const ChaletsDetailsInfoTabsfeatures = (
   return (
     <>
       <StyledAppSubTitleWrapper>ميزات وملحقات</StyledAppSubTitleWrapper>
-      {features.map((feature) => (
-        <DetailsInfoTabsFeatureWrapper>
+      {features.map((feature, index) => (
+        <DetailsInfoTabsFeatureWrapper key={index}>
           <DetailsInfoTabsFeatureIcon /> {feature}
         </DetailsInfoTabsFeatureWrapper>
       ))}

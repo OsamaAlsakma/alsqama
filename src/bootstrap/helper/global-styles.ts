@@ -22,6 +22,14 @@ export const StyledAppSubTitleWrapper = styled.h4`
   }
 `;
 
+export const StyledAppNoteTitleWrapper = styled.span`
+  color: black;
+  font-weight: bold;
+  width: fit-content;
+  margin: 8px 0px 2px;
+  font-size: 16px;
+`;
+
 export const HandlingSectionPaddingWrapper = styled.div`
   padding: 32px ${palette.paddingBigScreens};
 
