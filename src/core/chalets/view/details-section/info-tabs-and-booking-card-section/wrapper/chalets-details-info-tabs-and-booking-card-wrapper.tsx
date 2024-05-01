@@ -15,16 +15,17 @@ interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
     reviews: ReviewType[];
   };
   pricePerNight: number;
+  name: string;
 }
 
 const ChaletsDetailsInfoTabsAndBookingCardWrapper = (
   props: IChaletsDetailsInfoTabsAndBookingCardWrapperProps
 ) => {
-  const { infoTabs, pricePerNight } = props;
+  const { infoTabs, pricePerNight, name } = props;
   return (
     <InfoTabsAndBookingCardWrapperPadded>
       <ChaletsDetailsInfoTabs infoTabs={infoTabs} />
-      <ChaletsDetailsBookingCard pricePerNight={pricePerNight} />
+      <ChaletsDetailsBookingCard name={name} pricePerNight={pricePerNight} />
     </InfoTabsAndBookingCardWrapperPadded>
   );
 };

@@ -72,27 +72,34 @@ const ChaletDetailsPage = () => {
   if (isLoading) return <CircularLoader />;
   return (
     <div>
-      <ChaletsDetailsTitleWrapper title={chaletSections[0]?.name || ""} />
-      <ChaletsDetailsPhotoViewer
-        images={chaletSections[0]?.images || []}
-        video={chaletSections[0]?.videos[0] || ""}
-      />
-      <ChaletsDetailsDescriptionWrapper
-        description={chaletSections[0]?.description || ""}
-      />
-      <ChaletsDetailsInfoTabsAndBookingCardWrapper
-        infoTabs={{
-          features: chaletSections[0]?.features || [],
-          bookingConditions: chaletSections[0]?.bookingConditions || "",
-          cancelingConditions: chaletSections[0]?.cancelingConditions || "",
-          coordinates: chaletSections[0]?.coordinates || {
-            latitude: 0,
-            longitude: 0,
-          },
-          reviews: chaletSections[0]?.reviews || [],
-        }}
-        pricePerNight={chaletSections[0]?.pricePerNight}
-      />
+      {chaletSections.map((chaletSection: ChaletSectionType, index: number) => {
+        return (
+          <div key={index}>
+            <ChaletsDetailsTitleWrapper title={chaletSection?.name || ""} />
+            <ChaletsDetailsPhotoViewer
+              images={chaletSection?.images || []}
+              video={chaletSection?.videos[0] || ""}
+            />
+            <ChaletsDetailsDescriptionWrapper
+              description={chaletSection?.description || ""}
+            />
+            <ChaletsDetailsInfoTabsAndBookingCardWrapper
+              infoTabs={{
+                features: chaletSection?.features || [],
+                bookingConditions: chaletSection?.bookingConditions || "",
+                cancelingConditions: chaletSection?.cancelingConditions || "",
+                coordinates: chaletSection?.coordinates || {
+                  latitude: 0,
+                  longitude: 0,
+                },
+                reviews: chaletSection?.reviews || [],
+              }}
+              pricePerNight={chaletSection?.pricePerNight}
+              name={chaletSection?.name}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };

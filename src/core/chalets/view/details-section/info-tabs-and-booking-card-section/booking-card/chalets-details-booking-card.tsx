@@ -10,22 +10,21 @@ import ChaletsDetailsBookingCardPayTotalMoneySection from "~/core/chalets/view/d
 import { DetailsBookingCardDiv } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/style";
 
 interface IChaletsDetailsBookingCardProps {
+  name: string;
   pricePerNight: number;
 }
 
 export const ChaletsDetailsBookingCard = (
   props: IChaletsDetailsBookingCardProps
 ) => {
-  const { pricePerNight } = props;
+  const { name, pricePerNight } = props;
 
   const [checked, setChecked] = useState(false);
   const [numberOfReservedDays, setNumberOfReservedDays] = useState(0);
 
   return (
     <DetailsBookingCardDiv>
-      <StyledAppSubTitleWrapper>
-        أحجز الجناح الغربي من شاليه مونتكارلو
-      </StyledAppSubTitleWrapper>
+      <StyledAppSubTitleWrapper>أحجز {name}</StyledAppSubTitleWrapper>
       <StyledAppDivider />
       <ChaletsDetailsBookingCardBookingDate
         pricePerNight={pricePerNight}
