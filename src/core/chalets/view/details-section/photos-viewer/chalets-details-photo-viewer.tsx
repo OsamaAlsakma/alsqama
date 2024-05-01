@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, CardMedia } from "@mui/material";
 import { useCallback, useState } from "react";
 import ImageViewer from "react-simple-image-viewer";
 import { styled } from "styled-components";
@@ -13,30 +13,33 @@ const images = [
   "https://c4.wallpaperflare.com/wallpaper/783/466/557/nature-trees-rock-dragon-blood-tree-wallpaper-preview.jpg",
 ];
 
-const ChaletsDetailsPhotoWrapper = styled.div`
+const ChaletsDetailsPhotoAllImagesWrapper = styled.div`
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 8px;
+  height: 500px;
 `;
 
-const StyledImage = styled.img`
-  width: calc(25% - 20px);
-  height: 400px;
-  margin: 10px;
+const ChaletsDetailsPhotoMainImage = styled(CardMedia)`
+  width: 50%;
+  height: 100%;
+`;
+
+const ChaletsDetailsPhotoSmallImagesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 50%;
+  justify-content: space-between;
+  row-gap: 8px;
+`;
+
+const ChaletsDetailsPhotoSmallImage = styled(CardMedia)`
+  height: 50%;
+  width: 49.45%;
   object-fit: cover;
-  border-radius: 12px;
-
-  @media (max-width: 1024px) {
-    width: calc(33.33% - 20px);
-  }
-
-  @media (max-width: 768px) {
-    width: calc(50% - 20px);
-  }
-
-  @media (max-width: 480px) {
-    width: calc(100% - 20px);
-  }
 `;
 
 const ChaletsDetailsPhotoViewer = () => {
@@ -53,21 +56,35 @@ const ChaletsDetailsPhotoViewer = () => {
     setIsViewerOpen(false);
   };
 
+  /* ------------------------------- new styling ------------------------------ */
   return (
     <HandlingSectionPaddingWrapper>
-      <ChaletsDetailsPhotoWrapper>
-        {images.slice(0, 4).map((src, index) => (
-          <StyledImage
-            src={src}
-            onClick={() => openImageViewer(index)}
-            key={index}
-            alt={`${src}`}
-          />
-        ))}
-      </ChaletsDetailsPhotoWrapper>
+      {/* First position */}
+      <ChaletsDetailsPhotoAllImagesWrapper className="all-images">
+        <ChaletsDetailsPhotoMainImage
+          className="big-image"
+          image={images[0]}
+          onClick={() => openImageViewer(0)}
+        />
+        <ChaletsDetailsPhotoSmallImagesWrapper className="small-images">
+          {images.slice(1, 5).map((image, index) => (
+            <ChaletsDetailsPhotoSmallImage
+              image={image}
+              key={index}
+              onClick={() => openImageViewer(index + 1)}
+            />
+          ))}
+        </ChaletsDetailsPhotoSmallImagesWrapper>
+      </ChaletsDetailsPhotoAllImagesWrapper>
+      {/* second position */}
+
+      {/* open button */}
       <Button onClick={() => setIsViewerOpen(true)}>عرض المزيد من الصور</Button>
       {isViewerOpen && (
         <ImageViewer
+          backgroundStyle={{
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+          }}
           src={images}
           currentIndex={currentImage}
           disableScroll={false}
