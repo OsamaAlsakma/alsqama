@@ -19,6 +19,7 @@ export const DetailsInfoTabsBox = styled(Box)`
   @media (max-width: ${palette.mediumScreenSize}) {
     width: 100%;
   }
+  height: fit-content;
 `;
 
 export const DetailsInfoTabsTabList = styled(TabList)`
@@ -107,13 +108,31 @@ export const ChaletsDetailsInfoTabsReviewsWrapper = styled.div`
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  max-height: 388px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    background: ${palette.primaryColor};
+  }
 `;
 
 export const ChaletsDetailsInfoTabsReviewWrapper = styled.div`
   width: calc(50% - 20px);
   border-radius: 16px;
   border: 1px solid ${palette.secondaryColor};
-  padding: 6px;
+  padding: 3px;
+  margin: 3px;
   @media (max-width: ${palette.largeScreenSize}) {
     width: 100%;
   }

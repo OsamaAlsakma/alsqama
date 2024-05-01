@@ -17,9 +17,16 @@ const ChaletsDetailsInfoTabsReviews = (
   props: IChaletsDetailsInfoTabsReviewsProps
 ) => {
   const { reviews } = props;
+  const newReviews = [
+    ...reviews,
+    ...reviews,
+    ...reviews,
+    ...reviews,
+    ...reviews,
+  ];
   return (
     <ChaletsDetailsInfoTabsReviewsWrapper>
-      {reviews.map((review: ReviewType, index: number) => (
+      {newReviews.map((review: ReviewType, index: number) => (
         <ChaletsDetailsInfoTabsReviewWrapper key={index}>
           <ChaletsDetailsInfoTabsReviewReviewerData>
             <ChaletsDetailsInfoTabsReviewReviewerIcon />
