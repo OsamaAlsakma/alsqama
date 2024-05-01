@@ -17,9 +17,9 @@ export const ChaletsDetailsBookingCard = (
   props: IChaletsDetailsBookingCardProps
 ) => {
   const { pricePerNight } = props;
-  console.log("pricePerNight", pricePerNight);
 
   const [checked, setChecked] = useState(false);
+  const [numberOfReservedDays, setNumberOfReservedDays] = useState(0);
 
   return (
     <DetailsBookingCardDiv>
@@ -27,15 +27,25 @@ export const ChaletsDetailsBookingCard = (
         أحجز الجناح الغربي من شاليه مونتكارلو
       </StyledAppSubTitleWrapper>
       <StyledAppDivider />
-      <ChaletsDetailsBookingCardBookingDate pricePerNight={pricePerNight} />
+      <ChaletsDetailsBookingCardBookingDate
+        pricePerNight={pricePerNight}
+        setNumberOfReservedDays={setNumberOfReservedDays}
+        numberOfReservedDays={numberOfReservedDays}
+      />
       <StyledAppDivider />
       <ChaletsDetailsBookingCardConditionSection
-        bookingConditionText="anything"
+        bookingConditionText="الإلغاء إلا بعد مرور 6 ساعات على موعد الحجز
+        عملية الحجز تتم بشكل أوتوماتيكي بدون تدخل بشري وعند الحجز لا يمكن
+        "
         setChecked={setChecked}
         checked={checked}
       />
       <StyledAppDivider />
-      <ChaletsDetailsBookingCardPayTotalMoneySection checked={checked} />
+      <ChaletsDetailsBookingCardPayTotalMoneySection
+        checked={checked}
+        pricePerNight={pricePerNight}
+        numberOfReservedDays={numberOfReservedDays}
+      />
     </DetailsBookingCardDiv>
   );
 };

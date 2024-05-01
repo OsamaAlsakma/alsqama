@@ -17,10 +17,6 @@ export const ChaletsDetailsBookingCardConditionSection = (
   props: IChaletsDetailsBookingCardConditionSectionProps
 ) => {
   const { bookingConditionText, setChecked, checked } = props;
-  console.log(
-    "ChaletsDetailsBookingCardConditionSection",
-    bookingConditionText
-  );
 
   const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
@@ -30,8 +26,7 @@ export const ChaletsDetailsBookingCardConditionSection = (
     <>
       <StyledAppNoteTitleWrapper>شروط الحجز</StyledAppNoteTitleWrapper>
       <DetailsBookingCardConditionText>
-        عملية الحجز تتم بشكل أوتوماتيكي بدون تدخل بشري وعند الحجز لا يمكن
-        الإلغاء إلا بعد مرور 6 ساعات على موعد الحجز
+        {bookingConditionText}
       </DetailsBookingCardConditionText>
       <DetailsBookingCardConfirmConditionCheckbox
         onChange={handleChange1}

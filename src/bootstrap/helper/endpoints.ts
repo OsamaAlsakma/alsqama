@@ -5,3 +5,5 @@ export const servicesPageEndpoint = {
   resorts: "resorts",
   hotels: "hotels",
 };
+
+export const endpointsUrl = {};

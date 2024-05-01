@@ -1,11 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import "dayjs/locale/ar";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
+import { SetState } from "~/bootstrap/helper/global-types";
 import {
+  DetailsBookingCardErrorMessage,
   DetailsBookingCardInput,
   DetailsBookingCardInputsSection,
   DetailsBookingCardPricePerNightDiv,
@@ -13,15 +16,34 @@ import {
 
 interface IChaletsDetailsBookingCardBookingDateProps {
   pricePerNight: number;
+  numberOfReservedDays: number;
+  setNumberOfReservedDays: SetState<number>;
 }
 
 export const ChaletsDetailsBookingCardBookingDate = (
   props: IChaletsDetailsBookingCardBookingDateProps
 ) => {
-  const { pricePerNight } = props;
-  console.log("ChaletsDetailsBookingCardBookingDate", pricePerNight);
+  const { pricePerNight, numberOfReservedDays, setNumberOfReservedDays } =
+    props;
 
-  const [value, setValue] = useState<Dayjs | null>(dayjs(new Date()));
+  const today = dayjs(new Date());
+  const tomorrow = dayjs().add(1, "day");
+
+  const [startDate, setStartDate] = useState<Dayjs | null>(today);
+  const [endDate, setEndDate] = useState<Dayjs | null>(tomorrow);
+
+  useEffect(() => {
+    if (!(startDate && endDate)) {
+      setNumberOfReservedDays(-1);
+      return;
+    }
+    const numberOfReservedDays = endDate.diff(startDate, "day");
+    if (numberOfReservedDays <= 0) {
+      setNumberOfReservedDays(-1);
+      return;
+    }
+    setNumberOfReservedDays(numberOfReservedDays);
+  }, [startDate, endDate]);
 
   return (
     <>
@@ -40,10 +62,16 @@ export const ChaletsDetailsBookingCardBookingDate = (
               views={["year", "month", "day"]}
               openTo="year"
               disablePast
-              value={value}
+              value={startDate}
+              minDate={today}
               onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) =>
-                setValue(newValue)
+                setStartDate(newValue)
               }
+              slotProps={{
+                textField: {
+                  error: numberOfReservedDays <= 0 ? true : false,
+                },
+              }}
             />
           </DetailsBookingCardInput>
           <DetailsBookingCardInput className="to-input">
@@ -53,13 +81,24 @@ export const ChaletsDetailsBookingCardBookingDate = (
               views={["year", "month", "day"]}
               openTo="year"
               disablePast
-              value={value}
+              minDate={tomorrow}
+              value={endDate}
               onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) =>
-                setValue(newValue)
+                setEndDate(newValue)
               }
+              slotProps={{
+                textField: {
+                  error: numberOfReservedDays <= 0 ? true : false,
+                },
+              }}
             />
           </DetailsBookingCardInput>
         </DetailsBookingCardInputsSection>
+        {numberOfReservedDays <= 0 && (
+          <DetailsBookingCardErrorMessage>
+            يرجى إدخال تاريخ مغادرة بعد تاريخ المجيء
+          </DetailsBookingCardErrorMessage>
+        )}
       </LocalizationProvider>
     </>
   );

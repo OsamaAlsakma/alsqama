@@ -38,6 +38,11 @@ export const DetailsBookingCardInput = styled.div`
   flex-direction: column;
   width: calc(100% - 20px);
 `;
+
+export const DetailsBookingCardErrorMessage = styled.span`
+  color: red;
+  font-size: 14px;
+`;
 /* -------------------------------------------------------------------------- */
 /*                               Second section                               */
 /* -------------------------------------------------------------------------- */
