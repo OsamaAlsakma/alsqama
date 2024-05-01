@@ -108,7 +108,7 @@ export const ChaletsDetailsInfoTabsReviewsWrapper = styled.div`
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  max-height: 388px;
+  max-height: 350px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 
