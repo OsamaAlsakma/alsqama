@@ -1,4 +1,5 @@
-import IAppButtonVM from "~/app/generic/components/app_button/i-app-button-v-m";
+import IAppButtonVM from "~/generic/components/app-button/i-app-button-vm";
+
 /* -------------------------------------------------------------------------- */
 export default interface IAppButtonProps {
   vm: IAppButtonVM;
