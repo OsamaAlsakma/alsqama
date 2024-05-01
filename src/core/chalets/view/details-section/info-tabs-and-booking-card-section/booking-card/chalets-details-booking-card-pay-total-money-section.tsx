@@ -21,19 +21,28 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
     <>
       <DetailsBookingCardTotalMoneyItemWrapper>
         مجموع جميع الأيام:&nbsp;
-        <StyledAppNoteTitleWrapper>
-          {numberOfReservedDays * pricePerNight} ريال
-        </StyledAppNoteTitleWrapper>
+        {numberOfReservedDays > 0 ? (
+          <StyledAppNoteTitleWrapper>
+            {numberOfReservedDays * pricePerNight} ريال
+          </StyledAppNoteTitleWrapper>
+        ) : (
+          " - "
+        )}
       </DetailsBookingCardTotalMoneyItemWrapper>
+
       <DetailsBookingCardTotalMoneyItemWrapper>
         رسوم الخدمة:&nbsp;
-        <StyledAppNoteTitleWrapper>
-          {numberOfReservedDays * pricePerNight * osamaCommissionRatio}
-          &nbsp;ريال
-        </StyledAppNoteTitleWrapper>
+        {numberOfReservedDays > 0 ? (
+          <StyledAppNoteTitleWrapper>
+            {numberOfReservedDays * pricePerNight * osamaCommissionRatio}
+            &nbsp;ريال
+          </StyledAppNoteTitleWrapper>
+        ) : (
+          " - "
+        )}
       </DetailsBookingCardTotalMoneyItemWrapper>
       <DetailsBookingCardPayButton
-        disabled={!checked}
+        disabled={!(checked && numberOfReservedDays > 0)}
         sx={{ paddingTop: "9px", paddingBottom: "2px" }}
       >
         أدفع&nbsp;
