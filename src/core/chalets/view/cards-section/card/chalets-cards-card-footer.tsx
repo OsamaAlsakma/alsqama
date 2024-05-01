@@ -10,7 +10,6 @@ type IChaletsCardsCardFooterProps = {
 
 const ChaletsCardsCardFooter = (props: IChaletsCardsCardFooterProps) => {
   const { chaletId } = props;
-  console.log("chaletId", chaletId);
 
   return (
     <ChaletsCardsCardActions>

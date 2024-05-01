@@ -73,7 +73,10 @@ const ChaletDetailsPage = () => {
   return (
     <div>
       <ChaletsDetailsTitleWrapper title={chaletSections[0]?.name || ""} />
-      <ChaletsDetailsPhotoViewer />
+      <ChaletsDetailsPhotoViewer
+        images={chaletSections[0]?.images || []}
+        video={chaletSections[0]?.videos[0] || ""}
+      />
       <ChaletsDetailsDescriptionWrapper
         description={chaletSections[0]?.description || ""}
       />
