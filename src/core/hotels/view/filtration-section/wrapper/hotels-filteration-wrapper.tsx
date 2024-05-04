@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from "react";
+import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import { SetState } from "~/bootstrap/helper/global-types";
 import {
   ChaletsFilterationSearchInput,
@@ -16,6 +17,9 @@ type IHotelsFilterationWrapperProps = {
   hotels: Hotel[];
 };
 
+/**
+ * This component contains three inputs for filtration, search by name, city, number of stars
+ */
 const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
   const { setFilteredHotels, hotels } = props;
 
@@ -30,7 +34,7 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
 
   const [cityFilter, setCityFilter] = useState<string>("");
   const [nameFilter, setNameFilter] = useState<string>("");
-  const [numberOfStarsFilter, setNumberOfStarsFilter] = useState<number>(0);
+  const [numberOfStarsFilter, setNumberOfStarsFilter] = useState("");
 
   const applyFilters = () => {
     const filteredChalets = hotels.filter((hotel) => {
@@ -43,7 +47,7 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
         : true;
 
       const passNumberOfStarsFilter = numberOfStarsFilter
-        ? hotel.numberOfStars >= numberOfStarsFilter
+        ? hotel.numberOfStars >= parseFloat(numberOfStarsFilter)
         : true;
 
       return passCityFilter && passNameFilter && passNumberOfStarsFilter;
@@ -59,9 +63,8 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
   const handleOnNumberOfStarsChange = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
-    const { value } = event.target;
-    const numericValue: number = parseFloat(value);
-    setNumberOfStarsFilter(numericValue);
+    const value = unNormalizeInput(event.target.value);
+    setNumberOfStarsFilter(value);
   };
 
   const handleOnNameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -88,6 +91,7 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
         <ChaletsFilterationSpecificSearchInput
           onChange={handleOnNumberOfStarsChange}
           disableUnderline
+          value={numberOfStarsFilter}
           placeholder="التصنيف من 1 إلى 5.."
           startAdornment={
             <ChaletsFilterationSpecificSearchInputIcon src="./icons/star.svg" />

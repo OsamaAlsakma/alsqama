@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from "react";
+import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import { SetState } from "~/bootstrap/helper/global-types";
 import { Chalet } from "~/core/chalets/view/cards-section/wrapper/chalets-cards-wrapper";
 import {
@@ -28,39 +29,44 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
     setFilteredChalets(chalets);
   }, []);
 
-  const [priceFilter, setPriceFilter] = useState<number | null>(null);
-const [cityFilter, setCityFilter] = useState<string>("");
-const [nameFilter, setNameFilter] = useState<string>("");
+  const [priceFilter, setPriceFilter] = useState("");
+  const [cityFilter, setCityFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
 
-const applyFilters = () => {
-  const filteredChalets = chalets.filter((chalet) => {
-    const passPriceFilter = priceFilter ? chalet.price <= priceFilter : true;
-    const passCityFilter = cityFilter ? chalet.location.includes(cityFilter) : true;
-    const passNameFilter = nameFilter ? chalet.name.includes(nameFilter) : true;
-    return passPriceFilter && passCityFilter && passNameFilter;
-  });
-  setFilteredChalets(filteredChalets);
-};
+  const applyFilters = () => {
+    const filteredChalets = chalets.filter((chalet) => {
+      const passPriceFilter = priceFilter
+        ? chalet.price <= parseFloat(priceFilter)
+        : true;
+      const passCityFilter = cityFilter
+        ? chalet.location.includes(cityFilter)
+        : true;
+      const passNameFilter = nameFilter
+        ? chalet.name.includes(nameFilter)
+        : true;
+      return passPriceFilter && passCityFilter && passNameFilter;
+    });
+    setFilteredChalets(filteredChalets);
+  };
 
-const handleOnPriceChange = (event: ChangeEvent<HTMLInputElement>) => {
-  const { value } = event.target;
-  const numericValue: number = parseFloat(value);
-  setPriceFilter(numericValue);
-};
+  const handleOnPriceChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setPriceFilter(unNormalizeInput(value));
+  };
 
-const handleOnCityChange = (event: ChangeEvent<HTMLInputElement>) => {
-  const { value } = event.target;
-  setCityFilter(value);
-};
+  const handleOnCityChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setCityFilter(value);
+  };
 
-const handleOnNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-  const { value } = event.target;
-  setNameFilter(value);
-};
+  const handleOnNameChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setNameFilter(value);
+  };
 
-useEffect(() => {
-  applyFilters();
-}, [priceFilter, cityFilter, nameFilter]);
+  useEffect(() => {
+    applyFilters();
+  }, [priceFilter, cityFilter, nameFilter]);
 
   return (
     <StyledChaletsFilterationWrapper>
@@ -77,6 +83,7 @@ useEffect(() => {
         <ChaletsFilterationSpecificSearchInput
           onChange={handleOnPriceChange}
           disableUnderline
+          value={priceFilter}
           placeholder="أكتب السعر.."
           startAdornment={
             <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-money.svg" />

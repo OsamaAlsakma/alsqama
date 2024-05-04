@@ -43,7 +43,6 @@ const HotelsCardsWrapper = () => {
   useEffect(() => {
     fetchChaletsData();
   }, []);
-  console.log("hotels", hotels);
   if (isLoading) return <CircularLoader />;
   return (
     <StyledChaletsCardsWrapper>
