@@ -20,15 +20,6 @@ import {
   DetailsPhotoViewerFooter,
 } from "~/core/chalets/view/details-section/photos-viewer/style";
 
-const images = [
-  "https://c4.wallpaperflare.com/wallpaper/915/596/21/dicksam-plateau-socotra-island-yemen-dragon-trees-desert-landscape-desktop-wallpaper-hd-1920%C3%971080-wallpaper-preview.jpg",
-  "https://c4.wallpaperflare.com/wallpaper/429/988/868/mountains-stones-village-yemen-wallpaper-preview.jpg",
-  "https://img.freepik.com/free-photo/portrait-of-young-woman-with-natural-make-up_23-2149084942.jpg",
-  "https://c4.wallpaperflare.com/wallpaper/237/180/1018/yemen-city-lights-sanaa-cityscape-wallpaper-preview.jpg",
-  "https://i.etsystatic.com/28024432/r/il/0e5c32/2896175538/il_fullxfull.2896175538_pnjn.jpg",
-  "https://c4.wallpaperflare.com/wallpaper/783/466/557/nature-trees-rock-dragon-blood-tree-wallpaper-preview.jpg",
-];
-
 interface IChaletsDetailsPhotoViewerProps {
   images: string[];
   video?: string;
@@ -36,7 +27,7 @@ interface IChaletsDetailsPhotoViewerProps {
 
 /* ----------------------------- Implementation ----------------------------- */
 const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
-  const { _images, video } = props;
+  const { images, video } = props;
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 

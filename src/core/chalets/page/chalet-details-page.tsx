@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
 import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/wrapper/chalets-details-info-tabs-and-booking-card-wrapper";
@@ -27,7 +28,7 @@ export type ChaletSectionType = {
   availableTimes: string[];
   features: string[];
   bookingConditions: string;
-  cancelingConditions: string;
+  cancellingConditions: string;
   coordinates: {
     latitude: number;
     longitude: number;
@@ -45,9 +46,7 @@ const ChaletDetailsPage = () => {
   const fetchChaletsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        `https://run.mocky.io/v3/b5e1f59e-9140-4716-bcf8-be8a7979cc1c`
-      );
+      const response = await axios.get(`${endpointsUrl.chaletDetails}`);
       if (response.status === 200) {
         const chaletSections: ChaletSectionType[] = response.data;
         setChaletSections(chaletSections);
@@ -81,13 +80,14 @@ const ChaletDetailsPage = () => {
               video={chaletSection?.videos[0] || ""}
             />
             <ChaletsDetailsDescriptionWrapper
+              name={chaletSection?.name || ""}
               description={chaletSection?.description || ""}
             />
             <ChaletsDetailsInfoTabsAndBookingCardWrapper
               infoTabs={{
                 features: chaletSection?.features || [],
                 bookingConditions: chaletSection?.bookingConditions || "",
-                cancelingConditions: chaletSection?.cancelingConditions || "",
+                cancellingConditions: chaletSection?.cancellingConditions || "",
                 coordinates: chaletSection?.coordinates || {
                   latitude: 0,
                   longitude: 0,

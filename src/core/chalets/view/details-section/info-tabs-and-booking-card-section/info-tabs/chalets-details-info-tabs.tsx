@@ -18,7 +18,7 @@ interface IChaletsDetailsInfoTabsProps {
   infoTabs: {
     features: string[];
     bookingConditions: string;
-    cancelingConditions: string;
+    cancellingConditions: string;
     coordinates: {
       latitude: number;
       longitude: number;
@@ -32,7 +32,7 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
   const {
     features,
     bookingConditions,
-    cancelingConditions,
+    cancellingConditions,
     coordinates,
     reviews,
   } = infoTabs;
@@ -64,7 +64,7 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
         <TabPanel value="2">
           <ChaletsDetailsInfoTabsBookingCancellingConditions
             bookingConditions={bookingConditions}
-            cancelingConditions={cancelingConditions}
+            cancellingConditions={cancellingConditions}
           />
         </TabPanel>
         <TabPanelMapPadding value="3">

@@ -10,17 +10,17 @@ import {
 
 interface IChaletsDetailsInfoTabsBookingCancellingConditionsProps {
   bookingConditions: string;
-  cancelingConditions: string;
+  cancellingConditions: string;
 }
 
 const ChaletsDetailsInfoTabsBookingCancellingConditions = (
   props: IChaletsDetailsInfoTabsBookingCancellingConditionsProps
 ) => {
-  const { bookingConditions, cancelingConditions } = props;
+  const { bookingConditions, cancellingConditions } = props;
   return (
     <>
       <StyledAppSubTitleWrapper>شروط الحجز والإلغاء</StyledAppSubTitleWrapper>
-      {!bookingConditions && !cancelingConditions && (
+      {!bookingConditions && !cancellingConditions && (
         <BookingCancelingConditionsEdgeCase>
           لا يوجد شروط للحجز و الإلغاء
         </BookingCancelingConditionsEdgeCase>
@@ -34,14 +34,14 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
           <p>{bookingConditions}</p>
         </div>
       )}
-      {bookingConditions && cancelingConditions && <StyledAppDivider />}
-      {cancelingConditions && (
+      {bookingConditions && cancellingConditions && <StyledAppDivider />}
+      {cancellingConditions && (
         <div className="canceling">
           <StyledBookingCancelingConditionsTitle>
             <StyledBookingCancellingConditionsIcon src="/icons/cancelling-conditions.svg" />
             شروط الإلغاء
           </StyledBookingCancelingConditionsTitle>
-          <p>{cancelingConditions}</p>
+          <p>{cancellingConditions}</p>
         </div>
       )}
     </>

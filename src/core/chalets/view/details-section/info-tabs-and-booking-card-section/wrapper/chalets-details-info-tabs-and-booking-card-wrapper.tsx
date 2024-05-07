@@ -7,7 +7,7 @@ interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
   infoTabs: {
     features: string[];
     bookingConditions: string;
-    cancelingConditions: string;
+    cancellingConditions: string;
     coordinates: {
       latitude: number;
       longitude: number;
