@@ -1,4 +1,3 @@
-import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import {
   ChaletsCardsCardActions,
   ChaletsCardsCardActionsButton,
@@ -15,7 +14,7 @@ const HotelItemsCardsCardFooter = (props: IHotelsCardsCardFooterProps) => {
   return (
     <ChaletsCardsCardActions>
       <ChaletsCardsCardActionsButton
-        href={`${servicesPageEndpoint.hotels}/${hotelId}/${hotelItemId}`}
+        href={`./${hotelId}/${hotelItemId}`}
         size="small"
       >
         المزيد
