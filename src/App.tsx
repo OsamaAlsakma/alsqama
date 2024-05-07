@@ -11,6 +11,7 @@ import * as palette from "~/bootstrap/helper/global-helper";
 import styled from "styled-components";
 import ChaletDetailsPage from "~/core/chalets/page/chalet-details-page";
 import HotelItemsPage from "~/core/hotels/page/hotel-items-page";
+import HotelItemDetailsPage from "~/core/hotels/page/hotel-item-details-page";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${palette.appHeaderHeight};
@@ -32,6 +33,10 @@ function App() {
           <Route
             path={`${servicesPageEndpoint.hotels}/:id`}
             element={<HotelItemsPage />}
+          />
+          <Route
+            path={`${servicesPageEndpoint.hotels}/:id/:id`}
+            element={<HotelItemDetailsPage />}
           />
           <Route
             path={servicesPageEndpoint.resorts}

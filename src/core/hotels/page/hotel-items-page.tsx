@@ -1,5 +1,11 @@
+import HotelItemsCardsWrapper from "~/core/hotels/view/items-cards-section/wrapper/hotel-items-cards-wrapper";
+
 const HotelItemsPage = () => {
-  return <div>HotelItemsPage </div>;
+  return (
+    <div>
+      <HotelItemsCardsWrapper />
+    </div>
+  );
 };
 
 export default HotelItemsPage;
