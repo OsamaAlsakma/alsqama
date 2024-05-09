@@ -12,6 +12,7 @@ import ChaletDetailsPage from "~/core/chalets/page/chalet-details-page";
 import HotelItemsPage from "~/core/hotels/page/hotel-items-page";
 import HotelItemDetailsPage from "~/core/hotels/page/hotel-item-details-page";
 import HallsPage from "~/core/halls/page/halls-page";
+import HallDetailsPage from "~/core/halls/page/hall-details-page";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${palette.appHeaderHeight};
@@ -34,7 +35,7 @@ function App() {
           <Route path={servicesPageEndpoint.halls} element={<HallsPage />} />
           <Route
             path={`${servicesPageEndpoint.halls}/:id`}
-            element={<span>detail</span>}
+            element={<HallDetailsPage />}
           />
           {/* Hotels */}
           <Route path={servicesPageEndpoint.hotels} element={<HotelsPage />} />

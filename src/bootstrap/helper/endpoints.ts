@@ -18,4 +18,5 @@ export const endpointsUrl = {
 
   /* ---------------------------------- Halls --------------------------------- */
   allHalls: "https://run.mocky.io/v3/ac044f62-0728-499b-9a4a-9684c27040d2",
+  hallDetails: "https://run.mocky.io/v3/9d469e41-7e1f-473e-9a2e-6e831f5daa6f",
 };

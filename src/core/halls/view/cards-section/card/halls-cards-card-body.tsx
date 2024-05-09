@@ -20,7 +20,7 @@ const HallsCardsCardBody = (props: IHallsCardsCardBodyProps) => {
         <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       {peopleCapacity && (
-        <ChaletsCardsCardFeature isLeft>
+        <ChaletsCardsCardFeature $isLeft>
           <ChaletsCardsCardFeatureIcon src="./icons/people.svg" alt="people" />
           <ChaletsCardsCardFeatureTitle>
             {peopleCapacity}
