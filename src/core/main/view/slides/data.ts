@@ -1,36 +1,35 @@
-import image1 from "../../../../../public/assets/1.jpg";
-import image2 from "../../../../../public/assets/2.jpg";
-import image3 from "../../../../../public/assets/3.jpg";
-import image6 from "../../../../../public/assets/6.jpg";
-import image7 from "../../../../../public/assets/7.jpg";
-
 export const mainPageSlides = [
   {
     title: "صنعاء",
     subtitle: "عاصمة اليمن القديمة تزخر بتاريخ غني ومعالم تاريخية مذهلة",
-    image: image1,
+    image:
+      "https://c4.wallpaperflare.com/wallpaper/237/180/1018/yemen-city-lights-sanaa-cityscape-wallpaper-preview.jpg",
   },
   {
     title: "عدن",
     subtitle:
       "مدينة البحر والتجارة تحتضن شواطئها الخلابة وتاريخها البحري العريق",
-    image: image2,
+    image:
+      "https://c4.wallpaperflare.com/wallpaper/429/988/868/mountains-stones-village-yemen-wallpaper-preview.jpg",
   },
   {
     title: "تعز",
     subtitle:
       "مدينة القلع والأسواق التقليدية تشتهر بجمال معمارها القديم وسحر جبالها الخضراء.",
-    image: image3,
+    image:
+      "https://c4.wallpaperflare.com/wallpaper/237/180/1018/yemen-city-lights-sanaa-cityscape-wallpaper-preview.jpg",
   },
   {
     title: "الشبوة",
     subtitle: "بوابة البحر الأحمر تجمع بين طبيعة خلابة ومينائها الحيوي.",
-    image: image6,
+    image:
+      "https://c4.wallpaperflare.com/wallpaper/783/466/557/nature-trees-rock-dragon-blood-tree-wallpaper-preview.jpg",
   },
   {
     title: "إب",
     subtitle:
       "مدينة الجبال الشامخة تنعم بمناظر طبيعية ساحرة وأجواء هادئة وجميلة..",
-    image: image7,
+    image:
+      "https://c4.wallpaperflare.com/wallpaper/915/596/21/dicksam-plateau-socotra-island-yemen-dragon-trees-desert-landscape-desktop-wallpaper-hd-1920%C3%971080-wallpaper-preview.jpg",
   },
 ];

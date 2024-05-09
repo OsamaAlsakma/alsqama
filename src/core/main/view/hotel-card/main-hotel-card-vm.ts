@@ -1,5 +1,4 @@
 import IMainHotelCardVM from "~/core/main/view/hotel-card/i-main-hotel-card-vm";
-import image1 from "./../../../../../public/assets/1.jpg";
 
 export default class MainHotelCardVM {
   private mainHotelCardId: string;
@@ -14,7 +13,8 @@ export default class MainHotelCardVM {
     return {
       props: {
         id: this.mainHotelCardId,
-        image: `${image1}`,
+        image:
+          "https://c4.wallpaperflare.com/wallpaper/237/180/1018/yemen-city-lights-sanaa-cityscape-wallpaper-preview.jpg",
         title: "الصنعاء",
         numberOfHotels: 38,
         shortDescription:

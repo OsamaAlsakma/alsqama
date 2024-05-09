@@ -1,4 +1,4 @@
-import langKey from "../../langKey";
+import langKey from "~/bootstrap/i18n/langKey";
 
 const ar: typeof langKey = {
   global: {
@@ -8,9 +8,9 @@ const ar: typeof langKey = {
     createAccount: "إنشاء حساب",
     login: " تسجيل الدخول ",
     hotels: "فنادق",
-    chalets: "شاليهات",
+    chalets: "شاليهات واستراحات",
     retreats: "استراحات",
-    halls: " صالات.أفراح ",
+    halls: " صالات أفراح ",
   },
 
   mainPage: {
