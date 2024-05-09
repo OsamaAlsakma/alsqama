@@ -5,7 +5,7 @@ import MainServicesResortsButtonVM from "./main-services-resorts-button-vm";
 const MainServicesResortsButton = () => {
   const vm = new MainServicesResortsButtonVM().useVM();
   return (
-    <StyledMainServicesLink to={servicesPageEndpoint.resorts}>
+    <StyledMainServicesLink to={servicesPageEndpoint.retreats}>
       <StyledMainServicesAppButton vm={vm} />
     </StyledMainServicesLink>
   );

@@ -9,7 +9,7 @@ const en: typeof langKey = {
     login: "Login",
     hotels: "Hotels",
     chalets: "Chalets",
-    resorts: "Resorts",
+    retreats: "Retreats",
     halls: "Halls",
   },
   mainPage: {

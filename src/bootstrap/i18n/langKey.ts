@@ -12,7 +12,7 @@ const langKey = {
     login: "global.login",
     hotels: "global.hotels",
     chalets: "global.chalets",
-    resorts: "global.resorts",
+    retreats: "global.retreats",
     halls: "global.halls",
   },
 

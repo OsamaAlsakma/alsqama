@@ -9,7 +9,7 @@ const ar: typeof langKey = {
     login: " تسجيل الدخول ",
     hotels: "فنادق",
     chalets: "شاليهات",
-    resorts: "منتجعات",
+    retreats: "استراحات",
     halls: " صالات.أفراح ",
   },
 

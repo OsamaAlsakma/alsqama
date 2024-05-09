@@ -78,8 +78,8 @@ const ServicesBurger = () => {
           </StyledBurgerMenuItem>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.resorts}>
-            {t(langKey.global.resorts)}
+          <StyledBurgerMenuItem to={servicesPageEndpoint.retreats}>
+            {t(langKey.global.retreats)}
           </StyledBurgerMenuItem>
         </MenuItem>
       </Menu>

@@ -1,11 +1,5 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
-import MainHeader from "./support/header/main-header/main-header";
-import MainPage from "./core/main/page/main-page";
-import ChaletsPage from "./core/chalets/page/chalets-page";
-import ResortsPage from "./core/resorts/page/resorts-page";
-import HotelsPage from "./core/hotels/page/hotels-page";
-import { servicesPageEndpoint } from "./bootstrap/helper/endpoints";
 import * as palette from "~/bootstrap/helper/global-helper";
 import styled from "styled-components";
 import ChaletDetailsPage from "~/core/chalets/page/chalet-details-page";
@@ -13,6 +7,12 @@ import HotelItemsPage from "~/core/hotels/page/hotel-items-page";
 import HotelItemDetailsPage from "~/core/hotels/page/hotel-item-details-page";
 import HallsPage from "~/core/halls/page/halls-page";
 import HallDetailsPage from "~/core/halls/page/hall-details-page";
+import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
+import ChaletsPage from "~/core/chalets/page/chalets-page";
+import HotelsPage from "~/core/hotels/page/hotels-page";
+import MainPage from "~/core/main/page/main-page";
+import MainHeader from "~/support/header/main-header/main-header";
+import RetreatsPage from "~/core/retreats/page/retreats-page";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${palette.appHeaderHeight};
@@ -30,6 +30,10 @@ function App() {
           <Route
             path={servicesPageEndpoint.chalets}
             element={<ChaletsPage />}
+          />
+          <Route
+            path={`${servicesPageEndpoint.chalets}/:id`}
+            element={<ChaletDetailsPage />}
           />
           {/* Halls */}
           <Route path={servicesPageEndpoint.halls} element={<HallsPage />} />
@@ -49,11 +53,11 @@ function App() {
           />
           {/* Retreats */}
           <Route
-            path={servicesPageEndpoint.resorts}
-            element={<ResortsPage />}
+            path={servicesPageEndpoint.retreats}
+            element={<RetreatsPage />}
           />
           <Route
-            path={`${servicesPageEndpoint.chalets}/:id`}
+            path={`${servicesPageEndpoint.retreats}/:id`}
             element={<ChaletDetailsPage />}
           />
         </Routes>

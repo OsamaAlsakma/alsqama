@@ -41,10 +41,10 @@ const MainFooterWrapper = () => {
           <MainFooterMainService to={servicesPageEndpoint.halls}>
             صالات.أفراح
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.resorts}>
+          <MainFooterMainService to={servicesPageEndpoint.retreats}>
             منتجعات
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.resorts}>
+          <MainFooterMainService to={servicesPageEndpoint.retreats}>
             شروط الاستخدام
           </MainFooterMainService>
         </MainFooterMainServices>
