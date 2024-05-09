@@ -104,13 +104,16 @@ export const ChaletsCardsCardFeaturesWrapper = styled.div`
   gap: 4px;
 `;
 
-export const ChaletsCardsCardFeature = styled.span`
+export const ChaletsCardsCardFeature = styled.span<{ isLeft?: boolean }>`
   display: flex;
   align-items: center;
   gap: 6px;
   width: 48%;
+  justify-content: ${({ isLeft }) => (isLeft ? "left" : "right")};
+
   @media (max-width: ${palette.mediumScreenSize}) {
     width: 100%;
+    justify-content: right;
   }
 `;
 

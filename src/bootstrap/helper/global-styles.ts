@@ -61,3 +61,11 @@ export const StyledAppDivider = styled.hr`
   color: #e4e5eb;
   margin: 16px 0;
 `;
+
+/**
+ * Padding used for the search input
+ */
+export const inputPaddingStyle = {
+  paddingTop: "6px",
+  paddingBottom: "0px",
+};

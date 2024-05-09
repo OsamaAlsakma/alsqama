@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from "react";
 import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
+import { inputPaddingStyle } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
 import { Chalet } from "~/core/chalets/view/cards-section/wrapper/chalets-cards-wrapper";
 import {
@@ -19,11 +20,6 @@ type IChaletsFilterationWrapperProps = {
 
 const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
   const { setFilteredChalets, chalets } = props;
-
-  const inputPaddingStyle = {
-    paddingTop: "6px",
-    paddingBottom: "0px",
-  };
 
   useEffect(() => {
     setFilteredChalets(chalets);

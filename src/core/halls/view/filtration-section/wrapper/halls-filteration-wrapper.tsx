@@ -11,56 +11,48 @@ import {
   StyledChaletsFilterationWrapper,
   StyledSearchIcon,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
-import { Hotel } from "~/core/hotels/view/cards-section/wrapper/hotels-cards-wrapper";
+import { Hall } from "~/core/halls/view/cards-section/wrapper/halls-cards-wrapper";
 
-type IHotelsFilterationWrapperProps = {
-  setFilteredHotels: SetState<Hotel[]>;
-  hotels: Hotel[];
+type IHallsFilterationWrapperProps = {
+  setFilteredHalls: SetState<Hall[]>;
+  halls: Hall[];
 };
 
-/**
- * This component contains three inputs for filtration, search by name, city, number of stars
- */
-const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
-  const { setFilteredHotels, hotels } = props;
+const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
+  const { setFilteredHalls, halls } = props;
 
   useEffect(() => {
-    setFilteredHotels(hotels);
+    setFilteredHalls(halls);
   }, []);
 
-  const [cityFilter, setCityFilter] = useState<string>("");
-  const [nameFilter, setNameFilter] = useState<string>("");
-  const [numberOfStarsFilter, setNumberOfStarsFilter] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
+  const [cityFilter, setCityFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
 
   const applyFilters = () => {
-    const filteredChalets = hotels.filter((hotel) => {
+    const filteredHalls = halls.filter((chalet) => {
+      const passPriceFilter = priceFilter
+        ? chalet.pricePerNight <= parseFloat(priceFilter)
+        : true;
       const passCityFilter = cityFilter
-        ? hotel.location.includes(cityFilter)
+        ? chalet.location.includes(cityFilter)
         : true;
-
       const passNameFilter = nameFilter
-        ? hotel.hotelName.includes(nameFilter)
+        ? chalet.name.includes(nameFilter)
         : true;
-
-      const passNumberOfStarsFilter = numberOfStarsFilter
-        ? hotel.numberOfStars >= parseFloat(numberOfStarsFilter)
-        : true;
-
-      return passCityFilter && passNameFilter && passNumberOfStarsFilter;
+      return passPriceFilter && passCityFilter && passNameFilter;
     });
-    setFilteredHotels(filteredChalets);
+    setFilteredHalls(filteredHalls);
+  };
+
+  const handleOnPriceChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setPriceFilter(unNormalizeInput(value));
   };
 
   const handleOnCityChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     setCityFilter(value);
-  };
-
-  const handleOnNumberOfStarsChange = (
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
-    const value = unNormalizeInput(event.target.value);
-    setNumberOfStarsFilter(value);
   };
 
   const handleOnNameChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -70,12 +62,12 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
 
   useEffect(() => {
     applyFilters();
-  }, [cityFilter, nameFilter, numberOfStarsFilter]);
+  }, [priceFilter, cityFilter, nameFilter]);
 
   return (
     <StyledChaletsFilterationWrapper>
       <ChaletsFilterationSearchInput
-        placeholder="أبحث عن أي فندق.."
+        placeholder="أبحث عن أي صالة.."
         disableUnderline
         endAdornment={<StyledSearchIcon />}
         inputProps={{
@@ -85,12 +77,12 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
       />
       <ChaletsFilterationSpecificSearchWrapper>
         <ChaletsFilterationSpecificSearchInput
-          onChange={handleOnNumberOfStarsChange}
+          onChange={handleOnPriceChange}
           disableUnderline
-          value={numberOfStarsFilter}
-          placeholder="التصنيف من 1 إلى 5.."
+          value={priceFilter}
+          placeholder="أكتب السعر.."
           startAdornment={
-            <ChaletsFilterationSpecificSearchInputIcon src="./icons/star.svg" />
+            <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-money.svg" />
           }
           inputProps={{
             style: inputPaddingStyle,
@@ -112,4 +104,4 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
   );
 };
 
-export default HotelsFilterationWrapper;
+export default HallsFilterationWrapper;
