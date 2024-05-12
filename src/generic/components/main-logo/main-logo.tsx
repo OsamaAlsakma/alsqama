@@ -7,7 +7,9 @@ import {
 const MainLogo = () => {
   return (
     <StyledMainLogo to={servicesPageEndpoint.main}>
-      <StyledMainLogoImage src="/assets/main-logo.png" />
+      <StyledMainLogoImage
+        src={`${import.meta.env.BASE_URL}/assets/main-logo.png`}
+      />
     </StyledMainLogo>
   );
 };
