@@ -3,7 +3,6 @@ import CardActions from "@mui/material/CardActions/CardActions";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import styled from "styled-components";
 import * as palette from "~/bootstrap/helper/global-helper";
-import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 import StarIcon from "@mui/icons-material/Star";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -135,14 +134,5 @@ export const ChaletsCardsCardActions = styled(CardActions)`
     justify-content: space-between;
     gap: 8px;
     padding-top: 0;
-  }
-`;
-
-export const ChaletsCardsCardActionsButton = styled(StyledMainAppButton)`
-  && {
-    flex: 1;
-    margin: 0;
-    line-height: 1.5;
-    padding-top: 9px;
   }
 `;

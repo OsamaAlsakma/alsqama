@@ -24,7 +24,7 @@ const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
         <PlaceIcon />
         <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
-      <ChaletsCardsCardFeature $isLeft>
+      <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
         <ChaletsCardsCardFeatureTitle>
           {price}دولار \ ليلة
@@ -36,7 +36,7 @@ const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
           {numberOfRooms} غرف
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
-      <ChaletsCardsCardFeature $isLeft>
+      <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/calender.svg" alt="rooms" />
         <ChaletsCardsCardFeatureTitle>
           {nearestTimeAvailable}

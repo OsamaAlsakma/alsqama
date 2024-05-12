@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import styled from "styled-components";
 import * as palette from "~/bootstrap/helper/global-helper";
+import { StyledMainServicesLink } from "~/generic/components/main-services/style";
 
 export const StyledAppTitleWrapper = styled.h3`
   color: ${palette.primaryColor};
@@ -69,3 +70,20 @@ export const inputPaddingStyle = {
   paddingTop: "6px",
   paddingBottom: "0px",
 };
+
+/**
+ * To use this component you need to provide "to" property.
+ * This component is used inside the actions of any card.
+ */
+export const CardActionsButtonWithLink = styled(StyledMainServicesLink)`
+  background-color: ${palette.secondaryColor};
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  line-height: 1.5;
+  padding-top: 9px;
+  padding-bottom: 3px;
+  margin: 0 !important;
+`;

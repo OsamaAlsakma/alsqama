@@ -1,8 +1,6 @@
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
-import {
-  ChaletsCardsCardActions,
-  ChaletsCardsCardActionsButton,
-} from "~/core/chalets/view/cards-section/card/style";
+import { CardActionsButtonWithLink } from "~/bootstrap/helper/global-styles";
+import { ChaletsCardsCardActions } from "~/core/chalets/view/cards-section/card/style";
 
 type IHotelsCardsCardFooterProps = {
   hotelId: string;
@@ -13,12 +11,11 @@ const HotelsCardsCardFooter = (props: IHotelsCardsCardFooterProps) => {
 
   return (
     <ChaletsCardsCardActions>
-      <ChaletsCardsCardActionsButton
-        href={`${servicesPageEndpoint.hotels}/${hotelId}`}
-        size="small"
+      <CardActionsButtonWithLink
+        to={`${servicesPageEndpoint.hotels}/${hotelId}`}
       >
-        تصفح الفندق
-      </ChaletsCardsCardActionsButton>
+        المزيد
+      </CardActionsButtonWithLink>
     </ChaletsCardsCardActions>
   );
 };
