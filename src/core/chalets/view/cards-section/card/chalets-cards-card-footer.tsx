@@ -3,6 +3,7 @@ import {
   ChaletsCardsCardActions,
   ChaletsCardsCardActionsButton,
 } from "~/core/chalets/view/cards-section/card/style";
+import { StyledMainServicesLink } from "~/generic/components/main-services/style";
 
 type IChaletsCardsCardFooterProps = {
   chaletId: string;
@@ -19,6 +20,11 @@ const ChaletsCardsCardFooter = (props: IChaletsCardsCardFooterProps) => {
       >
         المزيد
       </ChaletsCardsCardActionsButton>
+      <StyledMainServicesLink
+        to={`${servicesPageEndpoint.chalets}/${chaletId}`}
+      >
+        more
+      </StyledMainServicesLink>
       <ChaletsCardsCardActionsButton size="small">
         احجز الآن
       </ChaletsCardsCardActionsButton>
