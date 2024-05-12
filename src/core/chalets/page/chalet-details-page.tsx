@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
@@ -37,8 +38,7 @@ export type ChaletSectionType = {
 };
 
 const ChaletDetailsPage = () => {
-  // TODO call based on this id
-  // const { id } = useParams();
+  const { id } = useParams();
   const [chaletSections, setChaletSections] = useState<ChaletSectionType[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +46,7 @@ const ChaletDetailsPage = () => {
   const fetchChaletsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${endpointsUrl.chaletDetails}`);
+      const response = await axios.get(`${endpointsUrl.chaletDetails}/${id}`);
       if (response.status === 200) {
         const chaletSections: ChaletSectionType[] = response.data;
         setChaletSections(chaletSections);
