@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import ChaletsCardsCard from "~/core/chalets/view/cards-section/card/chalets-cards-card";
 import {
   ChaletsCardsWrapperMessages,
@@ -28,9 +29,7 @@ const ChaletsCardsWrapper = () => {
   const fetchChaletsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(
-        "https://run.mocky.io/v3/b4171e2e-3880-49ff-ac5a-0b67d58bd7d2"
-      );
+      const response = await axios.get(`${endpointsUrl.allChalets}`);
       if (response.status === 200) {
         const chalets: Chalet[] = response.data;
         setChalets(chalets);

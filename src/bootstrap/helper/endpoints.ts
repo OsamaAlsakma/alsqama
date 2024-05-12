@@ -8,17 +8,18 @@ export const servicesPageEndpoint = {
 
 export const endpointsUrl = {
   /* --------------------------------- Chalets -------------------------------- */
-  chaletDetails: "https://run.mocky.io/v3/f127fec1-333f-455b-bad7-3d6ec6460c71",
+  allChalets: "https://run.mocky.io/v3/ed159a89-6359-45d4-b086-9532194d403f",
+  chaletDetails: "https://run.mocky.io/v3/e3a1ca8d-c899-43cf-9141-acca861a2083",
 
   /* --------------------------------- Hotels --------------------------------- */
-  allHotels: "https://run.mocky.io/v3/c727e9f3-ca3c-4ad6-ba44-4386b613e483",
-  anHotelItems: "https://run.mocky.io/v3/1bbc7586-1022-48c3-88b0-cdd161e914c5",
+  allHotels: "https://run.mocky.io/v3/8b968fb9-76f0-4284-8497-307381c734d8",
+  anHotelItems: "https://run.mocky.io/v3/d86f9fdd-620b-4e98-88f5-1d725673987b",
   hotelItemDetails:
-    "https://run.mocky.io/v3/3526306f-67cf-41a5-b635-a2e2e21271e0",
+    "https://run.mocky.io/v3/26f72494-647d-4ac3-a4d1-f496fd6e73da",
 
   /* ---------------------------------- Halls --------------------------------- */
-  allHalls: "https://run.mocky.io/v3/c4af8769-3a8c-4555-b2e4-cc0bdd18034e",
-  hallDetails: "https://run.mocky.io/v3/9d469e41-7e1f-473e-9a2e-6e831f5daa6f",
+  allHalls: "https://run.mocky.io/v3/5c2eb63f-85b2-44c0-b2f7-a34b0b8b3b89",
+  hallDetails: "https://run.mocky.io/v3/e7e2d34c-9c58-4c4d-8b0e-ba63e8e6e498",
 
   /* -------------------------------- Retreats -------------------------------- */
   allRetreats: "https://run.mocky.io/v3/ac044f62-0728-499b-9a4a-9684c27040d2",
