@@ -43,7 +43,7 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
         : true;
 
       const passNumberOfStarsFilter = numberOfStarsFilter
-        ? hotel.numberOfStars >= parseFloat(numberOfStarsFilter)
+        ? hotel.numberOfStars === parseFloat(numberOfStarsFilter)
         : true;
 
       return passCityFilter && passNameFilter && passNumberOfStarsFilter;
