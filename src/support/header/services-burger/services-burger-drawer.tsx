@@ -1,17 +1,25 @@
+import ApartmentIcon from "@mui/icons-material/Apartment";
+import ChaletIcon from "@mui/icons-material/Chalet";
+import FestivalIcon from "@mui/icons-material/Festival";
+import HotelIcon from "@mui/icons-material/Hotel";
+import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon/ListItemIcon";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import langKey from "~/bootstrap/i18n/langKey";
 import { StyledBurgerMenuItem } from "~/support/header/services-burger/style";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChaletIcon from "@mui/icons-material/Chalet";
-import ListItemIcon from "@mui/material/ListItemIcon/ListItemIcon";
 
-type Anchor = "top";
+const StyledListItemIcon = styled(ListItemIcon)`
+  && {
+    min-width: fit-content;
+  }
+`;
 
 const ServicesBurgerDrawer = () => {
   const [state, setState] = useState({
@@ -19,8 +27,7 @@ const ServicesBurgerDrawer = () => {
   });
 
   const toggleDrawer =
-    (anchor: Anchor, open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event.type === "keydown" &&
         ((event as React.KeyboardEvent).key === "Tab" ||
@@ -29,7 +36,7 @@ const ServicesBurgerDrawer = () => {
         return;
       }
 
-      setState({ ...state, [anchor]: open });
+      setState({ ...state, ["top"]: open });
     };
 
   const { t } = useTranslation();
@@ -42,17 +49,17 @@ const ServicesBurgerDrawer = () => {
     {
       url: servicesPageEndpoint.halls,
       lang: t(langKey.global.halls),
-      icon: ChaletIcon,
+      icon: FestivalIcon,
     },
     {
       url: servicesPageEndpoint.hotels,
       lang: t(langKey.global.hotels),
-      icon: ChaletIcon,
+      icon: HotelIcon,
     },
     {
       url: servicesPageEndpoint.apartments,
       lang: t(langKey.global.apartments),
-      icon: ChaletIcon,
+      icon: ApartmentIcon,
     },
   ];
   const list = () => (
@@ -61,13 +68,13 @@ const ServicesBurgerDrawer = () => {
         width: "auto",
       }}
       role="presentation"
-      onClick={toggleDrawer("top", false)}
-      onKeyDown={toggleDrawer("top", false)}
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
     >
       <List>
         {burgerItems.map((item, index) => (
-          <ListItem key={index} disablePadding>
-            <ListItemIcon>{<item.icon />}</ListItemIcon>
+          <ListItem key={index}>
+            <StyledListItemIcon>{<item.icon />}</StyledListItemIcon>
             <StyledBurgerMenuItem to={item.url}>
               {item.lang}
             </StyledBurgerMenuItem>
@@ -79,12 +86,8 @@ const ServicesBurgerDrawer = () => {
 
   return (
     <div>
-      <MenuIcon onClick={toggleDrawer("top", true)} />
-      <Drawer
-        anchor={"top"}
-        open={state["top"]}
-        onClose={toggleDrawer("top", false)}
-      >
+      <MenuIcon onClick={toggleDrawer(true)} />
+      <Drawer anchor={"top"} open={state["top"]} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>
     </div>
