@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -8,6 +7,7 @@ import { useTranslation } from "react-i18next";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import langKey from "~/bootstrap/i18n/langKey";
 import { StyledBurgerMenuItem } from "~/support/header/services-burger/style";
+import MenuIcon from "@mui/icons-material/Menu";
 
 type Anchor = "top";
 
@@ -73,7 +73,8 @@ const ServicesBurgerDrawer = () => {
 
   return (
     <div>
-      <Button onClick={toggleDrawer("top", true)}>{"top"}</Button>
+      {/* <Button onClick={toggleDrawer("top", true)}>{"top"}</Button> */}
+      <MenuIcon onClick={toggleDrawer("top", true)} />
       <Drawer
         anchor={"top"}
         open={state["top"]}
