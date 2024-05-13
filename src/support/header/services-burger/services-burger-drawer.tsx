@@ -13,12 +13,24 @@ import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import langKey from "~/bootstrap/i18n/langKey";
-import { StyledBurgerMenuItem } from "~/support/header/services-burger/style";
+import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
+import {
+  StyledBurgerMenuItem,
+  StyledServicesBurgerIconButton,
+} from "~/support/header/services-burger/style";
+import * as palette from "~/bootstrap/helper/global-helper";
 
 const StyledListItemIcon = styled(ListItemIcon)`
   && {
     min-width: fit-content;
+    color: ${palette.primaryColor};
   }
+`;
+
+const SocialMediaIconsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 8px;
 `;
 
 const ServicesBurgerDrawer = () => {
@@ -81,12 +93,18 @@ const ServicesBurgerDrawer = () => {
           </ListItem>
         ))}
       </List>
+      <SocialMediaIconsWrapper>
+        <MainFooterIcons />
+      </SocialMediaIconsWrapper>
     </Box>
   );
 
   return (
     <div>
-      <MenuIcon onClick={toggleDrawer(true)} />
+      <StyledServicesBurgerIconButton onClick={toggleDrawer(true)}>
+        <MenuIcon sx={{ fontSize: "inherit" }} />
+      </StyledServicesBurgerIconButton>
+
       <Drawer anchor={"top"} open={state["top"]} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>

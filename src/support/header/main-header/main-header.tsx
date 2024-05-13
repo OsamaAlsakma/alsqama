@@ -12,7 +12,6 @@ import {
   StyledLocalizationAndLoginSignup,
   StyledMainHeader,
 } from "~/support/header/main-header/style";
-import ServicesBurger from "~/support/header/services-burger/services-burger";
 import ServicesBurgerDrawer from "~/support/header/services-burger/services-burger-drawer";
 import HeaderTabs from "~/support/header/tabs/header-tabs";
 import HeaderUserAvatar from "~/support/header/user-avatar/header-user-avatar";
@@ -27,7 +26,6 @@ const MainHeader = () => {
   return (
     <FixedHeader>
       <StyledMainHeader>
-        <ServicesBurger />
         <ServicesBurgerDrawer />
         <MainLogo />
         <HeaderTabs />
