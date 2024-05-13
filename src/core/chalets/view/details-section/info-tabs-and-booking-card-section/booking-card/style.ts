@@ -81,3 +81,13 @@ export const DetailsBookingCardPayButton = styled(StyledMainAppButton)`
     pointer-events: all !important;
   }
 `;
+
+/**
+ * This wrapper is used to show a message under pay button to confirm the condition.
+ */
+export const DetailsBookingCardConfirmConditionMessage = styled(
+  DetailsBookingCardErrorMessage
+)`
+  display: block;
+  margin-top: 14px;
+`;

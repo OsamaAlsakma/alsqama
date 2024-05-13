@@ -2,6 +2,7 @@ import "dayjs/locale/ar";
 import { osamaCommissionRatio } from "~/bootstrap/helper/business-helpers";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
 import {
+  DetailsBookingCardConfirmConditionMessage,
   DetailsBookingCardPayButton,
   DetailsBookingCardTotalMoneyItemWrapper,
 } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/style";
@@ -50,6 +51,11 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
           numberOfReservedDays * pricePerNight * osamaCommissionRatio}
         &nbsp;ريال
       </DetailsBookingCardPayButton>
+      {!checked && (
+        <DetailsBookingCardConfirmConditionMessage>
+          يرجى الموافقة على الشروط قبل الدفع
+        </DetailsBookingCardConfirmConditionMessage>
+      )}
     </>
   );
 };
