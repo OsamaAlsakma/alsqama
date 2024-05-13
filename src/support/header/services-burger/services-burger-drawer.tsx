@@ -16,6 +16,7 @@ import langKey from "~/bootstrap/i18n/langKey";
 import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
 import {
   StyledBurgerMenuItem,
+  StyledServicesBurger,
   StyledServicesBurgerIconButton,
 } from "~/support/header/services-burger/style";
 import * as palette from "~/bootstrap/helper/global-helper";
@@ -100,7 +101,7 @@ const ServicesBurgerDrawer = () => {
   );
 
   return (
-    <div>
+    <StyledServicesBurger>
       <StyledServicesBurgerIconButton onClick={toggleDrawer(true)}>
         <MenuIcon sx={{ fontSize: "inherit" }} />
       </StyledServicesBurgerIconButton>
@@ -108,7 +109,7 @@ const ServicesBurgerDrawer = () => {
       <Drawer anchor={"top"} open={state["top"]} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>
-    </div>
+    </StyledServicesBurger>
   );
 };
 
