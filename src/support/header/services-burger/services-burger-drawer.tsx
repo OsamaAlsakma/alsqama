@@ -8,6 +8,8 @@ import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import langKey from "~/bootstrap/i18n/langKey";
 import { StyledBurgerMenuItem } from "~/support/header/services-burger/style";
 import MenuIcon from "@mui/icons-material/Menu";
+import ChaletIcon from "@mui/icons-material/Chalet";
+import ListItemIcon from "@mui/material/ListItemIcon/ListItemIcon";
 
 type Anchor = "top";
 
@@ -29,58 +31,61 @@ const ServicesBurgerDrawer = () => {
 
       setState({ ...state, [anchor]: open });
     };
+
   const { t } = useTranslation();
-  const list = (anchor: Anchor) => (
+  const burgerItems = [
+    {
+      url: servicesPageEndpoint.chalets,
+      lang: t(langKey.global.chalets),
+      icon: ChaletIcon,
+    },
+    {
+      url: servicesPageEndpoint.halls,
+      lang: t(langKey.global.halls),
+      icon: ChaletIcon,
+    },
+    {
+      url: servicesPageEndpoint.hotels,
+      lang: t(langKey.global.hotels),
+      icon: ChaletIcon,
+    },
+    {
+      url: servicesPageEndpoint.apartments,
+      lang: t(langKey.global.apartments),
+      icon: ChaletIcon,
+    },
+  ];
+  const list = () => (
     <Box
       sx={{
-        width: anchor === "top" || anchor === "bottom" ? "auto" : 250,
+        width: "auto",
       }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer("top", false)}
+      onKeyDown={toggleDrawer("top", false)}
     >
       <List>
-        {/* chalets */}
-        <ListItem disablePadding>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.chalets}>
-            {t(langKey.global.chalets)}
-          </StyledBurgerMenuItem>
-        </ListItem>
-
-        {/* halls */}
-        <ListItem disablePadding>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.halls}>
-            {t(langKey.global.halls)}
-          </StyledBurgerMenuItem>
-        </ListItem>
-
-        {/* hotels */}
-        <ListItem disablePadding>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.hotels}>
-            {t(langKey.global.hotels)}
-          </StyledBurgerMenuItem>
-        </ListItem>
-
-        {/* appartments */}
-        <ListItem disablePadding>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.apartments}>
-            {t(langKey.global.apartments)}
-          </StyledBurgerMenuItem>
-        </ListItem>
+        {burgerItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemIcon>{<item.icon />}</ListItemIcon>
+            <StyledBurgerMenuItem to={item.url}>
+              {item.lang}
+            </StyledBurgerMenuItem>
+          </ListItem>
+        ))}
       </List>
     </Box>
   );
 
   return (
     <div>
-      {/* <Button onClick={toggleDrawer("top", true)}>{"top"}</Button> */}
       <MenuIcon onClick={toggleDrawer("top", true)} />
       <Drawer
         anchor={"top"}
         open={state["top"]}
         onClose={toggleDrawer("top", false)}
       >
-        {list("top")}
+        {list()}
       </Drawer>
     </div>
   );
