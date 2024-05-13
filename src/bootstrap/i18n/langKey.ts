@@ -12,8 +12,8 @@ const langKey = {
     login: "global.login",
     hotels: "global.hotels",
     chalets: "global.chalets",
-    retreats: "global.retreats",
     halls: "global.halls",
+    apartments: "global.apartments",
   },
 
   mainPage: {

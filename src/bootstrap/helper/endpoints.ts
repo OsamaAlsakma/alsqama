@@ -2,8 +2,8 @@ export const servicesPageEndpoint = {
   main: "/alsqama",
   chalets: "/alsqama/chalets",
   halls: "/alsqama/halls",
-  retreats: "/alsqama/retreats",
   hotels: "/alsqama/hotels",
+  apartments: "/alsqama/apartments",
 };
 
 export const endpointsUrl = {

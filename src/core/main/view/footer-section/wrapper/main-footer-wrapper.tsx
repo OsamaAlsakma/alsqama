@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import {
   HandlingSectionPaddingWrapper,
   StyledAppDivider,
 } from "~/bootstrap/helper/global-styles";
+import langKey from "~/bootstrap/i18n/langKey";
 import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
 import {
   CopyrightNotice,
@@ -22,6 +24,8 @@ const MainFooterWrapper = () => {
     });
   };
 
+  const { t } = useTranslation();
+
   return (
     <HandlingSectionPaddingWrapper>
       <MainFooterLogoAndServices>
@@ -33,18 +37,18 @@ const MainFooterWrapper = () => {
         </StyleMainLogo>
         <MainFooterMainServices>
           <MainFooterMainService to={servicesPageEndpoint.hotels}>
-            فنادق
+            {t(langKey.global.hotels)}
           </MainFooterMainService>
           <MainFooterMainService to={servicesPageEndpoint.chalets}>
-            شاليهات
+            {t(langKey.global.chalets)}
           </MainFooterMainService>
           <MainFooterMainService to={servicesPageEndpoint.halls}>
-            صالات.أفراح
+            {t(langKey.global.halls)}
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.retreats}>
-            منتجعات
+          <MainFooterMainService to={servicesPageEndpoint.apartments}>
+            {t(langKey.global.apartments)}
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.retreats}>
+          <MainFooterMainService to={servicesPageEndpoint.apartments}>
             شروط الاستخدام
           </MainFooterMainService>
         </MainFooterMainServices>

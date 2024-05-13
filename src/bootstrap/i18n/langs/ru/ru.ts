@@ -9,7 +9,7 @@ const ru: typeof langKey = {
     login: " Войти ",
     hotels: "Отели",
     chalets: "Шале",
-    retreats: "Ретриты",
+    apartments: "Квартиры",
     halls: "Залы",
   },
   mainPage: {
