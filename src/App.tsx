@@ -7,12 +7,16 @@ import HotelItemsPage from "~/core/hotels/page/hotel-items-page";
 import HotelItemDetailsPage from "~/core/hotels/page/hotel-item-details-page";
 import HallsPage from "~/core/halls/page/halls-page";
 import HallDetailsPage from "~/core/halls/page/hall-details-page";
-import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
+import {
+  servicesPageEndpoint,
+  supportEndpoint,
+} from "~/bootstrap/helper/endpoints";
 import ChaletsPage from "~/core/chalets/page/chalets-page";
 import HotelsPage from "~/core/hotels/page/hotels-page";
 import MainPage from "~/core/main/page/main-page";
 import MainHeader from "~/support/header/main-header/main-header";
 import ApartmentsPage from "~/core/Apartments/page/apartments-page";
+import TermOfUsePage from "~/support/pages/term-of-use/term-of-use-page";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${palette.appHeaderHeight};
@@ -59,6 +63,11 @@ function App() {
           <Route
             path={`${servicesPageEndpoint.apartments}/:id`}
             element={<ChaletDetailsPage />}
+          />
+          {/* Term of use */}
+          <Route
+            path={`${supportEndpoint.termsOfUse}`}
+            element={<TermOfUsePage />}
           />
         </Routes>
       </PagesPaddedWrapper>

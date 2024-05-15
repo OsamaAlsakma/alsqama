@@ -6,6 +6,10 @@ export const servicesPageEndpoint = {
   apartments: "/alsqama/apartments",
 };
 
+export const supportEndpoint = {
+  termsOfUse: "/alsqama/termsOfUse",
+};
+
 export const endpointsUrl = {
   /* --------------------------------- Chalets -------------------------------- */
   allChalets: "https://run.mocky.io/v3/ed159a89-6359-45d4-b086-9532194d403f",
@@ -25,4 +29,7 @@ export const endpointsUrl = {
   allRetreats: "https://run.mocky.io/v3/ac044f62-0728-499b-9a4a-9684c27040d2",
   retreatDetails:
     "https://run.mocky.io/v3/9d469e41-7e1f-473e-9a2e-6e831f5daa6f",
+
+  /* ------------------------------ Terms of use ------------------------------ */
+  termsOfUse: "https://run.mocky.io/v3/e0cf18f0-e139-463f-ad8e-6a5b37b62b41",
 };

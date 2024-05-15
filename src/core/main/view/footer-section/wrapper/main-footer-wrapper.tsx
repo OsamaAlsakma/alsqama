@@ -1,5 +1,8 @@
 import { useTranslation } from "react-i18next";
-import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
+import {
+  servicesPageEndpoint,
+  supportEndpoint,
+} from "~/bootstrap/helper/endpoints";
 import {
   HandlingSectionPaddingWrapper,
   StyledAppDivider,
@@ -48,7 +51,7 @@ const MainFooterWrapper = () => {
           <MainFooterMainService to={servicesPageEndpoint.apartments}>
             {t(langKey.global.apartments)}
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.apartments}>
+          <MainFooterMainService to={supportEndpoint.termsOfUse}>
             شروط الاستخدام
           </MainFooterMainService>
         </MainFooterMainServices>
