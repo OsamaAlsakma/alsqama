@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 import * as palette from "~/bootstrap/helper/global-helper";
+import CardMedia from "@mui/material/CardMedia/CardMedia";
 
 export const StyledMainDiscountsSwiper = styled(Swiper)`
   width: 48%;
@@ -16,6 +17,10 @@ export const StyledMainDiscountsSwiperSlide = styled(SwiperSlide)`
   border-radius: 8px;
 `;
 
+export const StyledMainDiscountsSwiperImage = styled(CardMedia)`
+  border-radius: 8px;
+`;
+
 export const StyledMainDiscountsTitle = styled.h3`
   font-size: 24px;
 `;
@@ -23,6 +28,7 @@ export const StyledMainDiscountsTitle = styled.h3`
 export const StyledMainDiscountsSubtitle = styled.p`
   font-size: 20px;
   line-height: 2;
+  text-align: justify;
 `;
 
 export const StyledMainDiscountsTitleAndSubtitle = styled.div`

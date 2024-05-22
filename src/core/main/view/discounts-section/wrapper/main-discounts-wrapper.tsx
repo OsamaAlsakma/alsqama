@@ -1,4 +1,3 @@
-import { CardMedia } from "@mui/material";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Mousewheel } from "swiper/modules";
@@ -8,6 +7,7 @@ import {
   StyledHandlingSectionPaddingWrapper,
   StyledMainDiscountsSubtitle,
   StyledMainDiscountsSwiper,
+  StyledMainDiscountsSwiperImage,
   StyledMainDiscountsSwiperSlide,
   StyledMainDiscountsTitle,
   StyledMainDiscountsTitleAndSubtitle,
@@ -26,12 +26,16 @@ const MainDiscountsWrapper = () => {
 
   return (
     <StyledHandlingSectionPaddingWrapper>
+      {/* Right side */}
       <MainDiscountsSwipersWrapper>
         <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
           {mainDiscountsSectionData.firstSwiperImages.map(
             (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
+                <StyledMainDiscountsSwiperImage
+                  image={`${image}`}
+                  sx={{ ...cardMediaStyle }}
+                />
               </StyledMainDiscountsSwiperSlide>
             )
           )}
@@ -40,12 +44,16 @@ const MainDiscountsWrapper = () => {
           {mainDiscountsSectionData.secondSwiperImages.map(
             (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
+                <StyledMainDiscountsSwiperImage
+                  image={`${image}`}
+                  sx={{ ...cardMediaStyle }}
+                />
               </StyledMainDiscountsSwiperSlide>
             )
           )}
         </StyledMainDiscountsSwiper>
       </MainDiscountsSwipersWrapper>
+      {/* center */}
       <StyledMainDiscountsTitleAndSubtitle>
         <StyledMainDiscountsTitle>
           {mainDiscountsSectionData.title}
@@ -54,12 +62,18 @@ const MainDiscountsWrapper = () => {
           {mainDiscountsSectionData.subTitle}
         </StyledMainDiscountsSubtitle>
       </StyledMainDiscountsTitleAndSubtitle>
+      {/* center */}
+
+      {/* left side */}
       <MainDiscountsSwipersWrapper>
         <StyledMainDiscountsSwiper {...swiperConfig} direction={"vertical"}>
           {mainDiscountsSectionData.thirdSwiperImages.map(
             (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
+                <StyledMainDiscountsSwiperImage
+                  image={`${image}`}
+                  sx={{ ...cardMediaStyle }}
+                />
               </StyledMainDiscountsSwiperSlide>
             )
           )}
@@ -69,7 +83,10 @@ const MainDiscountsWrapper = () => {
           {mainDiscountsSectionData.fourthSwiperImages.map(
             (image: string, index) => (
               <StyledMainDiscountsSwiperSlide key={index}>
-                <CardMedia image={`${image}`} sx={{ ...cardMediaStyle }} />
+                <StyledMainDiscountsSwiperImage
+                  image={`${image}`}
+                  sx={{ ...cardMediaStyle }}
+                />
               </StyledMainDiscountsSwiperSlide>
             )
           )}
