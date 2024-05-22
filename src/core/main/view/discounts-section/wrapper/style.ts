@@ -22,13 +22,14 @@ export const StyledMainDiscountsSwiperImage = styled(CardMedia)`
 `;
 
 export const StyledMainDiscountsTitle = styled.h3`
-  font-size: 24px;
+  font-size: 32px;
 `;
 
 export const StyledMainDiscountsSubtitle = styled.p`
-  font-size: 20px;
+  font-size: 24px;
   line-height: 2;
   text-align: justify;
+  font-weight: bold;
 `;
 
 export const StyledMainDiscountsTitleAndSubtitle = styled.div`

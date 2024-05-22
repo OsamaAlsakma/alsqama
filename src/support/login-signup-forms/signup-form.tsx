@@ -1,20 +1,22 @@
 import axios from "axios";
 import { useState } from "react";
 import di from "~/bootstrap/di";
+import { defaulyPhoneCode } from "~/bootstrap/helper/global-helper";
 import { SetState } from "~/bootstrap/helper/global-types";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import { LoginSignupForms } from "~/generic/components/login-signup-modal/login-signup-modal";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import {
-  LoginSignupFormContainer,
-  LoginSignupFormTitleAndIcon,
-  LoginSignupFormTitle,
-  LoginSignUpInput,
-  SubmitButton,
-  SwitchLoginSignupDiv,
-  SwitchLoginSignupButton,
-  SignupFormIcon,
   LoginFormErrorMessage,
+  LoginSignUpInput,
+  LoginSignUpInputPhoneNumber,
+  LoginSignupFormContainer,
+  LoginSignupFormTitle,
+  LoginSignupFormTitleAndIcon,
+  SignupFormIcon,
+  SubmitButton,
+  SwitchLoginSignupButton,
+  SwitchLoginSignupDiv,
 } from "~/support/login-signup-forms/style";
 
 interface ISignupFormProps {
@@ -26,6 +28,8 @@ const SignupForm = (props: ISignupFormProps) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState(defaulyPhoneCode);
+
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
@@ -61,6 +65,8 @@ const SignupForm = (props: ISignupFormProps) => {
         <LoginSignupFormTitle>إنشاء حساب جديد</LoginSignupFormTitle>
         <SignupFormIcon />
       </LoginSignupFormTitleAndIcon>
+
+      {/* Name */}
       <LoginSignUpInput
         disableUnderline
         type="text"
@@ -69,6 +75,7 @@ const SignupForm = (props: ISignupFormProps) => {
         onChange={(e) => setName(e.target.value)}
         required
       />
+      {/* Email */}
       <LoginSignUpInput
         disableUnderline
         type="email"
@@ -77,6 +84,13 @@ const SignupForm = (props: ISignupFormProps) => {
         onChange={(e) => setEmail(e.target.value)}
         required
       />
+      {/* Phone */}
+      <LoginSignUpInputPhoneNumber
+        value={phone}
+        onChange={(value) => setPhone(value)}
+        MenuProps={{ sx: { height: 400 } }}
+      />
+      {/* password */}
       <LoginSignUpInput
         disableUnderline
         type="password"
@@ -85,6 +99,16 @@ const SignupForm = (props: ISignupFormProps) => {
         onChange={(e) => setPassword(e.target.value)}
         required
       />
+      {/* password again */}
+      <LoginSignUpInput
+        disableUnderline
+        type="password"
+        placeholder="تأكيد كلمة المرور*"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        required
+      />
+      {/*  */}
       <SubmitButton type="submit">إنشاء حساب</SubmitButton>
       {isError && (
         <LoginFormErrorMessage>حدث خطأ في التسجيل</LoginFormErrorMessage>

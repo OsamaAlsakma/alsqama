@@ -5,6 +5,7 @@ import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 import LoginIcon from "@mui/icons-material/Login";
 import * as palette from "~/bootstrap/helper/global-helper";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { MuiTelInput } from "mui-tel-input";
 
 export const LoginSignupFormContainer = styled.form`
   display: flex;
@@ -51,6 +52,11 @@ export const LoginSignUpInput = styled(Input)`
     width: 100%;
     font-size: 18px;
   }
+`;
+
+export const LoginSignUpInputPhoneNumber = styled(MuiTelInput)`
+  border: 1px solid #3d3d40 !important;
+  border-radius: 8px;
 `;
 
 export const SubmitButton = styled(StyledMainAppButton)`
