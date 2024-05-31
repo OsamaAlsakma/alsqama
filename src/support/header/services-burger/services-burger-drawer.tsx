@@ -48,7 +48,6 @@ const ServicesBurgerDrawer = () => {
       ) {
         return;
       }
-
       setState({ ...state, ["top"]: open });
     };
 

@@ -10,7 +10,7 @@ export const StyledServicesBurger = styled.div`
 
 export const StyledServicesBurgerIconButton = styled.div`
   font-size: 36px;
-  color: white;
+  color: black;
   padding: 0;
   display: flex;
 `;

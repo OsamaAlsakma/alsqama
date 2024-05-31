@@ -11,5 +11,5 @@ export const StyledMainServicesAppButton = styled(AppButton)`
 
 export const StyledMainServicesLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  color: black;
 `;

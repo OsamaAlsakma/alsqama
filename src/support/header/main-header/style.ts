@@ -10,8 +10,8 @@ export const FixedHeader = styled.div`
 `;
 
 export const StyledMainHeader = styled.div`
-  background-color: ${palette.primaryColor};
-
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,5 +32,6 @@ export const StyledMainHeader = styled.div`
 
 export const StyledLocalizationAndLoginSignup = styled.div`
   display: flex;
+  align-items: center;
   gap: 8px;
 `;

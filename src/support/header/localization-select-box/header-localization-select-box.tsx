@@ -1,35 +1,42 @@
-import { useState } from "react";
+import { IconButton, Menu, MenuItem } from "@mui/material";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-
-import MenuItem from "@mui/material/MenuItem/MenuItem";
-import Select from "@mui/material/Select/Select";
-import { StyledLocalizationButtonFormControl } from "./style";
-import { LANGS } from "../../../bootstrap/i18n/init-i18n";
+import { LANGS } from "~/bootstrap/i18n/init-i18n";
+import {
+  GlobalStylesComponent,
+  StyledHeaderLocalizationIcon,
+  StyledHeaderLocalizationWrapper,
+} from "~/support/header/localization-select-box/style";
 
 const HeaderLocalizationSelectBox = () => {
   const { i18n } = useTranslation();
-
-  const [lang, setLang] = useState<LANGS>(i18n.language as LANGS);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleSetLanguage = (language: LANGS) => {
-    setLang(language);
     i18n.changeLanguage(language);
+    handleClose();
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <StyledLocalizationButtonFormControl>
-      <Select
-        labelId="demo-simple-select-autowidth-label"
-        id="demo-simple-select-autowidth"
-        value={lang}
-        onChange={(e) => handleSetLanguage(e.target.value as LANGS)}
-        autoWidth
-      >
-        <MenuItem value={LANGS.EN}>EN</MenuItem>
-        <MenuItem value={LANGS.AR}>AR</MenuItem>
-        <MenuItem value={LANGS.RU}>RU</MenuItem>
-      </Select>
-    </StyledLocalizationButtonFormControl>
+    <StyledHeaderLocalizationWrapper>
+      <GlobalStylesComponent />
+      <IconButton onClick={handleClick}>
+        <StyledHeaderLocalizationIcon />
+      </IconButton>
+      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+        <MenuItem onClick={() => handleSetLanguage(LANGS.EN)}>EN</MenuItem>
+        <MenuItem onClick={() => handleSetLanguage(LANGS.AR)}>AR</MenuItem>
+        <MenuItem onClick={() => handleSetLanguage(LANGS.RU)}>RU</MenuItem>
+      </Menu>
+    </StyledHeaderLocalizationWrapper>
   );
 };
 

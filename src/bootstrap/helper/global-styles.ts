@@ -78,7 +78,6 @@ export const inputPaddingStyle = {
 export const CardActionsButtonWithLink = styled(StyledMainServicesLink)`
   background-color: ${palette.secondaryColor};
   font-weight: bold;
-  color: black;
   border-radius: 8px;
   flex: 1;
   text-align: center;
