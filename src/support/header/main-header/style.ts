@@ -1,5 +1,12 @@
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import {
+  paddingBigScreens,
+  appHeaderHeight,
+  mediumScreenSize,
+  paddingMediumScreens,
+  smallScreenSize,
+  paddingSmallScreens,
+} from "~/bootstrap/helper/global-helper";
 
 export const FixedHeader = styled.div`
   position: fixed;
@@ -18,15 +25,15 @@ export const StyledMainHeader = styled.div`
 
   color: white;
 
-  padding: 0 ${palette.paddingBigScreens};
-  height: ${palette.appHeaderHeight};
+  padding: 0 ${paddingBigScreens};
+  height: ${appHeaderHeight};
 
-  @media (max-width: ${palette.mediumScreenSize}) {
-    padding: 0 ${palette.paddingMediumScreens};
+  @media (max-width: ${mediumScreenSize}) {
+    padding: 0 ${paddingMediumScreens};
   }
 
-  @media (max-width: ${palette.smallScreenSize}) {
-    padding: 0 ${palette.paddingSmallScreens};
+  @media (max-width: ${smallScreenSize}) {
+    padding: 0 ${paddingSmallScreens};
   }
 `;
 

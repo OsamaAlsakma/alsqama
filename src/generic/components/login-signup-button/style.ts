@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import AppButton from "../app-button/app-button";
-import * as palette from "./../../../bootstrap/helper/global-helper";
+import { secondaryColor } from "~/bootstrap/helper/global-helper";
 
 export const StyledLoginSignupButton = styled(AppButton)`
   && {
@@ -14,7 +14,7 @@ export const StyledLoginSignupButton = styled(AppButton)`
     }
 
     &:hover {
-      background-color: ${palette.secondaryColor};
+      background-color: ${secondaryColor};
     }
   }
 `;

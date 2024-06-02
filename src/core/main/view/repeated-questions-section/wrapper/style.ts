@@ -3,7 +3,7 @@ import AccordionSummary, {
 } from "@mui/material/AccordionSummary/AccordionSummary";
 import styled from "styled-components";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import * as palette from "~/bootstrap/helper/global-helper";
+import { primaryColor } from "~/bootstrap/helper/global-helper";
 
 export const StyledMainRepeatedQuestionsWrapper = styled.div`
   background-color: "#F9F9F9";
@@ -16,14 +16,14 @@ export const StyledRepeatedQuestionsAccordionQuestion = styled(
   && {
     font-weight: bold;
     font-size: 18px;
-    color: ${palette.primaryColor};
+    color: ${primaryColor};
     display: flex;
   }
 `;
 
 export const StyledRepeatedQuestionsListItemIcon = styled(ContactSupportIcon)`
   && {
-    color: ${palette.primaryColor};
+    color: ${primaryColor};
     width: 30px;
     height: 30px;
     margin-left: 10px;

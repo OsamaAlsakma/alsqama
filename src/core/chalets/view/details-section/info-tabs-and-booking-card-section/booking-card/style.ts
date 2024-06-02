@@ -1,6 +1,9 @@
 import Checkbox from "@mui/material/Checkbox";
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import {
+  mediumScreenSize,
+  secondaryColor,
+} from "~/bootstrap/helper/global-helper";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 
 /* -------------------------------------------------------------------------- */
@@ -13,7 +16,7 @@ export const DetailsBookingCardDiv = styled.div`
   padding: 24px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 100%;
   }
 `;
@@ -53,9 +56,9 @@ export const DetailsBookingCardConditionText = styled.p`
 export const DetailsBookingCardConfirmConditionCheckbox = styled(Checkbox)`
   && {
     padding: 0px;
-    color: ${palette.secondaryColor};
+    color: ${secondaryColor};
     &.Mui-checked {
-      color: ${palette.secondaryColor};
+      color: ${secondaryColor};
     }
   }
 `;

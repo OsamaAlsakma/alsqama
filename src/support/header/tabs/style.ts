@@ -1,15 +1,18 @@
 import { styled } from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import {
+  extraLargeScreenSize,
+  largeScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 export const StyledHeaderTabs = styled.div`
   font-size: 18px;
   display: flex;
   gap: 24px;
 
-  @media (max-width: ${palette.extraLargeScreenSize}) {
+  @media (max-width: ${extraLargeScreenSize}) {
     gap: 8px;
   }
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     display: none;
   }
 `;

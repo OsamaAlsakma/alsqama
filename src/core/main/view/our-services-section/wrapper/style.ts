@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
 
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon/SvgIcon";
+import {
+  primaryColor,
+  largeScreenSize,
+  smallScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 export const StyledMainOurServicesCard = styled.div`
   display: flex;
@@ -14,7 +18,7 @@ export const StyledMainOurServicesCardIcon = styled(SvgIcon)<SvgIconProps>`
   && {
     width: 36px;
     height: 36px;
-    color: ${palette.primaryColor};
+    color: ${primaryColor};
   }
 `;
 
@@ -29,11 +33,11 @@ export const StyledMainOurServicesWrapper = styled.div`
 
   grid-template-columns: repeat(3, 1fr);
 
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

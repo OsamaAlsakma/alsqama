@@ -1,6 +1,10 @@
 import Card from "@mui/material/Card/Card";
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import {
+  extraLargeScreenSize,
+  largeScreenSize,
+  mediumScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 export const StyledHotelsCardsCard = styled(Card)`
   && {
@@ -8,15 +12,15 @@ export const StyledHotelsCardsCard = styled(Card)`
     width: calc(25% - 20px);
     height: fit-content;
 
-    @media (max-width: ${palette.extraLargeScreenSize}) {
+    @media (max-width: ${extraLargeScreenSize}) {
       width: calc(32% - 20px);
     }
 
-    @media (max-width: ${palette.largeScreenSize}) {
+    @media (max-width: ${largeScreenSize}) {
       width: calc(50% - 20px);
     }
 
-    @media (max-width: ${palette.mediumScreenSize}) {
+    @media (max-width: ${mediumScreenSize}) {
       width: 100%;
     }
   }

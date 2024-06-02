@@ -1,13 +1,13 @@
 import styled from "styled-components";
+import { smallScreenSize } from "~/bootstrap/helper/global-helper";
 import { StyledMainServicesLink } from "~/generic/components/main-services/style";
-import * as palette from "~/bootstrap/helper/global-helper";
 
 export const MainFooterLogoAndServices = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     flex-direction: column;
     align-items: start;
   }
@@ -40,7 +40,7 @@ export const MainFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     flex-direction: column;
     text-align: center;
     gap: 6px;

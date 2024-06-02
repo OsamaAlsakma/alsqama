@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as pallete from "../../../../bootstrap/helper/global-helper";
+import { secondaryColor } from "~/bootstrap/helper/global-helper";
 
 export const MainPageSlideDescription = styled.div`
   position: absolute;
@@ -32,7 +32,7 @@ export const MainPageSlideDescriptionTitle = styled.span`
   display: block;
   padding-bottom: 8px;
   font-weight: bold;
-  color: ${pallete.secondaryColor};
+  color: ${secondaryColor};
   font-size: 48px;
 
   @media (max-width: 1024px) {

@@ -3,9 +3,9 @@ import Input from "@mui/material/Input/Input";
 import styled from "styled-components";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 import LoginIcon from "@mui/icons-material/Login";
-import * as palette from "~/bootstrap/helper/global-helper";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { MuiTelInput } from "mui-tel-input";
+import { primaryColor, secondaryColor } from "~/bootstrap/helper/global-helper";
 
 export const LoginSignupFormContainer = styled.form`
   display: flex;
@@ -73,12 +73,12 @@ export const SwitchLoginSignupDiv = styled.div`
 
 export const SwitchLoginSignupButton = styled(Button)`
   && {
-    color: ${palette.primaryColor};
+    color: ${primaryColor};
     transition: all 0.1;
     font-size: 16px;
     &:hover {
       background-color: transparent;
-      color: ${palette.secondaryColor};
+      color: ${secondaryColor};
     }
   }
 `;

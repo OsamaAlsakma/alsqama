@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import { primaryColor } from "~/bootstrap/helper/global-helper";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 
 export const StyledHandlingSectionPaddingWrapper = styled(
   HandlingSectionPaddingWrapper
 )`
-  background-color: ${palette.primaryColor};
+  background-color: ${primaryColor};
   display: flex;
   gap: 30px;
   justify-content: space-between;

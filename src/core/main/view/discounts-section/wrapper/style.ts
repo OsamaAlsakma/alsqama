@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
-import * as palette from "~/bootstrap/helper/global-helper";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
+import {
+  primaryColor,
+  largeScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 export const StyledMainDiscountsSwiper = styled(Swiper)`
   width: 48%;
@@ -45,13 +48,13 @@ export const StyledMainDiscountsTitleAndSubtitle = styled.div`
 export const StyledHandlingSectionPaddingWrapper = styled(
   HandlingSectionPaddingWrapper
 )`
-  background-color: ${palette.primaryColor};
+  background-color: ${primaryColor};
   display: grid;
   gap: 30px;
 
   grid-template-columns: repeat(3, 1fr);
 
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

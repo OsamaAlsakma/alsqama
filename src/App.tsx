@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
-import * as palette from "~/bootstrap/helper/global-helper";
 import styled from "styled-components";
 import ChaletDetailsPage from "~/core/chalets/page/chalet-details-page";
 import HotelItemsPage from "~/core/hotels/page/hotel-items-page";
@@ -17,9 +16,10 @@ import MainPage from "~/core/main/page/main-page";
 import MainHeader from "~/support/header/main-header/main-header";
 import ApartmentsPage from "~/core/Apartments/page/apartments-page";
 import TermOfUsePage from "~/support/pages/term-of-use/term-of-use-page";
+import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
 
 const PagesPaddedWrapper = styled.div`
-  padding-top: ${palette.appHeaderHeight};
+  padding-top: ${appHeaderHeight};
 `;
 
 function App() {
