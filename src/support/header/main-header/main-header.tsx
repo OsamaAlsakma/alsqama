@@ -2,10 +2,8 @@ import di from "~/bootstrap/di";
 import Store from "~/bootstrap/helper/store/store-type";
 import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
 import LoginSignupNewButton from "~/generic/components/login-signup-button/login-signup-new-button";
-import LoginSignupModal from "~/generic/components/login-signup-modal/login-signup-modal";
 import LogoAndHeaderTabs from "~/generic/components/main-logo/logo-and-header-tabs";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
-import HeaderLoginSignupIcon from "~/support/header/header-login-signup-icon/header-login-signup-icon";
 import HeaderLocalizationSelectBox from "~/support/header/localization-select-box/header-localization-select-box";
 import {
   FixedHeader,
@@ -26,15 +24,12 @@ const MainHeader = () => {
   return (
     <FixedHeader>
       <StyledMainHeader>
-        {/* burger for small screens */}
         <ServicesBurgerDrawer />
         <LogoAndHeaderTabs />
         <StyledLocalizationAndLoginSignup>
-          {/* localization */}
           <HeaderLocalizationSelectBox />
           <OpenModlaProvider>
             {token ? <HeaderUserAvatar /> : <LoginSignupNewButton />}
-            {/* <LoginSignupModal /> */}
             {/* <HeaderLoginSignupIcon /> */}
           </OpenModlaProvider>
         </StyledLocalizationAndLoginSignup>

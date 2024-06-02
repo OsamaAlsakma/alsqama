@@ -4,7 +4,7 @@ import di from "~/bootstrap/di";
 import { defaulyPhoneCode } from "~/bootstrap/helper/global-helper";
 import { SetState } from "~/bootstrap/helper/global-types";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
-import { LoginSignupForms } from "~/generic/components/login-signup-modal/login-signup-modal";
+import { LoginSignupForms } from "~/generic/components/login-signup-button/login-signup-new-button";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import {
   LoginFormErrorMessage,
@@ -44,8 +44,6 @@ const SignupForm = (props: ISignupFormProps) => {
         password,
       });
       if (response.status === 200) {
-        console.log("token", response.data.token);
-
         setIsOpen(false);
         setName("");
         setEmail("");
