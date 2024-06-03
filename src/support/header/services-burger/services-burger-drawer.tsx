@@ -12,7 +12,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
-import { primaryColor } from "~/bootstrap/helper/global-helper";
+import {
+  appHeaderHeight,
+  primaryColor,
+} from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
 import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
 import {
@@ -100,12 +103,23 @@ const ServicesBurgerDrawer = () => {
   );
 
   return (
+    // Wrapper
     <StyledServicesBurger>
+      {/* Button */}
       <StyledServicesBurgerIconButton onClick={toggleDrawer(true)}>
         <MenuIcon sx={{ fontSize: "inherit" }} />
       </StyledServicesBurgerIconButton>
-
-      <Drawer anchor={"top"} open={state["top"]} onClose={toggleDrawer(false)}>
+      {/* content */}
+      <Drawer
+        anchor={"top"}
+        open={state["top"]}
+        onClose={toggleDrawer(false)}
+        sx={{
+          "& .MuiPaper-root": {
+            top: `${appHeaderHeight}`,
+          },
+        }}
+      >
         {list()}
       </Drawer>
     </StyledServicesBurger>
