@@ -40,5 +40,4 @@ export const StyledMainHeader = styled.div`
 export const StyledLocalizationAndLoginSignup = styled.div`
   display: flex;
   align-items: center;
-  gap: 8px;
 `;

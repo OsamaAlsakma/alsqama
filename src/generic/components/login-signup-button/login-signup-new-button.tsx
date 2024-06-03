@@ -8,6 +8,7 @@ import { Button, Menu } from "@mui/material";
 import di from "~/bootstrap/di/init-di";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import LoginSignupModal from "~/generic/components/login-signup-modal/login-signup-modal";
+import { largeScreenSize } from "~/bootstrap/helper/global-helper";
 
 const LoginSignupNewButtonWrapper = styled(Button)`
   && {
@@ -17,11 +18,18 @@ const LoginSignupNewButtonWrapper = styled(Button)`
     display: flex;
     gap: 6px;
     align-items: center;
+    min-width: fit-content;
     &:hover {
       box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3) !important;
     }
+    @media (max-width: ${largeScreenSize}) {
+      border: none;
+      padding: 0px;
+      gap: 0px;
+    }
   }
 `;
+
 const headerLoginIconsCommonStyle = `
 color: #666666;
 font-size: 32px;
@@ -31,11 +39,17 @@ const StyledMenuIcon = styled(MenuIcon)`
   && {
     ${headerLoginIconsCommonStyle}
   }
+  @media (max-width: ${largeScreenSize}) {
+    display: none !important;
+  }
 `;
 
 const StyledAccountCircleIcon = styled(AccountCircleIcon)`
   && {
     ${headerLoginIconsCommonStyle}
+    @media (max-width: ${largeScreenSize}) {
+      font-size: 36px;
+    }
   }
 `;
 
@@ -72,7 +86,7 @@ const LoginSignupNewButton = () => {
         <StyledAccountCircleIcon />
       </LoginSignupNewButtonWrapper>
       <Menu
-        style={{ marginTop: "4px", zIndex:9001 }}
+        style={{ marginTop: "4px", zIndex: 9001 }}
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
