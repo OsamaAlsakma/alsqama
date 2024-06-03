@@ -5,37 +5,22 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon/ListItemIcon";
+import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
-import {
-  appHeaderHeight,
-  primaryColor,
-} from "~/bootstrap/helper/global-helper";
+import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
 import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
 import {
+  HeaderDrawerList,
+  HeaderDrawerListItem,
+  SocialMediaIconsWrapper,
   StyledBurgerMenuItem,
+  StyledListItemIcon,
   StyledServicesBurger,
   StyledServicesBurgerIconButton,
 } from "~/support/header/services-burger/style";
-
-const StyledListItemIcon = styled(ListItemIcon)`
-  && {
-    min-width: fit-content;
-    color: ${primaryColor};
-  }
-`;
-
-const SocialMediaIconsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 8px;
-`;
 
 const ServicesBurgerDrawer = () => {
   const [state, setState] = useState({
@@ -86,16 +71,16 @@ const ServicesBurgerDrawer = () => {
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
     >
-      <List>
+      <HeaderDrawerList>
         {burgerItems.map((item, index) => (
-          <ListItem key={index}>
+          <HeaderDrawerListItem key={index}>
             <StyledListItemIcon>{<item.icon />}</StyledListItemIcon>
             <StyledBurgerMenuItem to={item.url}>
               {item.lang}
             </StyledBurgerMenuItem>
-          </ListItem>
+          </HeaderDrawerListItem>
         ))}
-      </List>
+      </HeaderDrawerList>
       <SocialMediaIconsWrapper>
         <MainFooterIcons />
       </SocialMediaIconsWrapper>
@@ -106,9 +91,15 @@ const ServicesBurgerDrawer = () => {
     // Wrapper
     <StyledServicesBurger>
       {/* Button */}
-      <StyledServicesBurgerIconButton onClick={toggleDrawer(true)}>
-        <MenuIcon sx={{ fontSize: "inherit" }} />
-      </StyledServicesBurgerIconButton>
+      {!state.top ? (
+        <StyledServicesBurgerIconButton onClick={toggleDrawer(true)}>
+          <MenuIcon sx={{ fontSize: "inherit" }} />
+        </StyledServicesBurgerIconButton>
+      ) : (
+        <StyledServicesBurgerIconButton onClick={toggleDrawer(false)}>
+          <ClearIcon sx={{ fontSize: "inherit" }} />
+        </StyledServicesBurgerIconButton>
+      )}
       {/* content */}
       <Drawer
         anchor={"top"}
