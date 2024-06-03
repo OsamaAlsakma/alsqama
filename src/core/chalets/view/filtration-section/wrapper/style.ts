@@ -1,7 +1,12 @@
 import Input from "@mui/material/Input/Input";
 import { styled } from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
 import SearchIcon from "@mui/icons-material/Search";
+import {
+  largeScreenSize,
+  mediumScreenSize,
+  primaryColor,
+  secondaryColor,
+} from "~/bootstrap/helper/global-helper";
 
 export const StyledChaletsFilterationWrapper = styled.div`
   width: 100%;
@@ -25,17 +30,17 @@ export const ChaletsFilterationSearchInput = styled(Input)`
     padding-right: 16px !important;
     ${inputCommonProps}
     width: 40%;
-    @media (max-width: ${palette.largeScreenSize}) {
+    @media (max-width: ${largeScreenSize}) {
       width: 60%;
     }
-    @media (max-width: ${palette.mediumScreenSize}) {
+    @media (max-width: ${mediumScreenSize}) {
       width: 100%;
     }
   }
 `;
 
 export const StyledSearchIcon = styled(SearchIcon)`
-  background-color: ${palette.primaryColor};
+  background-color: ${primaryColor};
   padding: 4px;
   border-radius: 50%;
   color: white;
@@ -48,10 +53,10 @@ export const ChaletsFilterationSpecificSearchWrapper = styled.div`
   justify-content: center;
   gap: 8px;
   width: 40%;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     width: 60%;
   }
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 100%;
   }
 `;
@@ -61,7 +66,7 @@ export const ChaletsFilterationSpecificSearchInput = styled(Input)`
     ${inputCommonProps}
     color: black;
     border: none;
-    background-color: ${palette.secondaryColor};
+    background-color: ${secondaryColor};
     input::placeholder {
       opacity: 0.8;
     }

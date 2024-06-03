@@ -1,9 +1,14 @@
 import { styled } from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  mediumScreenSize,
+  smallScreenSize,
+  secondaryColor,
+  largeScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 const commonProps = `
 position: absolute;
@@ -16,19 +21,19 @@ cursor: pointer;
 color: white;
 padding: 8px;
 && {
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 14px;
     height: 14px;
     padding: 6px;
   }
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     display: none
   }
 }
 
 &:hover {
-  border-color: ${palette.secondaryColor};
-  color: ${palette.secondaryColor};
+  border-color: ${secondaryColor};
+  color: ${secondaryColor};
 }
 `;
 
@@ -43,10 +48,10 @@ export const CustomNextButton = styled(ArrowBackIosNewIcon)`
 export const MainContactUsTestimonialsSwiper = styled(Swiper)`
   width: 70%;
   align-self: center;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     width: 60%;
   }
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 100%;
   }
 `;
@@ -60,7 +65,7 @@ export const MainContactUsTestimonialsSlideSwiper = styled(SwiperSlide)`
   color: white;
   margin: auto;
 
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     flex-direction: column;
   }
 `;
@@ -68,7 +73,7 @@ export const MainContactUsTestimonialsSlideSwiper = styled(SwiperSlide)`
 export const MainContactUsTestimonialsTitleAndTestimonial = styled.div`
   width: fit-content;
   max-width: 35%;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     max-width: 85%;
     text-align: center;
   }
@@ -89,12 +94,12 @@ export const MainContactUsTestimonialsImage = styled(CardMedia)`
 
   object-fit: cover;
   border-radius: 50%;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     width: 125px;
     height: 125px;
   }
 
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 150px;
     height: 150px;
   }

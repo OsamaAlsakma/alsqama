@@ -1,18 +1,23 @@
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
+
+/* --------------------------------- Styling -------------------------------- */
 export const appHeaderHeight = "70px";
 export const paddingBigScreens = "5%";
 export const paddingMediumScreens = "3.5%";
 export const paddingSmallScreens = "3%";
 export const primaryColor = "#5a409b";
 export const secondaryColor = "#F2C900";
+export const mainFontFamily = "Tajawal";
 
+/* ------------------------------- Responsive ------------------------------- */
 export const smallScreenSize = "480px";
 export const mediumScreenSize = "768px";
 export const largeScreenSize = "1024px";
 export const extraLargeScreenSize = "1200px";
 
+/* --------------------------- Business variables --------------------------- */
 export const defaulyPhoneCode = "+967";
 
 /* -------------------------------------------------------------------------- */

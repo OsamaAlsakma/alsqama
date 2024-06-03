@@ -1,24 +1,32 @@
 import { Button } from "@mui/material";
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import {
+  mediumScreenSize,
+  paddingBigScreens,
+  paddingMediumScreens,
+  paddingSmallScreens,
+  primaryColor,
+  secondaryColor,
+  smallScreenSize,
+} from "~/bootstrap/helper/global-helper";
 import { StyledMainServicesLink } from "~/generic/components/main-services/style";
 
 export const StyledAppTitleWrapper = styled.h3`
-  color: ${palette.primaryColor};
+  color: ${primaryColor};
   margin: 16px 0;
 
   font-size: 36px;
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     font-size: 26px;
   }
 `;
 
 export const StyledAppSubTitleWrapper = styled.h4`
-  color: ${palette.primaryColor};
+  color: ${primaryColor};
   margin: 8px 0px;
   font-size: 26px;
   width: fit-content;
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     font-size: 20px;
   }
 `;
@@ -32,28 +40,28 @@ export const StyledAppNoteTitleWrapper = styled.span`
 `;
 
 export const HandlingSectionPaddingWrapper = styled.div`
-  padding: 32px ${palette.paddingBigScreens};
+  padding: 32px ${paddingBigScreens};
 
-  @media (max-width: ${palette.mediumScreenSize}) {
-    padding: 24px ${palette.paddingMediumScreens};
+  @media (max-width: ${mediumScreenSize}) {
+    padding: 24px ${paddingMediumScreens};
   }
 
-  @media (max-width: ${palette.smallScreenSize}) {
-    padding: 16px ${palette.paddingSmallScreens};
+  @media (max-width: ${smallScreenSize}) {
+    padding: 16px ${paddingSmallScreens};
   }
 `;
 
 export const StyledMainAppButton = styled(Button)`
   && {
     font-family: Tajawal;
-    background-color: ${palette.secondaryColor};
+    background-color: ${secondaryColor};
     font-weight: bold;
     font-size: 16px;
     color: black;
     border-radius: 8px;
 
     &:hover {
-      background-color: ${palette.secondaryColor};
+      background-color: ${secondaryColor};
     }
   }
 `;
@@ -76,9 +84,8 @@ export const inputPaddingStyle = {
  * This component is used inside the actions of any card.
  */
 export const CardActionsButtonWithLink = styled(StyledMainServicesLink)`
-  background-color: ${palette.secondaryColor};
+  background-color: ${secondaryColor};
   font-weight: bold;
-  color: black;
   border-radius: 8px;
   flex: 1;
   text-align: center;

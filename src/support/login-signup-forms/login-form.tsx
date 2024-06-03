@@ -4,7 +4,7 @@ import di from "~/bootstrap/di";
 import { SetState } from "~/bootstrap/helper/global-types";
 import Store from "~/bootstrap/helper/store/store-type";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
-import { LoginSignupForms } from "~/generic/components/login-signup-modal/login-signup-modal";
+import { LoginSignupForms } from "~/generic/components/login-signup-button/login-signup-new-button";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import NUserStore from "~/support/login-signup-forms/store/i-user-store";
 import { userStoreKey } from "~/support/login-signup-forms/store/user-store";

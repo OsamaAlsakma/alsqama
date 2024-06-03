@@ -1,12 +1,17 @@
 import TabPanel from "@mui/lab/TabPanel";
 import { Map } from "@pbe/react-yandex-maps";
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
 import StarIcon from "@mui/icons-material/Star";
 import TabList from "@mui/lab/TabList/TabList";
 import Tab from "@mui/material/Tab/Tab";
 import Box from "@mui/material/Box/Box";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import {
+  mediumScreenSize,
+  primaryColor,
+  secondaryColor,
+  largeScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 /* -------------------------------------------------------------------------- */
 /*                                  All Tabs                                  */
@@ -16,7 +21,7 @@ export const DetailsInfoTabsBox = styled(Box)`
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 100%;
   }
   height: fit-content;
@@ -43,7 +48,7 @@ export const DetailsInfoTabsTab = styled(Tab)`
     margin: 4px;
     font-size: 16px;
     &.Mui-selected {
-      background-color: ${palette.primaryColor};
+      background-color: ${primaryColor};
       color: white;
       text-decoration: none;
       border-bottom: none;
@@ -62,7 +67,7 @@ export const DetailsInfoTabsFeatureWrapper = styled.div`
 `;
 
 export const DetailsInfoTabsFeatureIcon = styled(StarIcon)`
-  color: ${palette.primaryColor};
+  color: ${primaryColor};
 `;
 
 /* -------------------------------------------------------------------------- */
@@ -123,17 +128,17 @@ export const ChaletsDetailsInfoTabsReviewsWrapper = styled.div`
 
   &::-webkit-scrollbar-thumb:hover {
     background: #555;
-    background: ${palette.primaryColor};
+    background: ${primaryColor};
   }
 `;
 
 export const ChaletsDetailsInfoTabsReviewWrapper = styled.div`
   width: calc(50% - 20px);
   border-radius: 16px;
-  border: 1px solid ${palette.secondaryColor};
+  border: 1px solid ${secondaryColor};
   padding: 3px;
   margin: 3px;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     width: 100%;
   }
 `;
@@ -142,7 +147,7 @@ export const ChaletsDetailsInfoTabsReviewReviewerIcon = styled(
   AccountCircleIcon
 )`
   && {
-    color: ${palette.primaryColor};
+    color: ${primaryColor};
     width: 64px;
     height: 64px;
   }

@@ -1,8 +1,8 @@
 import Card from "@mui/material/Card/Card";
 import CardActions from "@mui/material/CardActions/CardActions";
 import styled from "styled-components";
+import { secondaryColor } from "~/bootstrap/helper/global-helper";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
-import * as palette from "../../../../bootstrap/helper/global-helper";
 
 export const StyledCard = styled(Card)`
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
@@ -15,7 +15,7 @@ export const StyledMainHotelCardButton = styled(StyledMainAppButton)`
 `;
 
 export const StyledMainHotelCardNumberOfHotels = styled.span`
-  background-color: ${palette.secondaryColor};
+  background-color: ${secondaryColor};
   font-family: tajawal;
   padding: 4px 8px;
   padding-top: 8px;

@@ -1,11 +1,9 @@
 import di from "~/bootstrap/di";
 import Store from "~/bootstrap/helper/store/store-type";
 import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
-import LoginSignupButton from "~/generic/components/login-signup-button/login-signup-button";
-import LoginSignupModal from "~/generic/components/login-signup-modal/login-signup-modal";
-import MainLogo from "~/generic/components/main-logo/main-logo";
+import LoginSignupNewButton from "~/generic/components/login-signup-button/login-signup-new-button";
+import LogoAndHeaderTabs from "~/generic/components/main-logo/logo-and-header-tabs";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
-import HeaderLoginSignupIcon from "~/support/header/header-login-signup-icon/header-login-signup-icon";
 import HeaderLocalizationSelectBox from "~/support/header/localization-select-box/header-localization-select-box";
 import {
   FixedHeader,
@@ -13,7 +11,7 @@ import {
   StyledMainHeader,
 } from "~/support/header/main-header/style";
 import ServicesBurgerDrawer from "~/support/header/services-burger/services-burger-drawer";
-import HeaderTabs from "~/support/header/tabs/header-tabs";
+
 import HeaderUserAvatar from "~/support/header/user-avatar/header-user-avatar";
 import NUserStore from "~/support/login-signup-forms/store/i-user-store";
 import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
@@ -27,14 +25,12 @@ const MainHeader = () => {
     <FixedHeader>
       <StyledMainHeader>
         <ServicesBurgerDrawer />
-        <MainLogo />
-        <HeaderTabs />
+        <LogoAndHeaderTabs />
         <StyledLocalizationAndLoginSignup>
           <HeaderLocalizationSelectBox />
           <OpenModlaProvider>
-            {token ? <HeaderUserAvatar /> : <LoginSignupButton />}
-            <LoginSignupModal />
-            <HeaderLoginSignupIcon />
+            {token ? <HeaderUserAvatar /> : <LoginSignupNewButton />}
+            {/* <HeaderLoginSignupIcon /> */}
           </OpenModlaProvider>
         </StyledLocalizationAndLoginSignup>
       </StyledMainHeader>

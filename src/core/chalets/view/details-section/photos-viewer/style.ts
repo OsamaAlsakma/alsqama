@@ -1,6 +1,9 @@
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
+import {
+  largeScreenSize,
+  smallScreenSize,
+} from "~/bootstrap/helper/global-helper";
 import { StyledSwiper } from "~/core/main/view/slides/style";
 
 /* ------------------------- First position styling ------------------------- */
@@ -11,7 +14,7 @@ export const ChaletsDetailsPhotoAllImagesWrapper = styled.div`
   display: flex;
   gap: 8px;
   height: 500px;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     display: none;
   }
 `;
@@ -42,10 +45,10 @@ export const DetailsPhotoViewerSwiper = styled(StyledSwiper)`
   overflow: hidden;
   display: none;
   height: 500px;
-  @media (max-width: ${palette.largeScreenSize}) {
+  @media (max-width: ${largeScreenSize}) {
     display: block;
   }
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     height: 350px;
   }
 `;

@@ -1,8 +1,8 @@
 import Input from "@mui/material/Input/Input";
 import TextField from "@mui/material/TextField/TextField";
 import styled from "styled-components";
+import { smallScreenSize } from "~/bootstrap/helper/global-helper";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
-import * as palette from "~/bootstrap/helper/global-helper";
 
 export const MainContactUsFormWrapper = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ export const StyledMainContactUsForm = styled.form`
   width: 100%;
   color: white;
 
-  @media (max-width: ${palette.smallScreenSize}) {
+  @media (max-width: ${smallScreenSize}) {
     width: 100%;
   }
 `;

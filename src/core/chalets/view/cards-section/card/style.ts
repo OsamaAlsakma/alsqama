@@ -2,22 +2,28 @@ import Card from "@mui/material/Card/Card";
 import CardActions from "@mui/material/CardActions/CardActions";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import styled from "styled-components";
-import * as palette from "~/bootstrap/helper/global-helper";
 import StarIcon from "@mui/icons-material/Star";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import {
+  largeScreenSize,
+  mediumScreenSize,
+  primaryColor,
+  secondaryColor,
+  smallScreenSize,
+} from "~/bootstrap/helper/global-helper";
 
 export const StyledChaletsCardsCard = styled(Card)`
   && {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
     width: 32%;
     height: fit-content;
-    @media (max-width: ${palette.largeScreenSize}) {
+    @media (max-width: ${largeScreenSize}) {
       width: 48%;
     }
 
-    @media (max-width: ${palette.smallScreenSize}) {
+    @media (max-width: ${smallScreenSize}) {
       width: 100%;
     }
   }
@@ -74,7 +80,7 @@ export const ChaletsCardsCardTitleWrapper = styled.div`
 `;
 
 export const ChaletsCardsCardTitle = styled.span`
-  color: ${palette.primaryColor};
+  color: ${primaryColor};
   font-size: 22px;
   font-weight: bold;
 `;
@@ -90,7 +96,7 @@ export const ChaletsCardsCardRatingWrapper = styled.div`
 `;
 
 export const ChaletsCardsCardStarIcon = styled(StarIcon)`
-  color: ${palette.secondaryColor};
+  color: ${secondaryColor};
 `;
 
 /* -------------------------------------------------------------------------- */
@@ -110,7 +116,7 @@ export const ChaletsCardsCardFeature = styled.span<{ $isLeft?: boolean }>`
   width: 48%;
   justify-content: ${({ $isLeft }) => ($isLeft ? "left" : "right")};
 
-  @media (max-width: ${palette.mediumScreenSize}) {
+  @media (max-width: ${mediumScreenSize}) {
     width: 100%;
     justify-content: right;
   }
