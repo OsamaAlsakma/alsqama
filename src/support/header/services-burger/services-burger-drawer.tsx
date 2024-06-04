@@ -1,17 +1,18 @@
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import ChaletIcon from "@mui/icons-material/Chalet";
+import ClearIcon from "@mui/icons-material/Clear";
 import FestivalIcon from "@mui/icons-material/Festival";
 import HotelIcon from "@mui/icons-material/Hotel";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import ClearIcon from "@mui/icons-material/Clear";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
 import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
+import ServicesBurgerDrawerLocalization from "~/support/header/services-burger/services-burger-drawer-localization";
 import {
   HeaderDrawerList,
   HeaderDrawerListItem,
@@ -81,6 +82,7 @@ const ServicesBurgerDrawer = () => {
           </HeaderDrawerListItem>
         ))}
       </HeaderDrawerList>
+      <ServicesBurgerDrawerLocalization />
       <SocialMediaIconsWrapper>
         <MainFooterIcons />
       </SocialMediaIconsWrapper>

@@ -86,7 +86,7 @@ const LoginSignupNewButton = () => {
         <StyledAccountCircleIcon />
       </LoginSignupNewButtonWrapper>
       <Menu
-        style={{ marginTop: "4px", zIndex: 9001 }}
+        style={{ marginTop: "6px", zIndex: 9001 }}
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}

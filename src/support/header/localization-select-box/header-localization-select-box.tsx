@@ -28,10 +28,15 @@ const HeaderLocalizationSelectBox = () => {
   return (
     <StyledHeaderLocalizationWrapper>
       <GlobalStylesComponent />
-      <IconButton onClick={handleClick}>
+      <IconButton disableRipple onClick={handleClick}>
         <StyledHeaderLocalizationIcon />
       </IconButton>
-      <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        style={{ zIndex: 9001 }}
+      >
         <MenuItem onClick={() => handleSetLanguage(LANGS.EN)}>EN</MenuItem>
         <MenuItem onClick={() => handleSetLanguage(LANGS.AR)}>AR</MenuItem>
         <MenuItem onClick={() => handleSetLanguage(LANGS.RU)}>RU</MenuItem>
