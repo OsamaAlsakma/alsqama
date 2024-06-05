@@ -6,17 +6,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { FooterIconsWrapper } from "~/core/main/view/footer-section/footer-icons/style";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-type MainFooterIconsResponse = {
-  facebookUrl: string;
-  telegramUrl: string;
-  whatsappUrl: string;
-  email: {
-    emailUrl: string;
-    title: string;
-    body: string;
-  };
-};
+import { MainFooterIconsResponse } from "~/bootstrap/helper/global-types";
 
 const MainFooterIcons = () => {
   const iconsDimensions = {

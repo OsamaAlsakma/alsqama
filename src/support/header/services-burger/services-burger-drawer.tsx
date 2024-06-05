@@ -1,17 +1,16 @@
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import ChaletIcon from "@mui/icons-material/Chalet";
 import ClearIcon from "@mui/icons-material/Clear";
-import FestivalIcon from "@mui/icons-material/Festival";
 import HotelIcon from "@mui/icons-material/Hotel";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
-import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
+import ServicesBurgerDrawerContactUsIcons from "~/support/header/services-burger/services-burger-drawer-contact-us-icons";
 import ServicesBurgerDrawerLocalization from "~/support/header/services-burger/services-burger-drawer-localization";
 import {
   HeaderDrawerList,
@@ -22,6 +21,12 @@ import {
   StyledServicesBurger,
   StyledServicesBurgerIconButton,
 } from "~/support/header/services-burger/style";
+
+const HeaderDrawerServicesImg = styled.img`
+  width: 36px;
+  height: 36px;
+  margin-bottom: 9px;
+`;
 
 const ServicesBurgerDrawer = () => {
   const [state, setState] = useState({
@@ -45,12 +50,12 @@ const ServicesBurgerDrawer = () => {
     {
       url: servicesPageEndpoint.chalets,
       lang: t(langKey.global.chalets),
-      icon: ChaletIcon,
+      icon: "./icons/chalet-icon.svg",
     },
     {
       url: servicesPageEndpoint.halls,
       lang: t(langKey.global.halls),
-      icon: FestivalIcon,
+      icon: "./icons/hall-icon.svg",
     },
     {
       url: servicesPageEndpoint.hotels,
@@ -75,7 +80,13 @@ const ServicesBurgerDrawer = () => {
       <HeaderDrawerList>
         {burgerItems.map((item, index) => (
           <HeaderDrawerListItem key={index}>
-            <StyledListItemIcon>{<item.icon />}</StyledListItemIcon>
+            {typeof item.icon === "string" ? (
+              <HeaderDrawerServicesImg src={item.icon} alt={item.lang} />
+            ) : (
+              <StyledListItemIcon>
+                {<item.icon style={{ fontSize: "36px" }} />}
+              </StyledListItemIcon>
+            )}
             <StyledBurgerMenuItem to={item.url}>
               {item.lang}
             </StyledBurgerMenuItem>
@@ -84,7 +95,7 @@ const ServicesBurgerDrawer = () => {
       </HeaderDrawerList>
       <ServicesBurgerDrawerLocalization />
       <SocialMediaIconsWrapper>
-        <MainFooterIcons />
+        <ServicesBurgerDrawerContactUsIcons />
       </SocialMediaIconsWrapper>
     </Box>
   );
