@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
-import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
+import { appBaseUrl, appHeaderHeight } from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
 import ServicesBurgerDrawerContactUsIcons from "~/support/header/services-burger/services-burger-drawer-contact-us-icons";
 import ServicesBurgerDrawerLocalization from "~/support/header/services-burger/services-burger-drawer-localization";
@@ -50,12 +50,12 @@ const ServicesBurgerDrawer = () => {
     {
       url: servicesPageEndpoint.chalets,
       lang: t(langKey.global.chalets),
-      icon: "/alsqama/icons/chalet-icon.svg",
+      icon: `/${appBaseUrl}/icons/chalet-icon.svg`,
     },
     {
       url: servicesPageEndpoint.halls,
       lang: t(langKey.global.halls),
-      icon: "/alsqama/icons/hall-icon.svg",
+      icon: `/${appBaseUrl}/icons/hall-icon.svg`,
     },
     {
       url: servicesPageEndpoint.hotels,

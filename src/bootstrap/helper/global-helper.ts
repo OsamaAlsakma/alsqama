@@ -18,6 +18,7 @@ export const largeScreenSize = "1024px";
 export const extraLargeScreenSize = "1200px";
 
 /* --------------------------- Business variables --------------------------- */
+export const appBaseUrl = "alsqama"
 export const defaulyPhoneCode = "+967";
 
 /* -------------------------------------------------------------------------- */

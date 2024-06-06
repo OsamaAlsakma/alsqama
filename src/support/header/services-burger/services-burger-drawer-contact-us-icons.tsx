@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import { MainFooterIconsResponse } from "~/bootstrap/helper/global-types";
 import { MainFooterContactIcon } from "~/core/main/view/footer-section/wrapper/style";
 
@@ -40,22 +41,22 @@ const ServicesBurgerDrawerContactUsIcons = () => {
 
   const contactUsIconsData = [
     {
-      logo: "/alsqama/icons/facebook-logo.svg",
+      logo: `/${appBaseUrl}/icons/facebook-logo.svg`,
       alt: "facebook",
       url: iconsData?.facebookUrl,
     },
     {
-      logo: "/alsqama/icons/instagram-logo.svg",
+      logo:`/${appBaseUrl}/icons/instagram-logo.svg`,
       alt: "instagram",
       url: iconsData?.facebookUrl,
     },
     {
-      logo: "/alsqama/icons/whatsapp-logo.svg",
+      logo: `/${appBaseUrl}/icons/whatsapp-logo.svg`,
       alt: "whatsapp",
       url: iconsData?.facebookUrl,
     },
     {
-      logo: "/alsqama/icons/email-logo.svg",
+      logo: `/${appBaseUrl}/icons/email-logo.svg`,
       alt: "email",
       url: iconsData?.facebookUrl,
     },
