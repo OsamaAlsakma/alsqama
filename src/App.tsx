@@ -17,60 +17,68 @@ import MainHeader from "~/support/header/main-header/main-header";
 import ApartmentsPage from "~/core/Apartments/page/apartments-page";
 import TermOfUsePage from "~/support/pages/term-of-use/term-of-use-page";
 import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
+import SelectedTabCTX from "~/generic/context/selected-tab-ctx";
+import di from "~/bootstrap/di";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${appHeaderHeight};
 `;
 
 function App() {
+  const { Provider: SelectTabProvider } = di.resolve(SelectedTabCTX);
   return (
     <>
-      <MainHeader />
-      <PagesPaddedWrapper>
-        <Routes>
-          {/* Main */}
-          <Route path={servicesPageEndpoint.main} element={<MainPage />} />
-          {/* Chalets */}
-          <Route
-            path={servicesPageEndpoint.chalets}
-            element={<ChaletsPage />}
-          />
-          <Route
-            path={`${servicesPageEndpoint.chalets}/:id`}
-            element={<ChaletDetailsPage />}
-          />
-          {/* Halls */}
-          <Route path={servicesPageEndpoint.halls} element={<HallsPage />} />
-          <Route
-            path={`${servicesPageEndpoint.halls}/:id`}
-            element={<HallDetailsPage />}
-          />
-          {/* Hotels */}
-          <Route path={servicesPageEndpoint.hotels} element={<HotelsPage />} />
-          <Route
-            path={`${servicesPageEndpoint.hotels}/:id`}
-            element={<HotelItemsPage />}
-          />
-          <Route
-            path={`${servicesPageEndpoint.hotels}/:id/:id`}
-            element={<HotelItemDetailsPage />}
-          />
-          {/* Apartments */}
-          <Route
-            path={servicesPageEndpoint.apartments}
-            element={<ApartmentsPage />}
-          />
-          <Route
-            path={`${servicesPageEndpoint.apartments}/:id`}
-            element={<ChaletDetailsPage />}
-          />
-          {/* Term of use */}
-          <Route
-            path={`${supportEndpoint.termsOfUse}`}
-            element={<TermOfUsePage />}
-          />
-        </Routes>
-      </PagesPaddedWrapper>
+      <SelectTabProvider>
+        <MainHeader />
+        <PagesPaddedWrapper>
+          <Routes>
+            {/* Main */}
+            <Route path={servicesPageEndpoint.main} element={<MainPage />} />
+            {/* Chalets */}
+            <Route
+              path={servicesPageEndpoint.chalets}
+              element={<ChaletsPage />}
+            />
+            <Route
+              path={`${servicesPageEndpoint.chalets}/:id`}
+              element={<ChaletDetailsPage />}
+            />
+            {/* Halls */}
+            <Route path={servicesPageEndpoint.halls} element={<HallsPage />} />
+            <Route
+              path={`${servicesPageEndpoint.halls}/:id`}
+              element={<HallDetailsPage />}
+            />
+            {/* Hotels */}
+            <Route
+              path={servicesPageEndpoint.hotels}
+              element={<HotelsPage />}
+            />
+            <Route
+              path={`${servicesPageEndpoint.hotels}/:id`}
+              element={<HotelItemsPage />}
+            />
+            <Route
+              path={`${servicesPageEndpoint.hotels}/:id/:id`}
+              element={<HotelItemDetailsPage />}
+            />
+            {/* Apartments */}
+            <Route
+              path={servicesPageEndpoint.apartments}
+              element={<ApartmentsPage />}
+            />
+            <Route
+              path={`${servicesPageEndpoint.apartments}/:id`}
+              element={<ChaletDetailsPage />}
+            />
+            {/* Term of use */}
+            <Route
+              path={`${supportEndpoint.termsOfUse}`}
+              element={<TermOfUsePage />}
+            />
+          </Routes>
+        </PagesPaddedWrapper>
+      </SelectTabProvider>
     </>
   );
 }

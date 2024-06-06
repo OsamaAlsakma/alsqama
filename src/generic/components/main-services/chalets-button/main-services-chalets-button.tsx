@@ -1,12 +1,16 @@
 import MainServicesChaletsButtonVM from "./main-services-chalets-button-vm";
 import { StyledMainServicesAppButton, StyledMainServicesLink } from "../style";
-import { servicesPageEndpoint } from "../../../../bootstrap/helper/endpoints";
+import di from "~/bootstrap/di";
+import { HeaderSelectedTabProps } from "~/support/header/tabs/header-tabs";
+import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 
-const MainServicesChaletsButton = () => {
-  const vm = new MainServicesChaletsButtonVM().useVM();
+const MainServicesChaletsButton = (props: HeaderSelectedTabProps) => {
+  const vm = di.resolve(MainServicesChaletsButtonVM).useVM();
+  const isSelected = props.selectedTab === vm.props.href;
+
   return (
     <StyledMainServicesLink to={servicesPageEndpoint.chalets}>
-      <StyledMainServicesAppButton vm={vm} />
+      <StyledMainServicesAppButton isSelected={isSelected} vm={vm} />
     </StyledMainServicesLink>
   );
 };

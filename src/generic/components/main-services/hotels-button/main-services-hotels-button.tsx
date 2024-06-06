@@ -1,15 +1,18 @@
+import di from "~/bootstrap/di";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
 import MainServicesHotelsButtonVM from "~/generic/components/main-services/hotels-button/main-services-hotels-button-vm";
 import {
-  StyledMainServicesLink,
   StyledMainServicesAppButton,
+  StyledMainServicesLink,
 } from "~/generic/components/main-services/style";
+import { HeaderSelectedTabProps } from "~/support/header/tabs/header-tabs";
 
-const MainServicesHotelsButton = () => {
-  const vm = new MainServicesHotelsButtonVM().useVM();
+const MainServicesHotelsButton = (props: HeaderSelectedTabProps) => {
+  const vm = di.resolve(MainServicesHotelsButtonVM).useVM();
+  const isSelected = props.selectedTab === vm.props.href;
   return (
     <StyledMainServicesLink to={servicesPageEndpoint.hotels}>
-      <StyledMainServicesAppButton vm={vm} />
+      <StyledMainServicesAppButton isSelected={isSelected} vm={vm} />
     </StyledMainServicesLink>
   );
 };
