@@ -50,12 +50,12 @@ const ServicesBurgerDrawer = () => {
     {
       url: servicesPageEndpoint.chalets,
       lang: t(langKey.global.chalets),
-      icon: "./icons/chalet-icon.svg",
+      icon: "/alsqama/icons/chalet-icon.svg",
     },
     {
       url: servicesPageEndpoint.halls,
       lang: t(langKey.global.halls),
-      icon: "./icons/hall-icon.svg",
+      icon: "/alsqama/icons/hall-icon.svg",
     },
     {
       url: servicesPageEndpoint.hotels,

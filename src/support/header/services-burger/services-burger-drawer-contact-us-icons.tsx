@@ -40,22 +40,22 @@ const ServicesBurgerDrawerContactUsIcons = () => {
 
   const contactUsIconsData = [
     {
-      logo: "./icons/facebook-logo.svg",
+      logo: "/alsqama/icons/facebook-logo.svg",
       alt: "facebook",
       url: iconsData?.facebookUrl,
     },
     {
-      logo: "./icons/instagram-logo.svg",
+      logo: "/alsqama/icons/instagram-logo.svg",
       alt: "instagram",
       url: iconsData?.facebookUrl,
     },
     {
-      logo: "./icons/whatsapp-logo.svg",
+      logo: "/alsqama/icons/whatsapp-logo.svg",
       alt: "whatsapp",
       url: iconsData?.facebookUrl,
     },
     {
-      logo: "./icons/email-logo.svg",
+      logo: "/alsqama/icons/email-logo.svg",
       alt: "email",
       url: iconsData?.facebookUrl,
     },
