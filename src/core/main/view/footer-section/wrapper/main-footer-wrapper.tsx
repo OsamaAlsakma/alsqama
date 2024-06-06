@@ -8,7 +8,6 @@ import {
   StyledAppDivider,
 } from "~/bootstrap/helper/global-styles";
 import langKey from "~/bootstrap/i18n/langKey";
-import MainFooterIcons from "~/core/main/view/footer-section/footer-icons/main-footer-icons";
 import {
   CopyrightNotice,
   MainFooter,
@@ -18,6 +17,7 @@ import {
   StyleMainLogo,
 } from "~/core/main/view/footer-section/wrapper/style";
 import LoginSignupButton from "~/generic/components/login-signup-button/login-signup-button";
+import ServicesBurgerDrawerContactUsIcons from "~/support/header/services-burger/services-burger-drawer-contact-us-icons";
 
 const MainFooterWrapper = () => {
   const scrollToTopOnClickOnLogo = () => {
@@ -52,7 +52,7 @@ const MainFooterWrapper = () => {
             {t(langKey.global.apartments)}
           </MainFooterMainService>
           <MainFooterMainService to={supportEndpoint.termsOfUse}>
-            شروط الاستخدام
+            {t(langKey.header.termsOfUse)}
           </MainFooterMainService>
         </MainFooterMainServices>
       </MainFooterLogoAndServices>
@@ -60,7 +60,7 @@ const MainFooterWrapper = () => {
       <MainFooter>
         <CopyrightNotice>جميع الحقوق محفوظة © 2016-2024 حجزي</CopyrightNotice>
         <LoginSignupButton />
-        <MainFooterIcons />
+        <ServicesBurgerDrawerContactUsIcons />
       </MainFooter>
     </HandlingSectionPaddingWrapper>
   );
