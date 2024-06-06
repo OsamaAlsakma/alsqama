@@ -32,7 +32,6 @@ export const StyledMainDiscountsSubtitle = styled.p`
   font-size: 24px;
   line-height: 2;
   text-align: justify;
-  font-weight: bold;
 `;
 
 export const StyledMainDiscountsTitleAndSubtitle = styled.div`
