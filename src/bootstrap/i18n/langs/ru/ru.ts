@@ -12,6 +12,9 @@ const ru: typeof langKey = {
     apartments: "Квартиры",
     halls: "Залы",
   },
+  header: {
+    termsOfUse: "Условия использования",
+  },
   mainPage: {
     signinOrSignup: "войдите или зарегистрируйтесь",
     username: "Имя пользователя",

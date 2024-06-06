@@ -1,4 +1,4 @@
-import langKey from "../../langKey";
+import langKey from "~/bootstrap/i18n/langKey";
 
 const en: typeof langKey = {
   global: {
@@ -11,6 +11,9 @@ const en: typeof langKey = {
     chalets: "Chalets",
     halls: "Halls",
     apartments: "Apartments",
+  },
+  header: {
+    termsOfUse: "Terms of use",
   },
   mainPage: {
     signinOrSignup: "Sign in or sign up",

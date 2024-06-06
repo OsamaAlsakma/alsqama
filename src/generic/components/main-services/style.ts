@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const StyledMainServicesAppButton = styled(AppButton)`
   && {
-    font-size: 22px;
+    font-size: 20px;
     font-family: Tajawal;
   }
 `;

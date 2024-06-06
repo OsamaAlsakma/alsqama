@@ -15,7 +15,9 @@ const langKey = {
     halls: "global.halls",
     apartments: "global.apartments",
   },
-
+  header: {
+    termsOfUse: "header.termsOfUse",
+  },
   mainPage: {
     signinOrSignup: "mainPage.signinOrSignup",
     username: "mainPage.username",

@@ -12,7 +12,9 @@ const ar: typeof langKey = {
     apartments: "شقق",
     halls: " صالات أفراح ",
   },
-
+  header: {
+    termsOfUse: "شروط الاستخدام",
+  },
   mainPage: {
     signinOrSignup: "الدخول أو إنشاء حساب",
     username: "اسم المستخدم",
