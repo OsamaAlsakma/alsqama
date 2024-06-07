@@ -4,12 +4,21 @@ import HotelIcon from "@mui/icons-material/Hotel";
 import MenuIcon from "@mui/icons-material/Menu";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
+import React from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import styled from "styled-components";
+import di from "~/bootstrap/di";
 import { servicesPageEndpoint } from "~/bootstrap/helper/endpoints";
-import { appBaseUrl, appHeaderHeight } from "~/bootstrap/helper/global-helper";
+import {
+  appHeaderHeight,
+  primaryColor,
+  secondaryColor,
+} from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
+import ChaletIconComponent from "~/bootstrap/icons/chalet-icon-component";
+import SelectedTabCTX, {
+  PossibleSelectedTabs,
+} from "~/generic/context/selected-tab-ctx";
 import ServicesBurgerDrawerContactUsIcons from "~/support/header/services-burger/services-burger-drawer-contact-us-icons";
 import ServicesBurgerDrawerLocalization from "~/support/header/services-burger/services-burger-drawer-localization";
 import {
@@ -21,12 +30,9 @@ import {
   StyledServicesBurger,
   StyledServicesBurgerIconButton,
 } from "~/support/header/services-burger/style";
-
-const HeaderDrawerServicesImg = styled.img`
-  width: 36px;
-  height: 36px;
-  margin-bottom: 9px;
-`;
+import { SvgIcon } from "@mui/material";
+import { SvgIconComponent } from "@mui/icons-material";
+import HallIconComponent from "~/bootstrap/icons/hall-icon-component";
 
 const ServicesBurgerDrawer = () => {
   const [state, setState] = useState({
@@ -46,28 +52,54 @@ const ServicesBurgerDrawer = () => {
     };
 
   const { t } = useTranslation();
+  // context
+  const { changeSelectedTab, selectedTab } = di
+    .resolve(SelectedTabCTX)
+    .useContext();
+
   const burgerItems = [
     {
       url: servicesPageEndpoint.chalets,
       lang: t(langKey.global.chalets),
-      icon: `/${appBaseUrl}/icons/chalet-icon.svg`,
+      icon: (
+        <ChaletIconComponent
+          color={
+            selectedTab === PossibleSelectedTabs.CHALET
+              ? `${secondaryColor}`
+              : `${primaryColor}`
+          }
+        />
+      ),
+      href: PossibleSelectedTabs.CHALET,
     },
     {
       url: servicesPageEndpoint.halls,
       lang: t(langKey.global.halls),
-      icon: `/${appBaseUrl}/icons/hall-icon.svg`,
+      icon: (
+        <HallIconComponent
+          color={
+            selectedTab === PossibleSelectedTabs.HALL
+              ? `${secondaryColor}`
+              : `${primaryColor}`
+          }
+        />
+      ),
+      href: PossibleSelectedTabs.HALL,
     },
     {
       url: servicesPageEndpoint.hotels,
       lang: t(langKey.global.hotels),
       icon: HotelIcon,
+      href: PossibleSelectedTabs.HOTEL,
     },
     {
       url: servicesPageEndpoint.apartments,
       lang: t(langKey.global.apartments),
       icon: ApartmentIcon,
+      href: PossibleSelectedTabs.APPARTMENT,
     },
   ];
+
   const list = () => (
     <Box
       sx={{
@@ -80,14 +112,25 @@ const ServicesBurgerDrawer = () => {
       <HeaderDrawerList>
         {burgerItems.map((item, index) => (
           <HeaderDrawerListItem key={index}>
-            {typeof item.icon === "string" ? (
-              <HeaderDrawerServicesImg src={item.icon} alt={item.lang} />
+            {item.href === PossibleSelectedTabs.HALL ||
+            item.href === PossibleSelectedTabs.CHALET ? (
+              (item.icon as JSX.Element)
             ) : (
-              <StyledListItemIcon>
-                {<item.icon style={{ fontSize: "36px" }} />}
+              <StyledListItemIcon isSelected={item.href === selectedTab}>
+                {
+                  <SvgIcon
+                    component={item.icon as SvgIconComponent}
+                    style={{ fontSize: "36px" }}
+                  />
+                }
               </StyledListItemIcon>
             )}
-            <StyledBurgerMenuItem to={item.url}>
+            <StyledBurgerMenuItem
+              onClick={() => {
+                changeSelectedTab(item.href);
+              }}
+              to={item.url}
+            >
               {item.lang}
             </StyledBurgerMenuItem>
           </HeaderDrawerListItem>

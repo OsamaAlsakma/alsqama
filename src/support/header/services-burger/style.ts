@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { mainFontFamily, primaryColor } from "~/bootstrap/helper/global-helper";
+import {
+  mainFontFamily,
+  primaryColor,
+  secondaryColor,
+} from "~/bootstrap/helper/global-helper";
 import { StyledMainServicesLink } from "~/generic/components/main-services/style";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -22,19 +26,20 @@ export const StyledServicesBurgerIconButton = styled.div`
 `;
 
 export const StyledBurgerMenuItem = styled(StyledMainServicesLink)`
-  color: black;
   padding: 0 16px;
   font-family: ${mainFontFamily};
   font-size: 18px;
+  color: black;
 `;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Drawer                                   */
 /* -------------------------------------------------------------------------- */
-export const StyledListItemIcon = styled(ListItemIcon)`
+export const StyledListItemIcon = styled(ListItemIcon)<{ isSelected: boolean }>`
   && {
     min-width: fit-content;
-    color: ${primaryColor};
+    color: ${({ isSelected }) =>
+      isSelected ? `${secondaryColor}` : `${primaryColor}`};
   }
 `;
 
