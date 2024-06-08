@@ -9,6 +9,7 @@ import {
   ChaletsFilterationSpecificSearchWrapper,
   StyledChaletsFilterationWrapper,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
+import HotelsHotelItemsFilterationStartAndEndDates from "~/core/hotels/view/items-cards-section/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 import { HotelItem } from "~/core/hotels/view/items-cards-section/wrapper/hotel-items-cards-wrapper";
 
 type IHotelsFilterationWrapperProps = {
@@ -63,8 +64,10 @@ const HotelsHotelItemsFilterationWrapper = (
 
   return (
     <StyledChaletsFilterationWrapper>
-      <ChaletsFilterationSpecificSearchWrapper>
-        {/* Price */}
+      <ChaletsFilterationSpecificSearchWrapper style={{ width: "80%" }}>
+        {/* start and end dates */}
+        <HotelsHotelItemsFilterationStartAndEndDates />
+        {/* min price */}
         <ChaletsFilterationSpecificSearchInput
           onChange={handleOnMinimumPricePerNightChange}
           disableUnderline
@@ -78,6 +81,7 @@ const HotelsHotelItemsFilterationWrapper = (
             style: inputPaddingStyle,
           }}
         />
+        {/* max price */}
         <ChaletsFilterationSpecificSearchInput
           onChange={handleOnMaximumPricePerNightChange}
           disableUnderline
