@@ -7,6 +7,7 @@ import {
   StyledChaletsCardsWrapper,
 } from "~/core/chalets/view/cards-section/wrapper/style";
 import HotelItemsCardsCard from "~/core/hotels/view/items-cards-section/card/hotel-items-cards-card";
+import HotelsHotelItemsFilterationWrapper from "~/core/hotels/view/items-cards-section/filteration/hotels-hotel-items-filteration-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
 export type HotelItem = {
@@ -37,6 +38,8 @@ export type HotelItems = {
  */
 const HotelItemsCardsWrapper = () => {
   const [hotelItems, setHotelItems] = useState<HotelItems>();
+  const [filteredHotelItems, setFilteredHotelItems] = useState<HotelItem[]>([]);
+
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,6 +65,10 @@ const HotelItemsCardsWrapper = () => {
   if (isLoading) return <CircularLoader />;
   return (
     <StyledChaletsCardsWrapper>
+      <HotelsHotelItemsFilterationWrapper
+        setFilteredHotelItems={setFilteredHotelItems}
+        hotelItems={hotelItems ? hotelItems.hotelItems : []}
+      />
       {isError ? (
         <ChaletsCardsWrapperMessages>
           المعذرة حصل خطأ، يرجى المحاولة لاحقا
@@ -71,10 +78,10 @@ const HotelItemsCardsWrapper = () => {
           لم يتم العثور على أية شاليه
         </ChaletsCardsWrapperMessages>
       ) : (
-        hotelItems?.hotelItems.map((hotelItem: HotelItem, index: number) => (
+        filteredHotelItems.map((hotelItem: HotelItem, index: number) => (
           <HotelItemsCardsCard
             key={index}
-            hotelId={hotelItems.hotelId}
+            hotelId={hotelItems ? hotelItems.hotelId : ""}
             hotelItem={hotelItem}
           />
         ))
