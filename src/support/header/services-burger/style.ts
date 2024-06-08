@@ -25,11 +25,15 @@ export const StyledServicesBurgerIconButton = styled.div`
   display: flex;
 `;
 
-export const StyledBurgerMenuItem = styled(StyledMainServicesLink)`
+export const StyledBurgerMenuItem = styled(StyledMainServicesLink)<{
+  isSelected: boolean;
+}>`
   padding: 0 16px;
   font-family: ${mainFontFamily};
   font-size: 18px;
   color: black;
+  color: ${({ isSelected }) => (isSelected ? `${secondaryColor}` : "black")};
+  font-weight: ${({ isSelected }) => (isSelected ? "bolder" : "")};
 `;
 
 /* -------------------------------------------------------------------------- */

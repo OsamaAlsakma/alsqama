@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import AppButton from "../app-button/app-button";
 import { Link } from "react-router-dom";
-import { primaryColor } from "~/bootstrap/helper/global-helper";
 
 export const StyledMainServicesAppButton = styled(AppButton)<{
   isSelected: boolean;
@@ -9,7 +8,8 @@ export const StyledMainServicesAppButton = styled(AppButton)<{
   && {
     font-size: 20px;
     font-family: Tajawal;
-    color: ${({ isSelected }) => (isSelected ? `${primaryColor}` : "black")};
+    color: ${({ isSelected }) => (isSelected ? "#DAA520" : "black")};
+    font-weight: ${({ isSelected }) => (isSelected ? "bolder" : "")};
   }
 `;
 

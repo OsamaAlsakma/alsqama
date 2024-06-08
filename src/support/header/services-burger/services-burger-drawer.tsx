@@ -130,6 +130,7 @@ const ServicesBurgerDrawer = () => {
                 changeSelectedTab(item.href);
               }}
               to={item.url}
+              isSelected={item.href === selectedTab}
             >
               {item.lang}
             </StyledBurgerMenuItem>
