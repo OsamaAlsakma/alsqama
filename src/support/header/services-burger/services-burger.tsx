@@ -63,22 +63,34 @@ const ServicesBurger = () => {
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
         <MenuItem onClick={handleClose}>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.chalets}>
+          <StyledBurgerMenuItem
+            isSelected={false}
+            to={servicesPageEndpoint.chalets}
+          >
             {t(langKey.global.chalets)}
           </StyledBurgerMenuItem>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.halls}>
+          <StyledBurgerMenuItem
+            isSelected={false}
+            to={servicesPageEndpoint.halls}
+          >
             {t(langKey.global.halls)}
           </StyledBurgerMenuItem>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.hotels}>
+          <StyledBurgerMenuItem
+            isSelected={false}
+            to={servicesPageEndpoint.hotels}
+          >
             {t(langKey.global.hotels)}
           </StyledBurgerMenuItem>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <StyledBurgerMenuItem to={servicesPageEndpoint.apartments}>
+          <StyledBurgerMenuItem
+            isSelected={false}
+            to={servicesPageEndpoint.apartments}
+          >
             {t(langKey.global.apartments)}
           </StyledBurgerMenuItem>
         </MenuItem>
