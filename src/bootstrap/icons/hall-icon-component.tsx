@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledSVG = styled.svg`
   width: 36px;
   height: 36px;
-
+  margin-bottom: 8px;
   path {
     fill: ${({ color }) => color || "#5A409B"};
   }
