@@ -2,9 +2,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
-import { SetStateAction, useState } from "react";
+import { SetStateAction } from "react";
 import styled from "styled-components";
 import { primaryColor, secondaryColor } from "~/bootstrap/helper/global-helper";
+import { SetState } from "~/bootstrap/helper/global-types";
 
 /* -------------------------------------------------------------------------- */
 /*                                   Styling                                  */
@@ -31,14 +32,21 @@ const StyledDatePicker = styled(DatePicker)`
   }
 `;
 
+interface IFilterationStartAndEndDatesProps {
+  setStartDate: SetState<Dayjs | null | undefined>;
+  setEndDate: SetState<Dayjs | null | undefined>;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                  Component                                 */
 /* -------------------------------------------------------------------------- */
-const HotelsHotelItemsFilterationStartAndEndDates = () => {
+// MM.DD.YYYY
+const HotelsHotelItemsFilterationStartAndEndDates = (
+  props: IFilterationStartAndEndDatesProps
+) => {
+  const { setStartDate, setEndDate } = props;
   const today = dayjs(new Date());
   const tomorrow = dayjs().add(1, "day");
-  const [startDate, setStartDate] = useState<Dayjs | null>(today);
-  const [endDate, setEndDate] = useState<Dayjs | null>(tomorrow);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
@@ -47,11 +55,10 @@ const HotelsHotelItemsFilterationStartAndEndDates = () => {
           <StyledDatePicker
             format="DD/MM/YYYY"
             views={["year", "month", "day"]}
-            openTo="year"
+            openTo="day"
             disablePast
-            value={startDate}
             minDate={today}
-            onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) =>
+            onChange={(newValue: SetStateAction<Dayjs | null | undefined>) =>
               setStartDate(newValue)
             }
             slotProps={{
@@ -70,13 +77,22 @@ const HotelsHotelItemsFilterationStartAndEndDates = () => {
           <StyledDatePicker
             format="DD/MM/YYYY"
             views={["year", "month", "day"]}
-            openTo="year"
+            openTo="day"
             disablePast
             minDate={tomorrow}
-            value={endDate}
-            onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) =>
-              setEndDate(newValue)
-            }
+            onChange={(
+              newValue: SetStateAction<dayjs.Dayjs | null | undefined>
+            ) => setEndDate(newValue)}
+            slotProps={{
+              day: {
+                sx: {
+                  "&.MuiPickersDay-root.Mui-selected": {
+                    backgroundColor: `${primaryColor}`,
+                    color: "white",
+                  },
+                },
+              },
+            }}
           />
         </DetailsBookingCardInput>
       </DetailsBookingCardInputsSection>

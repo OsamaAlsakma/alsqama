@@ -11,6 +11,7 @@ import {
 } from "~/core/chalets/view/filtration-section/wrapper/style";
 import HotelsHotelItemsFilterationStartAndEndDates from "~/core/hotels/view/items-cards-section/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 import { HotelItem } from "~/core/hotels/view/items-cards-section/wrapper/hotel-items-cards-wrapper";
+import dayjs, { Dayjs } from "dayjs";
 
 type IHotelsFilterationWrapperProps = {
   setFilteredHotelItems: SetState<HotelItem[]>;
@@ -28,6 +29,8 @@ const HotelsHotelItemsFilterationWrapper = (
 
   const [minimumPricePerNight, setMinimumPricePerNight] = useState<string>("");
   const [maximumPricePerNight, setMaximumPricePerNight] = useState<string>("");
+  const [startDate, setStartDate] = useState<Dayjs | null>();
+  const [endDate, setEndDate] = useState<Dayjs | null>();
 
   const applyFilters = () => {
     const filteredCHotelItems = hotelItems.filter((hotelItem) => {
@@ -39,7 +42,19 @@ const HotelsHotelItemsFilterationWrapper = (
         ? hotelItem.pricePerNight <= parseFloat(maximumPricePerNight)
         : true;
 
-      return passMinimumPriceFilter && passMaximumPriceFilter;
+      const passItemsWithValidDates =
+        startDate && endDate
+          ? !hotelItem.reservedDates.some(
+              (date) =>
+                dayjs(date).isAfter(startDate) && dayjs(date).isBefore(endDate)
+            )
+          : true;
+
+      return (
+        passMinimumPriceFilter &&
+        passMaximumPriceFilter &&
+        passItemsWithValidDates
+      );
     });
     setFilteredHotelItems(filteredCHotelItems);
   };
@@ -60,13 +75,16 @@ const HotelsHotelItemsFilterationWrapper = (
 
   useEffect(() => {
     applyFilters();
-  }, [minimumPricePerNight, maximumPricePerNight]);
+  }, [minimumPricePerNight, maximumPricePerNight, startDate, endDate]);
 
   return (
     <StyledChaletsFilterationWrapper>
       <ChaletsFilterationSpecificSearchWrapper style={{ width: "80%" }}>
         {/* start and end dates */}
-        <HotelsHotelItemsFilterationStartAndEndDates />
+        <HotelsHotelItemsFilterationStartAndEndDates
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+        />
         {/* min price */}
         <ChaletsFilterationSpecificSearchInput
           onChange={handleOnMinimumPricePerNightChange}

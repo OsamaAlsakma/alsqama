@@ -17,7 +17,7 @@ export const endpointsUrl = {
 
   /* --------------------------------- Hotels --------------------------------- */
   allHotels: "https://run.mocky.io/v3/8b968fb9-76f0-4284-8497-307381c734d8",
-  anHotelItems: "https://run.mocky.io/v3/d86f9fdd-620b-4e98-88f5-1d725673987b",
+  anHotelItems: "https://run.mocky.io/v3/40833494-3132-4a60-bf5e-c39cc1681d38",
   hotelItemDetails:
     "https://run.mocky.io/v3/26f72494-647d-4ac3-a4d1-f496fd6e73da",
 

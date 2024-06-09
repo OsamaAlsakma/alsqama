@@ -23,7 +23,7 @@ export type HotelItem = {
   hotelPhoneNumber: number;
   features: string[];
   reviews: ReviewType[];
-  availableTimes: string[];
+  reservedDates: string[];
   bedsNumber?: string;
   roomsNumber?: string;
 };
