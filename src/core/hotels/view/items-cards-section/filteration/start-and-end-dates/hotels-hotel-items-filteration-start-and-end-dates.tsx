@@ -42,9 +42,9 @@ const StyledDatePicker = styled(DatePicker)`
       height: 46px;
     }
 
-    & .MuiInputLabel-root {
-      /* right: 60px; */
-    }
+    /* & .MuiInputLabel-root {
+      right: -40px;
+    } */
 
     & .MuiInputAdornment-root .MuiSvgIcon-root {
       color: ${primaryColor};
