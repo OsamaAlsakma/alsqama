@@ -1,10 +1,15 @@
+import TextField from "@mui/material/TextField/TextField";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import { SetStateAction } from "react";
 import styled from "styled-components";
-import { primaryColor, secondaryColor } from "~/bootstrap/helper/global-helper";
+import {
+  mainFontFamily,
+  mediumScreenSize,
+  primaryColor,
+} from "~/bootstrap/helper/global-helper";
 import { SetState } from "~/bootstrap/helper/global-types";
 
 /* -------------------------------------------------------------------------- */
@@ -17,17 +22,32 @@ const DetailsBookingCardInputsSection = styled.div`
 `;
 
 const DetailsBookingCardInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: ${secondaryColor};
   border-radius: 32px;
+  border: 1px solid black;
   width: 49%;
+  @media (max-width: ${mediumScreenSize}) {
+    width: 100%;
+  }
 `;
 
 const StyledDatePicker = styled(DatePicker)`
   && {
     && .MuiOutlinedInput-notchedOutline {
       border: none;
+    }
+
+    & .MuiInputBase-root {
+      flex-direction: row-reverse;
+      font-family: ${mainFontFamily};
+      height: 46px;
+    }
+
+    & .MuiInputLabel-root {
+      /* right: 60px; */
+    }
+
+    & .MuiInputAdornment-root .MuiSvgIcon-root {
+      color: ${primaryColor};
     }
   }
 `;
@@ -61,15 +81,10 @@ const HotelsHotelItemsFilterationStartAndEndDates = (
             onChange={(newValue: SetStateAction<Dayjs | null | undefined>) =>
               setStartDate(newValue)
             }
-            slotProps={{
-              day: {
-                sx: {
-                  "&.MuiPickersDay-root.Mui-selected": {
-                    backgroundColor: `${primaryColor}`,
-                    color: "white",
-                  },
-                },
-              },
+            slots={{
+              textField: (params) => (
+                <TextField {...params} placeholder="تاريخ الوصول" />
+              ),
             }}
           />
         </DetailsBookingCardInput>
@@ -83,15 +98,10 @@ const HotelsHotelItemsFilterationStartAndEndDates = (
             onChange={(
               newValue: SetStateAction<dayjs.Dayjs | null | undefined>
             ) => setEndDate(newValue)}
-            slotProps={{
-              day: {
-                sx: {
-                  "&.MuiPickersDay-root.Mui-selected": {
-                    backgroundColor: `${primaryColor}`,
-                    color: "white",
-                  },
-                },
-              },
+            slots={{
+              textField: (params) => (
+                <TextField {...params} placeholder="تاريخ الخروج" />
+              ),
             }}
           />
         </DetailsBookingCardInput>

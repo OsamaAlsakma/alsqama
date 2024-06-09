@@ -1,11 +1,10 @@
+import SearchIcon from "@mui/icons-material/Search";
 import Input from "@mui/material/Input/Input";
 import { styled } from "styled-components";
-import SearchIcon from "@mui/icons-material/Search";
 import {
   largeScreenSize,
   mediumScreenSize,
   primaryColor,
-  secondaryColor,
 } from "~/bootstrap/helper/global-helper";
 
 export const StyledChaletsFilterationWrapper = styled.div`
@@ -66,7 +65,7 @@ export const ChaletsFilterationSpecificSearchInput = styled(Input)`
     ${inputCommonProps}
     color: black;
     border: none;
-    background-color: ${secondaryColor};
+    border: 1px solid black;
     input::placeholder {
       opacity: 0.8;
     }
