@@ -17,7 +17,7 @@ export const StyledChaletsFilterationWrapper = styled.div`
   padding: 16px 0px 32px 0px;
 `;
 
-const inputCommonProps = `
+export const inputCommonProps = `
 border-radius: 32px;
 border: 1px solid black;
 font-family: Tajawal;
