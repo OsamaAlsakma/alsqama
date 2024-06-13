@@ -29,7 +29,9 @@ export const ChaletsFilterationSearchInput = styled(Input)`
     padding-right: 16px !important;
     ${inputCommonProps}
     width: 80%;
-
+    @media (max-width: ${largeScreenSize}) {
+      width: 90%;
+    }
     @media (max-width: ${mediumScreenSize}) {
       width: 100%;
     }

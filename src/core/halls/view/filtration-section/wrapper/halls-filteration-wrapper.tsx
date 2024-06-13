@@ -1,17 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
+import { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
 import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
-import { inputPaddingStyle } from "~/bootstrap/helper/global-styles";
+import {
+  FilterationASpecificSearchInput,
+  FilterationDatesAndOtherWrapper,
+  inputPaddingStyle,
+} from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
 import {
   ChaletsFilterationSearchInput,
-  ChaletsFilterationSpecificSearchInput,
   ChaletsFilterationSpecificSearchInputIcon,
   ChaletsFilterationSpecificSearchWrapper,
   StyledChaletsFilterationWrapper,
   StyledSearchIcon,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
 import { Hall } from "~/core/halls/view/cards-section/wrapper/halls-cards-wrapper";
+import FilterationStartAndEndDates from "~/generic/components/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 
 type IHallsFilterationWrapperProps = {
   setFilteredHalls: SetState<Hall[]>;
@@ -28,6 +35,8 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
   const [priceFilter, setPriceFilter] = useState("");
   const [cityFilter, setCityFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
+  const [startDate, setStartDate] = useState<Dayjs | null>();
+  const [endDate, setEndDate] = useState<Dayjs | null>();
 
   const applyFilters = () => {
     const filteredHalls = halls.filter((chalet) => {
@@ -65,42 +74,51 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
   }, [priceFilter, cityFilter, nameFilter]);
 
   return (
-    <StyledChaletsFilterationWrapper>
-      <ChaletsFilterationSearchInput
-        placeholder="أبحث عن أي صالة.."
-        disableUnderline
-        endAdornment={<StyledSearchIcon />}
-        inputProps={{
-          style: inputPaddingStyle,
-        }}
-        onChange={handleOnNameChange}
-      />
-      <ChaletsFilterationSpecificSearchWrapper>
-        <ChaletsFilterationSpecificSearchInput
-          onChange={handleOnPriceChange}
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
+      <StyledChaletsFilterationWrapper>
+        <ChaletsFilterationSearchInput
+          placeholder="أبحث عن أي صالة.."
           disableUnderline
-          value={priceFilter}
-          placeholder="أكتب السعر.."
-          startAdornment={
-            <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-money.svg" />
-          }
+          endAdornment={<StyledSearchIcon />}
           inputProps={{
             style: inputPaddingStyle,
           }}
+          onChange={handleOnNameChange}
         />
-        <ChaletsFilterationSpecificSearchInput
-          onChange={handleOnCityChange}
-          disableUnderline
-          placeholder="أكتب المدينة.."
-          startAdornment={
-            <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-city.svg" />
-          }
-          inputProps={{
-            style: inputPaddingStyle,
-          }}
-        />
-      </ChaletsFilterationSpecificSearchWrapper>
-    </StyledChaletsFilterationWrapper>
+        <FilterationDatesAndOtherWrapper>
+          {/* Dates */}
+          <FilterationStartAndEndDates
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+          />
+          {/* Price */}
+          <FilterationASpecificSearchInput
+            onChange={handleOnPriceChange}
+            disableUnderline
+            value={priceFilter}
+            placeholder="أكتب السعر.."
+            startAdornment={
+              <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-money.svg" />
+            }
+            inputProps={{
+              style: inputPaddingStyle,
+            }}
+          />
+          {/* City */}
+          <FilterationASpecificSearchInput
+            onChange={handleOnCityChange}
+            disableUnderline
+            placeholder="أكتب المدينة.."
+            startAdornment={
+              <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-city.svg" />
+            }
+            inputProps={{
+              style: inputPaddingStyle,
+            }}
+          />
+        </FilterationDatesAndOtherWrapper>
+      </StyledChaletsFilterationWrapper>
+    </LocalizationProvider>
   );
 };
 
