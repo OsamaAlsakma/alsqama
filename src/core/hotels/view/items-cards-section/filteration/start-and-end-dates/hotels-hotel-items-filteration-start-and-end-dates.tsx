@@ -1,6 +1,6 @@
 import TextField from "@mui/material/TextField/TextField";
 
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import { SetStateAction } from "react";
 import styled from "styled-components";
@@ -14,17 +14,17 @@ import { SetState } from "~/bootstrap/helper/global-types";
 /* -------------------------------------------------------------------------- */
 /*                                   Styling                                  */
 /* -------------------------------------------------------------------------- */
-const DetailsBookingCardInput = styled.div`
-  border-radius: 32px;
-  border: 1px solid black;
-  width: 25%;
-  @media (max-width: ${mediumScreenSize}) {
-    width: 100%;
-  }
-`;
-
-const StyledDatePicker = styled(DatePicker)`
+const StyledFilterationStartAndEndDatesDesktopDatePicker = styled(
+  DesktopDatePicker
+)`
   && {
+    border-radius: 32px;
+    border: 1px solid black;
+    width: 25%;
+    @media (max-width: ${mediumScreenSize}) {
+      width: 100%;
+    }
+
     && .MuiOutlinedInput-notchedOutline {
       border: none;
     }
@@ -32,12 +32,8 @@ const StyledDatePicker = styled(DatePicker)`
     & .MuiInputBase-root {
       flex-direction: row-reverse;
       font-family: ${mainFontFamily};
-      height: 46px;
+      max-height: 46px;
     }
-
-    /* & .MuiInputLabel-root {
-      right: -40px;
-    } */
 
     & .MuiInputAdornment-root .MuiSvgIcon-root {
       color: ${primaryColor};
@@ -54,7 +50,7 @@ interface IFilterationStartAndEndDatesProps {
 /*                                  Component                                 */
 /* -------------------------------------------------------------------------- */
 // MM.DD.YYYY
-const HotelsHotelItemsFilterationStartAndEndDates = (
+const FilterationStartAndEndDates = (
   props: IFilterationStartAndEndDatesProps
 ) => {
   const { setStartDate, setEndDate } = props;
@@ -63,42 +59,39 @@ const HotelsHotelItemsFilterationStartAndEndDates = (
 
   return (
     <>
-      <DetailsBookingCardInput className="from-input">
-        <StyledDatePicker
-          format="DD/MM/YYYY"
-          views={["year", "month", "day"]}
-          openTo="day"
-          disablePast
-          minDate={today}
-          onChange={(newValue: SetStateAction<Dayjs | null | undefined>) =>
-            setStartDate(newValue)
-          }
-          slots={{
-            textField: (params) => (
-              <TextField {...params} placeholder="تاريخ الوصول" />
-            ),
-          }}
-        />
-      </DetailsBookingCardInput>
-      <DetailsBookingCardInput className="to-input">
-        <StyledDatePicker
-          format="DD/MM/YYYY"
-          views={["year", "month", "day"]}
-          openTo="day"
-          disablePast
-          minDate={tomorrow}
-          onChange={(
-            newValue: SetStateAction<dayjs.Dayjs | null | undefined>
-          ) => setEndDate(newValue)}
-          slots={{
-            textField: (params) => (
-              <TextField {...params} placeholder="تاريخ الخروج" />
-            ),
-          }}
-        />
-      </DetailsBookingCardInput>
+      <StyledFilterationStartAndEndDatesDesktopDatePicker
+        format="DD/MM/YYYY"
+        views={["year", "month", "day"]}
+        openTo="day"
+        disablePast
+        minDate={today}
+        onChange={(newValue: SetStateAction<Dayjs | null | undefined>) =>
+          setStartDate(newValue)
+        }
+        slots={{
+          textField: (params) => (
+            <TextField {...params} placeholder="تاريخ الوصول.." />
+          ),
+        }}
+      />
+
+      <StyledFilterationStartAndEndDatesDesktopDatePicker
+        format="DD/MM/YYYY"
+        views={["year", "month", "day"]}
+        openTo="day"
+        disablePast
+        minDate={tomorrow}
+        onChange={(newValue: SetStateAction<dayjs.Dayjs | null | undefined>) =>
+          setEndDate(newValue)
+        }
+        slots={{
+          textField: (params) => (
+            <TextField {...params} placeholder="تاريخ الخروج.." />
+          ),
+        }}
+      />
     </>
   );
 };
 
-export default HotelsHotelItemsFilterationStartAndEndDates;
+export default FilterationStartAndEndDates;

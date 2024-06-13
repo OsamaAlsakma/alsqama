@@ -23,7 +23,6 @@ import Input from "@mui/material/Input/Input";
 export const ChaletsFilterationSpecificSearchWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 8px;
   width: 80%;
   @media (max-width: ${largeScreenSize}) {
@@ -31,6 +30,7 @@ export const ChaletsFilterationSpecificSearchWrapper = styled.div`
   }
   @media (max-width: ${mediumScreenSize}) {
     width: 100%;
+    flex-direction: column;
   }
 `;
 
@@ -45,6 +45,7 @@ export const ChaletsFilterationSpecificSearchInput = styled(Input)`
     }
     font-size: 14px;
     width: 25%;
+    height: 48px;
     @media (max-width: ${mediumScreenSize}) {
       width: 100%;
     }

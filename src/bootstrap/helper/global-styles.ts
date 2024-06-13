@@ -77,6 +77,7 @@ export const StyledAppDivider = styled.hr`
 export const inputPaddingStyle = {
   paddingTop: "6px",
   paddingBottom: "0px",
+  paddingRight: "9px",
 };
 
 /**
