@@ -64,7 +64,7 @@ const ServicesBurger = () => {
       >
         <MenuItem onClick={handleClose}>
           <StyledBurgerMenuItem
-            isSelected={false}
+            $isSelected={false}
             to={servicesPageEndpoint.chalets}
           >
             {t(langKey.global.chalets)}
@@ -72,7 +72,7 @@ const ServicesBurger = () => {
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <StyledBurgerMenuItem
-            isSelected={false}
+            $isSelected={false}
             to={servicesPageEndpoint.halls}
           >
             {t(langKey.global.halls)}
@@ -80,7 +80,7 @@ const ServicesBurger = () => {
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <StyledBurgerMenuItem
-            isSelected={false}
+            $isSelected={false}
             to={servicesPageEndpoint.hotels}
           >
             {t(langKey.global.hotels)}
@@ -88,7 +88,7 @@ const ServicesBurger = () => {
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <StyledBurgerMenuItem
-            isSelected={false}
+            $isSelected={false}
             to={servicesPageEndpoint.apartments}
           >
             {t(langKey.global.apartments)}

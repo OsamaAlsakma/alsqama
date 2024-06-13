@@ -23,7 +23,7 @@ import FilterationStartAndEndDates from "~/generic/components/filteration/start-
 /* -------------------------------------------------------------------------- */
 /*                                   Styling                                  */
 /* -------------------------------------------------------------------------- */
-export const ChaletsFilterationSpecificSearchWrapper = styled.div`
+export const FilterationDatesAndOtherWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 8px;
@@ -37,7 +37,7 @@ export const ChaletsFilterationSpecificSearchWrapper = styled.div`
   }
 `;
 
-export const ChaletsFilterationSpecificSearchInput = styled(Input)`
+export const FilterationASpecificSearchInput = styled(Input)`
   && {
     ${inputCommonProps}
     color: black;
@@ -125,14 +125,14 @@ const HotelsHotelItemsFilterationWrapper = (
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
       <StyledChaletsFilterationWrapper>
-        <ChaletsFilterationSpecificSearchWrapper>
+        <FilterationDatesAndOtherWrapper>
           {/* start and end dates */}
           <FilterationStartAndEndDates
             setStartDate={setStartDate}
             setEndDate={setEndDate}
           />
           {/* min price */}
-          <ChaletsFilterationSpecificSearchInput
+          <FilterationASpecificSearchInput
             onChange={handleOnMinimumPricePerNightChange}
             disableUnderline
             placeholder="السعر من.."
@@ -146,7 +146,7 @@ const HotelsHotelItemsFilterationWrapper = (
             }}
           />
           {/* max price */}
-          <ChaletsFilterationSpecificSearchInput
+          <FilterationASpecificSearchInput
             onChange={handleOnMaximumPricePerNightChange}
             disableUnderline
             placeholder="إلى السعر.."
@@ -159,7 +159,7 @@ const HotelsHotelItemsFilterationWrapper = (
               style: inputPaddingStyle,
             }}
           />
-        </ChaletsFilterationSpecificSearchWrapper>
+        </FilterationDatesAndOtherWrapper>
       </StyledChaletsFilterationWrapper>
     </LocalizationProvider>
   );

@@ -116,7 +116,7 @@ const ServicesBurgerDrawer = () => {
             item.href === PossibleSelectedTabs.CHALET ? (
               (item.icon as JSX.Element)
             ) : (
-              <StyledListItemIcon isSelected={item.href === selectedTab}>
+              <StyledListItemIcon $isSelected={item.href === selectedTab}>
                 {
                   <SvgIcon
                     component={item.icon as SvgIconComponent}
@@ -130,7 +130,7 @@ const ServicesBurgerDrawer = () => {
                 changeSelectedTab(item.href);
               }}
               to={item.url}
-              isSelected={item.href === selectedTab}
+              $isSelected={item.href === selectedTab}
             >
               {item.lang}
             </StyledBurgerMenuItem>

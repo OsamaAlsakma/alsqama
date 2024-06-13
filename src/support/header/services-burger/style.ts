@@ -26,24 +26,26 @@ export const StyledServicesBurgerIconButton = styled.div`
 `;
 
 export const StyledBurgerMenuItem = styled(StyledMainServicesLink)<{
-  isSelected: boolean;
+  $isSelected: boolean;
 }>`
   padding: 0 16px;
   font-family: ${mainFontFamily};
   font-size: 18px;
   color: black;
-  color: ${({ isSelected }) => (isSelected ? `${secondaryColor}` : "black")};
-  font-weight: ${({ isSelected }) => (isSelected ? "bolder" : "")};
+  color: ${({ $isSelected }) => ($isSelected ? `${secondaryColor}` : "black")};
+  font-weight: ${({ $isSelected }) => ($isSelected ? "bolder" : "")};
 `;
 
 /* -------------------------------------------------------------------------- */
 /*                                   Drawer                                   */
 /* -------------------------------------------------------------------------- */
-export const StyledListItemIcon = styled(ListItemIcon)<{ isSelected: boolean }>`
+export const StyledListItemIcon = styled(ListItemIcon)<{
+  $isSelected: boolean;
+}>`
   && {
     min-width: fit-content;
-    color: ${({ isSelected }) =>
-      isSelected ? `${secondaryColor}` : `${primaryColor}`};
+    color: ${({ $isSelected }) =>
+      $isSelected ? `${secondaryColor}` : `${primaryColor}`};
   }
 `;
 

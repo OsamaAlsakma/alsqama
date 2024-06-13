@@ -12,7 +12,7 @@ const MainServicesHotelsButton = (props: HeaderSelectedTabProps) => {
   const isSelected = props.selectedTab === vm.props.href;
   return (
     <StyledMainServicesLink to={servicesPageEndpoint.hotels}>
-      <StyledMainServicesAppButton isSelected={isSelected} vm={vm} />
+      <StyledMainServicesAppButton $isSelected={isSelected} vm={vm} />
     </StyledMainServicesLink>
   );
 };

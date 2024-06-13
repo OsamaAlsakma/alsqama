@@ -10,7 +10,7 @@ const MainServicesResortsButton = (props: HeaderSelectedTabProps) => {
 
   return (
     <StyledMainServicesLink to={servicesPageEndpoint.apartments}>
-      <StyledMainServicesAppButton isSelected={isSelected} vm={vm} />
+      <StyledMainServicesAppButton $isSelected={isSelected} vm={vm} />
     </StyledMainServicesLink>
   );
 };

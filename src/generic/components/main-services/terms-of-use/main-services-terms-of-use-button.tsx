@@ -10,7 +10,7 @@ const MainServicesTermsOfUseButton = (props: HeaderSelectedTabProps) => {
 
   return (
     <StyledMainServicesLink to={supportEndpoint.termsOfUse}>
-      <StyledMainServicesAppButton isSelected={isSelected} vm={vm} />
+      <StyledMainServicesAppButton $isSelected={isSelected} vm={vm} />
     </StyledMainServicesLink>
   );
 };

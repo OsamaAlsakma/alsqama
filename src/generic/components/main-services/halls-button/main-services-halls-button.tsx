@@ -10,7 +10,7 @@ const MainServicesHallsButton = (props: HeaderSelectedTabProps) => {
 
   return (
     <StyledMainServicesLink to={servicesPageEndpoint.halls}>
-      <StyledMainServicesAppButton isSelected={isSelected} vm={vm} />
+      <StyledMainServicesAppButton $isSelected={isSelected} vm={vm} />
     </StyledMainServicesLink>
   );
 };
