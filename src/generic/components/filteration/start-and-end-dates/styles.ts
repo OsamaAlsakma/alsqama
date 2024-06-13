@@ -12,6 +12,7 @@ export const StyledFilterationStartAndEndDatesDesktopDatePicker = styled(
   && {
     & .MuiInputBase-input::placeholder {
       transform: translateY(2px);
+      font-size: 14px;
     }
     border-radius: 32px;
     border: 1px solid black;

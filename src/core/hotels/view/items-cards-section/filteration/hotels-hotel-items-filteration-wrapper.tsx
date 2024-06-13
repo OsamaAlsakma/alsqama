@@ -1,5 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Input from "@mui/material/Input/Input";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
+import styled from "styled-components";
 import {
   appBaseUrl,
   largeScreenSize,
@@ -12,14 +17,12 @@ import {
   StyledChaletsFilterationWrapper,
   inputCommonProps,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
-import HotelsHotelItemsFilterationStartAndEndDates from "~/core/hotels/view/items-cards-section/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 import { HotelItem } from "~/core/hotels/view/items-cards-section/wrapper/hotel-items-cards-wrapper";
-import dayjs, { Dayjs } from "dayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import styled from "styled-components";
-import Input from "@mui/material/Input/Input";
+import FilterationStartAndEndDates from "~/generic/components/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 
+/* -------------------------------------------------------------------------- */
+/*                                   Styling                                  */
+/* -------------------------------------------------------------------------- */
 export const ChaletsFilterationSpecificSearchWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -41,7 +44,7 @@ export const ChaletsFilterationSpecificSearchInput = styled(Input)`
     border: none;
     border: 1px solid black;
     input::placeholder {
-      opacity: 0.8;
+      opacity: 0.4;
     }
     font-size: 14px;
     width: 25%;
@@ -52,6 +55,9 @@ export const ChaletsFilterationSpecificSearchInput = styled(Input)`
   }
 `;
 
+/* -------------------------------------------------------------------------- */
+/*                                  Component                                 */
+/* -------------------------------------------------------------------------- */
 type IHotelsFilterationWrapperProps = {
   setFilteredHotelItems: SetState<HotelItem[]>;
   hotelItems: HotelItem[];
@@ -121,7 +127,7 @@ const HotelsHotelItemsFilterationWrapper = (
       <StyledChaletsFilterationWrapper>
         <ChaletsFilterationSpecificSearchWrapper>
           {/* start and end dates */}
-          <HotelsHotelItemsFilterationStartAndEndDates
+          <FilterationStartAndEndDates
             setStartDate={setStartDate}
             setEndDate={setEndDate}
           />

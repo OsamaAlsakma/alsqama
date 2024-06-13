@@ -1,7 +1,7 @@
 import dayjs, { Dayjs } from "dayjs";
 import { SetStateAction } from "react";
 import { SetState } from "~/bootstrap/helper/global-types";
-import { StyledFilterationStartAndEndDatesDesktopDatePicker } from "~/core/hotels/view/items-cards-section/filteration/start-and-end-dates/styles";
+import { StyledFilterationStartAndEndDatesDesktopDatePicker } from "~/generic/components/filteration/start-and-end-dates/styles";
 
 interface IFilterationStartAndEndDatesProps {
   setStartDate: SetState<Dayjs | null | undefined>;
