@@ -22,7 +22,7 @@ export const endpointsUrl = {
     "https://run.mocky.io/v3/26f72494-647d-4ac3-a4d1-f496fd6e73da",
 
   /* ---------------------------------- Halls --------------------------------- */
-  allHalls: "https://run.mocky.io/v3/5c2eb63f-85b2-44c0-b2f7-a34b0b8b3b89",
+  allHalls: "https://run.mocky.io/v3/2f479d6f-b040-4049-9ef9-73d04d6e5a69",
   hallDetails: "https://run.mocky.io/v3/e7e2d34c-9c58-4c4d-8b0e-ba63e8e6e498",
 
   /* -------------------------------- Retreats -------------------------------- */

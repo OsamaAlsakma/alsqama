@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
-import { Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
 import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import {
@@ -13,7 +13,6 @@ import { SetState } from "~/bootstrap/helper/global-types";
 import {
   ChaletsFilterationSearchInput,
   ChaletsFilterationSpecificSearchInputIcon,
-  ChaletsFilterationSpecificSearchWrapper,
   StyledChaletsFilterationWrapper,
   StyledSearchIcon,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
@@ -27,7 +26,6 @@ type IHallsFilterationWrapperProps = {
 
 const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
   const { setFilteredHalls, halls } = props;
-
   useEffect(() => {
     setFilteredHalls(halls);
   }, []);
@@ -39,17 +37,28 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
   const [endDate, setEndDate] = useState<Dayjs | null>();
 
   const applyFilters = () => {
-    const filteredHalls = halls.filter((chalet) => {
+    const filteredHalls = halls.filter((hall) => {
       const passPriceFilter = priceFilter
-        ? chalet.pricePerNight <= parseFloat(priceFilter)
+        ? hall.pricePerNight <= parseFloat(priceFilter)
         : true;
       const passCityFilter = cityFilter
-        ? chalet.location.includes(cityFilter)
+        ? hall.location.includes(cityFilter)
         : true;
-      const passNameFilter = nameFilter
-        ? chalet.name.includes(nameFilter)
-        : true;
-      return passPriceFilter && passCityFilter && passNameFilter;
+      const passNameFilter = nameFilter ? hall.name.includes(nameFilter) : true;
+
+      const passItemsWithValidDates =
+        startDate && endDate
+          ? !hall.reservedDates.some(
+              (date) =>
+                dayjs(date).isAfter(startDate) && dayjs(date).isBefore(endDate)
+            )
+          : true;
+      return (
+        passPriceFilter &&
+        passCityFilter &&
+        passNameFilter &&
+        passItemsWithValidDates
+      );
     });
     setFilteredHalls(filteredHalls);
   };
@@ -71,7 +80,7 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
 
   useEffect(() => {
     applyFilters();
-  }, [priceFilter, cityFilter, nameFilter]);
+  }, [priceFilter, cityFilter, nameFilter, startDate, endDate]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
