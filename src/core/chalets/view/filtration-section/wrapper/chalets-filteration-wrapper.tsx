@@ -4,7 +4,11 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/L
 import { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
 import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
-import { inputPaddingStyle } from "~/bootstrap/helper/global-styles";
+import {
+  FilterationASpecificSearchInput,
+  FilterationDatesAndOtherWrapper,
+  inputPaddingStyle,
+} from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
 import { Chalet } from "~/core/chalets/view/cards-section/wrapper/chalets-cards-wrapper";
 import {
@@ -13,10 +17,7 @@ import {
   StyledChaletsFilterationWrapper,
   StyledSearchIcon,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
-import {
-  FilterationASpecificSearchInput,
-  FilterationDatesAndOtherWrapper,
-} from "~/core/hotels/view/items-cards-section/filteration/hotels-hotel-items-filteration-wrapper";
+
 import FilterationStartAndEndDates from "~/generic/components/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 
 type IChaletsFilterationWrapperProps = {

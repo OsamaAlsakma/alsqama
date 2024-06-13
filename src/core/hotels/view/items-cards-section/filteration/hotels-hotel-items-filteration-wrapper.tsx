@@ -1,63 +1,22 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Input from "@mui/material/Input/Input";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
-import styled from "styled-components";
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
-  appBaseUrl,
-  largeScreenSize,
-  mediumScreenSize,
-} from "~/bootstrap/helper/global-helper";
-import { inputPaddingStyle } from "~/bootstrap/helper/global-styles";
+  FilterationASpecificSearchInput,
+  FilterationDatesAndOtherWrapper,
+  inputPaddingStyle,
+} from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
 import {
   ChaletsFilterationSpecificSearchInputIcon,
   StyledChaletsFilterationWrapper,
-  inputCommonProps,
 } from "~/core/chalets/view/filtration-section/wrapper/style";
 import { HotelItem } from "~/core/hotels/view/items-cards-section/wrapper/hotel-items-cards-wrapper";
 import FilterationStartAndEndDates from "~/generic/components/filteration/start-and-end-dates/hotels-hotel-items-filteration-start-and-end-dates";
 
-/* -------------------------------------------------------------------------- */
-/*                                   Styling                                  */
-/* -------------------------------------------------------------------------- */
-export const FilterationDatesAndOtherWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  width: 80%;
-  @media (max-width: ${largeScreenSize}) {
-    width: 90%;
-  }
-  @media (max-width: ${mediumScreenSize}) {
-    width: 100%;
-    flex-direction: column;
-  }
-`;
-
-export const FilterationASpecificSearchInput = styled(Input)`
-  && {
-    ${inputCommonProps}
-    color: black;
-    border: none;
-    border: 1px solid black;
-    input::placeholder {
-      opacity: 0.4;
-    }
-    font-size: 14px;
-    width: 25%;
-    height: 48px;
-    @media (max-width: ${mediumScreenSize}) {
-      width: 100%;
-    }
-  }
-`;
-
-/* -------------------------------------------------------------------------- */
-/*                                  Component                                 */
-/* -------------------------------------------------------------------------- */
 type IHotelsFilterationWrapperProps = {
   setFilteredHotelItems: SetState<HotelItem[]>;
   hotelItems: HotelItem[];

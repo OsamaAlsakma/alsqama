@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
 import styled from "styled-components";
 import {
+  largeScreenSize,
   mediumScreenSize,
   paddingBigScreens,
   paddingMediumScreens,
@@ -10,6 +11,8 @@ import {
   smallScreenSize,
 } from "~/bootstrap/helper/global-helper";
 import { StyledMainServicesLink } from "~/generic/components/main-services/style";
+import Input from "@mui/material/Input/Input";
+import { inputCommonProps } from "~/core/chalets/view/filtration-section/wrapper/style";
 
 export const StyledAppTitleWrapper = styled.h3`
   color: ${primaryColor};
@@ -94,4 +97,39 @@ export const CardActionsButtonWithLink = styled(StyledMainServicesLink)`
   padding-top: 9px;
   padding-bottom: 3px;
   margin: 0 !important;
+`;
+
+/* -------------------------------------------------------------------------- */
+/*                                 Filteration                                */
+/* -------------------------------------------------------------------------- */
+export const FilterationDatesAndOtherWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 80%;
+  @media (max-width: ${largeScreenSize}) {
+    width: 90%;
+  }
+  @media (max-width: ${mediumScreenSize}) {
+    width: 100%;
+    flex-direction: column;
+  }
+`;
+
+export const FilterationASpecificSearchInput = styled(Input)`
+  && {
+    ${inputCommonProps}
+    color: black;
+    border: none;
+    border: 1px solid black;
+    input::placeholder {
+      opacity: 0.4;
+    }
+    font-size: 14px;
+    width: 25%;
+    height: 48px;
+    @media (max-width: ${mediumScreenSize}) {
+      width: 100%;
+    }
+  }
 `;
