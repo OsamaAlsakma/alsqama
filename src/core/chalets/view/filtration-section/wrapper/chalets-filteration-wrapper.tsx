@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
-import { Dayjs } from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
 import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import {
@@ -49,7 +49,18 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
       const passNameFilter = nameFilter
         ? chalet.name.includes(nameFilter)
         : true;
-      return passPriceFilter && passCityFilter && passNameFilter;
+
+      const passItemsWithValidDates =
+        startDate && endDate
+          ? !dayjs(chalet.nearestTimeAvailable).isAfter(startDate) &&
+            dayjs(chalet.nearestTimeAvailable).isBefore(endDate)
+          : true;
+      return (
+        passPriceFilter &&
+        passCityFilter &&
+        passNameFilter &&
+        passItemsWithValidDates
+      );
     });
     setFilteredChalets(filteredChalets);
   };
@@ -71,7 +82,7 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
 
   useEffect(() => {
     applyFilters();
-  }, [priceFilter, cityFilter, nameFilter]);
+  }, [priceFilter, cityFilter, nameFilter, startDate, endDate]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
