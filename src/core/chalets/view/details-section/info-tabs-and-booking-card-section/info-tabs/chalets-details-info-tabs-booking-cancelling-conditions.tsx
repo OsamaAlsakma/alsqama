@@ -1,3 +1,4 @@
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   StyledAppDivider,
   StyledAppSubTitleWrapper,
@@ -28,7 +29,9 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
       {bookingConditions && (
         <div className="booking">
           <StyledBookingCancelingConditionsTitle>
-            <StyledBookingCancellingConditionsIcon src="/icons/booking-conditions.svg" />
+            <StyledBookingCancellingConditionsIcon
+              src={`/${appBaseUrl}/icons/booking-conditions.svg`}
+            />
             شروط الحجز
           </StyledBookingCancelingConditionsTitle>
           <p>{bookingConditions}</p>
@@ -38,7 +41,9 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
       {cancellingConditions && (
         <div className="canceling">
           <StyledBookingCancelingConditionsTitle>
-            <StyledBookingCancellingConditionsIcon src="/icons/cancelling-conditions.svg" />
+            <StyledBookingCancellingConditionsIcon
+              src={`/${appBaseUrl}/icons/cancelling-conditions.svg`}
+            />
             شروط الإلغاء
           </StyledBookingCancelingConditionsTitle>
           <p>{cancellingConditions}</p>
