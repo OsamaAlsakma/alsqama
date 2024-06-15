@@ -29,6 +29,7 @@ const FilterationStartAndEndDates = (
           textField: {
             placeholder: "تاريخ الوصول..",
           },
+          popper: { placement: "bottom-end" },
         }}
       />
 
@@ -43,6 +44,7 @@ const FilterationStartAndEndDates = (
           textField: {
             placeholder: "تاريخ الخروج..",
           },
+          popper: { placement: "bottom-end" },
         }}
       />
     </>
