@@ -62,44 +62,35 @@ export const DetailsPhotoViewerFooter = styled.div`
   gap: 8px;
 `;
 
+const commonIconStyle = `
+&:hover {
+  background-color: #ffffff29;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+background-color: #00000073;
+border-radius: 8px;
+color: white;
+font-weight: bold;
+font-size: 14px;
+padding: 9px 10px 5px;
+display: flex;
+gap: 8px;
+font-family: ${mainFontFamily};
+`;
+
 export const DetailsPhotoViewerFooterButton = styled(Button)`
   && {
-    background-color: #00000073;
-    border-radius: 8px;
-    color: white;
-    font-weight: bold;
-    padding: 9px 8px 5px;
-    display: flex;
-    gap: 8px;
-    font-family: ${mainFontFamily};
-    &:hover {
-      background-color: #ffffff29;
-      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-    }
+    ${commonIconStyle}
   }
 `;
 
 export const DetailsPhotoViewerFooterButtonVideo = styled.a`
   && {
-    border-radius: 8px;
-    background-color: #00000073;
-    color: white;
-    font-weight: bold;
-    padding: 9px 10px 5px;
-    display: flex;
-    gap: 8px;
+    transition: all ease-in-out 0.2s;
+    ${commonIconStyle}
     text-decoration: none;
-    display: flex;
     align-items: center;
-    font-size: 14px;
-    transition: all ease-in-out 0.9;
-    &:hover {
-      background-color: #ffffff29;
-      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-    }
   }
 `;
