@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
+import DetailsFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
 import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/wrapper/chalets-details-info-tabs-and-booking-card-wrapper";
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
+import StarIcon from "@mui/icons-material/Star";
+import PlaceIcon from "@mui/icons-material/Place";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 
 export type ReviewType = {
   reviewerName: string;
@@ -73,6 +77,22 @@ const ChaletDetailsPage = () => {
         return (
           <div key={index}>
             <ChaletsDetailsTitleWrapper title={chaletSection?.name || ""} />
+            <DetailsFastDescriptionAndShare
+              items={[
+                {
+                  icon: PlaceIcon,
+                  title: `يمن - صنعاء - شارع الجمهورية`,
+                },
+                {
+                  icon: StarIcon,
+                  title: `${chaletSection.numberOfStars} نجمة`,
+                },
+                {
+                  icon: SpaceDashboardIcon,
+                  title: `${chaletSection.numberOfRooms} غرفة`,
+                },
+              ]}
+            />
             <ChaletsDetailsPhotoViewer
               images={chaletSection?.images || []}
               video={chaletSection?.videos[0] || ""}
