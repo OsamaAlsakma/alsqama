@@ -125,7 +125,7 @@ export const FilterationASpecificSearchInput = styled(Input)`
     input::placeholder {
       opacity: 0.4;
     }
-    font-size: 14px;
+    font-size: 16px;
     width: 25%;
     height: 48px;
     @media (max-width: ${mediumScreenSize}) {

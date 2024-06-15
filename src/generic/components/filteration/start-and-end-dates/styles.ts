@@ -11,8 +11,8 @@ export const StyledFilterationStartAndEndDatesDesktopDatePicker = styled(
 )`
   && {
     & .MuiInputBase-input::placeholder {
-      transform: translateY(2px);
-      font-size: 14px;
+      // transform: translateY(2px);
+      // font-size: 14px;
     }
     border-radius: 32px;
     border: 1px solid black;
@@ -33,6 +33,10 @@ export const StyledFilterationStartAndEndDatesDesktopDatePicker = styled(
 
     & .MuiInputAdornment-root .MuiSvgIcon-root {
       color: ${primaryColor};
+    }
+    & .MuiInputBase-input {
+      padding: 15.5px 0px 9px;
+      font-size: 16px;
     }
   }
 `;
