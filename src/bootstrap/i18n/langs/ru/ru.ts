@@ -11,6 +11,7 @@ const ru: typeof langKey = {
     chalets: "Шале",
     apartments: "Квартиры",
     halls: "Залы",
+    privacyPolicy: "Политика конфиденциальности",
   },
   header: {
     termsOfUse: "Условия использования",

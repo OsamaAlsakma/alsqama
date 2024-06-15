@@ -54,6 +54,9 @@ const MainFooterWrapper = () => {
           <MainFooterMainService to={supportEndpoint.termsOfUse}>
             {t(langKey.header.termsOfUse)}
           </MainFooterMainService>
+          <MainFooterMainService to={supportEndpoint.privacyPolicy}>
+            {t(langKey.global.privacyPolicy)}
+          </MainFooterMainService>
         </MainFooterMainServices>
       </MainFooterLogoAndServices>
       <StyledAppDivider />

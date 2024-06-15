@@ -11,6 +11,7 @@ const ar: typeof langKey = {
     chalets: "شاليهات واستراحات",
     apartments: "شقق",
     halls: " صالات أفراح ",
+    privacyPolicy: "سياسة الخصوصية",
   },
   header: {
     termsOfUse: "شروط الاستخدام",

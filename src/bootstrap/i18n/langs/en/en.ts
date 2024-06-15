@@ -11,6 +11,7 @@ const en: typeof langKey = {
     chalets: "Chalets",
     halls: "Halls",
     apartments: "Apartments",
+    privacyPolicy: "Privacy policy",
   },
   header: {
     termsOfUse: "Terms of use",

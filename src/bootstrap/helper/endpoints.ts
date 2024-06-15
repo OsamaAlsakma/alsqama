@@ -1,3 +1,5 @@
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
+
 export const servicesPageEndpoint = {
   main: "/alsqama",
   chalets: "/alsqama/chalets",
@@ -7,7 +9,8 @@ export const servicesPageEndpoint = {
 };
 
 export const supportEndpoint = {
-  termsOfUse: "/alsqama/termsOfUse",
+  termsOfUse: `/${appBaseUrl}/termsOfUse`,
+  privacyPolicy: `/${appBaseUrl}/privacyPolicy`,
 };
 
 export const endpointsUrl = {
@@ -32,4 +35,6 @@ export const endpointsUrl = {
 
   /* ------------------------------ Terms of use ------------------------------ */
   termsOfUse: "https://run.mocky.io/v3/e0cf18f0-e139-463f-ad8e-6a5b37b62b41",
+  /* ----------------------------- Privacy policy ----------------------------- */
+  privacyPolicy: "https://run.mocky.io/v3/1781d7b7-683d-4308-9ca5-a09c35ee423b",
 };

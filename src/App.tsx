@@ -19,6 +19,7 @@ import TermOfUsePage from "~/support/pages/term-of-use/term-of-use-page";
 import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
 import SelectedTabCTX from "~/generic/context/selected-tab-ctx";
 import di from "~/bootstrap/di";
+import PrivacyPolicyPage from "~/support/pages/privacy-policy/privacy-policy-page";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${appHeaderHeight};
@@ -75,6 +76,11 @@ function App() {
             <Route
               path={`${supportEndpoint.termsOfUse}`}
               element={<TermOfUsePage />}
+            />
+            {/* Privacy policy */}
+            <Route
+              path={`${supportEndpoint.privacyPolicy}`}
+              element={<PrivacyPolicyPage />}
             />
           </Routes>
         </PagesPaddedWrapper>

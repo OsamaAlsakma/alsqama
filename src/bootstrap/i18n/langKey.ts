@@ -14,6 +14,7 @@ const langKey = {
     chalets: "global.chalets",
     halls: "global.halls",
     apartments: "global.apartments",
+    privacyPolicy: "global.privacyPolicy",
   },
   header: {
     termsOfUse: "header.termsOfUse",
