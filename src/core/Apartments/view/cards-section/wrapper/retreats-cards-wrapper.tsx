@@ -16,6 +16,8 @@ export type Hall = {
   location: string;
   pricePerNight: number;
   peopleCapacity?: number;
+  reservedDates: string[];
+
 };
 
 const RetreatsCardsWrapper = () => {
