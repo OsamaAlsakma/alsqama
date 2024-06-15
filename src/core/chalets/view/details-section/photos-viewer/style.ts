@@ -1,7 +1,9 @@
+import { Button } from "@mui/material";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import styled from "styled-components";
 import {
   largeScreenSize,
+  mainFontFamily,
   smallScreenSize,
 } from "~/bootstrap/helper/global-helper";
 import { StyledSwiper } from "~/core/main/view/slides/style";
@@ -55,5 +57,49 @@ export const DetailsPhotoViewerSwiper = styled(StyledSwiper)`
 
 /* --------------------------------- Footer --------------------------------- */
 export const DetailsPhotoViewerFooter = styled.div`
-  margin-top: 4px;
+  margin: -53px 20px 0px 0px;
+  display: flex;
+  gap: 8px;
+`;
+
+export const DetailsPhotoViewerFooterButton = styled(Button)`
+  && {
+    background-color: #00000073;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    padding: 9px 8px 5px;
+    display: flex;
+    gap: 8px;
+    font-family: ${mainFontFamily};
+    &:hover {
+      background-color: #ffffff29;
+      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+  }
+`;
+
+export const DetailsPhotoViewerFooterButtonVideo = styled.a`
+  && {
+    border-radius: 8px;
+    background-color: #00000073;
+    color: white;
+    font-weight: bold;
+    padding: 9px 10px 5px;
+    display: flex;
+    gap: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    transition: all ease-in-out 0.9;
+    &:hover {
+      background-color: #ffffff29;
+      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    }
+  }
 `;

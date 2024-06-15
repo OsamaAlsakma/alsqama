@@ -1,24 +1,27 @@
-import { Button } from "@mui/material";
+import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { useCallback, useState } from "react";
 import ImageViewer from "react-simple-image-viewer";
-import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
-import {
-  StyledSwiperSlide,
-  CustomPrevButton,
-  CustomNextButton,
-} from "~/core/main/view/slides/style";
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 import {
   ChaletsDetailsPhotoAllImagesWrapper,
   ChaletsDetailsPhotoMainImage,
-  ChaletsDetailsPhotoSmallImagesWrapper,
   ChaletsDetailsPhotoSmallImage,
-  DetailsPhotoViewerSwiper,
+  ChaletsDetailsPhotoSmallImagesWrapper,
   DetailsPhotoViewerFooter,
+  DetailsPhotoViewerFooterButton,
+  DetailsPhotoViewerFooterButtonVideo,
+  DetailsPhotoViewerSwiper,
 } from "~/core/chalets/view/details-section/photos-viewer/style";
+import {
+  CustomNextButton,
+  CustomPrevButton,
+  StyledSwiperSlide,
+} from "~/core/main/view/slides/style";
 
 interface IChaletsDetailsPhotoViewerProps {
   images: string[];
@@ -89,14 +92,21 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
       {/* open button */}
       <DetailsPhotoViewerFooter>
         {images.length > 0 && (
-          <Button onClick={() => setIsViewerOpen(true)}>
+          <DetailsPhotoViewerFooterButton
+            startIcon={<InsertPhotoIcon />}
+            onClick={() => setIsViewerOpen(true)}
+          >
             عرض المزيد من الصور
-          </Button>
+          </DetailsPhotoViewerFooterButton>
         )}
         {video && (
-          <Button href={`${video}`} target="_blank">
+          <DetailsPhotoViewerFooterButtonVideo
+            href={`${video}`}
+            target="_blank"
+          >
+            <SlowMotionVideoIcon />
             مشاهدة فيديو
-          </Button>
+          </DetailsPhotoViewerFooterButtonVideo>
         )}
       </DetailsPhotoViewerFooter>
       {isViewerOpen && (
