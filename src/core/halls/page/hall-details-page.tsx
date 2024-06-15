@@ -8,6 +8,10 @@ import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/det
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
+import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
+import PlaceIcon from "@mui/icons-material/Place";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
+import StarIcon from "@mui/icons-material/Star";
 
 export type HallDetailType = {
   id: string;
@@ -58,6 +62,22 @@ const HallDetailsPage = () => {
   return (
     <div>
       <ChaletsDetailsTitleWrapper title={hallDetails?.name || ""} />
+      <DetailsPageFastDescriptionAndShare
+        items={[
+          {
+            icon: PlaceIcon,
+            title: `يمن - صنعاء - شارع الجمهورية`,
+          },
+          {
+            icon: StarIcon,
+            title: `8 نجمة`,
+          },
+          {
+            icon: SpaceDashboardIcon,
+            title: `تتسع لخمسين شخص`,
+          },
+        ]}
+      />
       <ChaletsDetailsPhotoViewer
         images={hallDetails?.images || []}
         video={hallDetails?.videos[0] || ""}

@@ -8,6 +8,10 @@ import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/det
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
+import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
+import PlaceIcon from "@mui/icons-material/Place";
+import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
+import StarIcon from "@mui/icons-material/Star";
 
 export type HotelItemDetailType = {
   id: string;
@@ -58,6 +62,22 @@ const HotelItemDetailsPage = () => {
   return (
     <div>
       <ChaletsDetailsTitleWrapper title={hotelItemDetail?.name || ""} />
+      <DetailsPageFastDescriptionAndShare
+        items={[
+          {
+            icon: PlaceIcon,
+            title: `يمن - عدن - شارع الجمهورية`,
+          },
+          {
+            icon: StarIcon,
+            title: `4.5 نجمة`,
+          },
+          {
+            icon: SpaceDashboardIcon,
+            title: `سرير مزودج`,
+          },
+        ]}
+      />
       <ChaletsDetailsPhotoViewer
         images={hotelItemDetail?.images || []}
         video={hotelItemDetail?.videos[0] || ""}
