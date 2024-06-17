@@ -1,4 +1,5 @@
 import "dayjs/locale/ar";
+import { useState } from "react";
 import { osamaCommissionRatio } from "~/bootstrap/helper/business-helpers";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
 import {
@@ -6,6 +7,7 @@ import {
   DetailsBookingCardPayButton,
   DetailsBookingCardTotalMoneyItemWrapper,
 } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/style";
+import AlertMessage from "~/generic/components/alert-message/alert-message";
 
 interface IChaletsDetailsBookingCardPayTotalMoneySectionProps {
   checked: boolean;
@@ -17,7 +19,8 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
   props: IChaletsDetailsBookingCardPayTotalMoneySectionProps
 ) => {
   const { checked, pricePerNight, numberOfReservedDays } = props;
-
+  // message
+  const [open, setOpen] = useState(false);
   return (
     <>
       <DetailsBookingCardTotalMoneyItemWrapper>
@@ -43,6 +46,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
         )}
       </DetailsBookingCardTotalMoneyItemWrapper>
       <DetailsBookingCardPayButton
+        onClick={() => setOpen(true)}
         disabled={!(checked && numberOfReservedDays > 0)}
         sx={{ paddingTop: "9px", paddingBottom: "2px" }}
       >
@@ -51,6 +55,12 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
           numberOfReservedDays * pricePerNight * osamaCommissionRatio}
         &nbsp;ريال
       </DetailsBookingCardPayButton>
+      <AlertMessage
+        durationInMs={4500}
+        message="تم إرسال طلبك بنجاح، راجع أيميلك من فضلك"
+        open={open}
+        setOpen={setOpen}
+      />
       {!checked && (
         <DetailsBookingCardConfirmConditionMessage>
           يرجى الموافقة على الشروط قبل الدفع
