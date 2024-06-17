@@ -61,7 +61,7 @@ const DetailsPageFastDescriptionAndShare = (
         </DetailsFastDescriptionButton>
       </CopyToClipboard>
       <AlertMessage
-        durationInMs={3000}
+        durationInMs={2000}
         message="تم النسخ بنجاح"
         open={open}
         setOpen={setOpen}

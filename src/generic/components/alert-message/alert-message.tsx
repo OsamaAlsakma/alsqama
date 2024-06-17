@@ -1,4 +1,4 @@
-import { Snackbar, Alert } from "@mui/material";
+import { Alert, Snackbar } from "@mui/material";
 import { SetState } from "~/bootstrap/helper/global-types";
 
 interface IAlertMessageProps {
@@ -20,15 +20,11 @@ const AlertMessage = (props: IAlertMessageProps) => {
     }
     setOpen(false);
   };
+
   return (
     <Snackbar open={open} autoHideDuration={durationInMs} onClose={handleClose}>
-      <Alert
-        onClose={handleClose}
-        severity="success"
-        variant="filled"
-        sx={{ width: "100%" }}
-      >
-        {message}
+      <Alert severity="success" variant="filled" sx={{ width: "100%" }}>
+        <span style={{ padding: "10px" }}> {message}</span>
       </Alert>
     </Snackbar>
   );
