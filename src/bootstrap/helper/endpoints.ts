@@ -15,18 +15,18 @@ export const supportEndpoint = {
 
 export const endpointsUrl = {
   /* --------------------------------- Chalets -------------------------------- */
-  allChalets: "https://run.mocky.io/v3/ed159a89-6359-45d4-b086-9532194d403f",
-  chaletDetails: "https://run.mocky.io/v3/e3a1ca8d-c899-43cf-9141-acca861a2083",
+  allChalets: "https://run.mocky.io/v3/1f9928c2-205e-4319-94b5-5e214bdd168e",
+  chaletDetails: "https://run.mocky.io/v3/0d10feea-c7c4-40c9-b88a-802cb8cc35de",
 
   /* --------------------------------- Hotels --------------------------------- */
-  allHotels: "https://run.mocky.io/v3/8b968fb9-76f0-4284-8497-307381c734d8",
-  anHotelItems: "https://run.mocky.io/v3/40833494-3132-4a60-bf5e-c39cc1681d38",
+  allHotels: "https://run.mocky.io/v3/ce859f40-97f7-4cbe-bfa3-8b02873024c2",
+  anHotelItems: "https://run.mocky.io/v3/52546746-7763-4744-8e3d-8bd747b2eade",
   hotelItemDetails:
-    "https://run.mocky.io/v3/26f72494-647d-4ac3-a4d1-f496fd6e73da",
+    "https://run.mocky.io/v3/040223a6-4d38-489e-9de8-76be929aefd6",
 
   /* ---------------------------------- Halls --------------------------------- */
-  allHalls: "https://run.mocky.io/v3/2f479d6f-b040-4049-9ef9-73d04d6e5a69",
-  hallDetails: "https://run.mocky.io/v3/e7e2d34c-9c58-4c4d-8b0e-ba63e8e6e498",
+  allHalls: "https://run.mocky.io/v3/f76776a1-a244-41e1-a011-5291ab03a345",
+  hallDetails: "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
 
   /* -------------------------------- Retreats -------------------------------- */
   allRetreats: "https://run.mocky.io/v3/ac044f62-0728-499b-9a4a-9684c27040d2",
@@ -34,7 +34,7 @@ export const endpointsUrl = {
     "https://run.mocky.io/v3/9d469e41-7e1f-473e-9a2e-6e831f5daa6f",
 
   /* ------------------------------ Terms of use ------------------------------ */
-  termsOfUse: "https://run.mocky.io/v3/e0cf18f0-e139-463f-ad8e-6a5b37b62b41",
+  termsOfUse: "https://run.mocky.io/v3/e1a71449-ab92-4f8b-8f50-11ac458a7ab7",
   /* ----------------------------- Privacy policy ----------------------------- */
-  privacyPolicy: "https://run.mocky.io/v3/1781d7b7-683d-4308-9ca5-a09c35ee423b",
+  privacyPolicy: "https://run.mocky.io/v3/ebd45a15-ac57-40ab-967a-262eb88af780",
 };
