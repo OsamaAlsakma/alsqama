@@ -1,3 +1,4 @@
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   ChaletsCardsCardRatingStars,
   ChaletsCardsCardRatingWrapper,
@@ -20,7 +21,7 @@ const HotelItemsCardsCardMainTitle = (
       <ChaletsCardsCardTitle>{name}</ChaletsCardsCardTitle>
       {roomsNumber && (
         <ChaletsCardsCardRatingWrapper>
-          <ChaletsCardsCardFeatureIcon src="./../icons/rooms.svg" alt="rooms" />
+          <ChaletsCardsCardFeatureIcon src={`/${appBaseUrl}/icons/rooms.svg`} alt="rooms" />
           <ChaletsCardsCardRatingStars>
             {roomsNumber}
           </ChaletsCardsCardRatingStars>

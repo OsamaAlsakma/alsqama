@@ -1,3 +1,4 @@
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   ChaletsCardsCardFeatureTitle,
   ChaletsCardsCardFeatureIcon,
@@ -17,7 +18,7 @@ const HotelItemsCardsCardBody = (props: IHotelItemsCardsCardBodyProps) => {
   return (
     <HotleItemsCardsCardFeaturesWrapper>
       <HotleItemsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon src="./../icons/money.svg" alt="money" />
+        <ChaletsCardsCardFeatureIcon src={`/${appBaseUrl}/icons/money.svg`} alt="money" />
         <ChaletsCardsCardFeatureTitle>
           {pricePerNight}
         </ChaletsCardsCardFeatureTitle>
@@ -25,7 +26,7 @@ const HotelItemsCardsCardBody = (props: IHotelItemsCardsCardBodyProps) => {
       {bedsNumber && (
         <HotleItemsCardsCardFeature style={{ justifyContent: "left" }}>
           <ChaletsCardsCardFeatureIcon
-            src="./../icons/bed-icon.svg"
+            src={`/${appBaseUrl}/icons/bed-icon.svg`}
             alt="bed"
           />
           <ChaletsCardsCardFeatureTitle>
