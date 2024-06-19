@@ -1,4 +1,6 @@
+import { useTranslation } from "react-i18next";
 import { StyledAppSubTitleWrapper } from "~/bootstrap/helper/global-styles";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   DetailsInfoTabsFeatureIcon,
   DetailsInfoTabsFeatureWrapper,
@@ -12,10 +14,12 @@ const ChaletsDetailsInfoTabsfeatures = (
   props: IChaletsDetailsInfoTabsMapProps
 ) => {
   const { features } = props;
-
+  const { t } = useTranslation();
   return (
     <>
-      <StyledAppSubTitleWrapper>ميزات وملحقات</StyledAppSubTitleWrapper>
+      <StyledAppSubTitleWrapper>
+        {t(langKey.detailsPage.featuresAccessories)}
+      </StyledAppSubTitleWrapper>
       {features.map((feature, index) => (
         <DetailsInfoTabsFeatureWrapper key={index}>
           <DetailsInfoTabsFeatureIcon /> {feature}

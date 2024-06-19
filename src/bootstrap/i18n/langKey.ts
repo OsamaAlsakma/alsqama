@@ -34,6 +34,17 @@ const langKey = {
     share: "detailsPage.share",
     seeMorePhoto: "detailsPage.seeMorePhoto",
     watchVideo: "detailsPage.watchVideo",
+    features: "detailsPage.features",
+    conditions: "detailsPage.conditions",
+    map: "detailsPage.map",
+    reviews: "detailsPage.reviews",
+    featuresAccessories: "detailsPage.featuresAccessories",
+
+    bookingAndCancelingConditions: "detailsPage.bookingAndCancelingConditions",
+    bookingConditions: "detailsPage.bookingConditions",
+    cancelingConditions: "detailsPage.cancelingConditions",
+    noBookingAndCancelingConditions:
+      "detailsPage.noBookingAndCancelingConditions",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

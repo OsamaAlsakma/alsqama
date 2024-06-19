@@ -31,6 +31,16 @@ const ru: typeof langKey = {
     share: "Участие",
     seeMorePhoto: "Смотрите больше фотографий",
     watchVideo: "Смотреть видео",
+    features: "Особенности",
+    conditions: "Условия",
+    map: "Карта",
+    reviews: "Обзоры",
+    featuresAccessories: "Особенности и аксессуары",
+
+    bookingAndCancelingConditions: "Условия и Отмены бронирования",
+    bookingConditions: "Условия бронирования",
+    cancelingConditions: "Условия отмены бронирования",
+    noBookingAndCancelingConditions: "Нет условий для бронирования и отмены",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",

@@ -31,6 +31,16 @@ const ar: typeof langKey = {
     share: "مشاركة",
     seeMorePhoto: "عرض المزيد من الصور",
     watchVideo: "مشاهدة الفيديو",
+    features: "ميزات",
+    conditions: "شروط",
+    map: "الخريطة",
+    reviews: "تقييمات",
+    featuresAccessories: "ميزات وملحقات",
+
+    bookingAndCancelingConditions: "شروط الحجز والإلغاء",
+    bookingConditions: "شروط الحجز",
+    cancelingConditions: "شروط الإلغاء",
+    noBookingAndCancelingConditions: "لا يوجد شروط للحجز و الإلغاء",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",

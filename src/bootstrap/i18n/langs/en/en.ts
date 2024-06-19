@@ -31,6 +31,17 @@ const en: typeof langKey = {
     share: "Share",
     seeMorePhoto: "See more photos",
     watchVideo: "ًWatch video",
+    features: "Features",
+    conditions: "Conditions",
+    map: "Map",
+    reviews: "Reviews",
+    featuresAccessories: "Features and accessories",
+
+    bookingAndCancelingConditions: "Booking and canceling conditions",
+    bookingConditions: "Booking conditions",
+    cancelingConditions: "Canceling conditions",
+    noBookingAndCancelingConditions:
+      "detailsPage.noBookingAndCancelingConditions",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",

@@ -2,6 +2,8 @@ import TabContext from "@mui/lab/TabContext";
 import TabPanel from "@mui/lab/TabPanel";
 import Box from "@mui/material/Box/Box";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import langKey from "~/bootstrap/i18n/langKey";
 import { ReviewType } from "~/core/chalets/page/chalet-details-page";
 import ChaletsDetailsInfoTabsBookingCancellingConditions from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-booking-cancelling-conditions";
 import ChaletsDetailsInfoTabsfeatures from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/chalets-details-info-tabs-features";
@@ -42,6 +44,7 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
     setValue(newValue);
   };
 
+  const { t } = useTranslation();
   return (
     <DetailsInfoTabsBox>
       <TabContext value={value}>
@@ -52,10 +55,19 @@ const ChaletsDetailsInfoTabs = (props: IChaletsDetailsInfoTabsProps) => {
             variant="fullWidth"
             centered={true}
           >
-            <DetailsInfoTabsTab label="ميزات" value="1" />
-            <DetailsInfoTabsTab label="شروط" value="2" />
-            <DetailsInfoTabsTab label="الخريطة" value="3" />
-            <DetailsInfoTabsTab label="تقيمات" value="4" />
+            <DetailsInfoTabsTab
+              label={t(langKey.detailsPage.features)}
+              value="1"
+            />
+            <DetailsInfoTabsTab
+              label={t(langKey.detailsPage.conditions)}
+              value="2"
+            />
+            <DetailsInfoTabsTab label={t(langKey.detailsPage.map)} value="3" />
+            <DetailsInfoTabsTab
+              label={t(langKey.detailsPage.reviews)}
+              value="4"
+            />
           </DetailsInfoTabsTabList>
         </Box>
         <TabPanel value="1">
