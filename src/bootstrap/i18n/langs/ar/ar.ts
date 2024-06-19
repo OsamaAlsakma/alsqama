@@ -41,6 +41,9 @@ const ar: typeof langKey = {
     bookingConditions: "شروط الحجز",
     cancelingConditions: "شروط الإلغاء",
     noBookingAndCancelingConditions: "لا يوجد شروط للحجز و الإلغاء",
+    /* ------------------------------ booking card ------------------------------ */
+    bookingStartDate: "يبدأ الحجز من:",
+    bookingEndDate: "ينتهي الحجز في:",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",

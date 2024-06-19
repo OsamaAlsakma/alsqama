@@ -42,6 +42,9 @@ const en: typeof langKey = {
     cancelingConditions: "Canceling conditions",
     noBookingAndCancelingConditions:
       "detailsPage.noBookingAndCancelingConditions",
+    /* ------------------------------ booking card ------------------------------ */
+    bookingStartDate: "Booking starts from:",
+    bookingEndDate: "Booking ends at:",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",

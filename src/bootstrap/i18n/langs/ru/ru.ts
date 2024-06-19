@@ -41,6 +41,9 @@ const ru: typeof langKey = {
     bookingConditions: "Условия бронирования",
     cancelingConditions: "Условия отмены бронирования",
     noBookingAndCancelingConditions: "Нет условий для бронирования и отмены",
+    /* ------------------------------ booking card ------------------------------ */
+    bookingStartDate: "Бронирование начинается с:",
+    bookingEndDate: "Бронирование заканчивается в:",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",

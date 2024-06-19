@@ -45,6 +45,9 @@ const langKey = {
     cancelingConditions: "detailsPage.cancelingConditions",
     noBookingAndCancelingConditions:
       "detailsPage.noBookingAndCancelingConditions",
+    /* ------------------------------ booking card ------------------------------ */
+    bookingStartDate: "detailsPage.bookingStartDate",
+    bookingEndDate: "detailsPage.bookingEndDate",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

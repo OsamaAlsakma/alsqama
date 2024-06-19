@@ -5,8 +5,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import "dayjs/locale/ar";
 import { SetStateAction, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   DetailsBookingCardErrorMessage,
   DetailsBookingCardInput,
@@ -44,7 +46,7 @@ export const ChaletsDetailsBookingCardBookingDate = (
     }
     setNumberOfReservedDays(numberOfReservedDays);
   }, [startDate, endDate]);
-
+  const { t } = useTranslation();
   return (
     <>
       <DetailsBookingCardPricePerNightDiv>
@@ -56,7 +58,7 @@ export const ChaletsDetailsBookingCardBookingDate = (
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
         <DetailsBookingCardInputsSection className="inputs">
           <DetailsBookingCardInput className="from-input">
-            <span>يبدأ الحجز من:</span>
+            <span>{t(langKey.detailsPage.bookingStartDate)}</span>
             <DatePicker
               format="DD/MM/YYYY"
               views={["year", "month", "day"]}
@@ -75,7 +77,7 @@ export const ChaletsDetailsBookingCardBookingDate = (
             />
           </DetailsBookingCardInput>
           <DetailsBookingCardInput className="to-input">
-            <span>ينتهي الحجز في:</span>
+            <span>{t(langKey.detailsPage.bookingEndDate)}</span>
             <DatePicker
               format="DD/MM/YYYY"
               views={["year", "month", "day"]}
