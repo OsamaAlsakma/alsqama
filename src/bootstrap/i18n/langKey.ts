@@ -14,14 +14,11 @@ const langKey = {
     chalets: "global.chalets",
     halls: "global.halls",
     apartments: "global.apartments",
-    privacyPolicy: "global.privacyPolicy",
     more: "global.more",
     bookNow: "global.bookNow",
     copyRight: "global.copyRight",
   },
-  header: {
-    termsOfUse: "header.termsOfUse",
-  },
+
   mainPage: {
     signinOrSignup: "mainPage.signinOrSignup",
     username: "mainPage.username",
@@ -61,6 +58,10 @@ const langKey = {
     priceTo: "search.priceTo",
 
     writePrice: "search.writePrice",
+  },
+  support: {
+    termsOfUse: "support.termsOfUse",
+    privacyPolicy: "support.privacyPolicy",
   },
 };
 

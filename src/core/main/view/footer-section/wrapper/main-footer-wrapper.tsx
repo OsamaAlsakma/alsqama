@@ -52,10 +52,10 @@ const MainFooterWrapper = () => {
             {t(langKey.global.apartments)}
           </MainFooterMainService>
           <MainFooterMainService to={supportEndpoint.termsOfUse}>
-            {t(langKey.header.termsOfUse)}
+            {t(langKey.support.termsOfUse)}
           </MainFooterMainService>
           <MainFooterMainService to={supportEndpoint.privacyPolicy}>
-            {t(langKey.global.privacyPolicy)}
+            {t(langKey.support.privacyPolicy)}
           </MainFooterMainService>
         </MainFooterMainServices>
       </MainFooterLogoAndServices>

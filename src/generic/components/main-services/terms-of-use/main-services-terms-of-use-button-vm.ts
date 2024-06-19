@@ -23,7 +23,7 @@ export default class MainServicesTermsOfUseButtonVM {
 
     return {
       props: {
-        title: t(langKey.header.termsOfUse),
+        title: t(langKey.support.termsOfUse),
         isDisabled: false,
         color: AppButtonColors.INHERIT,
         href: PossibleSelectedTabs.TERMSOFUSE,

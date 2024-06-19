@@ -11,14 +11,11 @@ const ar: typeof langKey = {
     chalets: "شاليهات واستراحات",
     apartments: "شقق",
     halls: " صالات أفراح ",
-    privacyPolicy: "سياسة الخصوصية",
     more: "المزيد",
     bookNow: "احجز الآن",
     copyRight: "جميع الحقوق محفوظة © 2016-2024 حجزي",
   },
-  header: {
-    termsOfUse: "شروط الاستخدام",
-  },
+
   mainPage: {
     signinOrSignup: "الدخول أو إنشاء حساب",
     username: "اسم المستخدم",
@@ -56,6 +53,10 @@ const ar: typeof langKey = {
     priceFrom: "السعر من..",
     priceTo: "إلى السعر..",
     writePrice: "أكتب السعر..",
+  },
+  support: {
+    termsOfUse: "شروط الاستخدام",
+    privacyPolicy: "سياسة الخصوصية",
   },
 };
 

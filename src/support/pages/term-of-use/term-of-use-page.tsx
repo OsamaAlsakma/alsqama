@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   ChaletsCardsWrapperMessages,
   StyledChaletsCardsWrapper,
@@ -41,6 +43,7 @@ const TermOfUsePage = () => {
   useEffect(() => {
     fetchTermsOfUse();
   }, []);
+  const { t } = useTranslation();
 
   if (isLoading) return <CircularLoader />;
 
@@ -56,7 +59,10 @@ const TermOfUsePage = () => {
         </ChaletsCardsWrapperMessages>
       ) : (
         <>
-          <ChaletsDetailsTitle>شروط الإستخدام</ChaletsDetailsTitle>
+          <ChaletsDetailsTitle>
+            {" "}
+            {t(langKey.support.termsOfUse)}
+          </ChaletsDetailsTitle>
           {termsOfUse?.map((termOfUse: TermsOfUseType, index: number) => (
             <div key={index}>
               <h4>{termOfUse.title}</h4>

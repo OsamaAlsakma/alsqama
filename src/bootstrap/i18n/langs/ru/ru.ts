@@ -11,14 +11,11 @@ const ru: typeof langKey = {
     chalets: "Шале",
     apartments: "Квартиры",
     halls: "Залы",
-    privacyPolicy: "Политика конфиденциальности",
     more: "больше",
     bookNow: "бронируйте сейчас",
     copyRight: "Все права защищены © 2016-2024 Hajzi",
   },
-  header: {
-    termsOfUse: "Условия использования",
-  },
+
   mainPage: {
     signinOrSignup: "войдите или зарегистрируйтесь",
     username: "Имя пользователя",
@@ -56,6 +53,10 @@ const ru: typeof langKey = {
     priceFrom: "Цена от",
     priceTo: "цены до",
     writePrice: "Напишите цену",
+  },
+  support: {
+    termsOfUse: "Условия использования",
+    privacyPolicy: "Политика конфиденциальности",
   },
 };
 

@@ -11,14 +11,11 @@ const en: typeof langKey = {
     chalets: "Chalets",
     halls: "Halls",
     apartments: "Apartments",
-    privacyPolicy: "Privacy policy",
     more: "More",
     bookNow: "Book now",
     copyRight: "All rights reserved © 2016-2024 Hajzi",
   },
-  header: {
-    termsOfUse: "Terms of use",
-  },
+
   mainPage: {
     signinOrSignup: "Sign in or sign up",
     username: "Username",
@@ -57,6 +54,10 @@ const en: typeof langKey = {
     priceFrom: "Price from",
     priceTo: "Price to",
     writePrice: "Write price",
+  },
+  support: {
+    termsOfUse: "Terms of use",
+    privacyPolicy: "Privacy policy",
   },
 };
 
