@@ -61,7 +61,7 @@ const MainFooterWrapper = () => {
       </MainFooterLogoAndServices>
       <StyledAppDivider />
       <MainFooter>
-        <CopyrightNotice>جميع الحقوق محفوظة © 2016-2024 حجزي</CopyrightNotice>
+        <CopyrightNotice>{t(langKey.global.copyRight)}</CopyrightNotice>
         <LoginSignupButton />
         <ServicesBurgerDrawerContactUsIcons />
       </MainFooter>

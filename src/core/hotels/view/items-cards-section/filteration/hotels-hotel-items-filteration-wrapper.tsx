@@ -3,6 +3,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   FilterationASpecificSearchInput,
@@ -10,6 +11,7 @@ import {
   inputPaddingStyle,
 } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   ChaletsFilterationSpecificSearchInputIcon,
   StyledChaletsFilterationWrapper,
@@ -80,7 +82,7 @@ const HotelsHotelItemsFilterationWrapper = (
   useEffect(() => {
     applyFilters();
   }, [minimumPricePerNight, maximumPricePerNight, startDate, endDate]);
-
+  const { t } = useTranslation();
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
       <StyledChaletsFilterationWrapper>
@@ -94,7 +96,7 @@ const HotelsHotelItemsFilterationWrapper = (
           <FilterationASpecificSearchInput
             onChange={handleOnMinimumPricePerNightChange}
             disableUnderline
-            placeholder="السعر من.."
+            placeholder={t(langKey.search.priceFrom)}
             startAdornment={
               <ChaletsFilterationSpecificSearchInputIcon
                 src={`/${appBaseUrl}/icons/input-money.svg`}
@@ -108,7 +110,7 @@ const HotelsHotelItemsFilterationWrapper = (
           <FilterationASpecificSearchInput
             onChange={handleOnMaximumPricePerNightChange}
             disableUnderline
-            placeholder="إلى السعر.."
+            placeholder={t(langKey.search.priceTo)}
             startAdornment={
               <ChaletsFilterationSpecificSearchInputIcon
                 src={`/${appBaseUrl}/icons/input-money.svg`}

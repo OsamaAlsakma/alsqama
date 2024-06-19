@@ -1,6 +1,8 @@
 import CardContent from "@mui/material/CardContent/CardContent";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import Typography from "@mui/material/Typography/Typography";
+import { useTranslation } from "react-i18next";
+import langKey from "~/bootstrap/i18n/langKey";
 import IMainHotelCardProps from "~/core/main/view/hotel-card/i-main-hotel-card-props";
 import {
   StyledCard,
@@ -11,7 +13,7 @@ import {
 
 const MainHotelCard = (props: IMainHotelCardProps) => {
   const { vm } = props;
-
+const {t} = useTranslation()
   return (
     <StyledCard sx={{ boxShadow: 4 }}>
       <CardMedia
@@ -36,7 +38,7 @@ const MainHotelCard = (props: IMainHotelCardProps) => {
         </Typography>
       </CardContent>
       <StyledMainHotelCardCardActions>
-        <StyledMainHotelCardButton>تصفح الفنادق</StyledMainHotelCardButton>
+        <StyledMainHotelCardButton>{t(langKey.mainPage.surfHotels)}</StyledMainHotelCardButton>
       </StyledMainHotelCardCardActions>
     </StyledCard>
   );

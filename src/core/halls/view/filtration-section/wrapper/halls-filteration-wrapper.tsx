@@ -3,13 +3,15 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/LocalizationProvider";
 import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
-import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
+import { useTranslation } from "react-i18next";
+import { appBaseUrl, unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import {
   FilterationASpecificSearchInput,
   FilterationDatesAndOtherWrapper,
   inputPaddingStyle,
 } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   ChaletsFilterationSearchInput,
   ChaletsFilterationSpecificSearchInputIcon,
@@ -81,12 +83,13 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
   useEffect(() => {
     applyFilters();
   }, [priceFilter, cityFilter, nameFilter, startDate, endDate]);
+  const { t } = useTranslation();
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ar">
       <StyledChaletsFilterationWrapper>
         <ChaletsFilterationSearchInput
-          placeholder="أبحث عن أي صالة.."
+          placeholder={t(langKey.search.searchForAnyHall)}
           disableUnderline
           endAdornment={<StyledSearchIcon />}
           inputProps={{
@@ -105,9 +108,11 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
             onChange={handleOnPriceChange}
             disableUnderline
             value={priceFilter}
-            placeholder="أكتب السعر.."
+            placeholder={t(langKey.search.writePrice)}
             startAdornment={
-              <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-money.svg" />
+              <ChaletsFilterationSpecificSearchInputIcon
+                src={`/${appBaseUrl}/icons/input-money.svg`}
+              />
             }
             inputProps={{
               style: inputPaddingStyle,
@@ -117,9 +122,11 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
           <FilterationASpecificSearchInput
             onChange={handleOnCityChange}
             disableUnderline
-            placeholder="أكتب المدينة.."
+            placeholder={t(langKey.search.writeCity)}
             startAdornment={
-              <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-city.svg" />
+              <ChaletsFilterationSpecificSearchInputIcon
+                src={`/${appBaseUrl}/icons/input-city.svg`}
+              />
             }
             inputProps={{
               style: inputPaddingStyle,

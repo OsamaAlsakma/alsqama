@@ -1,12 +1,14 @@
 import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import SlowMotionVideoIcon from "@mui/icons-material/SlowMotionVideo";
 import { useCallback, useState } from "react";
+import { useTranslation } from "react-i18next";
 import ImageViewer from "react-simple-image-viewer";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   ChaletsDetailsPhotoAllImagesWrapper,
   ChaletsDetailsPhotoMainImage,
@@ -43,7 +45,7 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
     setCurrentImage(0);
     setIsViewerOpen(false);
   };
-
+  const { t } = useTranslation();
   return (
     <HandlingSectionPaddingWrapper>
       {/* First position */}
@@ -96,7 +98,7 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
             startIcon={<InsertPhotoIcon />}
             onClick={() => setIsViewerOpen(true)}
           >
-            عرض المزيد من الصور
+            {t(langKey.detailsPage.seeMorePhoto)}
           </DetailsPhotoViewerFooterButton>
         )}
         {video && (
@@ -105,7 +107,7 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
             target="_blank"
           >
             <SlowMotionVideoIcon />
-            مشاهدة فيديو
+            {t(langKey.detailsPage.watchVideo)}
           </DetailsPhotoViewerFooterButtonVideo>
         )}
       </DetailsPhotoViewerFooter>

@@ -15,6 +15,9 @@ const langKey = {
     halls: "global.halls",
     apartments: "global.apartments",
     privacyPolicy: "global.privacyPolicy",
+    more: "global.more",
+    bookNow: "global.bookNow",
+    copyRight: "global.copyRight",
   },
   header: {
     termsOfUse: "header.termsOfUse",
@@ -25,6 +28,25 @@ const langKey = {
     email: "mainPage.email",
     password: "mainPage.password",
     haveAnAccount: "mainPage.haveAnAccount",
+    surfHotels: "mainPage.surfHotels",
+  },
+  detailsPage: {
+    share: "detailsPage.share",
+    seeMorePhoto: "detailsPage.seeMorePhoto",
+    watchVideo: "detailsPage.watchVideo",
+  },
+  search: {
+    searchForAnyHotel: "search.searchForAnyHotel",
+    searchForAnyChalet: "search.searchForAnyChalet",
+    searchForAnyHall: "search.searchForAnyHall",
+    ratingRange: "search.ratingRange",
+    writeCity: "search.writeCity",
+    arriveDate: "search.arriveDate",
+    leaveDate: "search.leaveDate",
+    priceFrom: "search.priceFrom",
+    priceTo: "search.priceTo",
+
+    writePrice: "search.writePrice",
   },
 };
 

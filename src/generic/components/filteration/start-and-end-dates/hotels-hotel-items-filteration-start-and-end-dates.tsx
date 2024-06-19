@@ -1,6 +1,8 @@
 import dayjs, { Dayjs } from "dayjs";
 import { SetStateAction } from "react";
+import { useTranslation } from "react-i18next";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import { StyledFilterationStartAndEndDatesDesktopDatePicker } from "~/generic/components/filteration/start-and-end-dates/styles";
 
 interface IFilterationStartAndEndDatesProps {
@@ -15,7 +17,7 @@ const FilterationStartAndEndDates = (
   const { setStartDate, setEndDate } = props;
   const today = dayjs(new Date());
   const tomorrow = dayjs().add(1, "day");
-
+  const { t } = useTranslation();
   return (
     <>
       <StyledFilterationStartAndEndDatesDesktopDatePicker
@@ -27,7 +29,7 @@ const FilterationStartAndEndDates = (
         }
         slotProps={{
           textField: {
-            placeholder: "تاريخ الوصول..",
+            placeholder: `${t(langKey.search.arriveDate)}`,
           },
           popper: { placement: "bottom-end" },
         }}
@@ -42,7 +44,7 @@ const FilterationStartAndEndDates = (
         }
         slotProps={{
           textField: {
-            placeholder: "تاريخ الخروج..",
+            placeholder: `${t(langKey.search.leaveDate)}`,
           },
           popper: { placement: "bottom-end" },
         }}

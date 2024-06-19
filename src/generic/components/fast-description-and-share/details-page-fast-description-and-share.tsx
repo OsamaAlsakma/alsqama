@@ -2,8 +2,10 @@ import { SvgIconComponent } from "@mui/icons-material";
 import { SvgIcon } from "@mui/material";
 import { FC, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router";
 import { primaryColor } from "~/bootstrap/helper/global-helper";
+import langKey from "~/bootstrap/i18n/langKey";
 import AlertMessage from "~/generic/components/alert-message/alert-message";
 import {
   StyledDetailsFastDescriptionItemsAndShareWrapper,
@@ -30,7 +32,7 @@ const DetailsPageFastDescriptionAndShare = (
 
   // message
   const [open, setOpen] = useState(false);
-
+  const { t } = useTranslation();
   return (
     <StyledDetailsFastDescriptionItemsAndShareWrapper>
       {/* items */}
@@ -57,7 +59,7 @@ const DetailsPageFastDescriptionAndShare = (
           startIcon={<DetailsFastDescriptionShareIcon />}
           onClick={() => setOpen(true)}
         >
-          مشاركة
+          {t(langKey.detailsPage.share)}
         </DetailsFastDescriptionButton>
       </CopyToClipboard>
       <AlertMessage

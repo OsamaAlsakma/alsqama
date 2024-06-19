@@ -1,8 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from "react";
-import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
+import { useTranslation } from "react-i18next";
+import { appBaseUrl, unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import { inputPaddingStyle } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   ChaletsFilterationSearchInput,
   ChaletsFilterationSpecificSearchInput,
@@ -72,10 +74,11 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
     applyFilters();
   }, [cityFilter, nameFilter, numberOfStarsFilter]);
 
+  const { t } = useTranslation();
   return (
     <StyledChaletsFilterationWrapper>
       <ChaletsFilterationSearchInput
-        placeholder="أبحث عن أي فندق.."
+        placeholder={t(langKey.search.searchForAnyHotel)}
         disableUnderline
         endAdornment={<StyledSearchIcon />}
         inputProps={{
@@ -88,9 +91,11 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
           onChange={handleOnNumberOfStarsChange}
           disableUnderline
           value={numberOfStarsFilter}
-          placeholder="التصنيف من 1 إلى 5.."
+          placeholder={t(langKey.search.ratingRange)}
           startAdornment={
-            <ChaletsFilterationSpecificSearchInputIcon src="./icons/star.svg" />
+            <ChaletsFilterationSpecificSearchInputIcon
+              src={`/${appBaseUrl}/icons/star.svg`}
+            />
           }
           inputProps={{
             style: inputPaddingStyle,
@@ -99,9 +104,11 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
         <ChaletsFilterationSpecificSearchInput
           onChange={handleOnCityChange}
           disableUnderline
-          placeholder="أكتب المدينة.."
+          placeholder={t(langKey.search.writeCity)}
           startAdornment={
-            <ChaletsFilterationSpecificSearchInputIcon src="./icons/input-city.svg" />
+            <ChaletsFilterationSpecificSearchInputIcon
+              src={`/${appBaseUrl}/icons/input-city.svg`}
+            />
           }
           inputProps={{
             style: inputPaddingStyle,
