@@ -45,8 +45,6 @@ const LoginForm = (props: ILoginFormProps) => {
       });
       if (response.status === 200) {
         userStore.getState().storeUser({
-          username: undefined,
-          email: undefined,
           token: response.data.access_token,
         });
 

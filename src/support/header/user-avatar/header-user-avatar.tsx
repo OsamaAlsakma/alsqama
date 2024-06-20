@@ -1,8 +1,10 @@
-import Avatar from "@mui/material/Avatar/Avatar";
+import Menu from "@mui/material/Menu/Menu";
+import MenuItem from "@mui/material/MenuItem/MenuItem";
+import { useState } from "react";
 import di from "~/bootstrap/di";
-import { primaryColor } from "~/bootstrap/helper/global-helper";
 import Store from "~/bootstrap/helper/store/store-type";
 import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
+import { StyledHeaderUserAvatar } from "~/support/header/user-avatar/style";
 import NUserStore from "~/support/login-signup-forms/store/i-user-store";
 import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
 
@@ -35,13 +37,47 @@ function stringAvatar(name: string) {
 }
 
 const HeaderUserAvatar = () => {
+  //  token
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
   const token = useStoreSelector(userStore, (store) => store.user.token);
 
-  return token ? (
-    <Avatar sx={{ bgcolor: primaryColor, width: "33px", height: "33px" }} />
-  ) : (
-    <Avatar {...stringAvatar("Salar")} />
+  // menu
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  return (
+    <>
+      {token ? (
+        <StyledHeaderUserAvatar onClick={handleClick} />
+      ) : (
+        <StyledHeaderUserAvatar
+          {...stringAvatar("Salar")}
+          onClick={handleClick}
+        />
+      )}
+      <Menu
+        style={{ marginTop: "6px", zIndex: 9001 }}
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem
+          style={{ backgroundColor: "transparent" }}
+          onClick={() => {
+            userStore.getState().storeUser({
+              token: undefined,
+            });
+            handleClose();
+          }}
+        >
+          تسجيل الخروج
+        </MenuItem>
+      </Menu>
+    </>
   );
 };
 
