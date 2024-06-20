@@ -1,3 +1,4 @@
+import Badge from "@mui/material/Badge/Badge";
 import Menu from "@mui/material/Menu/Menu";
 import MenuItem from "@mui/material/MenuItem/MenuItem";
 import { useState } from "react";
@@ -51,14 +52,24 @@ const HeaderUserAvatar = () => {
   };
   return (
     <>
-      {token ? (
-        <StyledHeaderUserAvatar onClick={handleClick} />
-      ) : (
-        <StyledHeaderUserAvatar
-          {...stringAvatar("Salar")}
-          onClick={handleClick}
-        />
-      )}
+      <Badge
+        overlap="circular"
+        variant="dot"
+        color="success"
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+      >
+        {token ? (
+          <StyledHeaderUserAvatar onClick={handleClick} />
+        ) : (
+          <StyledHeaderUserAvatar
+            {...stringAvatar("Salar")}
+            onClick={handleClick}
+          />
+        )}
+      </Badge>
       <Menu
         style={{ marginTop: "6px", zIndex: 9001 }}
         anchorEl={anchorEl}
