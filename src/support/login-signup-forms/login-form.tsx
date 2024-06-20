@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import di from "~/bootstrap/di";
+import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import { SetState } from "~/bootstrap/helper/global-types";
 import Store from "~/bootstrap/helper/store/store-type";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
@@ -38,15 +39,15 @@ const LoginForm = (props: ILoginFormProps) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axios.post("https://dummyjson.com/auth/login", {
-        username: email,
+      const response = await axios.post(`${endpointsUrl.loginEndpoint}`, {
+        email,
         password,
       });
       if (response.status === 200) {
         userStore.getState().storeUser({
-          username: response.data.username,
-          email: response.data.email,
-          token: response.data.token,
+          username: undefined,
+          email: undefined,
+          token: response.data.access_token,
         });
 
         setIsOpen(false);
@@ -70,7 +71,7 @@ const LoginForm = (props: ILoginFormProps) => {
       <LoginSignUpInput
         disableUnderline
         type="text"
-        placeholder="اسم المستخدم*"
+        placeholder="البريد الإلكتروني*"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required

@@ -1,5 +1,6 @@
 import Avatar from "@mui/material/Avatar/Avatar";
 import di from "~/bootstrap/di";
+import { primaryColor } from "~/bootstrap/helper/global-helper";
 import Store from "~/bootstrap/helper/store/store-type";
 import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
 import NUserStore from "~/support/login-signup-forms/store/i-user-store";
@@ -35,9 +36,13 @@ function stringAvatar(name: string) {
 
 const HeaderUserAvatar = () => {
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
-  const username = useStoreSelector(userStore, (store) => store.user.username);
+  const token = useStoreSelector(userStore, (store) => store.user.token);
 
-  return username ? <Avatar {...stringAvatar(username)} /> : <Avatar />;
+  return token ? (
+    <Avatar sx={{ bgcolor: primaryColor, width: "33px", height: "33px" }} />
+  ) : (
+    <Avatar {...stringAvatar("Salar")} />
+  );
 };
 
 export default HeaderUserAvatar;

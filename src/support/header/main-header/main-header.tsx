@@ -30,7 +30,6 @@ const MainHeader = () => {
           <HeaderLocalizationSelectBox />
           <OpenModlaProvider>
             {token ? <HeaderUserAvatar /> : <LoginSignupNewButton />}
-            {/* <HeaderLoginSignupIcon /> */}
           </OpenModlaProvider>
         </StyledLocalizationAndLoginSignup>
       </StyledMainHeader>
