@@ -1,5 +1,7 @@
+import { useState } from "react";
 import di from "~/bootstrap/di";
 import { SetState } from "~/bootstrap/helper/global-types";
+import AlertMessage from "~/generic/components/alert-message/alert-message";
 import AppModal from "~/generic/components/app-modal/app-modal";
 import { LoginSignupForms } from "~/generic/components/login-signup-button/login-signup-new-button";
 import LoginSignupModalVM from "~/generic/components/login-signup-modal/login-sign-up-modal-vm";
@@ -14,15 +16,27 @@ interface ILoginSignupModalProps {
 const LoginSignupModal = (props: ILoginSignupModalProps) => {
   const { currentForm, setCurrentForm } = props;
   const vm = di.resolve(LoginSignupModalVM).useVM();
+  const [showMessage, setShowMessage] = useState(false);
 
   return (
-    <AppModal vm={vm}>
-      {currentForm === LoginSignupForms.LOGIN ? (
-        <LoginForm setCurrentForm={setCurrentForm} />
-      ) : (
-        <SignupForm setCurrentForm={setCurrentForm} />
-      )}
-    </AppModal>
+    <>
+      <AppModal vm={vm}>
+        {currentForm === LoginSignupForms.LOGIN ? (
+          <LoginForm setCurrentForm={setCurrentForm} />
+        ) : (
+          <SignupForm
+            setShowMessage={setShowMessage}
+            setCurrentForm={setCurrentForm}
+          />
+        )}
+      </AppModal>
+      <AlertMessage
+        durationInMs={4000}
+        message="تم إنشاء حساب بنجاح"
+        open={showMessage}
+        setOpen={setShowMessage}
+      />
+    </>
   );
 };
 
