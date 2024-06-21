@@ -20,6 +20,7 @@ import { appHeaderHeight } from "~/bootstrap/helper/global-helper";
 import SelectedTabCTX from "~/generic/context/selected-tab-ctx";
 import di from "~/bootstrap/di";
 import PrivacyPolicyPage from "~/support/pages/privacy-policy/privacy-policy-page";
+import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${appHeaderHeight};
@@ -27,63 +28,69 @@ const PagesPaddedWrapper = styled.div`
 
 function App() {
   const { Provider: SelectTabProvider } = di.resolve(SelectedTabCTX);
+  const { Provider: OpenModlaProvider } = di.resolve(OpenLoginSignUpModalCTX);
   return (
     <>
       <SelectTabProvider>
-        <MainHeader />
-        <PagesPaddedWrapper>
-          <Routes>
-            {/* Main */}
-            <Route path={servicesPageEndpoint.main} element={<MainPage />} />
-            {/* Chalets */}
-            <Route
-              path={servicesPageEndpoint.chalets}
-              element={<ChaletsPage />}
-            />
-            <Route
-              path={`${servicesPageEndpoint.chalets}/:id`}
-              element={<ChaletDetailsPage />}
-            />
-            {/* Halls */}
-            <Route path={servicesPageEndpoint.halls} element={<HallsPage />} />
-            <Route
-              path={`${servicesPageEndpoint.halls}/:id`}
-              element={<HallDetailsPage />}
-            />
-            {/* Hotels */}
-            <Route
-              path={servicesPageEndpoint.hotels}
-              element={<HotelsPage />}
-            />
-            <Route
-              path={`${servicesPageEndpoint.hotels}/:id`}
-              element={<HotelItemsPage />}
-            />
-            <Route
-              path={`${servicesPageEndpoint.hotels}/:id/:id`}
-              element={<HotelItemDetailsPage />}
-            />
-            {/* Apartments */}
-            <Route
-              path={servicesPageEndpoint.apartments}
-              element={<ApartmentsPage />}
-            />
-            <Route
-              path={`${servicesPageEndpoint.apartments}/:id`}
-              element={<ChaletDetailsPage />}
-            />
-            {/* Term of use */}
-            <Route
-              path={`${supportEndpoint.termsOfUse}`}
-              element={<TermOfUsePage />}
-            />
-            {/* Privacy policy */}
-            <Route
-              path={`${supportEndpoint.privacyPolicy}`}
-              element={<PrivacyPolicyPage />}
-            />
-          </Routes>
-        </PagesPaddedWrapper>
+        <OpenModlaProvider>
+          <MainHeader />
+          <PagesPaddedWrapper>
+            <Routes>
+              {/* Main */}
+              <Route path={servicesPageEndpoint.main} element={<MainPage />} />
+              {/* Chalets */}
+              <Route
+                path={servicesPageEndpoint.chalets}
+                element={<ChaletsPage />}
+              />
+              <Route
+                path={`${servicesPageEndpoint.chalets}/:id`}
+                element={<ChaletDetailsPage />}
+              />
+              {/* Halls */}
+              <Route
+                path={servicesPageEndpoint.halls}
+                element={<HallsPage />}
+              />
+              <Route
+                path={`${servicesPageEndpoint.halls}/:id`}
+                element={<HallDetailsPage />}
+              />
+              {/* Hotels */}
+              <Route
+                path={servicesPageEndpoint.hotels}
+                element={<HotelsPage />}
+              />
+              <Route
+                path={`${servicesPageEndpoint.hotels}/:id`}
+                element={<HotelItemsPage />}
+              />
+              <Route
+                path={`${servicesPageEndpoint.hotels}/:id/:id`}
+                element={<HotelItemDetailsPage />}
+              />
+              {/* Apartments */}
+              <Route
+                path={servicesPageEndpoint.apartments}
+                element={<ApartmentsPage />}
+              />
+              <Route
+                path={`${servicesPageEndpoint.apartments}/:id`}
+                element={<ChaletDetailsPage />}
+              />
+              {/* Term of use */}
+              <Route
+                path={`${supportEndpoint.termsOfUse}`}
+                element={<TermOfUsePage />}
+              />
+              {/* Privacy policy */}
+              <Route
+                path={`${supportEndpoint.privacyPolicy}`}
+                element={<PrivacyPolicyPage />}
+              />
+            </Routes>
+          </PagesPaddedWrapper>
+        </OpenModlaProvider>
       </SelectTabProvider>
     </>
   );

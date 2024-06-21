@@ -3,7 +3,6 @@ import Store from "~/bootstrap/helper/store/store-type";
 import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
 import LoginSignupNewButton from "~/generic/components/login-signup-button/login-signup-new-button";
 import LogoAndHeaderTabs from "~/generic/components/main-logo/logo-and-header-tabs";
-import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
 import HeaderLocalizationSelectBox from "~/support/header/localization-select-box/header-localization-select-box";
 import {
   FixedHeader,
@@ -17,7 +16,6 @@ import NUserStore from "~/support/login-signup-forms/store/i-user-store";
 import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
 
 const MainHeader = () => {
-  const { Provider: OpenModlaProvider } = di.resolve(OpenLoginSignUpModalCTX);
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
   const token = useStoreSelector(userStore, (store) => store.user.token);
 
@@ -28,9 +26,7 @@ const MainHeader = () => {
         <LogoAndHeaderTabs />
         <StyledLocalizationAndLoginSignup>
           <HeaderLocalizationSelectBox />
-          <OpenModlaProvider>
-            {token ? <HeaderUserAvatar /> : <LoginSignupNewButton />}
-          </OpenModlaProvider>
+          {token ? <HeaderUserAvatar /> : <LoginSignupNewButton />}
         </StyledLocalizationAndLoginSignup>
       </StyledMainHeader>
     </FixedHeader>

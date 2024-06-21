@@ -1,8 +1,11 @@
 import "dayjs/locale/ar";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import di from "~/bootstrap/di";
 import { osamaCommissionRatio } from "~/bootstrap/helper/business-helpers";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
+import Store from "~/bootstrap/helper/store/store-type";
+import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
 import langKey from "~/bootstrap/i18n/langKey";
 import { BookingCardPersonalInfo } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card";
 import {
@@ -11,6 +14,10 @@ import {
   DetailsBookingCardTotalMoneyItemWrapper,
 } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/style";
 import AlertMessage from "~/generic/components/alert-message/alert-message";
+import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
+import NUserStore from "~/support/login-signup-forms/store/i-user-store";
+import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
+import { SwitchLoginSignupButton } from "~/support/login-signup-forms/style";
 
 interface IChaletsDetailsBookingCardPayTotalMoneySectionProps {
   checked: boolean;
@@ -27,6 +34,11 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
   const [open, setOpen] = useState(false);
   // localization
   const { t } = useTranslation();
+
+  // logged in?
+  const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
+  const token = useStoreSelector(userStore, (store) => store.user.token);
+  const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
 
   return (
     <>
@@ -59,7 +71,8 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
             checked &&
             numberOfReservedDays > 0 &&
             personalInfo?.name &&
-            personalInfo?.phoneNumber
+            personalInfo?.phoneNumber &&
+            token
           )
         }
         sx={{ paddingTop: "9px", paddingBottom: "2px" }}
@@ -79,10 +92,19 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
         <DetailsBookingCardConfirmConditionMessage>
           {t(langKey.detailsPage.writeResidentInfoMessage)}
         </DetailsBookingCardConfirmConditionMessage>
+      ) : !checked ? (
+        <DetailsBookingCardConfirmConditionMessage>
+          {t(langKey.detailsPage.confirmConditionsBeforePaying)}
+        </DetailsBookingCardConfirmConditionMessage>
       ) : (
-        !checked && (
+        !token && (
           <DetailsBookingCardConfirmConditionMessage>
-            {t(langKey.detailsPage.confirmConditionsBeforePaying)}
+            <SwitchLoginSignupButton
+              disableRipple
+              onClick={() => setIsOpen(true)}
+            >
+              يرجى إنشاء حساب وتسجيل الدخول للمتابعة
+            </SwitchLoginSignupButton>
           </DetailsBookingCardConfirmConditionMessage>
         )
       )}
