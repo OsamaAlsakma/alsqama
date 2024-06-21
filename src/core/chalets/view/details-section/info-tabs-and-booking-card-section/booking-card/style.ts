@@ -55,6 +55,7 @@ export const DetailsBookingCardConditionText = styled.p`
 
 export const DetailsBookingCardConfirmConditionCheckbox = styled(Checkbox)`
   && {
+    margin-top: 4px;
     padding: 0px;
     color: ${secondaryColor};
     &.Mui-checked {

@@ -7,12 +7,18 @@ import {
 import ChaletsDetailsBookingCardBookingDate from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card-booking-date";
 import ChaletsDetailsBookingCardConditionSection from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card-condition-section";
 import ChaletsDetailsBookingCardPayTotalMoneySection from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card-pay-total-money-section";
+import ChaletsDetailsBookingCardPersonalInfo from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card-personal-info";
 import { DetailsBookingCardDiv } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/style";
 
 interface IChaletsDetailsBookingCardProps {
   name: string;
   pricePerNight: number;
 }
+
+export type BookingCardPersonalInfo = {
+  name: string;
+  phoneNumber: string;
+};
 
 export const ChaletsDetailsBookingCard = (
   props: IChaletsDetailsBookingCardProps
@@ -21,21 +27,24 @@ export const ChaletsDetailsBookingCard = (
 
   const [checked, setChecked] = useState(false);
   const [numberOfReservedDays, setNumberOfReservedDays] = useState(0);
+  const [personalInfo, setPersonalInfo] = useState<
+    BookingCardPersonalInfo | undefined
+  >();
 
   return (
     <DetailsBookingCardDiv>
       <StyledAppSubTitleWrapper>أحجز {name}</StyledAppSubTitleWrapper>
+      <StyledAppDivider />
+      <ChaletsDetailsBookingCardPersonalInfo
+        setPersonalInfo={setPersonalInfo}
+      />
       <StyledAppDivider />
       <ChaletsDetailsBookingCardBookingDate
         pricePerNight={pricePerNight}
         setNumberOfReservedDays={setNumberOfReservedDays}
         numberOfReservedDays={numberOfReservedDays}
       />
-      <StyledAppDivider />
       <ChaletsDetailsBookingCardConditionSection
-        bookingConditionText="الإلغاء إلا بعد مرور 6 ساعات على موعد الحجز
-        عملية الحجز تتم بشكل أوتوماتيكي بدون تدخل بشري وعند الحجز لا يمكن
-        "
         setChecked={setChecked}
         checked={checked}
       />
@@ -44,6 +53,7 @@ export const ChaletsDetailsBookingCard = (
         checked={checked}
         pricePerNight={pricePerNight}
         numberOfReservedDays={numberOfReservedDays}
+        personalInfo={personalInfo}
       />
     </DetailsBookingCardDiv>
   );

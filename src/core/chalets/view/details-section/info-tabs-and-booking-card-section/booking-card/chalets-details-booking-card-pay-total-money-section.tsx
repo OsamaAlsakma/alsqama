@@ -2,6 +2,7 @@ import "dayjs/locale/ar";
 import { useState } from "react";
 import { osamaCommissionRatio } from "~/bootstrap/helper/business-helpers";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
+import { BookingCardPersonalInfo } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card";
 import {
   DetailsBookingCardConfirmConditionMessage,
   DetailsBookingCardPayButton,
@@ -13,12 +14,13 @@ interface IChaletsDetailsBookingCardPayTotalMoneySectionProps {
   checked: boolean;
   pricePerNight: number;
   numberOfReservedDays: number;
+  personalInfo: BookingCardPersonalInfo | undefined;
 }
 
 export const ChaletsDetailsBookingCardPayTotalMoneySection = (
   props: IChaletsDetailsBookingCardPayTotalMoneySectionProps
 ) => {
-  const { checked, pricePerNight, numberOfReservedDays } = props;
+  const { checked, pricePerNight, numberOfReservedDays, personalInfo } = props;
   // message
   const [open, setOpen] = useState(false);
   return (
@@ -47,7 +49,14 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       </DetailsBookingCardTotalMoneyItemWrapper>
       <DetailsBookingCardPayButton
         onClick={() => setOpen(true)}
-        disabled={!(checked && numberOfReservedDays > 0)}
+        disabled={
+          !(
+            checked &&
+            numberOfReservedDays > 0 &&
+            personalInfo?.name &&
+            personalInfo?.phoneNumber
+          )
+        }
         sx={{ paddingTop: "9px", paddingBottom: "2px" }}
       >
         أدفع&nbsp;
@@ -61,10 +70,16 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
         open={open}
         setOpen={setOpen}
       />
-      {!checked && (
+      {!personalInfo?.name || !personalInfo?.phoneNumber ? (
         <DetailsBookingCardConfirmConditionMessage>
-          يرجى الموافقة على الشروط قبل الدفع
+          يرجى إدخال معلومات المقيم
         </DetailsBookingCardConfirmConditionMessage>
+      ) : (
+        !checked && (
+          <DetailsBookingCardConfirmConditionMessage>
+            يرجى الموافقة على الشروط قبل الدفع
+          </DetailsBookingCardConfirmConditionMessage>
+        )
       )}
     </>
   );
