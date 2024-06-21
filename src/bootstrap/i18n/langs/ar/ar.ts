@@ -41,6 +41,14 @@ const ar: typeof langKey = {
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "يبدأ الحجز من:",
     bookingEndDate: "ينتهي الحجز في:",
+
+    readAndConfirmConditions: "يرجى قراءة الشروط والموافقة عليها",
+    totalAllDays: "مجموع جميع الأيام:",
+    fees: "رسوم الخدمة:",
+    residentName: "اسم المقيم",
+    residentPhoneNumber: "رقم هاتف المقيم",
+    confirmConditionsBeforePaying: "يرجى الموافقة على الشروط قبل الدفع",
+    writeResidentInfoMessage: "يرجى إدخال معلومات المقيم",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",

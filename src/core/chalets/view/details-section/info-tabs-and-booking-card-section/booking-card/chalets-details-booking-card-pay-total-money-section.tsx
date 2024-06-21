@@ -1,7 +1,9 @@
 import "dayjs/locale/ar";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { osamaCommissionRatio } from "~/bootstrap/helper/business-helpers";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
+import langKey from "~/bootstrap/i18n/langKey";
 import { BookingCardPersonalInfo } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card";
 import {
   DetailsBookingCardConfirmConditionMessage,
@@ -23,10 +25,13 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
   const { checked, pricePerNight, numberOfReservedDays, personalInfo } = props;
   // message
   const [open, setOpen] = useState(false);
+  // localization
+  const { t } = useTranslation();
+
   return (
     <>
       <DetailsBookingCardTotalMoneyItemWrapper>
-        مجموع جميع الأيام:&nbsp;
+        {t(langKey.detailsPage.totalAllDays)}&nbsp;
         {numberOfReservedDays > 0 ? (
           <StyledAppNoteTitleWrapper>
             {numberOfReservedDays * pricePerNight} ريال
@@ -37,7 +42,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       </DetailsBookingCardTotalMoneyItemWrapper>
 
       <DetailsBookingCardTotalMoneyItemWrapper>
-        رسوم الخدمة:&nbsp;
+        {t(langKey.detailsPage.fees)}&nbsp;
         {numberOfReservedDays > 0 ? (
           <StyledAppNoteTitleWrapper>
             {numberOfReservedDays * pricePerNight * osamaCommissionRatio}
@@ -72,12 +77,12 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       />
       {!personalInfo?.name || !personalInfo?.phoneNumber ? (
         <DetailsBookingCardConfirmConditionMessage>
-          يرجى إدخال معلومات المقيم
+          {t(langKey.detailsPage.writeResidentInfoMessage)}
         </DetailsBookingCardConfirmConditionMessage>
       ) : (
         !checked && (
           <DetailsBookingCardConfirmConditionMessage>
-            يرجى الموافقة على الشروط قبل الدفع
+            {t(langKey.detailsPage.confirmConditionsBeforePaying)}
           </DetailsBookingCardConfirmConditionMessage>
         )
       )}

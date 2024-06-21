@@ -42,6 +42,14 @@ const en: typeof langKey = {
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "Booking starts from:",
     bookingEndDate: "Booking ends at:",
+
+    readAndConfirmConditions: "Please read and agree to the terms",
+    totalAllDays: "Total all days",
+    fees: "Fees",
+    residentName: "Resident name",
+    residentPhoneNumber: "Resident phone number",
+    confirmConditionsBeforePaying: "Confirm conditions before paying",
+    writeResidentInfoMessage: "write resident information please",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",

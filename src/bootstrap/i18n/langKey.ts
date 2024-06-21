@@ -45,6 +45,13 @@ const langKey = {
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "detailsPage.bookingStartDate",
     bookingEndDate: "detailsPage.bookingEndDate",
+    readAndConfirmConditions: "detailsPage.readAndConfirmConditions",
+    totalAllDays: "detailsPage.totalAllDays",
+    fees: "detailsPage.fees",
+    residentName: "detailsPage.residentName",
+    residentPhoneNumber: "detailsPage.residentPhoneNumber",
+    confirmConditionsBeforePaying: "detailsPage.confirmConditionsBeforePaying",
+    writeResidentInfoMessage: "detailsPage.writeResidentInfoMessage",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

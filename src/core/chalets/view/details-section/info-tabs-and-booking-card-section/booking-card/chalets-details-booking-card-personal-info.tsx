@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { smallScreenSize } from "~/bootstrap/helper/global-helper";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import { BookingCardPersonalInfo } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/chalets-details-booking-card";
 import { LoginSignUpInput } from "~/support/login-signup-forms/style";
 
@@ -42,12 +43,14 @@ export const ChaletsDetailsBookingCardPersonalInfo = (
     <>
       <BookingCardPersonalInfoWrapper>
         <BookingCardPersonalInfoIten>
-          <StyledAppNoteTitleWrapper>اسم المقيم</StyledAppNoteTitleWrapper>
+          <StyledAppNoteTitleWrapper>
+            {t(langKey.detailsPage.residentName)}
+          </StyledAppNoteTitleWrapper>
           <BookingCardPersonalInfoInput
             style={{ borderColor: "rgba(0, 0, 0, 0.3)" }}
             disableUnderline
             type="text"
-            placeholder="اسم المقيم*"
+            placeholder={`${t(langKey.detailsPage.residentName)}*`}
             onChange={(e) => {
               setPersonalInfo((prev) => ({
                 phoneNumber: prev ? prev.phoneNumber : "",
@@ -57,7 +60,9 @@ export const ChaletsDetailsBookingCardPersonalInfo = (
           />
         </BookingCardPersonalInfoIten>
         <BookingCardPersonalInfoIten>
-          <StyledAppNoteTitleWrapper>رقم هاتف المقيم</StyledAppNoteTitleWrapper>
+          <StyledAppNoteTitleWrapper>
+            {t(langKey.detailsPage.residentPhoneNumber)}
+          </StyledAppNoteTitleWrapper>
           <BookingCardPersonalInfoInput
             style={{ borderColor: "rgba(0, 0, 0, 0.3)" }}
             disableUnderline
@@ -68,7 +73,7 @@ export const ChaletsDetailsBookingCardPersonalInfo = (
                 phoneNumber: e.target.value,
               }));
             }}
-            placeholder="رقم هاتف المقيم*"
+            placeholder={`${t(langKey.detailsPage.residentPhoneNumber)}*`}
             required
           />
         </BookingCardPersonalInfoIten>

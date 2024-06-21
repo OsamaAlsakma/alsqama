@@ -1,5 +1,7 @@
 import "dayjs/locale/ar";
+import { useTranslation } from "react-i18next";
 import { SetState } from "~/bootstrap/helper/global-types";
+import langKey from "~/bootstrap/i18n/langKey";
 import {
   DetailsBookingCardConfirmConditionCheckbox,
   DetailsBookingCardConfirmConditionSpan,
@@ -18,6 +20,7 @@ export const ChaletsDetailsBookingCardConditionSection = (
   const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked);
   };
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -28,7 +31,7 @@ export const ChaletsDetailsBookingCardConditionSection = (
       <DetailsBookingCardConfirmConditionSpan
         onClick={() => setChecked((prev) => !prev)}
       >
-        يرجى قراءة الشروط والموافقة عليها
+        {t(langKey.detailsPage.readAndConfirmConditions)}
       </DetailsBookingCardConfirmConditionSpan>
     </div>
   );

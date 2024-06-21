@@ -41,6 +41,15 @@ const ru: typeof langKey = {
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "Бронирование начинается с:",
     bookingEndDate: "Бронирование заканчивается в:",
+
+    readAndConfirmConditions:
+      "Пожалуйста, ознакомьтесь с условиями и примите их",
+    totalAllDays: "Итого за все дни",
+    fees: "Сборы",
+    residentName: "Имя резидента",
+    residentPhoneNumber: "Номер телефона резидента",
+    confirmConditionsBeforePaying: "Подтвердите условия перед оплатой",
+    writeResidentInfoMessage: "пожалуйста, укажите информацию о резиденте",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",
