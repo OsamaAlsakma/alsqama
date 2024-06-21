@@ -49,6 +49,9 @@ const ar: typeof langKey = {
     residentPhoneNumber: "رقم هاتف المقيم",
     confirmConditionsBeforePaying: "يرجى الموافقة على الشروط قبل الدفع",
     writeResidentInfoMessage: "يرجى إدخال معلومات المقيم",
+
+    loginOrSignUpToContinue: "يرجى إنشاء حساب وتسجيل الدخول للمتابعة",
+    successfulPaymentMessage: "تم إرسال طلبك بنجاح، راجع أيميلك من فضلك",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",

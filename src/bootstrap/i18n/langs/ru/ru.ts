@@ -50,6 +50,11 @@ const ru: typeof langKey = {
     residentPhoneNumber: "Номер телефона резидента",
     confirmConditionsBeforePaying: "Подтвердите условия перед оплатой",
     writeResidentInfoMessage: "пожалуйста, укажите информацию о резиденте",
+
+    loginOrSignUpToContinue:
+      "Пожалуйста, создайте учетную запись и войдите в систему, чтобы продолжить работу",
+    successfulPaymentMessage:
+      "Ваш запрос был успешно отправлен, пожалуйста, просмотрите свой адрес электронной почты",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",

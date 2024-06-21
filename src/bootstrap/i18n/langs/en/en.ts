@@ -50,6 +50,10 @@ const en: typeof langKey = {
     residentPhoneNumber: "Resident phone number",
     confirmConditionsBeforePaying: "Confirm conditions before paying",
     writeResidentInfoMessage: "write resident information please",
+
+    loginOrSignUpToContinue: "Please create an account and log in to continue",
+    successfulPaymentMessage:
+      "Your request has been sent successfully, please review your email",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",

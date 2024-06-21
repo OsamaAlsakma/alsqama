@@ -84,7 +84,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       </DetailsBookingCardPayButton>
       <AlertMessage
         durationInMs={4500}
-        message="تم إرسال طلبك بنجاح، راجع أيميلك من فضلك"
+        message={t(langKey.detailsPage.successfulPaymentMessage)}
         open={open}
         setOpen={setOpen}
       />
@@ -103,7 +103,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
               disableRipple
               onClick={() => setIsOpen(true)}
             >
-              يرجى إنشاء حساب وتسجيل الدخول للمتابعة
+              {t(langKey.detailsPage.loginOrSignUpToContinue)}
             </SwitchLoginSignupButton>
           </DetailsBookingCardConfirmConditionMessage>
         )

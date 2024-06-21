@@ -52,6 +52,9 @@ const langKey = {
     residentPhoneNumber: "detailsPage.residentPhoneNumber",
     confirmConditionsBeforePaying: "detailsPage.confirmConditionsBeforePaying",
     writeResidentInfoMessage: "detailsPage.writeResidentInfoMessage",
+
+    loginOrSignUpToContinue: "detailsPage.loginOrSignUpToContinue",
+    successfulPaymentMessage: "detailsPage.successfulPaymentMessage",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",
