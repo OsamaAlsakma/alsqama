@@ -25,10 +25,10 @@ const MainSlides = () => {
       }}
       loop={true}
       parallax={true}
-      // autoplay={{
-      //   delay: 2500,
-      //   disableOnInteraction: false,
-      // }}
+      autoplay={{
+        delay: 1500,
+        disableOnInteraction: false,
+      }}
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper"
     >

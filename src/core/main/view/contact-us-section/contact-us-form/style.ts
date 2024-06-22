@@ -7,11 +7,9 @@ import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 export const MainContactUsFormWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 25%;
   margin: 0 auto;
-  @media (max-width: 1024px) {
-    width: 40%;
-  }
+  width: 33%;
+
   @media (max-width: 768px) {
     width: 100%;
   }

@@ -29,8 +29,8 @@ export const StyledMainDiscountsTitle = styled.h3`
 `;
 
 export const StyledMainDiscountsSubtitle = styled.p`
-  font-size: 24px;
-  line-height: 2;
+  font-size: 20px;
+  line-height: 1.5;
   text-align: justify;
 `;
 

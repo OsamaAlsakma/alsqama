@@ -23,6 +23,11 @@ const ar: typeof langKey = {
     password: "كلمة المرور",
     haveAnAccount: "هل لديك حساب؟ ",
     surfHotels: "تصفح الفنادق",
+    /* ------------------------- contact us description ------------------------- */
+    contactUsDescriptionTitle: "اكتشف أفضل أماكن الإقامة والفعاليات في ",
+    contactUsDescriptionYemen: "اليمن",
+    contactUsDescriptionText:
+      "استعرض قائمتنا المتميزة من الفنادق والشاليهات والشقق والقاعات في اليمن. نقدم لك أفضل الخيارات لإقامة مريحة وآمنة تلبي جميع احتياجاتك. احجز بسهولة واستمتع بإقامة لا تُنسى أو فعالية مميزة في أجواء رائعة تناسب كافة الأذواق.",
   },
   detailsPage: {
     share: "مشاركة",

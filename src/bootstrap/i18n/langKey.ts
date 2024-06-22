@@ -26,6 +26,10 @@ const langKey = {
     password: "mainPage.password",
     haveAnAccount: "mainPage.haveAnAccount",
     surfHotels: "mainPage.surfHotels",
+    /* ------------------------- contact us description ------------------------- */
+    contactUsDescriptionTitle: "mainPage.contactUsDescriptionTitle",
+    contactUsDescriptionYemen: "mainPage.contactUsDescriptionYemen",
+    contactUsDescriptionText: "mainPage.contactUsDescriptionText",
   },
   detailsPage: {
     share: "detailsPage.share",
