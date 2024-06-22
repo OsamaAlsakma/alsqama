@@ -1,38 +1,38 @@
 import CardContent from "@mui/material/CardContent/CardContent";
+import AppartmentsCardsCardBody from "~/core/Apartments/view/cards-section/card/appartments-cards-card-body";
+import { Appartment } from "~/core/Apartments/view/cards-section/wrapper/appartments-cards-wrapper";
 import ChaletsCardsCardImages from "~/core/chalets/view/cards-section/card/chalets-cards-card-images";
 import {
   StyledChaletsCardsCard,
   StyledChaletsCardsCardMedia,
 } from "~/core/chalets/view/cards-section/card/style";
-import HallsCardsCardBody from "~/core/halls/view/cards-section/card/halls-cards-card-body";
 import HallsCardsCardFooter from "~/core/halls/view/cards-section/card/halls-cards-card-footer";
 import HallsCardsCardMainTitle from "~/core/halls/view/cards-section/card/halls-cards-card-title";
-import { Hall } from "~/core/halls/view/cards-section/wrapper/halls-cards-wrapper";
 
-type IHallsCardsCardProps = {
-  hall: Hall;
+type IAppartmentsCardsCardProps = {
+  appartment: Appartment;
 };
 
-const HallsCardsCard = (props: IHallsCardsCardProps) => {
-  const { hall } = props;
+const AppartmentsCardsCard = (props: IAppartmentsCardsCardProps) => {
+  const { appartment } = props;
   return (
     <StyledChaletsCardsCard>
       <StyledChaletsCardsCardMedia>
-        <ChaletsCardsCardImages images={hall.images} />
+        <ChaletsCardsCardImages images={appartment.images} />
       </StyledChaletsCardsCardMedia>
       <CardContent>
         <HallsCardsCardMainTitle
-          name={hall.name}
-          pricePerNight={hall.pricePerNight}
+          name={appartment.name}
+          pricePerNight={appartment.pricePerNight}
         />
-        <HallsCardsCardBody
-          location={hall.location}
-          peopleCapacity={hall.peopleCapacity}
+        <AppartmentsCardsCardBody
+          location={appartment.location}
+          numberOfRooms={appartment.numberOfRooms}
         />
       </CardContent>
-      <HallsCardsCardFooter hallId={hall.id} />
+      <HallsCardsCardFooter hallId={appartment.id} />
     </StyledChaletsCardsCard>
   );
 };
 
-export default HallsCardsCard;
+export default AppartmentsCardsCard;

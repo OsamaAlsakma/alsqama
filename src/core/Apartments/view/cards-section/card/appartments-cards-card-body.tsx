@@ -5,25 +5,29 @@ import {
   ChaletsCardsCardFeatureIcon,
 } from "~/core/chalets/view/cards-section/card/style";
 import PlaceIcon from "@mui/icons-material/Place";
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 
-type IHallsCardsCardBodyProps = {
+type IAppartmentsCardsCardBodyProps = {
   location: string;
-  peopleCapacity?: number;
+  numberOfRooms?: number;
 };
 
-const HallsCardsCardBody = (props: IHallsCardsCardBodyProps) => {
-  const { location, peopleCapacity } = props;
+const AppartmentsCardsCardBody = (props: IAppartmentsCardsCardBodyProps) => {
+  const { location, numberOfRooms } = props;
   return (
     <ChaletsCardsCardFeaturesWrapper>
       <ChaletsCardsCardFeature>
         <PlaceIcon />
         <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
-      {peopleCapacity && (
+      {numberOfRooms && (
         <ChaletsCardsCardFeature $isLeft>
-          <ChaletsCardsCardFeatureIcon src="./icons/people.svg" alt="people" />
+          <ChaletsCardsCardFeatureIcon
+            src={`/${appBaseUrl}/icons/rooms.svg`}
+            alt="rooms"
+          />
           <ChaletsCardsCardFeatureTitle>
-            {peopleCapacity}
+            {numberOfRooms}
           </ChaletsCardsCardFeatureTitle>
         </ChaletsCardsCardFeature>
       )}
@@ -31,4 +35,4 @@ const HallsCardsCardBody = (props: IHallsCardsCardBodyProps) => {
   );
 };
 
-export default HallsCardsCardBody;
+export default AppartmentsCardsCardBody;

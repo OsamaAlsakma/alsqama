@@ -31,10 +31,11 @@ export const endpointsUrl = {
   allHalls: "https://run.mocky.io/v3/f76776a1-a244-41e1-a011-5291ab03a345",
   hallDetails: "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
 
-  /* -------------------------------- Retreats -------------------------------- */
-  allRetreats: "https://run.mocky.io/v3/ac044f62-0728-499b-9a4a-9684c27040d2",
-  retreatDetails:
-    "https://run.mocky.io/v3/9d469e41-7e1f-473e-9a2e-6e831f5daa6f",
+  /* ------------------------------- Appartments ------------------------------ */
+  allAppartments:
+    "https://run.mocky.io/v3/d219b58c-4d07-4ce6-86df-918305bb3fbe",
+  appartmentDetails:
+    "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
 
   /* ------------------------------ Terms of use ------------------------------ */
   termsOfUse: "https://run.mocky.io/v3/e1a71449-ab92-4f8b-8f50-11ac458a7ab7",

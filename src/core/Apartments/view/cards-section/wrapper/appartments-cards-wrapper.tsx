@@ -1,40 +1,41 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import AppartmentsCardsCard from "~/core/Apartments/view/cards-section/card/appartments-cards-card";
+import ApartmentsFilterationWrapper from "~/core/Apartments/view/filtration-section/wrapper/apartments-filteration-wrapper";
 import {
   ChaletsCardsWrapperMessages,
   StyledChaletsCardsWrapper,
 } from "~/core/chalets/view/cards-section/wrapper/style";
-import HallsCardsCard from "~/core/halls/view/cards-section/card/halls-cards-card";
-import HallsFilterationWrapper from "~/core/halls/view/filtration-section/wrapper/halls-filteration-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
-export type Hall = {
+export type Appartment = {
   id: string;
   images: string[];
   name: string;
   location: string;
   pricePerNight: number;
-  peopleCapacity?: number;
+  numberOfRooms?: number;
   reservedDates: string[];
-
 };
 
-const RetreatsCardsWrapper = () => {
-  const [halls, setHalls] = useState<Hall[]>([]);
+const AppartmentsCardsWrapper = () => {
+  const [appartments, setAppartments] = useState<Appartment[]>([]);
 
-  const [filteredHalls, setFilteredHalls] = useState<Hall[]>([]);
+  const [filteredAppartments, setFilteredAppartments] = useState<Appartment[]>(
+    []
+  );
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchHallsData = async () => {
+  const fetchAppartmentsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${endpointsUrl.allHalls}`);
+      const response = await axios.get(`${endpointsUrl.allAppartments}`);
       if (response.status === 200) {
-        const halls: Hall[] = response.data;
+        const appartments: Appartment[] = response.data;
 
-        setHalls(halls);
+        setAppartments(appartments);
         setIsError(false);
       }
     } catch (errro) {
@@ -44,31 +45,31 @@ const RetreatsCardsWrapper = () => {
   };
 
   useEffect(() => {
-    fetchHallsData();
+    fetchAppartmentsData();
   }, []);
 
   if (isLoading) return <CircularLoader />;
   return (
     <StyledChaletsCardsWrapper>
-      <HallsFilterationWrapper
-        setFilteredHalls={setFilteredHalls}
-        halls={halls}
+      <ApartmentsFilterationWrapper
+        setFilteredAppartments={setFilteredAppartments}
+        appartments={appartments}
       />
       {isError ? (
         <ChaletsCardsWrapperMessages>
           المعذرة حصل خطأ، يرجى المحاولة لاحقا
         </ChaletsCardsWrapperMessages>
-      ) : halls.length === 0 ? (
+      ) : appartments.length === 0 ? (
         <ChaletsCardsWrapperMessages>
           لم يتم العثور على أية شاليه
         </ChaletsCardsWrapperMessages>
       ) : (
-        filteredHalls.map((hall: Hall, index: number) => (
-          <HallsCardsCard key={index} hall={hall} />
+        filteredAppartments.map((hall: Appartment, index: number) => (
+          <AppartmentsCardsCard key={index} appartment={hall} />
         ))
       )}
     </StyledChaletsCardsWrapper>
   );
 };
 
-export default RetreatsCardsWrapper;
+export default AppartmentsCardsWrapper;

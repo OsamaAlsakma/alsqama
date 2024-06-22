@@ -1,9 +1,9 @@
-import RetreatsCardsWrapper from "~/core/Apartments/view/cards-section/wrapper/retreats-cards-wrapper";
+import AppartmentsCardsWrapper from "~/core/Apartments/view/cards-section/wrapper/appartments-cards-wrapper";
 
 const ApartmentsPage = () => {
   return (
     <div>
-      <RetreatsCardsWrapper />
+      <AppartmentsCardsWrapper />
     </div>
   );
 };
