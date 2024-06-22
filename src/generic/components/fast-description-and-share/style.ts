@@ -24,6 +24,8 @@ export const DetailsFastDescriptionItemsWrapper = styled.div`
   display: flex;
   gap: 4px 24px;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const DetailsFastDescriptionButton = styled(Button)`
@@ -38,6 +40,13 @@ export const DetailsFastDescriptionButton = styled(Button)`
     &:hover {
       background-color: #0000000a;
     }
+  }
+`;
+
+export const CopyToClipboardWrapper = styled.div`
+  margin-right: auto;
+  @media (max-width: ${mediumScreenSize}) {
+    margin-right: 0px;
   }
 `;
 

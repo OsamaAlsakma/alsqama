@@ -12,6 +12,7 @@ import {
   DetailsFastDescriptionItemsWrapper,
   DetailsFastDescriptionButton,
   DetailsFastDescriptionShareIcon,
+  CopyToClipboardWrapper,
 } from "~/generic/components/fast-description-and-share/style";
 
 /* -------------------------------------------------------------------------- */
@@ -52,16 +53,19 @@ const DetailsPageFastDescriptionAndShare = (
             </DetailsFastDescriptionButton>
           );
         })}
+        {/* share icon */}
+        <CopyToClipboardWrapper>
+          <CopyToClipboard text={urlPathname}>
+            <DetailsFastDescriptionButton
+              startIcon={<DetailsFastDescriptionShareIcon />}
+              onClick={() => setOpen(true)}
+            >
+              {t(langKey.detailsPage.share)}
+            </DetailsFastDescriptionButton>
+          </CopyToClipboard>
+        </CopyToClipboardWrapper>
       </DetailsFastDescriptionItemsWrapper>
-      {/* share icon */}
-      <CopyToClipboard text={urlPathname}>
-        <DetailsFastDescriptionButton
-          startIcon={<DetailsFastDescriptionShareIcon />}
-          onClick={() => setOpen(true)}
-        >
-          {t(langKey.detailsPage.share)}
-        </DetailsFastDescriptionButton>
-      </CopyToClipboard>
+
       <AlertMessage
         durationInMs={2000}
         message={t(langKey.detailsPage.successCopyMessage)}
