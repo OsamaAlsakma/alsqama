@@ -22,6 +22,17 @@ export const StyledSwiper = styled(Swiper)`
   @media (max-width: 480px) {
     height: calc(50vh - ${appHeaderHeight});
   }
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      background-color: white;
+      opacity: 0.8;
+      margin: 0 8px;
+    }
+
+    .swiper-pagination-bullet-active {
+      opacity: 1;
+    }
+  }
 `;
 
 export const StyledSwiperSlide = styled(SwiperSlide)`
