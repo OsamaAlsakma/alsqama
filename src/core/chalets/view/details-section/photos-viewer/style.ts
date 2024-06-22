@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {
   largeScreenSize,
   mainFontFamily,
+  mediumScreenSize,
   smallScreenSize,
 } from "~/bootstrap/helper/global-helper";
 import { StyledSwiper } from "~/core/main/view/slides/style";
@@ -78,6 +79,10 @@ padding: 9px 10px 5px;
 display: flex;
 gap: 8px;
 font-family: ${mainFontFamily};
+
+@media (max-width: ${mediumScreenSize}) {
+  opacity: 0;
+}
 `;
 
 export const DetailsPhotoViewerFooterButton = styled(Button)`
