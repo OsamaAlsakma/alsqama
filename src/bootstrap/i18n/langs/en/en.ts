@@ -31,6 +31,7 @@ const en: typeof langKey = {
   },
   detailsPage: {
     share: "Share",
+    successCopyMessage: "Successfully copied",
     seeMorePhoto: "See more photos",
     watchVideo: "ًWatch video",
     features: "Features",

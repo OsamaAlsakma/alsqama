@@ -31,6 +31,7 @@ const ru: typeof langKey = {
   },
   detailsPage: {
     share: "Участие",
+    successCopyMessage: "Успешно скопирован",
     seeMorePhoto: "Смотрите больше фотографий",
     watchVideo: "Смотреть видео",
     features: "Особенности",

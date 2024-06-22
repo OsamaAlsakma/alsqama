@@ -40,6 +40,7 @@ const langKey = {
     map: "detailsPage.map",
     reviews: "detailsPage.reviews",
     featuresAccessories: "detailsPage.featuresAccessories",
+    successCopyMessage: "detailsPage.successCopyMessage",
 
     bookingAndCancelingConditions: "detailsPage.bookingAndCancelingConditions",
     bookingConditions: "detailsPage.bookingConditions",

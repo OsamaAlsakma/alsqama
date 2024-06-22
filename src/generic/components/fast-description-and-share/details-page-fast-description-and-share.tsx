@@ -64,7 +64,7 @@ const DetailsPageFastDescriptionAndShare = (
       </CopyToClipboard>
       <AlertMessage
         durationInMs={2000}
-        message="تم النسخ بنجاح"
+        message={t(langKey.detailsPage.successCopyMessage)}
         open={open}
         setOpen={setOpen}
       />

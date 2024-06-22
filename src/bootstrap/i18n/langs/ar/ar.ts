@@ -31,6 +31,7 @@ const ar: typeof langKey = {
   },
   detailsPage: {
     share: "مشاركة",
+    successCopyMessage: "تم النسخ بنجاح",
     seeMorePhoto: "عرض المزيد من الصور",
     watchVideo: "مشاهدة الفيديو",
     features: "ميزات",
