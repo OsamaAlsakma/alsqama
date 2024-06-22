@@ -116,6 +116,19 @@ export const FilterationDatesAndOtherWrapper = styled.div`
   }
 `;
 
+/**
+ * This wrapper is used to wrap city, price, rating, start and end dates as well,
+ * it will wrap two inputs
+ */
+export const FilterationTwoInputsWrapper = styled.div`
+  display: flex;
+  gap: 4px;
+  width: 50%;
+  @media (max-width: ${mediumScreenSize}) {
+    width: 100%;
+  }
+`;
+
 export const FilterationASpecificSearchInput = styled(Input)`
   && {
     ${inputCommonProps}
@@ -126,10 +139,7 @@ export const FilterationASpecificSearchInput = styled(Input)`
       opacity: 0.4;
     }
     font-size: 16px;
-    width: 25%;
+    width: 50%;
     height: 48px;
-    @media (max-width: ${mediumScreenSize}) {
-      width: 100%;
-    }
   }
 `;

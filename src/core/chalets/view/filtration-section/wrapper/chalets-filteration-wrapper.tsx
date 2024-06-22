@@ -8,6 +8,7 @@ import { appBaseUrl, unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import {
   FilterationASpecificSearchInput,
   FilterationDatesAndOtherWrapper,
+  FilterationTwoInputsWrapper,
   inputPaddingStyle,
 } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
@@ -103,34 +104,36 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
             setStartDate={setStartDate}
             setEndDate={setEndDate}
           />
-          {/* price */}
-          <FilterationASpecificSearchInput
-            onChange={handleOnPriceChange}
-            disableUnderline
-            value={priceFilter}
-            placeholder={t(langKey.search.writePrice)}
-            startAdornment={
-              <ChaletsFilterationSpecificSearchInputIcon
-                src={`/${appBaseUrl}/icons/input-money.svg`}
-              />
-            }
-            inputProps={{
-              style: inputPaddingStyle,
-            }}
-          />
-          <FilterationASpecificSearchInput
-            onChange={handleOnCityChange}
-            disableUnderline
-            placeholder={t(langKey.search.writeCity)}
-            startAdornment={
-              <ChaletsFilterationSpecificSearchInputIcon
-                src={`/${appBaseUrl}/icons/input-city.svg`}
-              />
-            }
-            inputProps={{
-              style: inputPaddingStyle,
-            }}
-          />
+          <FilterationTwoInputsWrapper>
+            {/* price */}
+            <FilterationASpecificSearchInput
+              onChange={handleOnPriceChange}
+              disableUnderline
+              value={priceFilter}
+              placeholder={t(langKey.search.writePrice)}
+              startAdornment={
+                <ChaletsFilterationSpecificSearchInputIcon
+                  src={`/${appBaseUrl}/icons/input-money.svg`}
+                />
+              }
+              inputProps={{
+                style: inputPaddingStyle,
+              }}
+            />
+            <FilterationASpecificSearchInput
+              onChange={handleOnCityChange}
+              disableUnderline
+              placeholder={t(langKey.search.writeCity)}
+              startAdornment={
+                <ChaletsFilterationSpecificSearchInputIcon
+                  src={`/${appBaseUrl}/icons/input-city.svg`}
+                />
+              }
+              inputProps={{
+                style: inputPaddingStyle,
+              }}
+            />
+          </FilterationTwoInputsWrapper>
         </FilterationDatesAndOtherWrapper>
       </StyledChaletsFilterationWrapper>
     </LocalizationProvider>

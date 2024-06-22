@@ -8,6 +8,7 @@ import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   FilterationASpecificSearchInput,
   FilterationDatesAndOtherWrapper,
+  FilterationTwoInputsWrapper,
   inputPaddingStyle,
 } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
@@ -92,34 +93,36 @@ const HotelsHotelItemsFilterationWrapper = (
             setStartDate={setStartDate}
             setEndDate={setEndDate}
           />
-          {/* min price */}
-          <FilterationASpecificSearchInput
-            onChange={handleOnMinimumPricePerNightChange}
-            disableUnderline
-            placeholder={t(langKey.search.priceFrom)}
-            startAdornment={
-              <ChaletsFilterationSpecificSearchInputIcon
-                src={`/${appBaseUrl}/icons/input-money.svg`}
-              />
-            }
-            inputProps={{
-              style: inputPaddingStyle,
-            }}
-          />
-          {/* max price */}
-          <FilterationASpecificSearchInput
-            onChange={handleOnMaximumPricePerNightChange}
-            disableUnderline
-            placeholder={t(langKey.search.priceTo)}
-            startAdornment={
-              <ChaletsFilterationSpecificSearchInputIcon
-                src={`/${appBaseUrl}/icons/input-money.svg`}
-              />
-            }
-            inputProps={{
-              style: inputPaddingStyle,
-            }}
-          />
+          <FilterationTwoInputsWrapper>
+            {/* min price */}
+            <FilterationASpecificSearchInput
+              onChange={handleOnMinimumPricePerNightChange}
+              disableUnderline
+              placeholder={t(langKey.search.priceFrom)}
+              startAdornment={
+                <ChaletsFilterationSpecificSearchInputIcon
+                  src={`/${appBaseUrl}/icons/input-money.svg`}
+                />
+              }
+              inputProps={{
+                style: inputPaddingStyle,
+              }}
+            />
+            {/* max price */}
+            <FilterationASpecificSearchInput
+              onChange={handleOnMaximumPricePerNightChange}
+              disableUnderline
+              placeholder={t(langKey.search.priceTo)}
+              startAdornment={
+                <ChaletsFilterationSpecificSearchInputIcon
+                  src={`/${appBaseUrl}/icons/input-money.svg`}
+                />
+              }
+              inputProps={{
+                style: inputPaddingStyle,
+              }}
+            />
+          </FilterationTwoInputsWrapper>
         </FilterationDatesAndOtherWrapper>
       </StyledChaletsFilterationWrapper>
     </LocalizationProvider>

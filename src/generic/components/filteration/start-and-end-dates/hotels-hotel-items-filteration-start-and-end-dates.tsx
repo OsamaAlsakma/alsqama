@@ -1,6 +1,7 @@
 import dayjs, { Dayjs } from "dayjs";
 import { SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
+import { FilterationTwoInputsWrapper } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
 import langKey from "~/bootstrap/i18n/langKey";
 import { StyledFilterationStartAndEndDatesDesktopDatePicker } from "~/generic/components/filteration/start-and-end-dates/styles";
@@ -19,7 +20,7 @@ const FilterationStartAndEndDates = (
   const tomorrow = dayjs().add(1, "day");
   const { t } = useTranslation();
   return (
-    <>
+    <FilterationTwoInputsWrapper>
       <StyledFilterationStartAndEndDatesDesktopDatePicker
         openTo="day"
         disablePast
@@ -49,7 +50,7 @@ const FilterationStartAndEndDates = (
           popper: { placement: "bottom-end" },
         }}
       />
-    </>
+    </FilterationTwoInputsWrapper>
   );
 };
 

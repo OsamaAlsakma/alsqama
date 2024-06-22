@@ -63,7 +63,7 @@ const ar: typeof langKey = {
     searchForAnyChalet: "أبحث عن أي شاليه..",
     searchForAnyHall: "أبحث عن أي صالة..",
     ratingRange: "التصنيف من 1 إلى 5",
-    writeCity: "أكتب المدينة",
+    writeCity: "أكتب المدينة..",
     arriveDate: "تاريخ الوصول..",
     leaveDate: "تاريخ الخروج..",
     priceFrom: "السعر من..",

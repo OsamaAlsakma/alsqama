@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import {
-  mainFontFamily,
-  mediumScreenSize,
-  primaryColor,
-} from "~/bootstrap/helper/global-helper";
+import { mainFontFamily, primaryColor } from "~/bootstrap/helper/global-helper";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 export const StyledFilterationStartAndEndDatesDesktopDatePicker = styled(
@@ -12,10 +8,7 @@ export const StyledFilterationStartAndEndDatesDesktopDatePicker = styled(
   && {
     border-radius: 32px;
     border: 1px solid black;
-    width: 25%;
-    @media (max-width: ${mediumScreenSize}) {
-      width: 100%;
-    }
+    width: 50%;
 
     && .MuiOutlinedInput-notchedOutline {
       border: none;
