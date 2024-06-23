@@ -42,6 +42,9 @@ const langKey = {
     featuresAccessories: "detailsPage.featuresAccessories",
     successCopyMessage: "detailsPage.successCopyMessage",
 
+    /* ---------------------------------- tabs ---------------------------------- */
+    noFeaturesToShow: "detailsPage.noFeaturesToShow",
+    noReviewsToShow: "detailsPage.noReviewsToShow",
     bookingAndCancelingConditions: "detailsPage.bookingAndCancelingConditions",
     bookingConditions: "detailsPage.bookingConditions",
     cancelingConditions: "detailsPage.cancelingConditions",

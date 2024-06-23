@@ -40,6 +40,9 @@ const ru: typeof langKey = {
     reviews: "Обзоры",
     featuresAccessories: "Особенности и аксессуары",
 
+    /* ---------------------------------- tabs ---------------------------------- */
+    noFeaturesToShow: "Нет функций для отображения",
+    noReviewsToShow: "Нет отзывов для просмотра",
     bookingAndCancelingConditions: "Условия и Отмены бронирования",
     bookingConditions: "Условия бронирования",
     cancelingConditions: "Условия отмены бронирования",

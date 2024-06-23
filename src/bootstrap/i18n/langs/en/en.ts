@@ -39,7 +39,9 @@ const en: typeof langKey = {
     map: "Map",
     reviews: "Reviews",
     featuresAccessories: "Features and accessories",
-
+    /* ---------------------------------- tabs ---------------------------------- */
+    noFeaturesToShow: "There are no features to display",
+    noReviewsToShow: "There are no reviews to view",
     bookingAndCancelingConditions: "Booking and canceling conditions",
     bookingConditions: "Booking conditions",
     cancelingConditions: "Canceling conditions",
