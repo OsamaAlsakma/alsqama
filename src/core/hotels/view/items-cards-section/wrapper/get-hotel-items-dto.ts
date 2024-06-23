@@ -18,9 +18,7 @@ export const getHotelItemsDTO = (
       bedsNumber: hotelItemResponse.bedsNumber,
       roomsNumber: hotelItemResponse.roomsNumber,
       pricePerNight: hotelItemResponse.price,
-
-      // TODO
-      images: [], // hotelItemResponse.images.map((image) => image.attachment_path),
+      images: hotelItemResponse.images.map((image) => image.attachment_path),
       reservedDates: [],
     };
     return hotelItem;

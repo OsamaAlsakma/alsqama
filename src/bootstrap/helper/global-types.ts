@@ -10,3 +10,10 @@ export type MainFooterIconsResponse = {
     body: string;
   };
 };
+
+export type ResservedDateType = {
+  name: string;
+  phoneNumber: string;
+  startDate: string;
+  endDate: string;
+};
