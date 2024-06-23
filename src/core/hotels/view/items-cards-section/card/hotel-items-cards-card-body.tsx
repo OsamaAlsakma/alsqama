@@ -17,12 +17,17 @@ const HotelItemsCardsCardBody = (props: IHotelItemsCardsCardBodyProps) => {
   const { bedsNumber, pricePerNight } = props;
   return (
     <HotleItemsCardsCardFeaturesWrapper>
-      <HotleItemsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon src={`/${appBaseUrl}/icons/money.svg`} alt="money" />
-        <ChaletsCardsCardFeatureTitle>
-          {pricePerNight}
-        </ChaletsCardsCardFeatureTitle>
-      </HotleItemsCardsCardFeature>
+      {pricePerNight && (
+        <HotleItemsCardsCardFeature>
+          <ChaletsCardsCardFeatureIcon
+            src={`/${appBaseUrl}/icons/money.svg`}
+            alt="money"
+          />
+          <ChaletsCardsCardFeatureTitle>
+            {pricePerNight}
+          </ChaletsCardsCardFeatureTitle>
+        </HotleItemsCardsCardFeature>
+      )}
       {bedsNumber && (
         <HotleItemsCardsCardFeature style={{ justifyContent: "left" }}>
           <ChaletsCardsCardFeatureIcon
