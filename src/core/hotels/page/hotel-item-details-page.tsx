@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
@@ -12,6 +13,11 @@ import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-descri
 import PlaceIcon from "@mui/icons-material/Place";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import StarIcon from "@mui/icons-material/Star";
+import {
+  HotelItemDetailsResponse,
+  getHotelItemDetailsDTO,
+} from "~/core/hotels/page/get-hotel-item-details-dto";
+import { useParams } from "react-router";
 
 export type HotelItemDetailType = {
   id: string;
@@ -23,23 +29,27 @@ export type HotelItemDetailType = {
   videos: string[];
   bookingConditions: string;
   cancellingConditions: string;
-  hotelPhoneNumber: number;
   features: string[];
   reviews: ReviewType[];
-  availableTimes: string[];
+  reservedDates: string[];
+  hotelPhoneNumber?: number;
 };
 const HotelItemDetailsPage = () => {
   const [hotelItemDetail, setHotelItemDetail] = useState<HotelItemDetailType>();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { id: hotelItemId } = useParams();
 
   const fetchChaletsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${endpointsUrl.hotelItemDetails}`);
+      const response = await axios.get(
+        `${endpointsUrl.hotelItemDetails}/${hotelItemId}`
+      );
       if (response.status === 200) {
-        const hotelItemDetail: HotelItemDetailType = response.data;
-        setHotelItemDetail(hotelItemDetail);
+        const hotelItemDetail: HotelItemDetailsResponse = response.data;
+        const dtoResponse = getHotelItemDetailsDTO(hotelItemDetail);
+        setHotelItemDetail(dtoResponse);
         setIsError(false);
       }
     } catch (errro) {

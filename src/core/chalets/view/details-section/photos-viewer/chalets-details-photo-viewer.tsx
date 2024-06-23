@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { imagesUrl } from "~/bootstrap/helper/global-helper";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 import langKey from "~/bootstrap/i18n/langKey";
 import {
@@ -52,13 +53,13 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
       <ChaletsDetailsPhotoAllImagesWrapper className="all-images">
         <ChaletsDetailsPhotoMainImage
           className="big-image"
-          image={images[0]}
+          image={`${imagesUrl}/${images[0]}`}
           onClick={() => openImageViewer(0)}
         />
         <ChaletsDetailsPhotoSmallImagesWrapper className="small-images">
           {images.slice(1, 5).map((image, index) => (
             <ChaletsDetailsPhotoSmallImage
-              image={image}
+              image={`${imagesUrl}/${image}`}
               key={index}
               onClick={() => openImageViewer(index + 1)}
             />
@@ -83,7 +84,7 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
           return (
             <StyledSwiperSlide
               key={index}
-              style={{ backgroundImage: `url(${image})` }}
+              style={{ backgroundImage: `url(${imagesUrl}/${image})` }}
               onClick={() => openImageViewer(index)}
             />
           );

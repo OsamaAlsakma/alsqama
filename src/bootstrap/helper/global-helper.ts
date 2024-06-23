@@ -18,7 +18,8 @@ export const largeScreenSize = "1024px";
 export const extraLargeScreenSize = "1200px";
 
 /* --------------------------- Business variables --------------------------- */
-export const appBaseUrl = "alsqama"
+export const appBaseUrl = "alsqama";
+export const imagesUrl = "https://frontiertech.dev/saqama/storage/app/public";
 export const defaulyPhoneCode = "+967";
 
 /* -------------------------------------------------------------------------- */

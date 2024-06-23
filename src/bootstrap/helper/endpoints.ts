@@ -27,8 +27,9 @@ export const endpointsUrl = {
     "https://frontiertech.dev/saqama/public/api/accommodations?type=hotels",
 
   anHotelItems: "https://run.mocky.io/v3/52546746-7763-4744-8e3d-8bd747b2eade",
-  hotelItemDetails:
-    "https://run.mocky.io/v3/040223a6-4d38-489e-9de8-76be929aefd6",
+  // hotelItemDetails:
+  // "https://run.mocky.io/v3/040223a6-4d38-489e-9de8-76be929aefd6",
+  hotelItemDetails: "https://frontiertech.dev/saqama/public/api/rooms",
 
   /* ---------------------------------- Halls --------------------------------- */
   allHalls: "https://run.mocky.io/v3/f76776a1-a244-41e1-a011-5291ab03a345",
