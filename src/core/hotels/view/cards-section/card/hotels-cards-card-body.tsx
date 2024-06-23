@@ -7,11 +7,12 @@ import {
   HotelsCardsCardFeature,
   HotlesCardsCardFeaturesWrapper,
 } from "~/core/hotels/view/cards-section/card/style";
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 
 type IHotelsCardsCardBodyProps = {
   cardBody: {
     location: string;
-    phoneNumber: number;
+    phoneNumber: string;
     description: string;
   };
 };
@@ -24,12 +25,17 @@ const HotelsCardsCardBody = (props: IHotelsCardsCardBodyProps) => {
         <PlaceIcon />
         <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </HotelsCardsCardFeature>
-      <HotelsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon src="./icons/phone.svg" alt="money" />
-        <ChaletsCardsCardFeatureTitle>
-          {phoneNumber}
-        </ChaletsCardsCardFeatureTitle>
-      </HotelsCardsCardFeature>
+      {phoneNumber && (
+        <HotelsCardsCardFeature>
+          <ChaletsCardsCardFeatureIcon
+            src={`/${appBaseUrl}/icons/phone.svg`}
+            alt="money"
+          />
+          <ChaletsCardsCardFeatureTitle>
+            {phoneNumber}
+          </ChaletsCardsCardFeatureTitle>
+        </HotelsCardsCardFeature>
+      )}
       <HotelsCardsCardFeature>
         <ChaletsCardsCardFeatureTitle>
           {description}

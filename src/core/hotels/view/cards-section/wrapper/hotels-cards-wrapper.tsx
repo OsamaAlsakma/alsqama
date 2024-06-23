@@ -6,6 +6,10 @@ import {
   StyledChaletsCardsWrapper,
 } from "~/core/chalets/view/cards-section/wrapper/style";
 import HotelsCardsCard from "~/core/hotels/view/cards-section/card/hotels-cards-card";
+import {
+  HotelsResponse,
+  getHotelsDTO,
+} from "~/core/hotels/view/cards-section/wrapper/get-hotels-dto";
 import HotelsFilterationWrapper from "~/core/hotels/view/filtration-section/wrapper/hotels-filteration-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
@@ -14,7 +18,7 @@ export type Hotel = {
   images: string[];
   hotelName: string;
   location: string;
-  phoneNumber: number;
+  phoneNumber: string;
   description: string;
   numberOfStars: number;
 };
@@ -30,8 +34,9 @@ const HotelsCardsWrapper = () => {
     try {
       const response = await axios.get(`${endpointsUrl.allHotels}`);
       if (response.status === 200) {
-        const chalets: Hotel[] = response.data;
-        setHotels(chalets);
+        const hotelsResponse: HotelsResponse[] = response.data;
+        const hotels = getHotelsDTO(hotelsResponse);
+        setHotels(hotels);
         setIsError(false);
       }
     } catch (errro) {

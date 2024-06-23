@@ -16,12 +16,14 @@ const ChaletsCardsCardMainTitle = (props: IChaletsCardsCardMainTitleProps) => {
   return (
     <ChaletsCardsCardTitleWrapper>
       <ChaletsCardsCardTitle>{name}</ChaletsCardsCardTitle>
-      <ChaletsCardsCardRatingWrapper>
-        <ChaletsCardsCardStarIcon />
-        <ChaletsCardsCardRatingStars>
-          {numberOfStars}
-        </ChaletsCardsCardRatingStars>
-      </ChaletsCardsCardRatingWrapper>
+      {numberOfStars && (
+        <ChaletsCardsCardRatingWrapper>
+          <ChaletsCardsCardStarIcon />
+          <ChaletsCardsCardRatingStars>
+            {numberOfStars}
+          </ChaletsCardsCardRatingStars>
+        </ChaletsCardsCardRatingWrapper>
+      )}
     </ChaletsCardsCardTitleWrapper>
   );
 };
