@@ -14,8 +14,9 @@ export type ChaletSectionsResponse = {
   video: { url: string }[];
 
   // TODO for fast description
-  numberOfStars: 4;
-  numberOfRooms: 45;
+  location?: string;
+  numberOfStars?: string;
+  numberOfRooms?: string;
 };
 export const getChaletSectionsDTO = (
   response: ChaletSectionsResponse[]
@@ -24,20 +25,22 @@ export const getChaletSectionsDTO = (
     const chaletSectionEntity: ChaletSectionType = {
       id: chaletSection.id,
       name: chaletSection.name,
-      numberOfRooms: chaletSection.numberOfRooms,
       pricePerNight: chaletSection.pricePerNight,
-      numberOfStars: chaletSection.numberOfStars,
       description: chaletSection.description,
       images: chaletSection.images.map((image) => image.attachment_path),
       videos: chaletSection.video.map((video) => video.url),
       bookingConditions: chaletSection.bookingConditions,
       cancellingConditions: chaletSection.cancellingConditions,
       coordinates: chaletSection,
-
       // TODO
       features: [],
-      reservedDates: [],
       reviews: [],
+      reservedDates: [],
+
+      // fast desctription
+      numberOfRooms: chaletSection.numberOfRooms,
+      numberOfStars: chaletSection.numberOfStars,
+      location: chaletSection.location,
     };
     return chaletSectionEntity;
   });

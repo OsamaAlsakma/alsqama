@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import PlaceIcon from "@mui/icons-material/Place";
-import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
+// import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -16,6 +16,7 @@ import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photo
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
+import OtherHousesIcon from "@mui/icons-material/OtherHouses";
 
 export type ReviewType = {
   reviewerName: string;
@@ -26,9 +27,10 @@ export type ReviewType = {
 export type ChaletSectionType = {
   id: string;
   name: string;
-  numberOfRooms: number;
+  numberOfRooms?: string; // fast description
+  numberOfStars?: string; // fast description
+  location?: string; // fast description
   pricePerNight: number;
-  numberOfStars: number;
   description: string;
   images: string[];
   videos: string[];
@@ -87,14 +89,14 @@ const ChaletDetailsPage = () => {
               items={[
                 {
                   icon: PlaceIcon,
-                  title: `يمن - صنعاء - شارع الجمهورية`,
+                  title: `يمن - صنعاء - شارع الجمهورية`, // chaletSection?.location
                 },
                 {
                   icon: StarIcon,
                   title: `${chaletSection.numberOfStars} نجمة`,
                 },
                 {
-                  icon: SpaceDashboardIcon,
+                  icon: OtherHousesIcon,
                   title: `${chaletSection.numberOfRooms} غرفة`,
                 },
               ]}
