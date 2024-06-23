@@ -5,10 +5,11 @@ import {
   ChaletsCardsCardFeatureIcon,
 } from "~/core/chalets/view/cards-section/card/style";
 import PlaceIcon from "@mui/icons-material/Place";
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 
 type IHallsCardsCardBodyProps = {
-  location: string;
-  peopleCapacity?: number;
+  location?: string;
+  peopleCapacity?: string;
 };
 
 const HallsCardsCardBody = (props: IHallsCardsCardBodyProps) => {
@@ -21,7 +22,10 @@ const HallsCardsCardBody = (props: IHallsCardsCardBodyProps) => {
       </ChaletsCardsCardFeature>
       {peopleCapacity && (
         <ChaletsCardsCardFeature $isLeft>
-          <ChaletsCardsCardFeatureIcon src="./icons/people.svg" alt="people" />
+          <ChaletsCardsCardFeatureIcon
+            src={`/${appBaseUrl}/icons/people.svg`}
+            alt="people"
+          />
           <ChaletsCardsCardFeatureTitle>
             {peopleCapacity}
           </ChaletsCardsCardFeatureTitle>

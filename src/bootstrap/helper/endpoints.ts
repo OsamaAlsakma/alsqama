@@ -37,7 +37,8 @@ export const endpointsUrl = {
   // allHalls: "https://run.mocky.io/v3/f76776a1-a244-41e1-a011-5291ab03a345",
   allHalls:
     "https://frontiertech.dev/saqama/public/api/accommodations?type=halls",
-  hallDetails: "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
+  // hallDetails: "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
+  hallDetails: "https://frontiertech.dev/saqama/public/api/accommodations",
 
   /* ------------------------------- Appartments ------------------------------ */
   allAppartments:

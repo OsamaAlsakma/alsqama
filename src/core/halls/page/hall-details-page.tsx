@@ -1,5 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import GroupsIcon from "@mui/icons-material/Groups";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
+import PlaceIcon from "@mui/icons-material/Place";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import { ReviewType } from "~/core/chalets/page/chalet-details-page";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
@@ -7,11 +12,12 @@ import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-sectio
 import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/wrapper/chalets-details-info-tabs-and-booking-card-wrapper";
 import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photos-viewer/chalets-details-photo-viewer";
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
+import {
+  HallDetailsResponse,
+  getHallDetailsDTO,
+} from "~/core/halls/page/get-hall-details-dto";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
-import PlaceIcon from "@mui/icons-material/Place";
-import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
-import StarIcon from "@mui/icons-material/Star";
 
 export type HallDetailType = {
   id: string;
@@ -23,23 +29,25 @@ export type HallDetailType = {
   videos: string[];
   bookingConditions: string;
   cancellingConditions: string;
-  phoneNumber: number;
   features: string[];
   reviews: ReviewType[];
   availableTimes: string[];
+  location?: string;
+  capacity?: string;
 };
 const HallDetailsPage = () => {
   const [hallDetails, setHallDetails] = useState<HallDetailType>();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const { id: hallId } = useParams();
   const fetchHallDetailsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${endpointsUrl.hallDetails}`);
+      const response = await axios.get(`${endpointsUrl.hallDetails}/${hallId}`);
       if (response.status === 200) {
-        const hallDetails: HallDetailType = response.data;
-        setHallDetails(hallDetails);
+        const hallDetails: HallDetailsResponse = response.data;
+        const hallDetailsDto: HallDetailType = getHallDetailsDTO(hallDetails);
+        setHallDetails(hallDetailsDto);
         setIsError(false);
       }
     } catch (errro) {
@@ -66,15 +74,15 @@ const HallDetailsPage = () => {
         items={[
           {
             icon: PlaceIcon,
-            title: `يمن - صنعاء - شارع الجمهورية`,
+            title: hallDetails?.location,
           },
           {
-            icon: StarIcon,
-            title: `8 نجمة`,
+            icon: GroupsIcon,
+            title: hallDetails?.capacity,
           },
           {
-            icon: SpaceDashboardIcon,
-            title: `تتسع لخمسين شخص`,
+            icon: MonetizationOnIcon,
+            title: hallDetails?.pricePerNight,
           },
         ]}
       />

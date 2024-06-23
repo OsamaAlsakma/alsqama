@@ -20,7 +20,7 @@ import {
 /* -------------------------------------------------------------------------- */
 type ItemType = {
   icon: SvgIconComponent | FC;
-  title?: string;
+  title?: string | number;
 };
 interface IDetailsFastDescriptionAndShareProps {
   items: ItemType[];

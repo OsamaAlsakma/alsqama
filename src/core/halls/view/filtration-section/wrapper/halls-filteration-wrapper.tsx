@@ -45,7 +45,7 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
         ? hall.pricePerNight <= parseFloat(priceFilter)
         : true;
       const passCityFilter = cityFilter
-        ? hall.location.includes(cityFilter)
+        ? hall.location?.includes(cityFilter)
         : true;
       const passNameFilter = nameFilter ? hall.name.includes(nameFilter) : true;
 

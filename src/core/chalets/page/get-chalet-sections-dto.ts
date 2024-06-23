@@ -3,7 +3,6 @@ import { ChaletSectionType } from "~/core/chalets/page/chalet-details-page";
 export type ChaletSectionsResponse = {
   id: string;
   name: string;
-  accommodation_id: 5;
   pricePerNight: number;
   description: string;
   latitude: number;
