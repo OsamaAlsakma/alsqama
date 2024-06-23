@@ -12,12 +12,12 @@ import CircularLoader from "~/generic/components/circular-loader/circular-loader
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
 import PlaceIcon from "@mui/icons-material/Place";
 import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
-import StarIcon from "@mui/icons-material/Star";
 import {
   HotelItemDetailsResponse,
   getHotelItemDetailsDTO,
 } from "~/core/hotels/page/get-hotel-item-details-dto";
 import { useParams } from "react-router";
+import OtherHousesIcon from "@mui/icons-material/OtherHouses";
 
 export type HotelItemDetailType = {
   id: string;
@@ -33,6 +33,11 @@ export type HotelItemDetailType = {
   reviews: ReviewType[];
   reservedDates: string[];
   hotelPhoneNumber?: number;
+  roomsNumber?: string;
+  bedsNumber?: string;
+
+  // TODO to the fast description
+  location?: string;
 };
 const HotelItemDetailsPage = () => {
   const [hotelItemDetail, setHotelItemDetail] = useState<HotelItemDetailType>();
@@ -76,15 +81,16 @@ const HotelItemDetailsPage = () => {
         items={[
           {
             icon: PlaceIcon,
-            title: `يمن - عدن - شارع الجمهورية`,
+            // TODO
+            title: `يمن - عدن - شارع الجمهورية`, // hotelItemDetail?.location ,
           },
           {
-            icon: StarIcon,
-            title: `4.5 نجمة`,
+            icon: OtherHousesIcon,
+            title: hotelItemDetail?.roomsNumber,
           },
           {
             icon: SpaceDashboardIcon,
-            title: `سرير مزودج`,
+            title: hotelItemDetail?.bedsNumber,
           },
         ]}
       />

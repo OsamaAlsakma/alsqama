@@ -18,6 +18,11 @@ export type HotelItemDetailsResponse = {
     longitude: number;
   };
   features: { name: string }[];
+  roomsNumber: string; // fast description
+  bedsNumber: string; //fast description
+
+  // TODO he will add it for fast description
+  location: string; //fast description
 };
 export const getHotelItemDetailsDTO = (
   response: HotelItemDetailsResponse
@@ -35,5 +40,9 @@ export const getHotelItemDetailsDTO = (
     features: response.features.map((feature) => feature.name),
     reviews: response.reviews,
     reservedDates: response.reservations,
+    roomsNumber: response.roomsNumber,
+    bedsNumber: response.bedsNumber,
+    // TODO
+    // location: response.location,
   };
 };

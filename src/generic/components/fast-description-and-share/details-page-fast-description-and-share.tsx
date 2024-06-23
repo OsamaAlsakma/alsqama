@@ -20,7 +20,7 @@ import {
 /* -------------------------------------------------------------------------- */
 type ItemType = {
   icon: SvgIconComponent | FC;
-  title: string;
+  title?: string;
 };
 interface IDetailsFastDescriptionAndShareProps {
   items: ItemType[];
@@ -39,7 +39,7 @@ const DetailsPageFastDescriptionAndShare = (
       {/* items */}
       <DetailsFastDescriptionItemsWrapper>
         {items.map((item: ItemType, index: number) => {
-          return (
+          return item.title ? (
             <DetailsFastDescriptionButton
               key={index}
               startIcon={
@@ -51,7 +51,7 @@ const DetailsPageFastDescriptionAndShare = (
             >
               {item.title}
             </DetailsFastDescriptionButton>
-          );
+          ) : null;
         })}
         {/* share icon */}
         <CopyToClipboardWrapper>
