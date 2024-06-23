@@ -6,6 +6,7 @@ export type HotelItemResponse = {
   bedsNumber: string;
   roomsNumber: string;
   price: number;
+  images: { attachment_path: string }[];
 };
 export const getHotelItemsDTO = (
   hotelItemsResponse: HotelItemResponse[]
@@ -19,8 +20,8 @@ export const getHotelItemsDTO = (
       pricePerNight: hotelItemResponse.price,
 
       // TODO
+      images: [], // hotelItemResponse.images.map((image) => image.attachment_path),
       reservedDates: [],
-      images: [],
     };
     return hotelItem;
   });
