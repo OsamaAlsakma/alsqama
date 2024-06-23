@@ -17,6 +17,7 @@ export type HotelItemDetailsResponse = {
     latitude: number;
     longitude: number;
   };
+  features: { name: string }[];
 };
 export const getHotelItemDetailsDTO = (
   response: HotelItemDetailsResponse
@@ -31,7 +32,7 @@ export const getHotelItemDetailsDTO = (
     videos: response.video.map((video) => video.url),
     bookingConditions: response.bookingConditions,
     cancellingConditions: response.cancellingConditions,
-    features: [],
+    features: response.features.map((feature) => feature.name),
     reviews: response.reviews,
     reservedDates: response.reservations,
   };

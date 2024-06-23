@@ -117,7 +117,7 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
           backgroundStyle={{
             backgroundColor: "rgba(0, 0, 0, 0.8)",
           }}
-          src={images}
+          src={images.map((image) => `${imagesUrl}/${image}`)}
           currentIndex={currentImage}
           disableScroll={false}
           closeOnClickOutside={true}

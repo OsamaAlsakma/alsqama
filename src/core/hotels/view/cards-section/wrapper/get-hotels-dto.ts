@@ -7,12 +7,13 @@ export type HotelsResponse = {
   shortDescription: string;
   numberOfStars: number;
   phone: string;
+  images: { attachment_path: string }[];
 };
 export const getHotelsDTO = (response: HotelsResponse[]): Hotel[] => {
   return response.map((hotel: HotelsResponse) => {
     const hotelEntity: Hotel = {
       id: hotel.id,
-      images: [],
+      images: hotel.images.map((image) => image.attachment_path),
       hotelName: hotel.name,
       location: hotel.location,
       phoneNumber: hotel.phone,

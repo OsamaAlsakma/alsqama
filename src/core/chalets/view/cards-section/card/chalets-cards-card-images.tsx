@@ -2,6 +2,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
+import { imagesUrl } from "~/bootstrap/helper/global-helper";
 
 import {
   ChaletsCardsCardImagesNextButton,
@@ -30,7 +31,7 @@ const ChaletsCardsCardImages = (props: IChaletsCardsCardImagesProps) => {
         return (
           <ChaletsCardsCardImagesSwiperSlide
             key={index}
-            style={{ backgroundImage: `url(${image})` }}
+            style={{ backgroundImage: `url(${imagesUrl}/${image})` }}
           />
         );
       })}
