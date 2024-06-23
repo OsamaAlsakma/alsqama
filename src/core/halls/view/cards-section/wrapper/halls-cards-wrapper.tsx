@@ -6,6 +6,10 @@ import {
   StyledChaletsCardsWrapper,
 } from "~/core/chalets/view/cards-section/wrapper/style";
 import HallsCardsCard from "~/core/halls/view/cards-section/card/halls-cards-card";
+import {
+  HallsResponse,
+  getHallsDTO,
+} from "~/core/halls/view/cards-section/wrapper/get-halls-dto";
 import HallsFilterationWrapper from "~/core/halls/view/filtration-section/wrapper/halls-filteration-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
@@ -13,9 +17,9 @@ export type Hall = {
   id: string;
   images: string[];
   name: string;
-  location: string;
+  location?: string;
   pricePerNight: number;
-  peopleCapacity?: number;
+  peopleCapacity?: string;
   reservedDates: string[];
 };
 
@@ -31,9 +35,9 @@ const HallsCardsWrapper = () => {
     try {
       const response = await axios.get(`${endpointsUrl.allHalls}`);
       if (response.status === 200) {
-        const halls: Hall[] = response.data;
-
-        setHalls(halls);
+        const halls: HallsResponse[] = response.data;
+        const hallsDto = getHallsDTO(halls);
+        setHalls(hallsDto);
         setIsError(false);
       }
     } catch (errro) {
