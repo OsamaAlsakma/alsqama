@@ -4,7 +4,11 @@ import SpaceDashboardIcon from "@mui/icons-material/SpaceDashboard";
 import StarIcon from "@mui/icons-material/Star";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import { useParams } from "react-router";
+import {
+  ChaletSectionsResponse,
+  getChaletSectionsDTO,
+} from "~/core/chalets/page/get-chalet-sections-dto";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
 import ChaletsDetailsInfoTabsAndBookingCardWrapper from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/wrapper/chalets-details-info-tabs-and-booking-card-wrapper";
@@ -24,12 +28,11 @@ export type ChaletSectionType = {
   name: string;
   numberOfRooms: number;
   pricePerNight: number;
-  nearestAvailableTime: string;
   numberOfStars: number;
   description: string;
   images: string[];
   videos: string[];
-  availableTimes: string[];
+  reservedDates: string[];
   features: string[];
   bookingConditions: string;
   cancellingConditions: string;
@@ -44,14 +47,17 @@ const ChaletDetailsPage = () => {
   const [chaletSections, setChaletSections] = useState<ChaletSectionType[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const { id: chaletId } = useParams();
   const fetchChaletsData = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${endpointsUrl.chaletDetails}`);
+      const response = await axios.get(
+        `https://frontiertech.dev/saqama/public/api/accommodations/${chaletId}/chalet-sections`
+      );
       if (response.status === 200) {
-        const chaletSections: ChaletSectionType[] = response.data;
-        setChaletSections(chaletSections);
+        const chaletSections: ChaletSectionsResponse[] = response.data;
+        const chaletSectionsDto = getChaletSectionsDTO(chaletSections);
+        setChaletSections(chaletSectionsDto);
         setIsError(false);
       }
     } catch (errro) {
