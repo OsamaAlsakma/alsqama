@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import ChaletsCardsCard from "~/core/chalets/view/cards-section/card/chalets-cards-card";
 import {
+  ChaletsResponse,
+  getChaletsDTO,
+} from "~/core/chalets/view/cards-section/wrapper/get-chalets-dto";
+import {
   ChaletsCardsWrapperMessages,
   StyledChaletsCardsWrapper,
 } from "~/core/chalets/view/cards-section/wrapper/style";
@@ -31,8 +35,9 @@ const ChaletsCardsWrapper = () => {
     try {
       const response = await axios.get(`${endpointsUrl.allChalets}`);
       if (response.status === 200) {
-        const chalets: Chalet[] = response.data;
-        setChalets(chalets);
+        const chaletsResponse: ChaletsResponse[] = response.data;
+        const chaletsDto = getChaletsDTO(chaletsResponse);
+        setChalets(chaletsDto);
         setIsError(false);
       }
     } catch (errro) {
