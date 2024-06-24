@@ -10,6 +10,7 @@ export type ChaletsResponse = {
   images: { attachment_path: string }[];
   price: number;
   capacity: string; //number of rooms
+
   // TODO he needs to send reservedDates so we can filter them
 };
 export const getChaletsDTO = (response: ChaletsResponse[]): Chalet[] => {

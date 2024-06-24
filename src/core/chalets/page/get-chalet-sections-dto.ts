@@ -11,11 +11,12 @@ export type ChaletSectionsResponse = {
   cancellingConditions: string;
   images: { attachment_path: string }[];
   video: { url: string }[];
+  numberOfStars?: string;
+  numberOfRooms?: string;
+  features: { name: string }[];
 
   // TODO for fast description
   location?: string;
-  numberOfStars?: string;
-  numberOfRooms?: string;
 };
 export const getChaletSectionsDTO = (
   response: ChaletSectionsResponse[]
@@ -31,15 +32,16 @@ export const getChaletSectionsDTO = (
       bookingConditions: chaletSection.bookingConditions,
       cancellingConditions: chaletSection.cancellingConditions,
       coordinates: chaletSection,
-      // TODO
-      features: [],
-      reviews: [],
-      reservedDates: [],
+      features: chaletSection.features.map((feature) => feature.name),
 
       // fast desctription
       numberOfRooms: chaletSection.numberOfRooms,
       numberOfStars: chaletSection.numberOfStars,
       location: chaletSection.location,
+
+      reviews: [],
+      // TODO
+      reservedDates: [],
     };
     return chaletSectionEntity;
   });
