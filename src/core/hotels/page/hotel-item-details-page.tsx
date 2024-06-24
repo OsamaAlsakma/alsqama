@@ -81,8 +81,7 @@ const HotelItemDetailsPage = () => {
         items={[
           {
             icon: PlaceIcon,
-            // TODO
-            title: `يمن - عدن - شارع الجمهورية`, // hotelItemDetail?.location ,
+            title: hotelItemDetail?.location,
           },
           {
             icon: OtherHousesIcon,
