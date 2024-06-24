@@ -8,21 +8,25 @@ type IHallsCardsCardFooterProps = {
   hallId: string;
 };
 
-const HallsCardsCardFooter = (props: IHallsCardsCardFooterProps) => {
+const AppartmentsCardsCardFooter = (props: IHallsCardsCardFooterProps) => {
   const { hallId } = props;
   const { t } = useTranslation();
 
   return (
     <ChaletsCardsCardActions>
-      <CardActionsButtonWithLink to={`${servicesPageEndpoint.halls}/${hallId}`}>
+      <CardActionsButtonWithLink
+        to={`${servicesPageEndpoint.apartments}/${hallId}`}
+      >
         {t(langKey.global.more)}
       </CardActionsButtonWithLink>
 
-      <CardActionsButtonWithLink to={`${servicesPageEndpoint.halls}/${hallId}`}>
+      <CardActionsButtonWithLink
+        to={`${servicesPageEndpoint.apartments}/${hallId}`}
+      >
         {t(langKey.global.bookNow)}
       </CardActionsButtonWithLink>
     </ChaletsCardsCardActions>
   );
 };
 
-export default HallsCardsCardFooter;
+export default AppartmentsCardsCardFooter;

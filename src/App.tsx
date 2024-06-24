@@ -21,6 +21,7 @@ import SelectedTabCTX from "~/generic/context/selected-tab-ctx";
 import di from "~/bootstrap/di";
 import PrivacyPolicyPage from "~/support/pages/privacy-policy/privacy-policy-page";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
+import AppartmentDetailsPage from "~/core/Apartments/page/appartment-details-page";
 
 const PagesPaddedWrapper = styled.div`
   padding-top: ${appHeaderHeight};
@@ -38,14 +39,14 @@ function App() {
             <Routes>
               {/* Main */}
               <Route path={servicesPageEndpoint.main} element={<MainPage />} />
-              {/* Chalets */}
+              {/* Apartments */}
               <Route
-                path={servicesPageEndpoint.chalets}
-                element={<ChaletsPage />}
+                path={servicesPageEndpoint.apartments}
+                element={<ApartmentsPage />}
               />
               <Route
-                path={`${servicesPageEndpoint.chalets}/:id`}
-                element={<ChaletDetailsPage />}
+                path={`${servicesPageEndpoint.apartments}/:id`}
+                element={<AppartmentDetailsPage />}
               />
               {/* Halls */}
               <Route
@@ -56,6 +57,16 @@ function App() {
                 path={`${servicesPageEndpoint.halls}/:id`}
                 element={<HallDetailsPage />}
               />
+              {/* Chalets */}
+              <Route
+                path={servicesPageEndpoint.chalets}
+                element={<ChaletsPage />}
+              />
+              <Route
+                path={`${servicesPageEndpoint.chalets}/:id`}
+                element={<ChaletDetailsPage />}
+              />
+
               {/* Hotels */}
               <Route
                 path={servicesPageEndpoint.hotels}
@@ -68,15 +79,6 @@ function App() {
               <Route
                 path={`${servicesPageEndpoint.hotels}/:id/:id`}
                 element={<HotelItemDetailsPage />}
-              />
-              {/* Apartments */}
-              <Route
-                path={servicesPageEndpoint.apartments}
-                element={<ApartmentsPage />}
-              />
-              <Route
-                path={`${servicesPageEndpoint.apartments}/:id`}
-                element={<ChaletDetailsPage />}
               />
               {/* Term of use */}
               <Route

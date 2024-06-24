@@ -45,7 +45,7 @@ const ApartmentsFilterationWrapper = (
         ? appartment.pricePerNight <= parseFloat(priceFilter)
         : true;
       const passCityFilter = cityFilter
-        ? appartment.location.includes(cityFilter)
+        ? appartment.location?.includes(cityFilter)
         : true;
       const passNameFilter = nameFilter
         ? appartment.name.includes(nameFilter)

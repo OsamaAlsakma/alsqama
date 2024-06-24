@@ -2,6 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import AppartmentsCardsCard from "~/core/Apartments/view/cards-section/card/appartments-cards-card";
+import {
+  AppartmentsResponse,
+  getAppartmentsDTO,
+} from "~/core/Apartments/view/cards-section/wrapper/get-appartments-dto";
 import ApartmentsFilterationWrapper from "~/core/Apartments/view/filtration-section/wrapper/apartments-filteration-wrapper";
 import {
   ChaletsCardsWrapperMessages,
@@ -13,9 +17,9 @@ export type Appartment = {
   id: string;
   images: string[];
   name: string;
-  location: string;
+  location?: string;
   pricePerNight: number;
-  numberOfRooms?: number;
+  numberOfRooms?: string;
   reservedDates: string[];
 };
 
@@ -33,9 +37,10 @@ const AppartmentsCardsWrapper = () => {
     try {
       const response = await axios.get(`${endpointsUrl.allAppartments}`);
       if (response.status === 200) {
-        const appartments: Appartment[] = response.data;
+        const appartments: AppartmentsResponse[] = response.data;
+        const appartmentsDto = getAppartmentsDTO(appartments);
 
-        setAppartments(appartments);
+        setAppartments(appartmentsDto);
         setIsError(false);
       }
     } catch (errro) {

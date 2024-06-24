@@ -1,12 +1,12 @@
 import CardContent from "@mui/material/CardContent/CardContent";
 import AppartmentsCardsCardBody from "~/core/Apartments/view/cards-section/card/appartments-cards-card-body";
+import AppartmentsCardsCardFooter from "~/core/Apartments/view/cards-section/card/appartments-cards-card-footer";
 import { Appartment } from "~/core/Apartments/view/cards-section/wrapper/appartments-cards-wrapper";
 import ChaletsCardsCardImages from "~/core/chalets/view/cards-section/card/chalets-cards-card-images";
 import {
   StyledChaletsCardsCard,
   StyledChaletsCardsCardMedia,
 } from "~/core/chalets/view/cards-section/card/style";
-import HallsCardsCardFooter from "~/core/halls/view/cards-section/card/halls-cards-card-footer";
 import HallsCardsCardMainTitle from "~/core/halls/view/cards-section/card/halls-cards-card-title";
 
 type IAppartmentsCardsCardProps = {
@@ -30,7 +30,7 @@ const AppartmentsCardsCard = (props: IAppartmentsCardsCardProps) => {
           numberOfRooms={appartment.numberOfRooms}
         />
       </CardContent>
-      <HallsCardsCardFooter hallId={appartment.id} />
+      <AppartmentsCardsCardFooter hallId={appartment.id} />
     </StyledChaletsCardsCard>
   );
 };

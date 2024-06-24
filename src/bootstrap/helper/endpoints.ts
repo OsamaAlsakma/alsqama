@@ -41,11 +41,14 @@ export const endpointsUrl = {
   hallDetails: "https://frontiertech.dev/saqama/public/api/accommodations",
 
   /* ------------------------------- Appartments ------------------------------ */
+  // allAppartments:
+  // "https://run.mocky.io/v3/d219b58c-4d07-4ce6-86df-918305bb3fbe",
   allAppartments:
-    "https://run.mocky.io/v3/d219b58c-4d07-4ce6-86df-918305bb3fbe",
+    "https://frontiertech.dev/saqama/public/api/accommodations?type=appartments",
+  // appartmentDetails:
+  // "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
   appartmentDetails:
-    "https://run.mocky.io/v3/d49421bf-2eb8-4a5b-80b2-29a475dc36f1",
-
+    "https://frontiertech.dev/saqama/public/api/accommodations",
   /* ------------------------------ Terms of use ------------------------------ */
   termsOfUse: "https://run.mocky.io/v3/e1a71449-ab92-4f8b-8f50-11ac458a7ab7",
   /* ----------------------------- Privacy policy ----------------------------- */

@@ -8,18 +8,22 @@ import PlaceIcon from "@mui/icons-material/Place";
 import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 
 type IAppartmentsCardsCardBodyProps = {
-  location: string;
-  numberOfRooms?: number;
+  location?: string;
+  numberOfRooms?: string;
 };
 
 const AppartmentsCardsCardBody = (props: IAppartmentsCardsCardBodyProps) => {
   const { location, numberOfRooms } = props;
   return (
     <ChaletsCardsCardFeaturesWrapper>
-      <ChaletsCardsCardFeature>
-        <PlaceIcon />
-        <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
-      </ChaletsCardsCardFeature>
+      {location && (
+        <ChaletsCardsCardFeature>
+          <PlaceIcon />
+          <ChaletsCardsCardFeatureTitle>
+            {location}
+          </ChaletsCardsCardFeatureTitle>
+        </ChaletsCardsCardFeature>
+      )}
       {numberOfRooms && (
         <ChaletsCardsCardFeature $isLeft>
           <ChaletsCardsCardFeatureIcon
