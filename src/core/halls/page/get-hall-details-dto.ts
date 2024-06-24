@@ -15,10 +15,10 @@ export type HallDetailsResponse = {
     images: { attachmentPath: string }[];
     video: { url: string }[];
     features: { name: string }[];
+    bookingConditions: string;
+    cancellingConditions: string;
 
     // TODO he needs to add
-    // bookingConditions: string; // he needs to fix
-    // cancellingConditions: string; // he needs to fix
     // reservations:ResservedDateType[]
   };
 };
@@ -44,8 +44,8 @@ export const getHallDetailsDTO = (
     pricePerNight: response.accommodation.pricePerNight,
 
     // TODO to be fixed
-    bookingConditions: "", //  response.bookingConditions,
-    cancellingConditions: "", //response.cancellingConditions,
+    bookingConditions: response.accommodation.bookingConditions,
+    cancellingConditions: response.accommodation.cancellingConditions,
     reviews: [],
     availableTimes: [],
   };
