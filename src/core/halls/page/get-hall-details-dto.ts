@@ -37,6 +37,8 @@ export const getHallDetailsDTO = (
       longitude: response.accommodation.coordinates.longitude,
     },
     features: response.accommodation.features.map((feature) => feature.name),
+    bookingConditions: response.accommodation.bookingConditions,
+    cancellingConditions: response.accommodation.cancellingConditions,
 
     // fast description
     capacity: response.accommodation.numberOfRooms,
@@ -44,8 +46,6 @@ export const getHallDetailsDTO = (
     pricePerNight: response.accommodation.pricePerNight,
 
     // TODO to be fixed
-    bookingConditions: response.accommodation.bookingConditions,
-    cancellingConditions: response.accommodation.cancellingConditions,
     reviews: [],
     availableTimes: [],
   };

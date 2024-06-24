@@ -43,10 +43,10 @@ export const getAppartmentDetailsDTO = (
     location: response.accommodation.location,
     pricePerNight: response.accommodation.pricePerNight,
 
-    // TODO to be fixed
-    bookingConditions: "",
-    cancellingConditions: "",
+    bookingConditions: response.accommodation.bookingConditions,
+    cancellingConditions: response.accommodation.cancellingConditions,
     reviews: [],
+    // TODO to be fixed
     availableTimes: [],
   };
   return AppartmentDetailEntity;
