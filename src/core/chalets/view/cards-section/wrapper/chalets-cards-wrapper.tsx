@@ -20,7 +20,7 @@ export type Chalet = {
   numberOfStars: number;
   location: string;
   price: number;
-  numberOfRooms: number;
+  numberOfRooms: string;
   nearestTimeAvailable: string;
 };
 

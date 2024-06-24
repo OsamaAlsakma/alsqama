@@ -9,7 +9,7 @@ export type ChaletsResponse = {
   phone: string;
   images: { attachment_path: string }[];
   price: number;
-  // TODO he needs to add the numbe of rooms
+  capacity: string; //number of rooms
   // TODO he needs to send reservedDates so we can filter them
 };
 export const getChaletsDTO = (response: ChaletsResponse[]): Chalet[] => {
@@ -29,8 +29,7 @@ export const getChaletsDTO = (response: ChaletsResponse[]): Chalet[] => {
       price: chalet.price,
 
       nearestTimeAvailable: `${day}.${month}.${year}`,
-      // TODO fix it after the back end will fix it
-      numberOfRooms: chalet.numberOfStars,
+      numberOfRooms: chalet.capacity,
     };
     return chaletEntity;
   });

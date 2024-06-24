@@ -10,7 +10,7 @@ type IChaletsCardsCardBodyProps = {
   cardBody: {
     location: string;
     price: number;
-    numberOfRooms: number;
+    numberOfRooms: string;
     nearestTimeAvailable: string;
   };
 };
@@ -33,7 +33,7 @@ const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
       <ChaletsCardsCardFeature>
         <ChaletsCardsCardFeatureIcon src="./icons/rooms.svg" alt="rooms" />
         <ChaletsCardsCardFeatureTitle>
-          {numberOfRooms} غرف
+          {numberOfRooms}
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
