@@ -61,7 +61,7 @@ const HotelsCardsWrapper = () => {
         </ChaletsCardsWrapperMessages>
       ) : hotels.length === 0 ? (
         <ChaletsCardsWrapperMessages>
-          لم يتم العثور على أية شاليه
+          لم يتم العثور على أية فندق
         </ChaletsCardsWrapperMessages>
       ) : (
         filteredHotels.map((hotel: Hotel, index: number) => (
