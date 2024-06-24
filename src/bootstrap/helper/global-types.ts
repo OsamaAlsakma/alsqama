@@ -12,8 +12,11 @@ export type MainFooterIconsResponse = {
 };
 
 export type ResservedDateType = {
+  accommodations_id: string;
+  sub_accommodations_id: string | null;
+  user_id: string;
   name: string;
-  phoneNumber: string;
-  startDate: string;
-  endDate: string;
+  phone_number: string;
+  start_date: string;
+  end_date: string;
 };

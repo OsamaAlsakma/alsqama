@@ -95,7 +95,7 @@ const ChaletDetailsPage = () => {
               items={[
                 {
                   icon: PlaceIcon,
-                  title: `يمن - صنعاء - شارع الجمهورية`, // chaletSection?.location
+                  title: chaletSection?.location,
                 },
                 {
                   icon: StarIcon,
