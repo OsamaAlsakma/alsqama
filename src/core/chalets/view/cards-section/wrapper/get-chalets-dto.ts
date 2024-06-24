@@ -13,6 +13,12 @@ export type ChaletsResponse = {
   // TODO he needs to send reservedDates so we can filter them
 };
 export const getChaletsDTO = (response: ChaletsResponse[]): Chalet[] => {
+  const today = dayjs();
+
+  const day = today.date();
+  const month = today.month() + 1;
+  const year = today.year();
+
   return response.map((chalet: ChaletsResponse) => {
     const chaletEntity: Chalet = {
       id: chalet.id,
@@ -21,7 +27,8 @@ export const getChaletsDTO = (response: ChaletsResponse[]): Chalet[] => {
       numberOfStars: chalet.numberOfStars,
       location: chalet.location,
       price: chalet.price,
-      nearestTimeAvailable: dayjs(new Date()).toString(),
+
+      nearestTimeAvailable: `${day}.${month}.${year}`,
       // TODO fix it after the back end will fix it
       numberOfRooms: chalet.numberOfStars,
     };

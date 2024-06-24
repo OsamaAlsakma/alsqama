@@ -79,6 +79,12 @@ const ChaletDetailsPage = () => {
       </DetailsPageEdgeCaseMessage>
     );
   if (isLoading) return <CircularLoader />;
+  if (chaletSections.length === 0)
+    return (
+      <DetailsPageEdgeCaseMessage>
+        لا يوجد جناحات في هذا الشاليه
+      </DetailsPageEdgeCaseMessage>
+    );
   return (
     <div>
       {chaletSections.map((chaletSection: ChaletSectionType, index: number) => {
