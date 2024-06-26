@@ -32,7 +32,6 @@ export type HallDetailType = {
   cancellingConditions: string;
   features: string[];
   reviews: ReviewType[];
-  availableTimes: string[];
   location?: string;
   capacity?: string;
 

@@ -47,7 +47,7 @@ export const getHallDetailsDTO = (
 
     // TODO to be fixed
     reviews: [],
-    availableTimes: [],
+    reservedDates: [],
   };
   return HallDetailEntity;
 };

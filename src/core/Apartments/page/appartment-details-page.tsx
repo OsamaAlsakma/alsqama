@@ -33,7 +33,6 @@ export type AppartmentDetailType = {
   cancellingConditions: string;
   features: string[];
   reviews: ReviewType[];
-  availableTimes: string[];
   location?: string;
   numberOfRooms?: string;
   reservedDates: ResservedDateType[];

@@ -47,7 +47,7 @@ export const getAppartmentDetailsDTO = (
     cancellingConditions: response.accommodation.cancellingConditions,
     reviews: [],
     // TODO to be fixed
-    availableTimes: [],
+    reservedDates: [],
   };
   return AppartmentDetailEntity;
 };
