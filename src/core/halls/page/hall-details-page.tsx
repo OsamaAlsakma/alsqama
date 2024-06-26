@@ -6,6 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 import { ReviewType } from "~/core/chalets/page/chalet-details-page";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 import ChaletsDetailsDescriptionWrapper from "~/core/chalets/view/details-section/description-section/wrapper/chalets-details-description-wrapper";
@@ -34,6 +35,8 @@ export type HallDetailType = {
   availableTimes: string[];
   location?: string;
   capacity?: string;
+
+  reservedDates: ResservedDateType[];
 };
 const HallDetailsPage = () => {
   const [hallDetails, setHallDetails] = useState<HallDetailType>();
@@ -107,6 +110,7 @@ const HallDetailsPage = () => {
         }}
         pricePerNight={hallDetails?.pricePerNight || 0}
         name={hallDetails?.name || ""}
+        reservedDates={hallDetails ? hallDetails.reservedDates : []}
       />
     </div>
   );

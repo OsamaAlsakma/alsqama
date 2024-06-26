@@ -18,6 +18,7 @@ import {
 } from "~/core/hotels/page/get-hotel-item-details-dto";
 import { useParams } from "react-router";
 import OtherHousesIcon from "@mui/icons-material/OtherHouses";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 
 export type HotelItemDetailType = {
   id: string;
@@ -31,10 +32,10 @@ export type HotelItemDetailType = {
   cancellingConditions: string;
   features: string[];
   reviews: ReviewType[];
-  reservedDates: string[];
   hotelPhoneNumber?: number;
   roomsNumber?: string;
   bedsNumber?: string;
+  reservedDates: ResservedDateType[];
 
   // TODO to the fast description
   location?: string;
@@ -114,6 +115,7 @@ const HotelItemDetailsPage = () => {
         }}
         pricePerNight={hotelItemDetail?.pricePerNight || 0}
         name={hotelItemDetail?.name || ""}
+        reservedDates={hotelItemDetail?.reservedDates || []}
       />
     </div>
   );

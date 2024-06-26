@@ -48,7 +48,7 @@ const HotelItemsCardsWrapper = () => {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { id: hotelId } = useParams();
+  const { hotelId } = useParams();
 
   const fetchHotelItemsData = async () => {
     setIsLoading(true);

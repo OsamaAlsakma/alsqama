@@ -4,10 +4,11 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import "dayjs/locale/ar";
-import { SetStateAction, useEffect, useState } from "react";
+import { SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
+import { getDatesBetweenStartAndEndDates } from "~/bootstrap/helper/global-helper";
 import { StyledAppNoteTitleWrapper } from "~/bootstrap/helper/global-styles";
-import { SetState } from "~/bootstrap/helper/global-types";
+import { ResservedDateType, SetState } from "~/bootstrap/helper/global-types";
 import langKey from "~/bootstrap/i18n/langKey";
 import {
   DetailsBookingCardErrorMessage,
@@ -19,34 +20,51 @@ import {
 interface IChaletsDetailsBookingCardBookingDateProps {
   pricePerNight: number;
   numberOfReservedDays: number;
-  setNumberOfReservedDays: SetState<number>;
+  reservedDates: ResservedDateType[];
+  startDate: dayjs.Dayjs | null;
+  setStartDate: SetState<Dayjs | null>;
+  endDate: dayjs.Dayjs | null;
+  setEndDate: SetState<Dayjs | null>;
 }
 
 export const ChaletsDetailsBookingCardBookingDate = (
   props: IChaletsDetailsBookingCardBookingDateProps
 ) => {
-  const { pricePerNight, numberOfReservedDays, setNumberOfReservedDays } =
-    props;
-
-  const today = dayjs(new Date());
-  const tomorrow = dayjs().add(1, "day");
-
-  const [startDate, setStartDate] = useState<Dayjs | null>(today);
-  const [endDate, setEndDate] = useState<Dayjs | null>(tomorrow);
-
-  useEffect(() => {
-    if (!(startDate && endDate)) {
-      setNumberOfReservedDays(-1);
-      return;
-    }
-    const numberOfReservedDays = endDate.diff(startDate, "day");
-    if (numberOfReservedDays <= 0) {
-      setNumberOfReservedDays(-1);
-      return;
-    }
-    setNumberOfReservedDays(numberOfReservedDays);
-  }, [startDate, endDate]);
+  const {
+    pricePerNight,
+    numberOfReservedDays,
+    startDate,
+    endDate,
+    setStartDate,
+    setEndDate,
+    reservedDates,
+  } = props;
   const { t } = useTranslation();
+  // const test = [
+  //   {
+  //     start_date: "2024-07-01",
+  //     end_date: "2024-07-05",
+  //   },
+  //   {
+  //     start_date: "2024-07-14",
+  //     end_date: "2024-07-15",
+  //   },
+  // ];
+  // resservedDates logic:
+  const datesBlocked: string[] = [];
+  reservedDates.forEach((reservedDate) => {
+    const datesBetweenStartAndEnd = getDatesBetweenStartAndEndDates(
+      dayjs(reservedDate.start_date),
+      dayjs(reservedDate.end_date)
+    );
+    datesBlocked.push(...datesBetweenStartAndEnd);
+  });
+  0;
+
+  const shouldDisableDate = (date: string | dayjs.Dayjs) => {
+    return datesBlocked.includes(dayjs(date).format("YYYY-MM-DD"));
+  };
+
   return (
     <>
       <DetailsBookingCardPricePerNightDiv>
@@ -60,12 +78,11 @@ export const ChaletsDetailsBookingCardBookingDate = (
           <DetailsBookingCardInput className="from-input">
             <span>{t(langKey.detailsPage.bookingStartDate)}</span>
             <DatePicker
-              format="DD/MM/YYYY"
-              views={["year", "month", "day"]}
-              openTo="year"
+              shouldDisableDate={shouldDisableDate}
+              openTo="day"
               disablePast
               value={startDate}
-              minDate={today}
+              minDate={dayjs(new Date())}
               onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) =>
                 setStartDate(newValue)
               }
@@ -73,17 +90,24 @@ export const ChaletsDetailsBookingCardBookingDate = (
                 textField: {
                   error: numberOfReservedDays <= 0 ? true : false,
                 },
+                day: {
+                  sx: {
+                    "&.MuiPickersDay-root.Mui-disabled": {
+                      backgroundColor: "#ccc",
+                      textDecoration: "line-through",
+                    },
+                  },
+                },
               }}
             />
           </DetailsBookingCardInput>
           <DetailsBookingCardInput className="to-input">
             <span>{t(langKey.detailsPage.bookingEndDate)}</span>
             <DatePicker
-              format="DD/MM/YYYY"
-              views={["year", "month", "day"]}
-              openTo="year"
+              shouldDisableDate={shouldDisableDate}
+              openTo="day"
               disablePast
-              minDate={tomorrow}
+              minDate={dayjs().add(1, "day")}
               value={endDate}
               onChange={(newValue: SetStateAction<dayjs.Dayjs | null>) =>
                 setEndDate(newValue)
@@ -91,6 +115,14 @@ export const ChaletsDetailsBookingCardBookingDate = (
               slotProps={{
                 textField: {
                   error: numberOfReservedDays <= 0 ? true : false,
+                },
+                day: {
+                  sx: {
+                    "&.MuiPickersDay-root.Mui-disabled": {
+                      backgroundColor: "#ccc",
+                      textDecoration: "line-through",
+                    },
+                  },
                 },
               }}
             />

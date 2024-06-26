@@ -73,11 +73,11 @@ function App() {
                 element={<HotelsPage />}
               />
               <Route
-                path={`${servicesPageEndpoint.hotels}/:id`}
+                path={`${servicesPageEndpoint.hotels}/:hotelId`}
                 element={<HotelItemsPage />}
               />
               <Route
-                path={`${servicesPageEndpoint.hotels}/:id/:id`}
+                path={`${servicesPageEndpoint.hotels}/:hotelId/:id`}
                 element={<HotelItemDetailsPage />}
               />
               {/* Term of use */}

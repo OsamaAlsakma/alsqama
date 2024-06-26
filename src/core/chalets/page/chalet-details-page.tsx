@@ -17,6 +17,7 @@ import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/titl
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
 import OtherHousesIcon from "@mui/icons-material/OtherHouses";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 
 export type ReviewType = {
   reviewerName: string;
@@ -34,7 +35,6 @@ export type ChaletSectionType = {
   description: string;
   images: string[];
   videos: string[];
-  reservedDates: string[];
   features: string[];
   bookingConditions: string;
   cancellingConditions: string;
@@ -43,6 +43,7 @@ export type ChaletSectionType = {
     longitude: number;
   };
   reviews: ReviewType[];
+  reservedDates: ResservedDateType[];
 };
 
 const ChaletDetailsPage = () => {
@@ -128,6 +129,7 @@ const ChaletDetailsPage = () => {
               }}
               pricePerNight={chaletSection?.pricePerNight}
               name={chaletSection?.name}
+              reservedDates={chaletSection.reservedDates || []}
             />
           </div>
         );

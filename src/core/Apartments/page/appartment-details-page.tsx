@@ -6,6 +6,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 import {
   AppartmentDetailsResponse,
   getAppartmentDetailsDTO,
@@ -35,6 +36,7 @@ export type AppartmentDetailType = {
   availableTimes: string[];
   location?: string;
   numberOfRooms?: string;
+  reservedDates: ResservedDateType[];
 };
 const AppartmentDetailsPage = () => {
   const [appartmentDetails, setAppartmentDetails] =
@@ -113,6 +115,7 @@ const AppartmentDetailsPage = () => {
         }}
         pricePerNight={appartmentDetails?.pricePerNight || 0}
         name={appartmentDetails?.name || ""}
+        reservedDates={appartmentDetails?.reservedDates || []}
       />
     </div>
   );

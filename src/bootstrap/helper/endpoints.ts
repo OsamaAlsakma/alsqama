@@ -16,7 +16,10 @@ export const supportEndpoint = {
 export const endpointsUrl = {
   /* --------------------------------- Signup --------------------------------- */
   signupEndpoint: "https://frontiertech.dev/saqama/public/api/register",
+  /* ---------------------------------- login --------------------------------- */
   loginEndpoint: "https://frontiertech.dev/saqama/public/api/login",
+  /* ------------------------ pay and send information ------------------------ */
+  payEndpoint: "https://frontiertech.dev/saqama/public/api/reservations",
   /* --------------------------------- Chalets -------------------------------- */
   // allChalets: "https://run.mocky.io/v3/1f9928c2-205e-4319-94b5-5e214bdd168e",
   allChalets:

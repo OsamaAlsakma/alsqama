@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
@@ -43,4 +44,22 @@ export const delayExecutionFor = <T extends string | number>(
 export const unNormalizeInput = (value: string) => {
   const currentValue = value.replace(/[^\d.]/g, "");
   return currentValue;
+};
+
+/* -------------------------------------------------------------------------- */
+/**
+ * Return all the dates between start and end dates
+ */
+export const getDatesBetweenStartAndEndDates = (
+  startDate: dayjs.Dayjs,
+  endDate: dayjs.Dayjs
+) => {
+  let currentDate = startDate;
+  const dates: string[] = [];
+
+  while (currentDate.isBefore(endDate) || currentDate.isSame(endDate)) {
+    dates.push(currentDate.format("YYYY-MM-DD"));
+    currentDate = currentDate.add(1, "day");
+  }
+  return dates;
 };
