@@ -1,6 +1,4 @@
-import { IMainRepeatedQuestionsWrapperProps } from "~/core/main/view/repeated-questions-section/wrapper/main-repeated-questions-wrapper";
-
-export const data: IMainRepeatedQuestionsWrapperProps = {
+export const data = {
   title: "الاسئلة المتكررة",
   questionsAndAnswers: [
     {

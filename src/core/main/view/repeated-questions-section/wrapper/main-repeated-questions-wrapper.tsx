@@ -1,31 +1,58 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionDetails } from "@mui/material";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { mainPageEndpointsUrl } from "~/bootstrap/helper/endpoints";
 import {
   HandlingSectionPaddingWrapper,
   StyledAppTitleWrapper,
 } from "~/bootstrap/helper/global-styles";
-import { data } from "~/core/main/view/repeated-questions-section/wrapper/data";
 import {
   StyledMainRepeatedQuestionsWrapper,
   StyledRepeatedQuestionsAccordionQuestion,
   StyledRepeatedQuestionsAccordionQuestionTitle,
   StyledRepeatedQuestionsListItemIcon,
 } from "~/core/main/view/repeated-questions-section/wrapper/style";
+import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
-export interface IMainRepeatedQuestionsWrapperProps {
-  title?: string;
-  questionsAndAnswers: { question: string; answer: string; isOpen: boolean }[];
+export interface MainRepeatedQuestionsType {
+  question: string;
+  answer: string;
 }
 
 const MainRepeatedQuestionsWrapper = () => {
-  const repeatedQuestions = data;
+  // get the data
+  const [mainRepeatedQuestions, setMainRepeatedQuestions] = useState<
+    MainRepeatedQuestionsType[]
+  >([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const fetchMainPageSlidesData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `${mainPageEndpointsUrl.mainPageRepeatedQuestions}`
+      );
+      if (response.status === 200) {
+        const repeatedQuestions: MainRepeatedQuestionsType[] = response.data;
+        setMainRepeatedQuestions(repeatedQuestions);
+      }
+    } catch (errro) {
+      throw Error("failed to load repeated question..");
+    }
+    setIsLoading(false);
+  };
+  useEffect(() => {
+    fetchMainPageSlidesData();
+  }, []);
 
-  if (!repeatedQuestions.title) return null;
+  if (isLoading) return <CircularLoader />;
+  if (mainRepeatedQuestions.length === 0) return null;
+
   return (
     <HandlingSectionPaddingWrapper>
-      <StyledAppTitleWrapper>{repeatedQuestions.title}</StyledAppTitleWrapper>
+      <StyledAppTitleWrapper>الاسئلة المتكررة</StyledAppTitleWrapper>
       <StyledMainRepeatedQuestionsWrapper>
-        {repeatedQuestions.questionsAndAnswers.map((qAndA, index) => (
+        {mainRepeatedQuestions.map((qAndA, index) => (
           <Accordion key={index}>
             <StyledRepeatedQuestionsAccordionQuestion
               expandIcon={<ExpandMoreIcon />}
