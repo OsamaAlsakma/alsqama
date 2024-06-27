@@ -30,9 +30,7 @@ export type MainPageSlide = {
 
 const MainSlides = () => {
   const [mainPageSlides, setMainPageSlides] = useState<MainPageSlide[]>([]);
-
   const [isLoading, setIsLoading] = useState(false);
-
   const fetchMainPageSlidesData = async () => {
     setIsLoading(true);
     try {
@@ -47,11 +45,11 @@ const MainSlides = () => {
     }
     setIsLoading(false);
   };
-
   useEffect(() => {
     fetchMainPageSlidesData();
   }, []);
   if (isLoading) return <CircularLoader />;
+
   return (
     <StyledSwiper
       spaceBetween={30}

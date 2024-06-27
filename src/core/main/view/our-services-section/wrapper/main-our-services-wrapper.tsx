@@ -11,34 +11,44 @@ import {
   StyledMainOurServicesCardTitle,
   StyledMainOurServicesCardTitleAnddescription,
 } from "~/core/main/view/our-services-section/wrapper/style";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { mainPageEndpointsUrl } from "~/bootstrap/helper/endpoints";
+import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
-interface IMainOurServicesCardProps {
+interface MainOurServicesCard {
+  id: string;
   title: string;
   description?: string;
 }
-const mainOurServices: IMainOurServicesCardProps[] = [
-  {
-    title: "حجز بيتك حجز فوري ومضمون",
-    description: "حجز بيتك حجز فوري ومضمون",
-  },
-
-  {
-    title: "حجز بيتك حجز فوري ومضمون",
-    description: "حجز بيتك حجز فوري ومضمون",
-  },
-
-  {
-    title: "حجز بيتك حجز فوري ومضمون",
-    description: "حجز بيتك حجز فوري ومضمون",
-  },
-
-  {
-    title: "حجز بيتك حجز فوري ومضمون",
-    description: "حجز بيتك حجز فوري ومضمون",
-  },
-];
 
 const MainOurServicesWrapper = () => {
+  // get the data
+  const [mainOurServices, setMainOurServices] = useState<MainOurServicesCard[]>(
+    []
+  );
+  const [isLoading, setIsLoading] = useState(false);
+  const fetchMainPageSlidesData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `${mainPageEndpointsUrl.mainPageOurServices}`
+      );
+      if (response.status === 200) {
+        const ourServices: MainOurServicesCard[] = response.data;
+        setMainOurServices(ourServices);
+      }
+    } catch (errro) {
+      throw Error("failed to load images..");
+    }
+    setIsLoading(false);
+  };
+  useEffect(() => {
+    fetchMainPageSlidesData();
+  }, []);
+
+  if (isLoading) return <CircularLoader />;
+  if (mainOurServices.length === 0) return null;
   return (
     <HandlingSectionPaddingWrapper>
       <StyledAppTitleWrapper>ما هي الخدمات التي نقدمها</StyledAppTitleWrapper>
