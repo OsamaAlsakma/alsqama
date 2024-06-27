@@ -28,9 +28,11 @@ export const getChaletsDTO = (response: ChaletsResponse[]): Chalet[] => {
       numberOfStars: chalet.numberOfStars,
       location: chalet.location,
       price: chalet.price,
-
       nearestTimeAvailable: `${day}.${month}.${year}`,
       numberOfRooms: chalet.capacity,
+
+      // TODO back needs to add it
+      reservedDates: [],
     };
     return chaletEntity;
   });

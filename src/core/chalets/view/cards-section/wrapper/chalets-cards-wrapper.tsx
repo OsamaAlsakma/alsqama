@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 import ChaletsCardsCard from "~/core/chalets/view/cards-section/card/chalets-cards-card";
 import {
   ChaletsResponse,
@@ -22,6 +23,7 @@ export type Chalet = {
   price: number;
   numberOfRooms: string;
   nearestTimeAvailable: string;
+  reservedDates: ResservedDateType[];
 };
 
 const ChaletsCardsWrapper = () => {

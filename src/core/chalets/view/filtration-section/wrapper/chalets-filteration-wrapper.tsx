@@ -55,8 +55,11 @@ const ChaletsFilterationWrapper = (props: IChaletsFilterationWrapperProps) => {
 
       const passItemsWithValidDates =
         startDate && endDate
-          ? !dayjs(chalet.nearestTimeAvailable).isAfter(startDate) &&
-            dayjs(chalet.nearestTimeAvailable).isBefore(endDate)
+          ? !chalet.reservedDates.some(
+              (reservedDate) =>
+                dayjs(reservedDate.start_date).isAfter(startDate) &&
+                dayjs(reservedDate.end_date).isBefore(endDate)
+            )
           : true;
       return (
         passPriceFilter &&
