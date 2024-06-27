@@ -52,8 +52,9 @@ const HotelsHotelItemsFilterationWrapper = (
       const passItemsWithValidDates =
         startDate && endDate
           ? !hotelItem.reservedDates.some(
-              (date) =>
-                dayjs(date).isAfter(startDate) && dayjs(date).isBefore(endDate)
+              (reservedDate) =>
+                dayjs(reservedDate.start_date).isAfter(startDate) &&
+                dayjs(reservedDate.end_date).isBefore(endDate)
             )
           : true;
 

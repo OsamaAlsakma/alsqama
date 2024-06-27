@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 import { ReviewType } from "~/core/chalets/page/chalet-details-page";
 import {
   ChaletsCardsWrapperMessages,
@@ -18,7 +19,6 @@ import CircularLoader from "~/generic/components/circular-loader/circular-loader
 export type HotelItem = {
   id: string;
   title: string;
-  reservedDates: string[];
   bedsNumber?: string;
   roomsNumber?: string;
   pricePerNight: number;
@@ -32,6 +32,7 @@ export type HotelItem = {
   hotelPhoneNumber?: number;
   features?: string[];
   reviews?: ReviewType[];
+  reservedDates: ResservedDateType[];
 };
 
 export type HotelItems = {

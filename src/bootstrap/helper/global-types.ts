@@ -17,8 +17,8 @@ export type ResservedDateType = {
   user_id: string;
   name: string;
   phone_number: string;
-  start_date: string;
-  end_date: string;
+  start_date: string; // YYYY-MM-DD
+  end_date: string; // YYYY-MM-DD
 };
 
 /* -------------------------------------------------------------------------- */
