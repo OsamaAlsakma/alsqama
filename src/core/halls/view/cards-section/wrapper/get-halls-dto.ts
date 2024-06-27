@@ -20,6 +20,7 @@ export const getHallsDTO = (response: HallsResponse[]): Hall[] => {
       images: hallResponse.images.map((image) => image.attachment_path),
       location: hallResponse.location,
       peopleCapacity: hallResponse.capacity,
+
       // TODO modify it when it will be added
       reservedDates: [],
     };

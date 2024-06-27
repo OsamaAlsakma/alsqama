@@ -53,7 +53,8 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
         startDate && endDate
           ? !hall.reservedDates.some(
               (date) =>
-                dayjs(date).isAfter(startDate) && dayjs(date).isBefore(endDate)
+                dayjs(date.start_date).isAfter(startDate) &&
+                dayjs(date.end_date).isBefore(endDate)
             )
           : true;
       return (

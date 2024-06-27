@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import { ResservedDateType } from "~/bootstrap/helper/global-types";
 import {
   ChaletsCardsWrapperMessages,
   StyledChaletsCardsWrapper,
@@ -20,7 +21,7 @@ export type Hall = {
   location?: string;
   pricePerNight: number;
   peopleCapacity?: string;
-  reservedDates: string[];
+  reservedDates: ResservedDateType[];
 };
 
 const HallsCardsWrapper = () => {
