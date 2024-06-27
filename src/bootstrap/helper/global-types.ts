@@ -24,15 +24,6 @@ export type ResservedDateType = {
 /* -------------------------------------------------------------------------- */
 /*                               main page types                              */
 /* -------------------------------------------------------------------------- */
-/* ---------------------------- main page slides ---------------------------- */
-type MainPageSlide = {
-  title: string;
-  description: string;
-  image: string;
-};
-
-export type MainPageSlides = MainPageSlide[];
-
 /* ------------------------------ our services ------------------------------ */
 type OurServiceType = {
   title: string;

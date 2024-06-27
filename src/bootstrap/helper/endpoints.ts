@@ -13,6 +13,10 @@ export const supportEndpoint = {
   privacyPolicy: `/${appBaseUrl}/privacyPolicy`,
 };
 
+export const mainPageEndpointsUrl = {
+  mainPageSlide: "https://frontiertech.dev/saqama/public/api/main-sliders",
+};
+
 export const endpointsUrl = {
   /* --------------------------------- Signup --------------------------------- */
   signupEndpoint: "https://frontiertech.dev/saqama/public/api/register",
