@@ -2,7 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import { endpointsUrl } from "~/bootstrap/helper/endpoints";
+import { mainPageEndpointsUrl } from "~/bootstrap/helper/endpoints";
+import { getTermOfUseAndPrivacyPolicyDTO } from "~/bootstrap/helper/global-helper";
+import {
+  TermOfUseAndPrivacyResponse,
+  TermOfUseAndPrivacyType,
+} from "~/bootstrap/helper/global-types";
 import langKey from "~/bootstrap/i18n/langKey";
 import {
   ChaletsCardsWrapperMessages,
@@ -21,17 +26,20 @@ const JustifiedBody = styled.p`
 `;
 
 const PrivacyPolicyPage = () => {
-  const [privacyPolicy, setPrivacyPolicy] = useState<PrivacyPolicyType[]>();
+  const [privacyPolicy, setPrivacyPolicy] =
+    useState<TermOfUseAndPrivacyType[]>();
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchPrivacyPolicy = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.get(`${endpointsUrl.privacyPolicy}`);
+      const response = await axios.get(`${mainPageEndpointsUrl.privacyPolicy}`);
       if (response.status === 200) {
-        const privacyPolicy: PrivacyPolicyType[] = response.data;
-        setPrivacyPolicy(privacyPolicy);
+        const privacyPolicy: TermOfUseAndPrivacyResponse[] = response.data;
+        const privacyPolicyDto: TermOfUseAndPrivacyType[] =
+          getTermOfUseAndPrivacyPolicyDTO(privacyPolicy);
+        setPrivacyPolicy(privacyPolicyDto);
         setIsError(false);
       }
     } catch (errro) {

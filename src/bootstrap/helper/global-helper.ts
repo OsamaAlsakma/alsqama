@@ -1,4 +1,8 @@
 import dayjs from "dayjs";
+import {
+  TermOfUseAndPrivacyResponse,
+  TermOfUseAndPrivacyType,
+} from "~/bootstrap/helper/global-types";
 /* -------------------------------------------------------------------------- */
 /*                                  Variables                                 */
 /* -------------------------------------------------------------------------- */
@@ -62,4 +66,19 @@ export const getDatesBetweenStartAndEndDates = (
     currentDate = currentDate.add(1, "day");
   }
   return dates;
+};
+
+/* -------------------------------------------------------------------------- */
+/*                     privacy policy and terms of use dto                    */
+/* -------------------------------------------------------------------------- */
+export const getTermOfUseAndPrivacyPolicyDTO = (
+  response: TermOfUseAndPrivacyResponse[]
+): TermOfUseAndPrivacyType[] => {
+  return response.map((response: TermOfUseAndPrivacyResponse) => {
+    const hallEntity: TermOfUseAndPrivacyType = {
+      title: response.title,
+      body: response.description,
+    };
+    return hallEntity;
+  });
 };

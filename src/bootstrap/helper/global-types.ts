@@ -34,3 +34,17 @@ export type DiscountAndMarketing = {
   thirdColumn: string[];
   fourthColumn: string[];
 };
+
+/* -------------------------------------------------------------------------- */
+/*                       privacy policy and terms of use                      */
+/* -------------------------------------------------------------------------- */
+export type TermOfUseAndPrivacyResponse = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export type TermOfUseAndPrivacyType = {
+  title: string;
+  body: string;
+};
