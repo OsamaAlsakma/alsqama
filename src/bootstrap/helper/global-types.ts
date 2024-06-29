@@ -24,13 +24,6 @@ export type ResservedDateType = {
 /* -------------------------------------------------------------------------- */
 /*                               main page types                              */
 /* -------------------------------------------------------------------------- */
-/* ------------------------------ our services ------------------------------ */
-type OurServiceType = {
-  title: string;
-  description: string;
-};
-
-export type OurServices = OurServiceType[];
 
 /* ------------------------- discount and marketing ------------------------- */
 export type DiscountAndMarketing = {
@@ -41,6 +34,3 @@ export type DiscountAndMarketing = {
   thirdColumn: string[];
   fourthColumn: string[];
 };
-
-/* --------------------------- repeated questions --------------------------- */
-export type RepeatedQuestions = { question: string; answer: string }[];
