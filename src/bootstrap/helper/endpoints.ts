@@ -20,9 +20,9 @@ export const mainPageEndpointsUrl = {
   mainPageRepeatedQuestions:
     "https://frontiertech.dev/saqama/public/api/repeated-questions",
   /* -------------------------------------------------------------------------- */
-  termsOfUse: "",
+  termsOfUse: "https://frontiertech.dev/saqama/public/api/terms-conditions",
   /* -------------------------------------------------------------------------- */
-  privacyPolicy: "",
+  privacyPolicy: "https://frontiertech.dev/saqama/public/api/policies",
 };
 
 export const endpointsUrl = {
