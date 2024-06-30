@@ -1,7 +1,10 @@
 import Input from "@mui/material/Input/Input";
 import TextField from "@mui/material/TextField/TextField";
 import styled from "styled-components";
-import { smallScreenSize } from "~/bootstrap/helper/global-helper";
+import {
+  mainFontFamily,
+  smallScreenSize,
+} from "~/bootstrap/helper/global-helper";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
 
 export const MainContactUsFormWrapper = styled.div`
@@ -18,7 +21,6 @@ export const MainContactUsFormWrapper = styled.div`
 export const StyledMainContactUsForm = styled.form`
   width: 100%;
   color: white;
-
   @media (max-width: ${smallScreenSize}) {
     width: 100%;
   }
@@ -27,10 +29,11 @@ export const StyledMainContactUsForm = styled.form`
 export const MainContactUsInput = styled(Input)`
   && {
     margin-bottom: 10px;
-    padding: 8px;
+    padding: 11px 8px 4px;
     border-radius: 8px;
     width: 100%;
     background-color: white;
+    font-family: ${mainFontFamily};
   }
 `;
 
