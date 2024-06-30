@@ -63,6 +63,7 @@ const langKey = {
 
     loginOrSignUpToContinue: "detailsPage.loginOrSignUpToContinue",
     successfulPaymentMessage: "detailsPage.successfulPaymentMessage",
+    errorPaymentMessage: "detailsPage.errorPaymentMessage",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

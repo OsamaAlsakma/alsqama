@@ -62,6 +62,7 @@ const en: typeof langKey = {
     loginOrSignUpToContinue: "Please create an account and log in to continue",
     successfulPaymentMessage:
       "Your request has been sent successfully, please review your email",
+    errorPaymentMessage: "Payment failed, please try again",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",

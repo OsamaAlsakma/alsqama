@@ -1,3 +1,4 @@
+import { AlertColor } from "@mui/material";
 import axios from "axios";
 import dayjs from "dayjs";
 import "dayjs/locale/ar";
@@ -48,11 +49,15 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
   } = props;
   const { endDate, startDate } = startAndEndDates;
 
-  // message
-  const [open, setOpen] = useState(false);
-
   // localization
   const { t } = useTranslation();
+
+  // message
+  const [open, setOpen] = useState(false);
+  const [messageContent, setMessageContent] = useState<string>(
+    t(langKey.detailsPage.successfulPaymentMessage)
+  );
+  const [messageType, setMessageType] = useState<AlertColor>("success");
 
   // logged in?
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
@@ -71,7 +76,6 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
         `${endpointsUrl.payEndpoint}`,
         {
           accommodation_id: hotelId ? hotelId : id,
-          // TODO fix
           room_id: hotelId ? id : null,
           chalet_section_id: chaletSectionId || null,
           user_id: userId,
@@ -87,12 +91,14 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
         }
       );
       if (response.status === 200 || response.status === 201) {
-        console.log("success");
-        setOpen(true);
+        setMessageContent(t(langKey.detailsPage.successfulPaymentMessage));
+        setMessageType("success");
       }
     } catch (error) {
-      console.log("error");
+      setMessageType("error");
+      setMessageContent(t(langKey.detailsPage.errorPaymentMessage));
     }
+    setOpen(true);
     setIsLoading(false);
   };
 
@@ -141,9 +147,11 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       </DetailsBookingCardPayButton>
       <AlertMessage
         durationInMs={4500}
-        message={t(langKey.detailsPage.successfulPaymentMessage)}
+        // message={t(langKey.detailsPage.successfulPaymentMessage)}
+        message={messageContent}
         open={open}
         setOpen={setOpen}
+        type={messageType}
       />
       {!personalInfo?.name || !personalInfo?.phoneNumber ? (
         <DetailsBookingCardConfirmConditionMessage>

@@ -60,6 +60,7 @@ const ar: typeof langKey = {
 
     loginOrSignUpToContinue: "يرجى إنشاء حساب وتسجيل الدخول للمتابعة",
     successfulPaymentMessage: "تم إرسال طلبك بنجاح، راجع أيميلك من فضلك",
+    errorPaymentMessage: "فشل الدفع، يرجى المحاولة مرة أخرى",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",
