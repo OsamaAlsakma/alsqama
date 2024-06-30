@@ -14,8 +14,6 @@ export type ChaletSectionsResponse = {
   numberOfStars?: string;
   numberOfRooms?: string;
   features: { name: string }[];
-
-  // TODO for fast description
   location?: string;
 };
 export const getChaletSectionsDTO = (
