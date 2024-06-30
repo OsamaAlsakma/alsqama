@@ -11,6 +11,7 @@ import {
 const MainContactUsForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
   /**
@@ -22,6 +23,7 @@ const MainContactUsForm = () => {
     setName("");
     setEmail("");
     setMessage("");
+    setSubject("");
   };
 
   return (
@@ -40,6 +42,13 @@ const MainContactUsForm = () => {
           placeholder="البريد الإلكتروني*"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <MainContactUsInput
+          type="text"
+          placeholder="موضوع الرسالة*"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
           required
         />
         <MainContactUsTextField
