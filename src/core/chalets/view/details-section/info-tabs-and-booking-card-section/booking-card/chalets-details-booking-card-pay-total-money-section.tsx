@@ -32,6 +32,7 @@ interface IChaletsDetailsBookingCardPayTotalMoneySectionProps {
     startDate: dayjs.Dayjs | null;
     endDate: dayjs.Dayjs | null;
   };
+  chaletSectionId?: string;
 }
 
 export const ChaletsDetailsBookingCardPayTotalMoneySection = (
@@ -43,6 +44,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
     numberOfReservedDays,
     personalInfo,
     startAndEndDates,
+    chaletSectionId,
   } = props;
   const { endDate, startDate } = startAndEndDates;
 
@@ -71,7 +73,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
           accommodation_id: hotelId ? hotelId : id,
           // TODO fix
           room_id: hotelId ? id : null,
-          chalet_section_id: hotelId ? id : null,
+          chalet_section_id: chaletSectionId || null,
           user_id: userId,
           name: personalInfo?.name,
           phone_number: personalInfo?.phoneNumber,
@@ -85,11 +87,11 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
         }
       );
       if (response.status === 200 || response.status === 201) {
-        // console.log("success");
+        console.log("success");
+        setOpen(true);
       }
     } catch (error) {
-      // console.log("error");
-      setOpen(true);
+      console.log("error");
     }
     setIsLoading(false);
   };

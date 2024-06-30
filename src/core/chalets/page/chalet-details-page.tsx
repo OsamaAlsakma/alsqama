@@ -130,6 +130,7 @@ const ChaletDetailsPage = () => {
               pricePerNight={chaletSection?.pricePerNight}
               name={chaletSection?.name}
               reservedDates={chaletSection.reservedDates || []}
+              chaletSectionId={chaletSection.id || ""}
             />
           </div>
         );

@@ -18,12 +18,14 @@ interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
   pricePerNight: number;
   name: string;
   reservedDates: ResservedDateType[];
+  chaletSectionId: string;
 }
 
 const ChaletsDetailsInfoTabsAndBookingCardWrapper = (
   props: IChaletsDetailsInfoTabsAndBookingCardWrapperProps
 ) => {
-  const { infoTabs, pricePerNight, name, reservedDates } = props;
+  const { infoTabs, pricePerNight, name, reservedDates, chaletSectionId } =
+    props;
   return (
     <InfoTabsAndBookingCardWrapperPadded>
       <ChaletsDetailsInfoTabs infoTabs={infoTabs} />
@@ -31,6 +33,7 @@ const ChaletsDetailsInfoTabsAndBookingCardWrapper = (
         name={name}
         pricePerNight={pricePerNight}
         reservedDates={reservedDates}
+        chaletSectionId={chaletSectionId}
       />
     </InfoTabsAndBookingCardWrapperPadded>
   );

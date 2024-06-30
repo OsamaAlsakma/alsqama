@@ -16,6 +16,7 @@ interface IChaletsDetailsBookingCardProps {
   name: string;
   pricePerNight: number;
   reservedDates: ResservedDateType[];
+  chaletSectionId?: string;
 }
 
 export type BookingCardPersonalInfo = {
@@ -26,7 +27,7 @@ export type BookingCardPersonalInfo = {
 export const ChaletsDetailsBookingCard = (
   props: IChaletsDetailsBookingCardProps
 ) => {
-  const { name, pricePerNight, reservedDates } = props;
+  const { name, pricePerNight, reservedDates, chaletSectionId } = props;
 
   const [checked, setChecked] = useState(false);
   const [numberOfReservedDays, setNumberOfReservedDays] = useState(0);
@@ -80,6 +81,7 @@ export const ChaletsDetailsBookingCard = (
         numberOfReservedDays={numberOfReservedDays}
         personalInfo={personalInfo}
         startAndEndDates={{ startDate, endDate }}
+        chaletSectionId={chaletSectionId}
       />
     </DetailsBookingCardDiv>
   );
