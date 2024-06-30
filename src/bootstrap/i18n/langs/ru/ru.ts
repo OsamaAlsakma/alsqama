@@ -65,6 +65,9 @@ const ru: typeof langKey = {
     successfulPaymentMessage:
       "Ваш запрос был успешно отправлен, пожалуйста, просмотрите свой адрес электронной почты",
     errorPaymentMessage: "Не удалось выполнить платеж",
+
+    successfulContactUsMessage: "Сообщение было успешно отправлено",
+    errorContactUsMessage: "Ошибка отправки сообщения",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",

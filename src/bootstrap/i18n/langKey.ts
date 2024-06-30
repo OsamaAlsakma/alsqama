@@ -64,6 +64,9 @@ const langKey = {
     loginOrSignUpToContinue: "detailsPage.loginOrSignUpToContinue",
     successfulPaymentMessage: "detailsPage.successfulPaymentMessage",
     errorPaymentMessage: "detailsPage.errorPaymentMessage",
+
+    successfulContactUsMessage: "detailsPage.successfulContactUsMessage",
+    errorContactUsMessage: "detailsPage.errorContactUsMessage",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

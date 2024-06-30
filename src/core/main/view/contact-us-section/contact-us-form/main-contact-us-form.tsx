@@ -13,7 +13,6 @@ import {
   MainContactUsSubmitButton,
 } from "~/core/main/view/contact-us-section/contact-us-form/style";
 import AlertMessage from "~/generic/components/alert-message/alert-message";
-import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 
 const MainContactUsForm = () => {
   const [name, setName] = useState("");
@@ -29,11 +28,9 @@ const MainContactUsForm = () => {
   );
   const [messageType, setMessageType] = useState<AlertColor>("success");
 
-  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setIsLoading(true);
     try {
       // post
       const response = await axios.post(`${mainPageEndpointsUrl.contactUs}`, {
@@ -43,7 +40,7 @@ const MainContactUsForm = () => {
         message,
       });
       if (response.status === 200 || response.status === 201) {
-        setMessageContent(t(langKey.detailsPage.successfulPaymentMessage));
+        setMessageContent(t(langKey.detailsPage.successfulContactUsMessage));
         setMessageType("success");
         setName("");
         setEmail("");
@@ -52,15 +49,13 @@ const MainContactUsForm = () => {
       }
     } catch (error) {
       setMessageType("error");
-      setMessageContent(t(langKey.detailsPage.errorPaymentMessage));
+      setMessageContent(t(langKey.detailsPage.errorContactUsMessage));
     }
     setOpen(true);
-    setIsLoading(false);
   };
 
   return (
     <MainContactUsFormWrapper>
-      {isLoading && <CircularLoader />}
       <StyledMainContactUsForm onSubmit={handleSubmit}>
         <MainContactUsTitle>تواصل معنا!</MainContactUsTitle>
         <MainContactUsInput

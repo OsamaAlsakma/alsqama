@@ -63,6 +63,9 @@ const en: typeof langKey = {
     successfulPaymentMessage:
       "Your request has been sent successfully, please review your email",
     errorPaymentMessage: "Payment failed, please try again",
+
+    successfulContactUsMessage: "The message was sent successfully",
+    errorContactUsMessage: "Message sending failed",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",
