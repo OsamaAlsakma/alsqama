@@ -18,7 +18,7 @@ interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
   pricePerNight: number;
   name: string;
   reservedDates: ResservedDateType[];
-  chaletSectionId: string;
+  chaletSectionId?: string;
 }
 
 const ChaletsDetailsInfoTabsAndBookingCardWrapper = (

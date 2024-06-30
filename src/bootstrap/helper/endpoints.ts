@@ -23,6 +23,8 @@ export const mainPageEndpointsUrl = {
   termsOfUse: "https://frontiertech.dev/saqama/public/api/terms-conditions",
   /* -------------------------------------------------------------------------- */
   privacyPolicy: "https://frontiertech.dev/saqama/public/api/policies",
+  /* -------------------------------------------------------------------------- */
+  contactUs: "https://frontiertech.dev/saqama/public/api/send-contact-email",
 };
 
 export const endpointsUrl = {

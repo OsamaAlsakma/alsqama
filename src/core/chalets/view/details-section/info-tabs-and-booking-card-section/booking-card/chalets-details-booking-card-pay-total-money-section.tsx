@@ -59,14 +59,14 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
   );
   const [messageType, setMessageType] = useState<AlertColor>("success");
 
-  // logged in?
-  const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
-  const { token, userId } = useStoreSelector(userStore, (store) => store.user);
-  const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
-  const [isLoading, setIsLoading] = useState(false);
-
   // payment
   const { hotelId, id } = useParams();
+
+  // logged in?
+  const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
+  const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
+  const { token, userId } = useStoreSelector(userStore, (store) => store.user);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnPay = async () => {
     setIsLoading(true);
@@ -147,7 +147,6 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       </DetailsBookingCardPayButton>
       <AlertMessage
         durationInMs={4500}
-        // message={t(langKey.detailsPage.successfulPaymentMessage)}
         message={messageContent}
         open={open}
         setOpen={setOpen}

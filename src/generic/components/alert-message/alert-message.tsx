@@ -6,7 +6,7 @@ interface IAlertMessageProps {
   durationInMs: number;
   open: boolean;
   setOpen: SetState<boolean>;
-  type: AlertColor;
+  type?: AlertColor;
 }
 
 const AlertMessage = (props: IAlertMessageProps) => {
