@@ -1,8 +1,14 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import { mainPageEndpointsUrl } from "~/bootstrap/helper/endpoints";
 import { appBaseUrl } from "~/bootstrap/helper/global-helper";
-import { MainFooterIconsResponse } from "~/bootstrap/helper/global-types";
+import { SocialMediaIconsType } from "~/bootstrap/helper/global-types";
+import {
+  SocialMediaIconsResponse,
+  getSocialMediaIconsDTO,
+} from "~/core/main/view/footer-section/footer-icons/get-social-media-icons-dto";
+// import { MainFooterIconsResponse } from "~/bootstrap/helper/global-types";
 import { MainFooterContactIcon } from "~/core/main/view/footer-section/wrapper/style";
 
 const HeaderDrawerContactUsWrapper = styled.div`
@@ -17,23 +23,14 @@ const HeaderDrawerContactUsImg = styled.img`
 `;
 
 const ServicesBurgerDrawerContactUsIcons = () => {
-  const [iconsData, setIconsData] = useState<MainFooterIconsResponse>();
-
+  const [iconsData, setIconsData] = useState<SocialMediaIconsType>();
   const fetchIconsData = async () => {
     const response = await axios.get(
-      "https://run.mocky.io/v3/0d7da3b2-a2d4-43d4-84f8-394bcbebc915"
+      `${mainPageEndpointsUrl.socialMediaIcons}`
     );
-    const icons: MainFooterIconsResponse = response.data;
-    setIconsData({
-      facebookUrl: icons.facebookUrl,
-      telegramUrl: icons.telegramUrl,
-      whatsappUrl: icons.whatsappUrl,
-      email: {
-        emailUrl: icons.email.emailUrl,
-        title: icons.email.title,
-        body: icons.email.body,
-      },
-    });
+    const icons: SocialMediaIconsResponse[] = response.data;
+    const iconsDto = getSocialMediaIconsDTO(icons);
+    setIconsData(iconsDto);
   };
   useEffect(() => {
     fetchIconsData();
@@ -43,24 +40,25 @@ const ServicesBurgerDrawerContactUsIcons = () => {
     {
       logo: `/${appBaseUrl}/icons/facebook-logo.svg`,
       alt: "facebook",
-      url: iconsData?.facebookUrl,
+      url: iconsData?.facebook,
     },
     {
-      logo:`/${appBaseUrl}/icons/instagram-logo.svg`,
+      logo: `/${appBaseUrl}/icons/instagram-logo.svg`,
       alt: "instagram",
-      url: iconsData?.facebookUrl,
+      url: iconsData?.instagram,
     },
     {
       logo: `/${appBaseUrl}/icons/whatsapp-logo.svg`,
       alt: "whatsapp",
-      url: iconsData?.facebookUrl,
+      url: iconsData?.whatsapp,
     },
     {
       logo: `/${appBaseUrl}/icons/email-logo.svg`,
       alt: "email",
-      url: iconsData?.facebookUrl,
+      url: iconsData?.email,
     },
   ];
+
   return (
     <HeaderDrawerContactUsWrapper>
       {contactUsIconsData.map((item, index) => (

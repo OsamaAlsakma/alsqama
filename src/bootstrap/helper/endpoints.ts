@@ -25,6 +25,8 @@ export const mainPageEndpointsUrl = {
   privacyPolicy: "https://frontiertech.dev/saqama/public/api/policies",
   /* -------------------------------------------------------------------------- */
   contactUs: "https://frontiertech.dev/saqama/public/api/send-contact-email",
+  /* -------------------------------------------------------------------------- */
+  socialMediaIcons: "https://frontiertech.dev/saqama/public/api/social-icons",
 };
 
 export const endpointsUrl = {

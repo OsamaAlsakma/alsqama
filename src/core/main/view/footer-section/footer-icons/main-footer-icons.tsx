@@ -6,7 +6,12 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { FooterIconsWrapper } from "~/core/main/view/footer-section/footer-icons/style";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { MainFooterIconsResponse } from "~/bootstrap/helper/global-types";
+import { SocialMediaIconsType } from "~/bootstrap/helper/global-types";
+import {
+  SocialMediaIconsResponse,
+  getSocialMediaIconsDTO,
+} from "~/core/main/view/footer-section/footer-icons/get-social-media-icons-dto";
+import { mainPageEndpointsUrl } from "~/bootstrap/helper/endpoints";
 
 const MainFooterIcons = () => {
   const iconsDimensions = {
@@ -14,23 +19,14 @@ const MainFooterIcons = () => {
     height: "32px",
   };
 
-  const [iconsData, setIconsData] = useState<MainFooterIconsResponse>();
-
+  const [iconsData, setIconsData] = useState<SocialMediaIconsType>();
   const fetchIconsData = async () => {
     const response = await axios.get(
-      "https://run.mocky.io/v3/0d7da3b2-a2d4-43d4-84f8-394bcbebc915"
+      `${mainPageEndpointsUrl.socialMediaIcons}`
     );
-    const icons: MainFooterIconsResponse = response.data;
-    setIconsData({
-      facebookUrl: icons.facebookUrl,
-      telegramUrl: icons.telegramUrl,
-      whatsappUrl: icons.whatsappUrl,
-      email: {
-        emailUrl: icons.email.emailUrl,
-        title: icons.email.title,
-        body: icons.email.body,
-      },
-    });
+    const icons: SocialMediaIconsResponse[] = response.data;
+    const iconsDto = getSocialMediaIconsDTO(icons);
+    setIconsData(iconsDto);
   };
   useEffect(() => {
     fetchIconsData();
@@ -38,21 +34,17 @@ const MainFooterIcons = () => {
 
   return (
     <FooterIconsWrapper>
-      <MainFooterContactIcon to={iconsData?.facebookUrl || ""} target="_blank">
+      <MainFooterContactIcon to={iconsData?.facebook || ""} target="_blank">
         <FacebookRoundedIcon style={{ ...iconsDimensions }} />
       </MainFooterContactIcon>
-      <MainFooterContactIcon to={iconsData?.telegramUrl || ""} target="_blank">
+      <MainFooterContactIcon to={iconsData?.instagram || ""} target="_blank">
         <TelegramIcon style={{ ...iconsDimensions }} />
       </MainFooterContactIcon>
-      <MainFooterContactIcon to={iconsData?.whatsappUrl || ""} target="_blank">
+      <MainFooterContactIcon to={iconsData?.whatsapp || ""} target="_blank">
         <WhatsAppIcon style={{ ...iconsDimensions }} />
       </MainFooterContactIcon>
       <MainFooterContactIcon
-        to={`mailto:${
-          iconsData?.email.emailUrl || ""
-        }?subject=${encodeURIComponent(
-          iconsData?.email.title || ""
-        )}&body=${encodeURIComponent(iconsData?.email.body || "")}`}
+        to={`mailto:${iconsData?.email || ""}`}
         target="_blank"
       >
         <MailRoundedIcon style={{ ...iconsDimensions }} />
