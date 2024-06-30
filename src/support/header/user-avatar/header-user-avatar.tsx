@@ -40,7 +40,7 @@ function stringAvatar(name: string) {
 const HeaderUserAvatar = () => {
   //  token
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
-  const token = useStoreSelector(userStore, (store) => store.user.token);
+  const username = useStoreSelector(userStore, (store) => store.user.username);
 
   // menu
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -61,13 +61,13 @@ const HeaderUserAvatar = () => {
           horizontal: "right",
         }}
       >
-        {token ? (
-          <StyledHeaderUserAvatar onClick={handleClick} />
-        ) : (
+        {username ? (
           <StyledHeaderUserAvatar
-            {...stringAvatar("Salar")}
+            {...stringAvatar(username)}
             onClick={handleClick}
           />
+        ) : (
+          <StyledHeaderUserAvatar onClick={handleClick} />
         )}
       </Badge>
       <Menu
@@ -79,9 +79,7 @@ const HeaderUserAvatar = () => {
         <MenuItem
           style={{ backgroundColor: "transparent" }}
           onClick={() => {
-            userStore.getState().storeUser({
-              token: undefined,
-            });
+            userStore.getState().storeUser({});
             handleClose();
           }}
         >

@@ -46,6 +46,8 @@ const LoginForm = (props: ILoginFormProps) => {
       if (response.status === 200) {
         userStore.getState().storeUser({
           token: response.data.access_token,
+          userId: response.data.user_id,
+          username: response.data.username,
         });
 
         setIsOpen(false);

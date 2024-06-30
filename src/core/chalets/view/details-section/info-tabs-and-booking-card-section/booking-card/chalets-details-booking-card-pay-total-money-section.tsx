@@ -54,7 +54,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
 
   // logged in?
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
-  const token = useStoreSelector(userStore, (store) => store.user.token);
+  const { token, userId } = useStoreSelector(userStore, (store) => store.user);
   const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -65,15 +65,25 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
     setIsLoading(true);
     try {
       // post
-      const response = await axios.post(`${endpointsUrl.payEndpoint}`, {
-        accommodations_id: hotelId ? hotelId : id,
-        sub_accommodations_id: hotelId ? id : null,
-        user_id: "",
-        name: personalInfo?.name,
-        phone_number: personalInfo?.phoneNumber,
-        start_date: startDate?.format("YYYY-MM-DD"),
-        end_date: endDate?.format("YYYY-MM-DD"),
-      });
+      const response = await axios.post(
+        `${endpointsUrl.payEndpoint}`,
+        {
+          accommodation_id: hotelId ? hotelId : id,
+          // TODO fix
+          room_id: hotelId ? id : null,
+          chalet_section_id: hotelId ? id : null,
+          user_id: userId,
+          name: personalInfo?.name,
+          phone_number: personalInfo?.phoneNumber,
+          start_date: startDate?.format("YYYY-MM-DD"),
+          end_date: endDate?.format("YYYY-MM-DD"),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       if (response.status === 200 || response.status === 201) {
         // console.log("success");
       }

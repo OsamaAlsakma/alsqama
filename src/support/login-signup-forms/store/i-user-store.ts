@@ -8,6 +8,7 @@ export type UserData = {
   username?: string;
   email?: string;
   token?: string;
+  userId?: string;
 };
 
 namespace NUserStore {
