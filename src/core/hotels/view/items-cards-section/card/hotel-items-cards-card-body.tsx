@@ -24,7 +24,7 @@ const HotelItemsCardsCardBody = (props: IHotelItemsCardsCardBodyProps) => {
             alt="money"
           />
           <ChaletsCardsCardFeatureTitle>
-            {pricePerNight}
+            {pricePerNight} ريال \ ليلة
           </ChaletsCardsCardFeatureTitle>
         </HotleItemsCardsCardFeature>
       )}

@@ -20,7 +20,7 @@ const HallsCardsCardMainTitle = (props: IHallsCardsCardMainTitleProps) => {
       <ChaletsCardsCardRatingWrapper>
         <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
         <ChaletsCardsCardRatingStars>
-          {pricePerNight} ريال/ليلة
+          {pricePerNight} ريال \ ليلة
         </ChaletsCardsCardRatingStars>
       </ChaletsCardsCardRatingWrapper>
     </ChaletsCardsCardTitleWrapper>

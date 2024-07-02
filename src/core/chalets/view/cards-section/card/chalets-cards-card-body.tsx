@@ -5,6 +5,7 @@ import {
   ChaletsCardsCardFeatureIcon,
 } from "~/core/chalets/view/cards-section/card/style";
 import PlaceIcon from "@mui/icons-material/Place";
+import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 
 type IChaletsCardsCardBodyProps = {
   cardBody: {
@@ -25,19 +26,28 @@ const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
         <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
+        <ChaletsCardsCardFeatureIcon
+          src={`/${appBaseUrl}/icons/money.svg`}
+          alt="money"
+        />
         <ChaletsCardsCardFeatureTitle>
-          {price}دولار \ ليلة
+          {price}ريال \ ليلة
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon src="./icons/rooms.svg" alt="rooms" />
+        <ChaletsCardsCardFeatureIcon
+          src={`/${appBaseUrl}/icons/rooms.svg`}
+          alt="rooms"
+        />
         <ChaletsCardsCardFeatureTitle>
           {numberOfRooms}
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
       <ChaletsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon src="./icons/calender.svg" alt="rooms" />
+        <ChaletsCardsCardFeatureIcon
+          src={`/${appBaseUrl}/icons/calender.svg`}
+          alt="calender"
+        />
         <ChaletsCardsCardFeatureTitle>
           {nearestTimeAvailable}
         </ChaletsCardsCardFeatureTitle>

@@ -84,7 +84,7 @@ const HallDetailsPage = () => {
           },
           {
             icon: MonetizationOnIcon,
-            title: hallDetails?.pricePerNight,
+            title: `${hallDetails?.pricePerNight} ريال \\ يوم`,
           },
         ]}
       />
