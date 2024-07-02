@@ -23,6 +23,8 @@ const ar: typeof langKey = {
     password: "كلمة المرور",
     haveAnAccount: "هل لديك حساب؟ ",
     surf: "تصفح ",
+    count: "العدد: ",
+    accommodationsCardsTitle: "اعثر على ملاذك المثالي في اليمن",
     /* ------------------------- contact us description ------------------------- */
     contactUsDescriptionTitle: "اكتشف أفضل أماكن الإقامة والفعاليات في ",
     contactUsDescriptionYemen: "اليمن",

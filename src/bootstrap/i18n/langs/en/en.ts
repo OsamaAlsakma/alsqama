@@ -23,6 +23,8 @@ const en: typeof langKey = {
     password: "Password",
     haveAnAccount: "Already have an account?",
     surf: "Browse ",
+    count: "Number: ",
+    accommodationsCardsTitle: "Find your perfect getaway in Yemen",
     /* ------------------------- contact us description ------------------------- */
     contactUsDescriptionTitle: "Discover the best accommodation and events in ",
     contactUsDescriptionYemen: "Yemen",

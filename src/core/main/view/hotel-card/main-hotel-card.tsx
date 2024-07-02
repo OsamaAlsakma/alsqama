@@ -34,7 +34,7 @@ const MainHotelCard = (props: MainPageAccommodationsCard) => {
         >
           {name}
           <StyledMainHotelCardNumberOfHotels>
-            العدد: {length}{" "}
+            {t(langKey.mainPage.count)} {length}{" "}
           </StyledMainHotelCardNumberOfHotels>
         </Typography>
         <Typography variant="body2" color="text.secondary">

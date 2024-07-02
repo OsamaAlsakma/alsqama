@@ -81,7 +81,7 @@ const MainHotelCardsWrapper = () => {
   return (
     <HandlingSectionPaddingWrapper>
       <StyledAppTitleWrapper>
-        أكثر من 94,000 من بيوت العطلات في كافة المدن حول اليمن
+        {t(langKey.mainPage.accommodationsCardsTitle)}
       </StyledAppTitleWrapper>
       <Swiper
         slidesPerView={1}

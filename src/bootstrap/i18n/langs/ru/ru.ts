@@ -23,6 +23,8 @@ const ru: typeof langKey = {
     password: "Пароль",
     haveAnAccount: "Уже есть аккаунт?",
     surf: "Просмотр ",
+    count: "Номер: ",
+    accommodationsCardsTitle: "Найдите свой идеальный отдых в Йемене",
     /* ------------------------- contact us description ------------------------- */
     contactUsDescriptionTitle: "Откройте для себя лучшие отели и мероприятия в",
     contactUsDescriptionYemen: "Йемене",
