@@ -22,7 +22,7 @@ const ru: typeof langKey = {
     email: "Электронная почта",
     password: "Пароль",
     haveAnAccount: "Уже есть аккаунт?",
-    surfHotels: "Просмотр отелей",
+    surf: "Просмотр ",
     /* ------------------------- contact us description ------------------------- */
     contactUsDescriptionTitle: "Откройте для себя лучшие отели и мероприятия в",
     contactUsDescriptionYemen: "Йемене",

@@ -22,7 +22,7 @@ const ar: typeof langKey = {
     email: "البريد الإلكتروني",
     password: "كلمة المرور",
     haveAnAccount: "هل لديك حساب؟ ",
-    surfHotels: "تصفح الفنادق",
+    surf: "تصفح ",
     /* ------------------------- contact us description ------------------------- */
     contactUsDescriptionTitle: "اكتشف أفضل أماكن الإقامة والفعاليات في ",
     contactUsDescriptionYemen: "اليمن",

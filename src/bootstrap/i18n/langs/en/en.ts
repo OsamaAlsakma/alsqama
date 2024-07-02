@@ -22,7 +22,7 @@ const en: typeof langKey = {
     email: "Email",
     password: "Password",
     haveAnAccount: "Already have an account?",
-    surfHotels: "Browse hotels",
+    surf: "Browse ",
     /* ------------------------- contact us description ------------------------- */
     contactUsDescriptionTitle: "Discover the best accommodation and events in ",
     contactUsDescriptionYemen: "Yemen",

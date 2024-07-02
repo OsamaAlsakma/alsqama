@@ -2,24 +2,25 @@ import CardContent from "@mui/material/CardContent/CardContent";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import Typography from "@mui/material/Typography/Typography";
 import { useTranslation } from "react-i18next";
+import { imagesUrl } from "~/bootstrap/helper/global-helper";
+import { CardActionsButtonWithLink } from "~/bootstrap/helper/global-styles";
 import langKey from "~/bootstrap/i18n/langKey";
-import IMainHotelCardProps from "~/core/main/view/hotel-card/i-main-hotel-card-props";
 import {
   StyledCard,
-  StyledMainHotelCardButton,
   StyledMainHotelCardCardActions,
   StyledMainHotelCardNumberOfHotels,
 } from "~/core/main/view/hotel-card/style";
+import { MainPageAccommodationsCard } from "~/core/main/view/hotel-cards-wrapper/main-hotel-cards-wrapper";
 
-const MainHotelCard = (props: IMainHotelCardProps) => {
-  const { vm } = props;
-const {t} = useTranslation()
+const MainHotelCard = (props: MainPageAccommodationsCard) => {
+  const { description, endpoint, image, length, name } = props;
+  const { t } = useTranslation();
   return (
     <StyledCard sx={{ boxShadow: 4 }}>
       <CardMedia
         sx={{ height: 180 }}
-        image={`${vm.props.image}`}
-        title={vm.props.title}
+        image={`${imagesUrl}/${image}`}
+        title={name}
       />
       <CardContent>
         <Typography
@@ -28,17 +29,19 @@ const {t} = useTranslation()
           variant="h5"
           component="div"
         >
-          {vm.props.title}
+          {name}
           <StyledMainHotelCardNumberOfHotels>
-            28 فندق
+            العدد: {length}{" "}
           </StyledMainHotelCardNumberOfHotels>
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {vm.props.shortDescription}
+          {description}
         </Typography>
       </CardContent>
       <StyledMainHotelCardCardActions>
-        <StyledMainHotelCardButton>{t(langKey.mainPage.surfHotels)}</StyledMainHotelCardButton>
+        <CardActionsButtonWithLink to={`${endpoint}`}>
+          {t(langKey.mainPage.surf)} {name}
+        </CardActionsButtonWithLink>
       </StyledMainHotelCardCardActions>
     </StyledCard>
   );
