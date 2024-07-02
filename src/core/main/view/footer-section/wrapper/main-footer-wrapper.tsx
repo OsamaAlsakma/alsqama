@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import di from "~/bootstrap/di";
 import {
   servicesPageEndpoint,
   supportEndpoint,
@@ -17,6 +18,9 @@ import {
   StyleMainLogo,
 } from "~/core/main/view/footer-section/wrapper/style";
 import LoginSignupButton from "~/generic/components/login-signup-button/login-signup-button";
+import SelectedTabCTX, {
+  PossibleSelectedTabs,
+} from "~/generic/context/selected-tab-ctx";
 import ServicesBurgerDrawerContactUsIcons from "~/support/header/services-burger/services-burger-drawer-contact-us-icons";
 
 const MainFooterWrapper = () => {
@@ -28,6 +32,7 @@ const MainFooterWrapper = () => {
   };
 
   const { t } = useTranslation();
+  const { changeSelectedTab } = di.resolve(SelectedTabCTX).useContext();
 
   return (
     <HandlingSectionPaddingWrapper>
@@ -39,19 +44,34 @@ const MainFooterWrapper = () => {
           حجزي
         </StyleMainLogo>
         <MainFooterMainServices>
-          <MainFooterMainService to={servicesPageEndpoint.hotels}>
+          <MainFooterMainService
+            to={servicesPageEndpoint.hotels}
+            onClick={() => changeSelectedTab(PossibleSelectedTabs.HOTEL)}
+          >
             {t(langKey.global.hotels)}
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.chalets}>
+          <MainFooterMainService
+            to={servicesPageEndpoint.chalets}
+            onClick={() => changeSelectedTab(PossibleSelectedTabs.CHALET)}
+          >
             {t(langKey.global.chalets)}
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.halls}>
+          <MainFooterMainService
+            to={servicesPageEndpoint.halls}
+            onClick={() => changeSelectedTab(PossibleSelectedTabs.HALL)}
+          >
             {t(langKey.global.halls)}
           </MainFooterMainService>
-          <MainFooterMainService to={servicesPageEndpoint.apartments}>
+          <MainFooterMainService
+            to={servicesPageEndpoint.apartments}
+            onClick={() => changeSelectedTab(PossibleSelectedTabs.APPARTMENT)}
+          >
             {t(langKey.global.apartments)}
           </MainFooterMainService>
-          <MainFooterMainService to={supportEndpoint.termsOfUse}>
+          <MainFooterMainService
+            to={supportEndpoint.termsOfUse}
+            onClick={() => changeSelectedTab(PossibleSelectedTabs.TERMSOFUSE)}
+          >
             {t(langKey.support.termsOfUse)}
           </MainFooterMainService>
           <MainFooterMainService to={supportEndpoint.privacyPolicy}>

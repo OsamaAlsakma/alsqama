@@ -18,6 +18,7 @@ import langKey from "~/bootstrap/i18n/langKey";
 import MainHotelCard from "~/core/main/view/hotel-card/main-hotel-card";
 import { fetchAccommodation } from "~/core/main/view/hotel-cards-wrapper/get-main-page-accommodations-card-dto";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
+import { PossibleSelectedTabs } from "~/generic/context/selected-tab-ctx";
 
 export type MainPageAccommodationsCard = {
   image: string;
@@ -25,6 +26,7 @@ export type MainPageAccommodationsCard = {
   description: string;
   length: number;
   endpoint: string;
+  tabName?: PossibleSelectedTabs;
 };
 
 const MainHotelCardsWrapper = () => {
@@ -39,21 +41,25 @@ const MainHotelCardsWrapper = () => {
       endpointsUrl: endpointsUrl.allHotels,
       endpoint: servicesPageEndpoint.hotels,
       name: t(langKey.global.hotels),
+      tabName: PossibleSelectedTabs.HOTEL,
     },
     {
       endpointsUrl: endpointsUrl.allChalets,
       endpoint: servicesPageEndpoint.chalets,
       name: t(langKey.global.chalets),
+      tabName: PossibleSelectedTabs.CHALET,
     },
     {
       endpointsUrl: endpointsUrl.allHalls,
       endpoint: servicesPageEndpoint.halls,
       name: t(langKey.global.halls),
+      tabName: PossibleSelectedTabs.HALL,
     },
     {
       endpointsUrl: endpointsUrl.allAppartments,
       endpoint: servicesPageEndpoint.apartments,
       name: t(langKey.global.apartments),
+      tabName: PossibleSelectedTabs.APPARTMENT,
     },
   ];
   useEffect(() => {
@@ -64,7 +70,8 @@ const MainHotelCardsWrapper = () => {
         setAccommodations,
         accommodation.endpointsUrl,
         accommodation.endpoint,
-        accommodation.name
+        accommodation.name,
+        accommodation.tabName
       )
     );
     setIsLoading(false);
@@ -110,6 +117,7 @@ const MainHotelCardsWrapper = () => {
                   name={accommodation.name}
                   endpoint={accommodation.endpoint}
                   length={accommodation.length}
+                  tabName={accommodation.tabName}
                 />
               </SwiperSlide>
             );

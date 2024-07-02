@@ -2,6 +2,7 @@ import CardContent from "@mui/material/CardContent/CardContent";
 import CardMedia from "@mui/material/CardMedia/CardMedia";
 import Typography from "@mui/material/Typography/Typography";
 import { useTranslation } from "react-i18next";
+import di from "~/bootstrap/di";
 import { imagesUrl } from "~/bootstrap/helper/global-helper";
 import { CardActionsButtonWithLink } from "~/bootstrap/helper/global-styles";
 import langKey from "~/bootstrap/i18n/langKey";
@@ -11,10 +12,12 @@ import {
   StyledMainHotelCardNumberOfHotels,
 } from "~/core/main/view/hotel-card/style";
 import { MainPageAccommodationsCard } from "~/core/main/view/hotel-cards-wrapper/main-hotel-cards-wrapper";
+import SelectedTabCTX from "~/generic/context/selected-tab-ctx";
 
 const MainHotelCard = (props: MainPageAccommodationsCard) => {
-  const { description, endpoint, image, length, name } = props;
+  const { description, endpoint, image, length, name, tabName } = props;
   const { t } = useTranslation();
+  const { changeSelectedTab } = di.resolve(SelectedTabCTX).useContext();
   return (
     <StyledCard sx={{ boxShadow: 4 }}>
       <CardMedia
@@ -39,7 +42,10 @@ const MainHotelCard = (props: MainPageAccommodationsCard) => {
         </Typography>
       </CardContent>
       <StyledMainHotelCardCardActions>
-        <CardActionsButtonWithLink to={`${endpoint}`}>
+        <CardActionsButtonWithLink
+          to={`${endpoint}`}
+          onClick={() => changeSelectedTab(tabName)}
+        >
           {t(langKey.mainPage.surf)} {name}
         </CardActionsButtonWithLink>
       </StyledMainHotelCardCardActions>
