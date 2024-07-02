@@ -89,7 +89,7 @@ const AppartmentDetailsPage = () => {
           },
           {
             icon: MonetizationOnIcon,
-            title: appartmentDetails?.pricePerNight,
+            title: `${appartmentDetails?.pricePerNight} ريال \\ يوم`,
           },
         ]}
       />
