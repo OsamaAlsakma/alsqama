@@ -7,10 +7,6 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
-  endpointsUrl,
-  servicesPageEndpoint,
-} from "~/bootstrap/helper/endpoints";
-import {
   HandlingSectionPaddingWrapper,
   StyledAppTitleWrapper,
 } from "~/bootstrap/helper/global-styles";
@@ -36,44 +32,11 @@ const MainHotelCardsWrapper = () => {
   >([]);
 
   const [isLoading, setIsLoading] = useState(false);
-  const accommodationsToBeFetched = [
-    {
-      endpointsUrl: endpointsUrl.allHotels,
-      endpoint: servicesPageEndpoint.hotels,
-      name: t(langKey.global.hotels),
-      tabName: PossibleSelectedTabs.HOTEL,
-    },
-    {
-      endpointsUrl: endpointsUrl.allChalets,
-      endpoint: servicesPageEndpoint.chalets,
-      name: t(langKey.global.chalets),
-      tabName: PossibleSelectedTabs.CHALET,
-    },
-    {
-      endpointsUrl: endpointsUrl.allHalls,
-      endpoint: servicesPageEndpoint.halls,
-      name: t(langKey.global.halls),
-      tabName: PossibleSelectedTabs.HALL,
-    },
-    {
-      endpointsUrl: endpointsUrl.allAppartments,
-      endpoint: servicesPageEndpoint.apartments,
-      name: t(langKey.global.apartments),
-      tabName: PossibleSelectedTabs.APPARTMENT,
-    },
-  ];
+
   useEffect(() => {
     setAccommodations([]);
     setIsLoading(true);
-    accommodationsToBeFetched.map((accommodation) =>
-      fetchAccommodation(
-        setAccommodations,
-        accommodation.endpointsUrl,
-        accommodation.endpoint,
-        accommodation.name,
-        accommodation.tabName
-      )
-    );
+    fetchAccommodation(setAccommodations, t);
     setIsLoading(false);
   }, [i18n.language]);
 

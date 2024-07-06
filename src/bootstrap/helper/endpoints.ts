@@ -15,6 +15,7 @@ export const supportEndpoint = {
 
 export const mainPageEndpointsUrl = {
   mainPageSlide: "https://frontiertech.dev/saqama/public/api/main-sliders",
+  sectionsOverview: "https://frontiertech.dev/saqama/public/api/sections",
   mainPageOurServices:
     "https://frontiertech.dev/saqama/public/api/main-services",
   mainPageRepeatedQuestions:
