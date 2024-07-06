@@ -72,6 +72,7 @@ const MainHotelCardsWrapper = () => {
       >
         {accommodations.map(
           (accommodation: MainPageAccommodationsCard, index) => {
+            if (!accommodation.description && !accommodation.image) return;
             return (
               <SwiperSlide key={index}>
                 <MainHotelCard
