@@ -49,7 +49,7 @@ const MainSlides = () => {
     fetchMainPageSlidesData();
   }, []);
   if (isLoading) return <CircularLoader />;
-
+  if (mainPageSlides.length === 0) return null;
   return (
     <StyledSwiper
       spaceBetween={30}
