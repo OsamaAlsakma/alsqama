@@ -28,10 +28,6 @@ const langKey = {
     surf: "mainPage.surf",
     count: "mainPage.count",
     accommodationsCardsTitle: "mainPage.accommodationsCardsTitle",
-    /* ------------------------- contact us description ------------------------- */
-    contactUsDescriptionTitle: "mainPage.contactUsDescriptionTitle",
-    contactUsDescriptionYemen: "mainPage.contactUsDescriptionYemen",
-    contactUsDescriptionText: "mainPage.contactUsDescriptionText",
   },
   detailsPage: {
     share: "detailsPage.share",

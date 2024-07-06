@@ -25,11 +25,6 @@ const en: typeof langKey = {
     surf: "Browse ",
     count: "Number: ",
     accommodationsCardsTitle: "Find your perfect getaway in Yemen",
-    /* ------------------------- contact us description ------------------------- */
-    contactUsDescriptionTitle: "Discover the best accommodation and events in ",
-    contactUsDescriptionYemen: "Yemen",
-    contactUsDescriptionText:
-      "Browse our distinguished list of hotels, chalets, apartments and halls in Yemen. We offer you the best options for a comfortable and safe stay that meets all your needs. Book easily and enjoy an unforgettable stay or a special event in a wonderful atmosphere to suit all tastes.",
   },
   detailsPage: {
     share: "Share",

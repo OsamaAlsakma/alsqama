@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import {
-  mediumScreenSize,
-  secondaryColor,
-} from "~/bootstrap/helper/global-helper";
+import { mediumScreenSize } from "~/bootstrap/helper/global-helper";
 
 export const WebisteDescriptionTitle = styled.h3`
   font-size: 28px;
@@ -13,10 +10,6 @@ export const WebisteDescriptionText = styled.p`
   font-size: 20px;
   line-height: 1.5;
   text-align: justify;
-`;
-
-export const WebisteDescriptionYemen = styled.span`
-  color: ${secondaryColor};
 `;
 
 export const WebisteDescriptionContainer = styled.div`

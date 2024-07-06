@@ -2,11 +2,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper/modules";
+import { imagesUrl } from "~/bootstrap/helper/global-helper";
 import { MainContactUsPicturesSwiper } from "~/core/main/view/contact-us-section/pictures/style";
-import { mainPageSlides } from "~/core/main/view/slides/data";
 import { StyledSwiperSlide } from "~/core/main/view/slides/style";
 
-const MainContactUsPictures = () => {
+interface IMainContactUsPicturesProps {
+  images: string[];
+}
+
+const MainContactUsPictures = (props: IMainContactUsPicturesProps) => {
+  const { images } = props;
   return (
     <MainContactUsPicturesSwiper
       loop={true}
@@ -17,11 +22,11 @@ const MainContactUsPictures = () => {
       modules={[Autoplay]}
       className="mySwiper"
     >
-      {mainPageSlides.map((slide: { image: string }, index) => {
+      {images.map((image: string, index) => {
         return (
           <StyledSwiperSlide
             key={index}
-            style={{ backgroundImage: `url(${slide.image})` }}
+            style={{ backgroundImage: `url(${imagesUrl}/${image})` }}
           />
         );
       })}
