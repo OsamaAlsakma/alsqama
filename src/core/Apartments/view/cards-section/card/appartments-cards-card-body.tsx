@@ -1,11 +1,10 @@
-import {
-  ChaletsCardsCardFeaturesWrapper,
-  ChaletsCardsCardFeature,
-  ChaletsCardsCardFeatureTitle,
-  ChaletsCardsCardFeatureIcon,
-} from "~/core/chalets/view/cards-section/card/style";
 import PlaceIcon from "@mui/icons-material/Place";
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
+import {
+  ChaletsCardsCardFeature,
+  ChaletsCardsCardFeatureIcon,
+  ChaletsCardsCardFeaturesWrapper,
+  ChaletsCardsCardFeatureTitle,
+} from "~/core/chalets/view/cards-section/card/style";
 
 type IAppartmentsCardsCardBodyProps = {
   location?: string;
@@ -26,10 +25,7 @@ const AppartmentsCardsCardBody = (props: IAppartmentsCardsCardBodyProps) => {
       )}
       {numberOfRooms && (
         <ChaletsCardsCardFeature $isLeft>
-          <ChaletsCardsCardFeatureIcon
-            src={`/${appBaseUrl}/icons/rooms.svg`}
-            alt="rooms"
-          />
+          <ChaletsCardsCardFeatureIcon src={`/icons/rooms.svg`} alt="rooms" />
           <ChaletsCardsCardFeatureTitle>
             {numberOfRooms}
           </ChaletsCardsCardFeatureTitle>
