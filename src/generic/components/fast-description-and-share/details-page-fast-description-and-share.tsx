@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router";
-import { primaryColor } from "~/bootstrap/helper/global-helper";
+import { primaryColor, websiteUrl } from "~/bootstrap/helper/global-helper";
 import langKey from "~/bootstrap/i18n/langKey";
 import AlertMessage from "~/generic/components/alert-message/alert-message";
 import {
@@ -55,7 +55,7 @@ const DetailsPageFastDescriptionAndShare = (
         })}
         {/* share icon */}
         <CopyToClipboardWrapper>
-          <CopyToClipboard text={urlPathname}>
+          <CopyToClipboard text={`${websiteUrl}${urlPathname}`}>
             <DetailsFastDescriptionButton
               startIcon={<DetailsFastDescriptionShareIcon />}
               onClick={() => setOpen(true)}

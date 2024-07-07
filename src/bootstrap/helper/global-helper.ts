@@ -24,6 +24,7 @@ export const extraLargeScreenSize = "1200px";
 
 /* --------------------------- Business variables --------------------------- */
 export const appBaseUrl = "";
+export const websiteUrl = "https://hajjzi.com";
 export const imagesUrl = "https://frontiertech.dev/saqama/storage/app/public";
 export const defaulyPhoneCode = "+967";
 
