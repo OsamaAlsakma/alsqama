@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { ChangeEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { appBaseUrl, unNormalizeInput } from "~/bootstrap/helper/global-helper";
+import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import { inputPaddingStyle } from "~/bootstrap/helper/global-styles";
 import { SetState } from "~/bootstrap/helper/global-types";
 import langKey from "~/bootstrap/i18n/langKey";
@@ -94,7 +94,7 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
           placeholder={t(langKey.search.ratingRange)}
           startAdornment={
             <ChaletsFilterationSpecificSearchInputIcon
-              src={`/${appBaseUrl}/icons/star.svg`}
+              src={`/icons/star.svg`}
             />
           }
           inputProps={{
@@ -107,7 +107,7 @@ const HotelsFilterationWrapper = (props: IHotelsFilterationWrapperProps) => {
           placeholder={t(langKey.search.writeCity)}
           startAdornment={
             <ChaletsFilterationSpecificSearchInputIcon
-              src={`/${appBaseUrl}/icons/input-city.svg`}
+              src={`/icons/input-city.svg`}
             />
           }
           inputProps={{

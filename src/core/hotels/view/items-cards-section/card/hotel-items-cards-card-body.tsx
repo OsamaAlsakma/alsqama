@@ -1,4 +1,3 @@
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   ChaletsCardsCardFeatureTitle,
   ChaletsCardsCardFeatureIcon,
@@ -19,10 +18,7 @@ const HotelItemsCardsCardBody = (props: IHotelItemsCardsCardBodyProps) => {
     <HotleItemsCardsCardFeaturesWrapper>
       {pricePerNight && (
         <HotleItemsCardsCardFeature>
-          <ChaletsCardsCardFeatureIcon
-            src={`/${appBaseUrl}/icons/money.svg`}
-            alt="money"
-          />
+          <ChaletsCardsCardFeatureIcon src={`/icons/money.svg`} alt="money" />
           <ChaletsCardsCardFeatureTitle>
             {pricePerNight} ريال \ ليلة
           </ChaletsCardsCardFeatureTitle>
@@ -30,10 +26,7 @@ const HotelItemsCardsCardBody = (props: IHotelItemsCardsCardBodyProps) => {
       )}
       {bedsNumber && (
         <HotleItemsCardsCardFeature style={{ justifyContent: "left" }}>
-          <ChaletsCardsCardFeatureIcon
-            src={`/${appBaseUrl}/icons/bed-icon.svg`}
-            alt="bed"
-          />
+          <ChaletsCardsCardFeatureIcon src={`/icons/bed-icon.svg`} alt="bed" />
           <ChaletsCardsCardFeatureTitle>
             {bedsNumber}
           </ChaletsCardsCardFeatureTitle>

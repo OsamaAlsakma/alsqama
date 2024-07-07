@@ -4,7 +4,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/L
 import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { appBaseUrl, unNormalizeInput } from "~/bootstrap/helper/global-helper";
+import { unNormalizeInput } from "~/bootstrap/helper/global-helper";
 import {
   FilterationASpecificSearchInput,
   FilterationDatesAndOtherWrapper,
@@ -114,7 +114,7 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
               placeholder={t(langKey.search.writePrice)}
               startAdornment={
                 <ChaletsFilterationSpecificSearchInputIcon
-                  src={`/${appBaseUrl}/icons/input-money.svg`}
+                  src={`/icons/input-money.svg`}
                 />
               }
               inputProps={{
@@ -128,7 +128,7 @@ const HallsFilterationWrapper = (props: IHallsFilterationWrapperProps) => {
               placeholder={t(langKey.search.writeCity)}
               startAdornment={
                 <ChaletsFilterationSpecificSearchInputIcon
-                  src={`/${appBaseUrl}/icons/input-city.svg`}
+                  src={`/icons/input-city.svg`}
                 />
               }
               inputProps={{

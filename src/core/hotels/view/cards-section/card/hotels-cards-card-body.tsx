@@ -7,7 +7,6 @@ import {
   HotelsCardsCardFeature,
   HotlesCardsCardFeaturesWrapper,
 } from "~/core/hotels/view/cards-section/card/style";
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 
 type IHotelsCardsCardBodyProps = {
   cardBody: {
@@ -27,10 +26,7 @@ const HotelsCardsCardBody = (props: IHotelsCardsCardBodyProps) => {
       </HotelsCardsCardFeature>
       {phoneNumber && (
         <HotelsCardsCardFeature>
-          <ChaletsCardsCardFeatureIcon
-            src={`/${appBaseUrl}/icons/phone.svg`}
-            alt="money"
-          />
+          <ChaletsCardsCardFeatureIcon src={`/icons/phone.svg`} alt="money" />
           <ChaletsCardsCardFeatureTitle>
             {phoneNumber}
           </ChaletsCardsCardFeatureTitle>

@@ -4,7 +4,6 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   FilterationASpecificSearchInput,
   FilterationDatesAndOtherWrapper,
@@ -102,7 +101,7 @@ const HotelsHotelItemsFilterationWrapper = (
               placeholder={t(langKey.search.priceFrom)}
               startAdornment={
                 <ChaletsFilterationSpecificSearchInputIcon
-                  src={`/${appBaseUrl}/icons/input-money.svg`}
+                  src={`/icons/input-money.svg`}
                 />
               }
               inputProps={{
@@ -116,7 +115,7 @@ const HotelsHotelItemsFilterationWrapper = (
               placeholder={t(langKey.search.priceTo)}
               startAdornment={
                 <ChaletsFilterationSpecificSearchInputIcon
-                  src={`/${appBaseUrl}/icons/input-money.svg`}
+                  src={`/icons/input-money.svg`}
                 />
               }
               inputProps={{

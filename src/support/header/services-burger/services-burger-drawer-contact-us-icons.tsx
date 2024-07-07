@@ -2,13 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { mainPageEndpointsUrl } from "~/bootstrap/helper/endpoints";
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import { SocialMediaIconsType } from "~/bootstrap/helper/global-types";
 import {
   SocialMediaIconsResponse,
   getSocialMediaIconsDTO,
 } from "~/core/main/view/footer-section/footer-icons/get-social-media-icons-dto";
-// import { MainFooterIconsResponse } from "~/bootstrap/helper/global-types";
 import { MainFooterContactIcon } from "~/core/main/view/footer-section/wrapper/style";
 
 const HeaderDrawerContactUsWrapper = styled.div`
@@ -38,22 +36,22 @@ const ServicesBurgerDrawerContactUsIcons = () => {
 
   const contactUsIconsData = [
     {
-      logo: `/${appBaseUrl}/icons/facebook-logo.svg`,
+      logo: `/icons/facebook-logo.svg`,
       alt: "facebook",
       url: iconsData?.facebook,
     },
     {
-      logo: `/${appBaseUrl}/icons/instagram-logo.svg`,
+      logo: `/icons/instagram-logo.svg`,
       alt: "instagram",
       url: iconsData?.instagram,
     },
     {
-      logo: `/${appBaseUrl}/icons/whatsapp-logo.svg`,
+      logo: `/icons/whatsapp-logo.svg`,
       alt: "whatsapp",
       url: iconsData?.whatsapp,
     },
     {
-      logo: `/${appBaseUrl}/icons/email-logo.svg`,
+      logo: `/icons/email-logo.svg`,
       alt: "email",
       url: iconsData?.email,
     },

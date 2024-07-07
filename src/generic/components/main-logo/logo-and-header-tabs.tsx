@@ -17,9 +17,7 @@ const LogoAndHeaderTabs = () => {
         }}
         to={servicesPageEndpoint.main}
       >
-        <StyledMainLogoImage
-          src={`${import.meta.env.BASE_URL}/icons/svg-logo.svg`}
-        />
+        <StyledMainLogoImage src={`/icons/svg-logo.svg`} />
       </StyledMainLogo>
       <HeaderTabs />
     </>

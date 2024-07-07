@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
 import {
   StyledAppDivider,
   StyledAppSubTitleWrapper,
@@ -36,7 +35,7 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
         <div className="booking">
           <StyledBookingCancelingConditionsTitle>
             <StyledBookingCancellingConditionsIcon
-              src={`/${appBaseUrl}/icons/booking-conditions.svg`}
+              src={`/icons/booking-conditions.svg`}
             />
             {t(langKey.detailsPage.bookingConditions)}
           </StyledBookingCancelingConditionsTitle>
@@ -48,7 +47,7 @@ const ChaletsDetailsInfoTabsBookingCancellingConditions = (
         <div className="canceling">
           <StyledBookingCancelingConditionsTitle>
             <StyledBookingCancellingConditionsIcon
-              src={`/${appBaseUrl}/icons/cancelling-conditions.svg`}
+              src={`/icons/cancelling-conditions.svg`}
             />
             {t(langKey.detailsPage.cancelingConditions)}
           </StyledBookingCancelingConditionsTitle>

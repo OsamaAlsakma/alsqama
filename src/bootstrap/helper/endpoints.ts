@@ -1,16 +1,14 @@
-import { appBaseUrl } from "~/bootstrap/helper/global-helper";
-
 export const servicesPageEndpoint = {
-  main: "/alsqama",
-  chalets: "/alsqama/chalets",
-  halls: "/alsqama/halls",
-  hotels: "/alsqama/hotels",
-  apartments: "/alsqama/apartments",
+  main: "",
+  chalets: "/chalets",
+  halls: "/halls",
+  hotels: "/hotels",
+  apartments: "/apartments",
 };
 
 export const supportEndpoint = {
-  termsOfUse: `/${appBaseUrl}/termsOfUse`,
-  privacyPolicy: `/${appBaseUrl}/privacyPolicy`,
+  termsOfUse: `/termsOfUse`,
+  privacyPolicy: `/privacyPolicy`,
 };
 
 export const mainPageEndpointsUrl = {

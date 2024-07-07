@@ -3,7 +3,7 @@ import CardMedia from "@mui/material/CardMedia/CardMedia";
 import Typography from "@mui/material/Typography/Typography";
 import { useTranslation } from "react-i18next";
 import di from "~/bootstrap/di";
-import { imagesUrl } from "~/bootstrap/helper/global-helper";
+import { imagesUrl, mainFontFamily } from "~/bootstrap/helper/global-helper";
 import { CardActionsButtonWithLink } from "~/bootstrap/helper/global-styles";
 import langKey from "~/bootstrap/i18n/langKey";
 import {
@@ -24,6 +24,7 @@ const MainHotelCard = (props: MainPageAccommodationsCard) => {
         sx={{ height: 180 }}
         image={`${imagesUrl}/${image}`}
         title={name}
+        style={{ fontFamily: `${mainFontFamily}` }}
       />
       <CardContent>
         <Typography
@@ -37,7 +38,11 @@ const MainHotelCard = (props: MainPageAccommodationsCard) => {
             {t(langKey.mainPage.count)} {length}{" "}
           </StyledMainHotelCardNumberOfHotels>
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          style={{ fontFamily: `${mainFontFamily}` }}
+        >
           {description}
         </Typography>
       </CardContent>
