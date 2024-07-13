@@ -12,52 +12,48 @@ export const supportEndpoint = {
 };
 
 export const mainPageEndpointsUrl = {
-  mainPageSlide: "https://frontiertech.dev/saqama/public/api/main-sliders",
-  sectionsOverview: "https://frontiertech.dev/saqama/public/api/sections",
-  mainPageOurServices:
-    "https://frontiertech.dev/saqama/public/api/main-services",
+  mainPageSlide: "https://backend.hajjzi.com/public/api/main-sliders",
+  sectionsOverview: "https://backend.hajjzi.com/public/api/sections",
+  mainPageOurServices: "https://backend.hajjzi.com/public/api/main-services",
   mainPageRepeatedQuestions:
-    "https://frontiertech.dev/saqama/public/api/repeated-questions",
+    "https://backend.hajjzi.com/public/api/repeated-questions",
   /* -------------------------------------------------------------------------- */
-  termsOfUse: "https://frontiertech.dev/saqama/public/api/terms-conditions",
+  termsOfUse: "https://backend.hajjzi.com/public/api/terms-conditions",
   /* -------------------------------------------------------------------------- */
-  privacyPolicy: "https://frontiertech.dev/saqama/public/api/policies",
+  privacyPolicy: "https://backend.hajjzi.com/public/api/policies",
   /* -------------------------------------------------------------------------- */
-  contactUs: "https://frontiertech.dev/saqama/public/api/send-contact-email",
+  contactUs: "https://backend.hajjzi.com/public/api/send-contact-email",
   /* -------------------------------------------------------------------------- */
   contactUsPicturesAndDescription:
-    "https://frontiertech.dev/saqama/public/api/get-footer-info",
+    "https://backend.hajjzi.com/public/api/get-footer-info",
   /* -------------------------------------------------------------------------- */
-  socialMediaIcons: "https://frontiertech.dev/saqama/public/api/social-icons",
+  socialMediaIcons: "https://backend.hajjzi.com/public/api/social-icons",
 };
 
 export const endpointsUrl = {
   /* --------------------------------- Signup --------------------------------- */
-  signupEndpoint: "https://frontiertech.dev/saqama/public/api/register",
+  signupEndpoint: "https://backend.hajjzi.com/public/api/register",
   /* ---------------------------------- login --------------------------------- */
-  loginEndpoint: "https://frontiertech.dev/saqama/public/api/login",
+  loginEndpoint: "https://backend.hajjzi.com/public/api/login",
   /* ------------------------ pay and send information ------------------------ */
-  payEndpoint: "https://frontiertech.dev/saqama/public/api/reservations",
+  payEndpoint: "https://backend.hajjzi.com/public/api/reservations",
   /* --------------------------------- Chalets -------------------------------- */
   allChalets:
-    "https://frontiertech.dev/saqama/public/api/accommodations?type=chalets",
+    "https://backend.hajjzi.com/public/api/accommodations?type=chalets",
   chaletDetails: "https://run.mocky.io/v3/0d10feea-c7c4-40c9-b88a-802cb8cc35de",
 
   /* --------------------------------- Hotels --------------------------------- */
-  allHotels:
-    "https://frontiertech.dev/saqama/public/api/accommodations?type=hotels",
+  allHotels: "https://backend.hajjzi.com/public/api/accommodations?type=hotels",
 
   anHotelItems: "https://run.mocky.io/v3/52546746-7763-4744-8e3d-8bd747b2eade",
-  hotelItemDetails: "https://frontiertech.dev/saqama/public/api/rooms",
+  hotelItemDetails: "https://backend.hajjzi.com/public/api/rooms",
 
   /* ---------------------------------- Halls --------------------------------- */
-  allHalls:
-    "https://frontiertech.dev/saqama/public/api/accommodations?type=halls",
-  hallDetails: "https://frontiertech.dev/saqama/public/api/accommodations",
+  allHalls: "https://backend.hajjzi.com/public/api/accommodations?type=halls",
+  hallDetails: "https://backend.hajjzi.com/public/api/accommodations",
 
   /* ------------------------------- Appartments ------------------------------ */
   allAppartments:
-    "https://frontiertech.dev/saqama/public/api/accommodations?type=appartments",
-  appartmentDetails:
-    "https://frontiertech.dev/saqama/public/api/accommodations",
+    "https://backend.hajjzi.com/public/api/accommodations?type=appartments",
+  appartmentDetails: "https://backend.hajjzi.com/public/api/accommodations",
 };

@@ -55,7 +55,7 @@ const HotelItemsCardsWrapper = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://frontiertech.dev/saqama/public/api/accommodations/${hotelId}/rooms`
+        `https://backend.hajjzi.com/public/api/accommodations/${hotelId}/rooms`
       );
       if (response.status === 200) {
         const hotelItemsResponse: HotelItemResponse[] = response.data;

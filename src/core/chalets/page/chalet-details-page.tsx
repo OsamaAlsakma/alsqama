@@ -55,7 +55,7 @@ const ChaletDetailsPage = () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://frontiertech.dev/saqama/public/api/accommodations/${chaletId}/chalet-sections`
+        `https://backend.hajjzi.com/public/api/accommodations/${chaletId}/chalet-sections`
       );
       if (response.status === 200) {
         const chaletSections: ChaletSectionsResponse[] = response.data;
