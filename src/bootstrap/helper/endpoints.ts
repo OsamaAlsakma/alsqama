@@ -17,6 +17,9 @@ export const mainPageEndpointsUrl = {
   mainPageOurServices: "https://backend.hajjzi.com/public/api/main-services",
   mainPageRepeatedQuestions:
     "https://backend.hajjzi.com/public/api/repeated-questions",
+
+  /* -------------------------------------------------------------------------- */
+  discounts: "https://backend.hajjzi.com/public/api/get-ads",
   /* -------------------------------------------------------------------------- */
   termsOfUse: "https://backend.hajjzi.com/public/api/terms-conditions",
   /* -------------------------------------------------------------------------- */
