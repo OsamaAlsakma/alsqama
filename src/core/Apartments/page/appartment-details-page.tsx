@@ -20,6 +20,7 @@ import ChaletsDetailsPhotoViewer from "~/core/chalets/view/details-section/photo
 import ChaletsDetailsTitleWrapper from "~/core/chalets/view/details-section/title-section/wrapper/chalets-details-title-wrapper";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
+import ReviewSection from "~/generic/components/review-section/review-section";
 
 export type AppartmentDetailType = {
   id: string;
@@ -116,6 +117,7 @@ const AppartmentDetailsPage = () => {
         name={appartmentDetails?.name || ""}
         reservedDates={appartmentDetails?.reservedDates || []}
       />
+      <ReviewSection />
     </div>
   );
 };

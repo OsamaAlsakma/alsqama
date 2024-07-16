@@ -19,6 +19,7 @@ import {
 } from "~/core/halls/page/get-hall-details-dto";
 import CircularLoader from "~/generic/components/circular-loader/circular-loader";
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
+import ReviewSection from "~/generic/components/review-section/review-section";
 
 export type HallDetailType = {
   id: string;
@@ -111,6 +112,7 @@ const HallDetailsPage = () => {
         name={hallDetails?.name || ""}
         reservedDates={hallDetails ? hallDetails.reservedDates : []}
       />
+      <ReviewSection />
     </div>
   );
 };

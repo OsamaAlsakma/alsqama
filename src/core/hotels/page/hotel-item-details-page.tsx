@@ -19,6 +19,7 @@ import {
 import { useParams } from "react-router";
 import OtherHousesIcon from "@mui/icons-material/OtherHouses";
 import { ResservedDateType } from "~/bootstrap/helper/global-types";
+import ReviewSection from "~/generic/components/review-section/review-section";
 
 export type HotelItemDetailType = {
   id: string;
@@ -36,8 +37,6 @@ export type HotelItemDetailType = {
   roomsNumber?: string;
   bedsNumber?: string;
   reservedDates: ResservedDateType[];
-
-  // TODO to the fast description
   location?: string;
 };
 const HotelItemDetailsPage = () => {
@@ -117,6 +116,7 @@ const HotelItemDetailsPage = () => {
         name={hotelItemDetail?.name || ""}
         reservedDates={hotelItemDetail?.reservedDates || []}
       />
+      <ReviewSection />
     </div>
   );
 };

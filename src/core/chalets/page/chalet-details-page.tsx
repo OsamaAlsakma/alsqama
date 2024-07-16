@@ -18,6 +18,7 @@ import CircularLoader from "~/generic/components/circular-loader/circular-loader
 import DetailsPageFastDescriptionAndShare from "~/generic/components/fast-description-and-share/details-page-fast-description-and-share";
 import OtherHousesIcon from "@mui/icons-material/OtherHouses";
 import { ResservedDateType } from "~/bootstrap/helper/global-types";
+import ReviewSection from "~/generic/components/review-section/review-section";
 
 export type ReviewType = {
   reviewerName: string;
@@ -132,6 +133,7 @@ const ChaletDetailsPage = () => {
               reservedDates={chaletSection.reservedDates || []}
               chaletSectionId={chaletSection.id || ""}
             />
+            <ReviewSection />
           </div>
         );
       })}

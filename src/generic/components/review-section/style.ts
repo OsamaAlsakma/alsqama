@@ -1,0 +1,34 @@
+import { Button, TextField } from "@mui/material";
+import styled from "styled-components";
+import {
+  mainFontFamily,
+  secondaryColor,
+} from "~/bootstrap/helper/global-helper";
+
+export const ReviewSectionTextField = styled(TextField)`
+  && {
+    &:active {
+      border-color: red;
+    }
+
+    &:focus {
+      border-color: red;
+    }
+  }
+`;
+
+export const ReviewSectionSubmit = styled(Button)`
+  && {
+    background-color: ${secondaryColor};
+    color: black;
+    font-weight: bold;
+    font-family: ${mainFontFamily};
+    padding-top: 8px;
+
+    transition: all ease-in-out 200ms !important;
+    &:hover {
+      transform: scale(1.1);
+      background-color: ${secondaryColor};
+    }
+  }
+`;
