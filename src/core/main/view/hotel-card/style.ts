@@ -1,5 +1,6 @@
 import Card from "@mui/material/Card/Card";
 import CardActions from "@mui/material/CardActions/CardActions";
+import Typography from "@mui/material/Typography/Typography";
 import styled from "styled-components";
 import { secondaryColor } from "~/bootstrap/helper/global-helper";
 import { StyledMainAppButton } from "~/bootstrap/helper/global-styles";
@@ -29,4 +30,14 @@ export const StyledMainHotelCardCardActions = styled(CardActions)`
     padding: 8px;
     padding-top: 0px;
   }
+`;
+
+export const MainPageAccomendationDescription = styled(Typography)`
+  overflow: hidden;
+  height: 62px;
+  text-overflow: clip;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
 `;

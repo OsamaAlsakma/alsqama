@@ -4,6 +4,7 @@ import {
 } from "~/core/chalets/view/cards-section/card/style";
 import PlaceIcon from "@mui/icons-material/Place";
 import {
+  HotelsCardsCardDescription,
   HotelsCardsCardFeature,
   HotlesCardsCardFeaturesWrapper,
 } from "~/core/hotels/view/cards-section/card/style";
@@ -33,9 +34,7 @@ const HotelsCardsCardBody = (props: IHotelsCardsCardBodyProps) => {
         </HotelsCardsCardFeature>
       )}
       <HotelsCardsCardFeature>
-        <ChaletsCardsCardFeatureTitle>
-          {description}
-        </ChaletsCardsCardFeatureTitle>
+        <HotelsCardsCardDescription>{description}</HotelsCardsCardDescription>
       </HotelsCardsCardFeature>
     </HotlesCardsCardFeaturesWrapper>
   );

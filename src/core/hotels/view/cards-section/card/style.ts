@@ -5,6 +5,7 @@ import {
   largeScreenSize,
   mediumScreenSize,
 } from "~/bootstrap/helper/global-helper";
+import { ChaletsCardsCardFeatureTitle } from "~/core/chalets/view/cards-section/card/style";
 
 export const StyledHotelsCardsCard = styled(Card)`
   && {
@@ -42,4 +43,15 @@ export const HotelsCardsCardFeature = styled.span`
   align-items: center;
   gap: 6px;
   width: 100%;
+`;
+
+// ChaletsCardsCardFeatureTitle can be used for the description
+export const HotelsCardsCardDescription = styled(ChaletsCardsCardFeatureTitle)`
+  overflow: hidden;
+  height: 48px;
+  text-overflow: clip;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 1.5;
 `;

@@ -7,6 +7,7 @@ import { imagesUrl, mainFontFamily } from "~/bootstrap/helper/global-helper";
 import { CardActionsButtonWithLink } from "~/bootstrap/helper/global-styles";
 import langKey from "~/bootstrap/i18n/langKey";
 import {
+  MainPageAccomendationDescription,
   StyledCard,
   StyledMainHotelCardCardActions,
   StyledMainHotelCardNumberOfHotels,
@@ -38,13 +39,13 @@ const MainHotelCard = (props: MainPageAccommodationsCard) => {
             {t(langKey.mainPage.count)} {length}{" "}
           </StyledMainHotelCardNumberOfHotels>
         </Typography>
-        <Typography
+        <MainPageAccomendationDescription
           variant="body2"
           color="text.secondary"
           style={{ fontFamily: `${mainFontFamily}` }}
         >
           {description}
-        </Typography>
+        </MainPageAccomendationDescription>
       </CardContent>
       <StyledMainHotelCardCardActions>
         <CardActionsButtonWithLink
