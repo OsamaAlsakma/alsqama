@@ -1,8 +1,8 @@
 import PlaceIcon from "@mui/icons-material/Place";
+import styled from "styled-components";
 import {
   ChaletsCardsCardFeature,
   ChaletsCardsCardFeatureIcon,
-  ChaletsCardsCardFeaturesWrapper,
   ChaletsCardsCardFeatureTitle,
 } from "~/core/chalets/view/cards-section/card/style";
 
@@ -11,12 +11,18 @@ type IAppartmentsCardsCardBodyProps = {
   numberOfRooms?: string;
 };
 
+export const AppartmentsCardsCardBodyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
 const AppartmentsCardsCardBody = (props: IAppartmentsCardsCardBodyProps) => {
   const { location, numberOfRooms } = props;
   return (
-    <ChaletsCardsCardFeaturesWrapper>
+    <AppartmentsCardsCardBodyWrapper>
       {location && (
-        <ChaletsCardsCardFeature>
+        <ChaletsCardsCardFeature style={{ width: "100%" }}>
           <PlaceIcon />
           <ChaletsCardsCardFeatureTitle>
             {location}
@@ -24,14 +30,14 @@ const AppartmentsCardsCardBody = (props: IAppartmentsCardsCardBodyProps) => {
         </ChaletsCardsCardFeature>
       )}
       {numberOfRooms && (
-        <ChaletsCardsCardFeature $isLeft>
+        <ChaletsCardsCardFeature style={{ width: "100%" }}>
           <ChaletsCardsCardFeatureIcon src={`/icons/rooms.svg`} alt="rooms" />
           <ChaletsCardsCardFeatureTitle>
             {numberOfRooms}
           </ChaletsCardsCardFeatureTitle>
         </ChaletsCardsCardFeature>
       )}
-    </ChaletsCardsCardFeaturesWrapper>
+    </AppartmentsCardsCardBodyWrapper>
   );
 };
 
