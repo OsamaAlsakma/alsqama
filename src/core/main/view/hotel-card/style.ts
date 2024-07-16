@@ -40,4 +40,5 @@ export const MainPageAccomendationDescription = styled(Typography)`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   line-height: 1.5;
+  text-align: justify;
 `;

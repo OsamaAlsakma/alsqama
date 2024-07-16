@@ -1,5 +1,8 @@
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
-import { ChaletsDetailsDescriptionTitle } from "~/core/chalets/view/details-section/description-section/wrapper/style";
+import {
+  ChaletsDetailsDescriptionDescription,
+  ChaletsDetailsDescriptionTitle,
+} from "~/core/chalets/view/details-section/description-section/wrapper/style";
 
 interface IChaletsDetailsTitleWrapperProps {
   name: string;
@@ -14,7 +17,9 @@ const ChaletsDetailsDescriptionWrapper = (
       <ChaletsDetailsDescriptionTitle>
         وصف {name}
       </ChaletsDetailsDescriptionTitle>
-      <p>{description}</p>
+      <ChaletsDetailsDescriptionDescription>
+        {description}
+      </ChaletsDetailsDescriptionDescription>
     </HandlingSectionPaddingWrapper>
   );
 };

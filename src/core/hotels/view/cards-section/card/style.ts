@@ -54,4 +54,5 @@ export const HotelsCardsCardDescription = styled(ChaletsCardsCardFeatureTitle)`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   line-height: 1.5;
+  text-align: justify;
 `;
