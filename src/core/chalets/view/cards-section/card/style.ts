@@ -42,6 +42,15 @@ export const ChaletsCardsCardImagesSwiper = styled(Swiper)`
   width: 100%;
 `;
 
+export const CardMessageWithoutImages = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 18px;
+`;
+
 export const ChaletsCardsCardImagesSwiperSlide = styled(SwiperSlide)`
   position: relative;
   width: 100%;

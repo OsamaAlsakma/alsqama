@@ -14,6 +14,7 @@ const ru: typeof langKey = {
     more: "больше",
     bookNow: "бронируйте сейчас",
     copyRight: "Все права защищены © 2016-2024 Hajzi",
+    noPictures: "Фотографии недоступны",
   },
 
   mainPage: {

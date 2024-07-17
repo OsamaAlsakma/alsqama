@@ -14,6 +14,7 @@ const en: typeof langKey = {
     more: "More",
     bookNow: "Book now",
     copyRight: "All rights reserved © 2016-2024 Hajzi",
+    noPictures: "Photos are not available",
   },
 
   mainPage: {

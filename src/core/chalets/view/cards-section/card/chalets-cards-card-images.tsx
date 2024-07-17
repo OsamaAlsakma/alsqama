@@ -1,10 +1,13 @@
+import { useTranslation } from "react-i18next";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import { imagesUrl } from "~/bootstrap/helper/global-helper";
+import langKey from "~/bootstrap/i18n/langKey";
 
 import {
+  CardMessageWithoutImages,
   ChaletsCardsCardImagesNextButton,
   ChaletsCardsCardImagesPrevButton,
   ChaletsCardsCardImagesSwiper,
@@ -17,6 +20,13 @@ type IChaletsCardsCardImagesProps = {
 
 const ChaletsCardsCardImages = (props: IChaletsCardsCardImagesProps) => {
   const { images } = props;
+  const { t } = useTranslation();
+  if (images.length === 0)
+    return (
+      <CardMessageWithoutImages>
+        {t(langKey.global.noPictures)}
+      </CardMessageWithoutImages>
+    );
   return (
     <ChaletsCardsCardImagesSwiper
       loop={true}

@@ -17,6 +17,7 @@ const langKey = {
     more: "global.more",
     bookNow: "global.bookNow",
     copyRight: "global.copyRight",
+    noPictures: "global.noPictures",
   },
 
   mainPage: {

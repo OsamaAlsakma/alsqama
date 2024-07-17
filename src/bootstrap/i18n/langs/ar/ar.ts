@@ -14,6 +14,7 @@ const ar: typeof langKey = {
     more: "المزيد",
     bookNow: "احجز الآن",
     copyRight: "جميع الحقوق محفوظة © 2016-2024 حجزي",
+    noPictures: "الصور غير متوفرة",
   },
 
   mainPage: {
