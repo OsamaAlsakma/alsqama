@@ -63,6 +63,12 @@ const en: typeof langKey = {
 
     successfulContactUsMessage: "The message was sent successfully",
     errorContactUsMessage: "Message sending failed",
+
+    /* ----------------------------- review section ----------------------------- */
+    writeReview: "Write review",
+    yourReview: "Your review",
+    send: "Send",
+    reviewSent: "Your review has been successfully submitted",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",

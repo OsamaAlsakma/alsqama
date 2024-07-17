@@ -61,6 +61,12 @@ const ar: typeof langKey = {
 
     successfulContactUsMessage: "تم إرسال الرسالة بنجاح",
     errorContactUsMessage: "فشل إرسال الرسالة",
+
+    /* ----------------------------- review section ----------------------------- */
+    writeReview: "اكتب مراجعة",
+    yourReview: "مراجعتك",
+    send: "إرسال",
+    reviewSent: "تم إرسال تقييمك بنجاح",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",

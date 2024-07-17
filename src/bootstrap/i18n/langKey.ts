@@ -65,6 +65,12 @@ const langKey = {
 
     successfulContactUsMessage: "detailsPage.successfulContactUsMessage",
     errorContactUsMessage: "detailsPage.errorContactUsMessage",
+
+    /* ----------------------------- review section ----------------------------- */
+    writeReview: "detailsPage.writeReview",
+    yourReview: "detailsPage.yourReview",
+    send: "detailsPage.send",
+    reviewSent: "detailsPage.reviewSent",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

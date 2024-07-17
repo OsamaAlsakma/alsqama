@@ -1,8 +1,10 @@
 import { Rating } from "@mui/lab";
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { mainFontFamily } from "~/bootstrap/helper/global-helper";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
+import langKey from "~/bootstrap/i18n/langKey";
 import AlertMessage from "~/generic/components/alert-message/alert-message";
 import {
   ReviewSectionSubmit,
@@ -31,6 +33,8 @@ const ReviewSection: React.FC = () => {
     setOpen(true);
   };
 
+  const { t } = useTranslation();
+
   return (
     <HandlingSectionPaddingWrapper>
       <Box
@@ -48,7 +52,7 @@ const ReviewSection: React.FC = () => {
           gutterBottom
           style={{ fontFamily: `${mainFontFamily}` }}
         >
-          اكتب مراجعة
+          {t(langKey.detailsPage.writeReview)}
         </Typography>
         <Box
           sx={{
@@ -65,7 +69,7 @@ const ReviewSection: React.FC = () => {
             style={{ display: "flex", flexDirection: "row-reverse" }}
           />
           <ReviewSectionTextField
-            placeholder="مراجعتك"
+            placeholder={t(langKey.detailsPage.yourReview)}
             multiline
             rows={4}
             variant="outlined"
@@ -79,13 +83,13 @@ const ReviewSection: React.FC = () => {
             sx={{ mt: 2 }}
             onClick={handleSubmit}
           >
-            إرسال
+            {t(langKey.detailsPage.send)}
           </ReviewSectionSubmit>
         </Box>
       </Box>
       <AlertMessage
         durationInMs={4500}
-        message={"تم إرسال تقييمك بنجاح"}
+        message={t(langKey.detailsPage.reviewSent)}
         open={open}
         setOpen={setOpen}
       />

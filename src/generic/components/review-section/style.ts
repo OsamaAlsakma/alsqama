@@ -7,12 +7,8 @@ import {
 
 export const ReviewSectionTextField = styled(TextField)`
   && {
-    &:active {
-      border-color: red;
-    }
-
-    &:focus {
-      border-color: red;
+    .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+      border-color:${secondaryColor};
     }
   }
 `;

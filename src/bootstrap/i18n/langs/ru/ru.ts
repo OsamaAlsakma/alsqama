@@ -65,6 +65,12 @@ const ru: typeof langKey = {
 
     successfulContactUsMessage: "Сообщение было успешно отправлено",
     errorContactUsMessage: "Ошибка отправки сообщения",
+
+    /* ----------------------------- review section ----------------------------- */
+    writeReview: "Напишите отзыв",
+    yourReview: "Ваш отзыв",
+    send: "Посылать",
+    reviewSent: "Ваш отзыв был успешно отправлен",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",
