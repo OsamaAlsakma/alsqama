@@ -47,6 +47,8 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
     setIsViewerOpen(false);
   };
   const { t } = useTranslation();
+
+  if (images.length === 0) return;
   return (
     <HandlingSectionPaddingWrapper>
       {/* First position */}
@@ -56,15 +58,23 @@ const ChaletsDetailsPhotoViewer = (props: IChaletsDetailsPhotoViewerProps) => {
           image={`${imagesUrl}/${images[0]}`}
           onClick={() => openImageViewer(0)}
         />
-        <ChaletsDetailsPhotoSmallImagesWrapper className="small-images">
-          {images.slice(1, 5).map((image, index) => (
-            <ChaletsDetailsPhotoSmallImage
-              image={`${imagesUrl}/${image}`}
-              key={index}
-              onClick={() => openImageViewer(index + 1)}
-            />
-          ))}
-        </ChaletsDetailsPhotoSmallImagesWrapper>
+        {images.length < 5 ? (
+          <ChaletsDetailsPhotoMainImage
+            className="big-image"
+            image={`${imagesUrl}/${images[1]}`}
+            onClick={() => openImageViewer(1)}
+          />
+        ) : (
+          <ChaletsDetailsPhotoSmallImagesWrapper className="small-images">
+            {images.slice(1, 5).map((image, index) => (
+              <ChaletsDetailsPhotoSmallImage
+                image={`${imagesUrl}/${image}`}
+                key={index}
+                onClick={() => openImageViewer(index + 1)}
+              />
+            ))}
+          </ChaletsDetailsPhotoSmallImagesWrapper>
+        )}
       </ChaletsDetailsPhotoAllImagesWrapper>
 
       {/* second position */}
