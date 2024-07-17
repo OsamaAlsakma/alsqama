@@ -8,7 +8,7 @@ import {
 export const ReviewSectionTextField = styled(TextField)`
   && {
     .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-      border-color:${secondaryColor};
+      border-color: ${secondaryColor};
     }
   }
 `;

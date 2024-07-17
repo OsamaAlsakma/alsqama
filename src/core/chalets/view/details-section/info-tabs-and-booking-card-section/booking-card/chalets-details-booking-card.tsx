@@ -53,12 +53,24 @@ export const ChaletsDetailsBookingCard = (
     }
     setNumberOfReservedDays(numberOfReservedDays);
   }, [startDate, endDate]);
+
+  /* --------------------------- reset after success -------------------------- */
+  const resetAfterSuccess = () => {
+    setPersonalInfo({
+      phoneNumber: "",
+      name: "",
+    });
+    setChecked(false);
+    setStartDate(today);
+    setEndDate(tomorrow);
+  };
   return (
     <DetailsBookingCardDiv>
       <StyledAppSubTitleWrapper>أحجز {name}</StyledAppSubTitleWrapper>
       <StyledAppDivider />
       <ChaletsDetailsBookingCardPersonalInfo
         setPersonalInfo={setPersonalInfo}
+        personalInfo={personalInfo}
       />
       <StyledAppDivider />
       <ChaletsDetailsBookingCardBookingDate
@@ -82,6 +94,7 @@ export const ChaletsDetailsBookingCard = (
         personalInfo={personalInfo}
         startAndEndDates={{ startDate, endDate }}
         chaletSectionId={chaletSectionId}
+        resetAfterSuccess={resetAfterSuccess}
       />
     </DetailsBookingCardDiv>
   );

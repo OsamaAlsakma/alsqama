@@ -11,6 +11,7 @@ import { LoginSignUpInput } from "~/support/login-signup-forms/style";
 
 interface IChaletsDetailsBookingCardPersonalInfoProps {
   setPersonalInfo: SetState<BookingCardPersonalInfo | undefined>;
+  personalInfo: BookingCardPersonalInfo | undefined;
 }
 
 const BookingCardPersonalInfoWrapper = styled.div`
@@ -36,7 +37,7 @@ const BookingCardPersonalInfoInput = styled(LoginSignUpInput)`
 export const ChaletsDetailsBookingCardPersonalInfo = (
   props: IChaletsDetailsBookingCardPersonalInfoProps
 ) => {
-  const { setPersonalInfo } = props;
+  const { setPersonalInfo, personalInfo } = props;
 
   const { t } = useTranslation();
   return (
@@ -50,6 +51,7 @@ export const ChaletsDetailsBookingCardPersonalInfo = (
             style={{ borderColor: "rgba(0, 0, 0, 0.3)" }}
             disableUnderline
             type="text"
+            value={personalInfo?.name}
             placeholder={`${t(langKey.detailsPage.residentName)}*`}
             onChange={(e) => {
               setPersonalInfo((prev) => ({
@@ -67,6 +69,7 @@ export const ChaletsDetailsBookingCardPersonalInfo = (
             style={{ borderColor: "rgba(0, 0, 0, 0.3)" }}
             disableUnderline
             type="phone"
+            value={personalInfo?.phoneNumber}
             onChange={(e) => {
               setPersonalInfo((prev) => ({
                 name: prev ? prev.name : "",

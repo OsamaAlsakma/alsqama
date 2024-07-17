@@ -34,6 +34,7 @@ interface IChaletsDetailsBookingCardPayTotalMoneySectionProps {
     endDate: dayjs.Dayjs | null;
   };
   chaletSectionId?: string;
+  resetAfterSuccess: () => void;
 }
 
 export const ChaletsDetailsBookingCardPayTotalMoneySection = (
@@ -46,6 +47,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
     personalInfo,
     startAndEndDates,
     chaletSectionId,
+    resetAfterSuccess,
   } = props;
   const { endDate, startDate } = startAndEndDates;
 
@@ -93,6 +95,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       if (response.status === 200 || response.status === 201) {
         setMessageContent(t(langKey.detailsPage.successfulPaymentMessage));
         setMessageType("success");
+        resetAfterSuccess();
       }
     } catch (error) {
       setMessageType("error");
