@@ -85,7 +85,9 @@ const HallDetailsPage = () => {
           },
           {
             icon: MonetizationOnIcon,
-            title: `${hallDetails?.pricePerNight} ريال \\ يوم`,
+            title: hallDetails?.pricePerNight
+              ? `${hallDetails?.pricePerNight} ريال \\ يوم`
+              : undefined,
           },
         ]}
       />
@@ -93,10 +95,12 @@ const HallDetailsPage = () => {
         images={hallDetails?.images || []}
         video={hallDetails?.videos[0] || ""}
       />
-      <ChaletsDetailsDescriptionWrapper
-        name={hallDetails?.name || ""}
-        description={hallDetails?.description || ""}
-      />
+      {hallDetails?.description && (
+        <ChaletsDetailsDescriptionWrapper
+          name={hallDetails?.name || ""}
+          description={hallDetails?.description || ""}
+        />
+      )}
       <ChaletsDetailsInfoTabsAndBookingCardWrapper
         infoTabs={{
           features: hallDetails?.features || [],

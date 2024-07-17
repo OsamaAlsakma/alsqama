@@ -17,12 +17,14 @@ const HallsCardsCardMainTitle = (props: IHallsCardsCardMainTitleProps) => {
   return (
     <ChaletsCardsCardTitleWrapper>
       <ChaletsCardsCardTitle>{name}</ChaletsCardsCardTitle>
-      <ChaletsCardsCardRatingWrapper>
-        <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
-        <ChaletsCardsCardRatingStars>
-          {pricePerNight} ريال \ ليلة
-        </ChaletsCardsCardRatingStars>
-      </ChaletsCardsCardRatingWrapper>
+      {pricePerNight && (
+        <ChaletsCardsCardRatingWrapper>
+          <ChaletsCardsCardFeatureIcon src="./icons/money.svg" alt="money" />
+          <ChaletsCardsCardRatingStars>
+            {pricePerNight} ريال \ ليلة
+          </ChaletsCardsCardRatingStars>
+        </ChaletsCardsCardRatingWrapper>
+      )}
     </ChaletsCardsCardTitleWrapper>
   );
 };

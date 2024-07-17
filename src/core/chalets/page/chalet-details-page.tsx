@@ -101,11 +101,15 @@ const ChaletDetailsPage = () => {
                 },
                 {
                   icon: StarIcon,
-                  title: `${chaletSection.numberOfStars} نجمة`,
+                  title: chaletSection.numberOfStars
+                    ? `${chaletSection.numberOfStars} نجمة`
+                    : undefined,
                 },
                 {
                   icon: OtherHousesIcon,
-                  title: `${chaletSection.numberOfRooms} غرفة`,
+                  title: chaletSection.numberOfRooms
+                    ? `${chaletSection.numberOfRooms} غرفة`
+                    : undefined,
                 },
               ]}
             />
@@ -113,10 +117,12 @@ const ChaletDetailsPage = () => {
               images={chaletSection?.images || []}
               video={chaletSection?.videos[0] || ""}
             />
-            <ChaletsDetailsDescriptionWrapper
-              name={chaletSection?.name || ""}
-              description={chaletSection?.description || ""}
-            />
+            {chaletSection?.description && (
+              <ChaletsDetailsDescriptionWrapper
+                name={chaletSection?.name || ""}
+                description={chaletSection?.description || ""}
+              />
+            )}
             <ChaletsDetailsInfoTabsAndBookingCardWrapper
               infoTabs={{
                 features: chaletSection?.features || [],
