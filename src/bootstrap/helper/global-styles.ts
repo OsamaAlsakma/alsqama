@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import styled from "styled-components";
 import {
   largeScreenSize,
@@ -13,6 +12,7 @@ import {
 import { StyledMainServicesLink } from "~/generic/components/main-services/style";
 import Input from "@mui/material/Input/Input";
 import { inputCommonProps } from "~/core/chalets/view/filtration-section/wrapper/style";
+import { LoadingButton } from "@mui/lab";
 
 export const StyledAppTitleWrapper = styled.h3`
   color: ${primaryColor};
@@ -54,7 +54,7 @@ export const HandlingSectionPaddingWrapper = styled.div`
   }
 `;
 
-export const StyledMainAppButton = styled(Button)`
+export const StyledMainAppButton = styled(LoadingButton)`
   && {
     font-family: Tajawal;
     background-color: ${secondaryColor};

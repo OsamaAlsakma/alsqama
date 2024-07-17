@@ -102,7 +102,6 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
     setIsLoading(false);
   };
 
-  if (isLoading) return <span>جاري الدفع</span>;
   return (
     <>
       <DetailsBookingCardTotalMoneyItemWrapper>
@@ -129,6 +128,7 @@ export const ChaletsDetailsBookingCardPayTotalMoneySection = (
       </DetailsBookingCardTotalMoneyItemWrapper>
       <DetailsBookingCardPayButton
         onClick={() => handleOnPay()}
+        loading={isLoading}
         disabled={
           !(
             checked &&
