@@ -2,19 +2,32 @@ import { Rating } from "@mui/lab";
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import di from "~/bootstrap/di";
 import { mainFontFamily } from "~/bootstrap/helper/global-helper";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
+import Store from "~/bootstrap/helper/store/store-type";
+import useStoreSelector from "~/bootstrap/helper/vm/use-store-selector";
 import langKey from "~/bootstrap/i18n/langKey";
+import { DetailsBookingCardConfirmConditionMessage } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/booking-card/style";
 import AlertMessage from "~/generic/components/alert-message/alert-message";
 import {
   ReviewSectionSubmit,
   ReviewSectionTextField,
 } from "~/generic/components/review-section/style";
+import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
+import NUserStore from "~/support/login-signup-forms/store/i-user-store";
+import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
+import { SwitchLoginSignupButton } from "~/support/login-signup-forms/style";
 
 const ReviewSection: React.FC = () => {
   const [rating, setRating] = useState<number | null>(0);
   const [review, setReview] = useState<string>("");
   const [open, setOpen] = useState(false);
+
+  // validation
+  const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
+  const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
+  const { token } = useStoreSelector(userStore, (store) => store.user);
 
   const handleRatingChange = (
     _event: React.ChangeEvent<object>,
@@ -22,7 +35,6 @@ const ReviewSection: React.FC = () => {
   ) => {
     setRating(newValue);
   };
-
   const handleReviewChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setReview(event.target.value);
   };
@@ -82,9 +94,28 @@ const ReviewSection: React.FC = () => {
             variant="contained"
             sx={{ mt: 2 }}
             onClick={handleSubmit}
+            disabled={!rating || !review || !token}
           >
             {t(langKey.detailsPage.send)}
           </ReviewSectionSubmit>
+          {/* validation */}
+          {!review || !rating ? (
+            <DetailsBookingCardConfirmConditionMessage>
+              {t(langKey.detailsPage.writeReviewAndSetStars)}
+            </DetailsBookingCardConfirmConditionMessage>
+          ) : (
+            !token && (
+              <DetailsBookingCardConfirmConditionMessage>
+                <SwitchLoginSignupButton
+                  disableRipple
+                  onClick={() => setIsOpen(true)}
+                >
+                  {t(langKey.detailsPage.loginOrSignUpToContinue)}
+                </SwitchLoginSignupButton>
+              </DetailsBookingCardConfirmConditionMessage>
+            )
+          )}
+          {/* end validation */}
         </Box>
       </Box>
       <AlertMessage

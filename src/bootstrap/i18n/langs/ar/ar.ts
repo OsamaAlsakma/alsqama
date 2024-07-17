@@ -67,6 +67,7 @@ const ar: typeof langKey = {
     yourReview: "مراجعتك",
     send: "إرسال",
     reviewSent: "تم إرسال تقييمك بنجاح",
+    writeReviewAndSetStars: "يرجى تحديد عدد النجوم وكتابة مراجعة",
   },
   search: {
     searchForAnyHotel: "أبحث عن أي فندق..",

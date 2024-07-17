@@ -71,6 +71,7 @@ const langKey = {
     yourReview: "detailsPage.yourReview",
     send: "detailsPage.send",
     reviewSent: "detailsPage.reviewSent",
+    writeReviewAndSetStars: "detailsPage.writeReviewAndSetStars",
   },
   search: {
     searchForAnyHotel: "search.searchForAnyHotel",

@@ -71,6 +71,7 @@ const ru: typeof langKey = {
     yourReview: "Ваш отзыв",
     send: "Посылать",
     reviewSent: "Ваш отзыв был успешно отправлен",
+    writeReviewAndSetStars: "Пожалуйста, поставьте звездочки и напишите отзыв",
   },
   search: {
     searchForAnyHotel: "Найдите Любой Отель",

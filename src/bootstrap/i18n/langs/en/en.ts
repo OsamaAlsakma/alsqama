@@ -69,6 +69,7 @@ const en: typeof langKey = {
     yourReview: "Your review",
     send: "Send",
     reviewSent: "Your review has been successfully submitted",
+    writeReviewAndSetStars: "Please specify the stars and write a review",
   },
   search: {
     searchForAnyHotel: "Search for any hotel",
