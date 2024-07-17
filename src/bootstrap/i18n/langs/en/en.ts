@@ -32,10 +32,10 @@ const en: typeof langKey = {
     successCopyMessage: "Successfully copied",
     seeMorePhoto: "See more photos",
     watchVideo: "ًWatch video",
-    features: "Features",
-    conditions: "Conditions",
+    features: "Feature",
+    conditions: "Condition",
     map: "Map",
-    reviews: "Reviews",
+    reviews: "Review",
     featuresAccessories: "Features and accessories",
     /* ---------------------------------- tabs ---------------------------------- */
     noFeaturesToShow: "There are no features to display",
