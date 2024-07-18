@@ -1,8 +1,11 @@
 import { Rating } from "@mui/lab";
-import { Box, Typography } from "@mui/material";
+import { AlertColor, Box, Typography } from "@mui/material";
+import axios from "axios";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation, useParams } from "react-router";
 import di from "~/bootstrap/di";
+import { endpointsUrl } from "~/bootstrap/helper/endpoints";
 import { mainFontFamily } from "~/bootstrap/helper/global-helper";
 import { HandlingSectionPaddingWrapper } from "~/bootstrap/helper/global-styles";
 import Store from "~/bootstrap/helper/store/store-type";
@@ -15,6 +18,7 @@ import {
   ReviewSectionTextField,
 } from "~/generic/components/review-section/style";
 import OpenLoginSignUpModalCTX from "~/generic/context/open-login-signup-modal-ctx";
+import { PossibleSelectedTabs } from "~/generic/context/selected-tab-ctx";
 import NUserStore from "~/support/login-signup-forms/store/i-user-store";
 import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
 import { SwitchLoginSignupButton } from "~/support/login-signup-forms/style";
@@ -27,8 +31,9 @@ const ReviewSection: React.FC = () => {
   // validation
   const { setIsOpen } = di.resolve(OpenLoginSignUpModalCTX).useContext();
   const userStore = di.resolve<Store<NUserStore.IUsernameStore>>(userStoreKey);
-  const { token } = useStoreSelector(userStore, (store) => store.user);
+  const { token, userId } = useStoreSelector(userStore, (store) => store.user);
 
+  // changing
   const handleRatingChange = (
     _event: React.ChangeEvent<object>,
     newValue: number | null
@@ -39,13 +44,55 @@ const ReviewSection: React.FC = () => {
     setReview(event.target.value);
   };
 
-  const handleSubmit = () => {
-    setRating(0);
-    setReview("");
-    setOpen(true);
-  };
-
+  // submit
   const { t } = useTranslation();
+  const { id } = useParams();
+  const { pathname } = useLocation();
+  const [isLoading, setIsLoading] = useState(false);
+  const [messageContent, setMessageContent] = useState<string>(
+    t(langKey.detailsPage.successfulPaymentMessage)
+  );
+  const [messageType, setMessageType] = useState<AlertColor>("success");
+
+  const handleSubmit = async () => {
+    const entityType =
+      pathname.includes(PossibleSelectedTabs.APPARTMENT) ||
+      pathname.includes(PossibleSelectedTabs.HALL)
+        ? "accommodation"
+        : pathname.includes(PossibleSelectedTabs.HOTEL)
+        ? "room"
+        : "chalet_section";
+
+    setIsLoading(true);
+    try {
+      const response = await axios.post(
+        `${endpointsUrl.sendReview}`,
+        {
+          user_id: userId,
+          entity_type: entityType,
+          entity_id: id,
+          rating: rating,
+          comment: review,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (response.status === 200 || response.status === 201) {
+        setMessageContent(t(langKey.detailsPage.reviewSent));
+        setMessageType("success");
+        setRating(0);
+        setReview("");
+      }
+    } catch (error) {
+      setMessageType("error");
+      setMessageContent(t(langKey.detailsPage.errorPaymentMessage));
+    }
+    setOpen(true);
+    setIsLoading(false);
+  };
 
   return (
     <HandlingSectionPaddingWrapper>
@@ -92,6 +139,7 @@ const ReviewSection: React.FC = () => {
           />
           <ReviewSectionSubmit
             variant="contained"
+            loading={isLoading}
             sx={{ mt: 2 }}
             onClick={handleSubmit}
             disabled={!rating || !review || !token}
@@ -120,9 +168,10 @@ const ReviewSection: React.FC = () => {
       </Box>
       <AlertMessage
         durationInMs={4500}
-        message={t(langKey.detailsPage.reviewSent)}
+        message={messageContent}
         open={open}
         setOpen={setOpen}
+        type={messageType}
       />
     </HandlingSectionPaddingWrapper>
   );

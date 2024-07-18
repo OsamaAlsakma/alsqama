@@ -1,4 +1,5 @@
-import { Button, TextField } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
+import { TextField } from "@mui/material";
 import styled from "styled-components";
 import {
   mainFontFamily,
@@ -13,7 +14,7 @@ export const ReviewSectionTextField = styled(TextField)`
   }
 `;
 
-export const ReviewSectionSubmit = styled(Button)`
+export const ReviewSectionSubmit = styled(LoadingButton)`
   && {
     background-color: ${secondaryColor};
     color: black;

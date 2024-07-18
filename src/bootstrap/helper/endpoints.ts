@@ -40,6 +40,8 @@ export const endpointsUrl = {
   loginEndpoint: "https://backend.hajjzi.com/public/api/login",
   /* ------------------------ pay and send information ------------------------ */
   payEndpoint: "https://backend.hajjzi.com/public/api/reservations",
+  /* ----------------------------- review section ----------------------------- */
+  sendReview:"https://backend.hajjzi.com/public/api/review/store",
   /* --------------------------------- Chalets -------------------------------- */
   allChalets:
     "https://backend.hajjzi.com/public/api/accommodations?type=chalets",
