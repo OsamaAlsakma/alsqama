@@ -1,5 +1,10 @@
-import { ReviewType } from "~/core/chalets/page/chalet-details-page";
 import { HotelItemDetailType } from "~/core/hotels/page/hotel-item-details-page";
+
+export type ReviewResponse = {
+  id: string;
+  comment: string;
+  rating: number;
+};
 
 export type HotelItemDetailsResponse = {
   id: string;
@@ -11,7 +16,7 @@ export type HotelItemDetailsResponse = {
   images: { attachment_path: string }[];
   reservations: [];
   video: { url: string }[];
-  reviews: ReviewType[];
+  reviews: ReviewResponse[];
   coordinates: {
     latitude: number;
     longitude: number;
@@ -37,7 +42,12 @@ export const getHotelItemDetailsDTO = (
     bookingConditions: response.bookingConditions,
     cancellingConditions: response.cancellingConditions,
     features: response.features.map((feature) => feature.name),
-    reviews: response.reviews,
+    reviews: response.reviews.map((review) => ({
+      givenStars: review.rating,
+      reviewBody: review.comment,
+      // TODO edit
+      reviewerName: "مقيم",
+    })),
     reservedDates: response.reservations,
     roomsNumber: response.roomsNumber,
     bedsNumber: response.bedsNumber,

@@ -20,18 +20,12 @@ const ChaletsDetailsInfoTabsReviews = (
   props: IChaletsDetailsInfoTabsReviewsProps
 ) => {
   const { reviews } = props;
-  const newReviews = [
-    ...reviews,
-    ...reviews,
-    ...reviews,
-    ...reviews,
-    ...reviews,
-  ];
+
   const { t } = useTranslation();
   return (
     <ChaletsDetailsInfoTabsReviewsWrapper>
-      {newReviews.length !== 0 ? (
-        newReviews.map((review: ReviewType, index: number) => (
+      {reviews.length !== 0 ? (
+        reviews.map((review: ReviewType, index: number) => (
           <ChaletsDetailsInfoTabsReviewWrapper key={index}>
             <ChaletsDetailsInfoTabsReviewReviewerData>
               <ChaletsDetailsInfoTabsReviewReviewerIcon />
