@@ -1,10 +1,7 @@
+import { ReviewResponse } from "~/bootstrap/helper/global-types";
 import { HotelItemDetailType } from "~/core/hotels/page/hotel-item-details-page";
 
-export type ReviewResponse = {
-  id: string;
-  comment: string;
-  rating: number;
-};
+
 
 export type HotelItemDetailsResponse = {
   id: string;

@@ -44,3 +44,10 @@ export type TermOfUseAndPrivacyType = {
   title: string;
   body: string;
 };
+
+/* ----------------------------- review section ----------------------------- */
+export type ReviewResponse = {
+  id: string;
+  comment: string;
+  rating: number;
+};

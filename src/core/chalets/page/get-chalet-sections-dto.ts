@@ -1,3 +1,4 @@
+import { ReviewResponse } from "~/bootstrap/helper/global-types";
 import { ChaletSectionType } from "~/core/chalets/page/chalet-details-page";
 
 export type ChaletSectionsResponse = {
@@ -15,6 +16,7 @@ export type ChaletSectionsResponse = {
   numberOfRooms?: string;
   features: { name: string }[];
   location?: string;
+  reviews:ReviewResponse[]
 };
 export const getChaletSectionsDTO = (
   response: ChaletSectionsResponse[]
@@ -37,7 +39,12 @@ export const getChaletSectionsDTO = (
       numberOfStars: chaletSection.numberOfStars,
       location: chaletSection.location,
 
-      reviews: [],
+      reviews: chaletSection.reviews.map((review) => ({
+        givenStars: review.rating,
+        reviewBody: review.comment,
+        // TODO edit
+        reviewerName: "مقيم",
+      })),
       // TODO
       reservedDates: [],
     };
