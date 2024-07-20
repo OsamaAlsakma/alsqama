@@ -1,3 +1,4 @@
+import { ReviewResponse } from "~/bootstrap/helper/global-types";
 import { HallDetailType } from "~/core/halls/page/hall-details-page";
 
 export type HallDetailsResponse = {
@@ -17,7 +18,7 @@ export type HallDetailsResponse = {
     features: { name: string }[];
     bookingConditions: string;
     cancellingConditions: string;
-
+    reviews:ReviewResponse[]
     // TODO he needs to add
     // reservations:ResservedDateType[]
   };
@@ -45,8 +46,13 @@ export const getHallDetailsDTO = (
     location: response.accommodation.location,
     pricePerNight: response.accommodation.pricePerNight,
 
+    reviews: response.accommodation.reviews.map((review) => ({
+      givenStars: review.rating,
+      reviewBody: review.comment,
+      // TODO edit
+      reviewerName: "مقيم",
+    })),
     // TODO to be fixed
-    reviews: [],
     reservedDates: [],
   };
   return HallDetailEntity;

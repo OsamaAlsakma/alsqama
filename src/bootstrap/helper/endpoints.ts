@@ -3,7 +3,7 @@ export const servicesPageEndpoint = {
   chalets: "/chalets",
   halls: "/halls",
   hotels: "/hotels",
-  apartments: "/apartments",
+  appartments: "/appartments",
 };
 
 export const supportEndpoint = {

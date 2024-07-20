@@ -1,4 +1,4 @@
-import { ResservedDateType } from "~/bootstrap/helper/global-types";
+import { ResservedDateType, ReviewResponse } from "~/bootstrap/helper/global-types";
 import { AppartmentDetailType } from "~/core/Apartments/page/appartment-details-page";
 
 export type AppartmentDetailsResponse = {
@@ -19,6 +19,7 @@ export type AppartmentDetailsResponse = {
 
     bookingConditions: string;
     cancellingConditions: string;
+    reviews:ReviewResponse[]
     reservations: ResservedDateType[];
   };
 };
@@ -45,7 +46,12 @@ export const getAppartmentDetailsDTO = (
 
     bookingConditions: response.accommodation.bookingConditions,
     cancellingConditions: response.accommodation.cancellingConditions,
-    reviews: [],
+    reviews: response.accommodation.reviews.map((review) => ({
+      givenStars: review.rating,
+      reviewBody: review.comment,
+      // TODO edit
+      reviewerName: "مقيم",
+    })),
     // TODO to be fixed
     reservedDates: [],
   };

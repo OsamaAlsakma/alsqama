@@ -4,10 +4,10 @@ import { SetState } from "~/bootstrap/helper/global-types";
 import BaseContext from "~/generic/context/base-ctx";
 
 export enum PossibleSelectedTabs {
-  HOTEL = "hotel",
-  CHALET = "chalet",
-  APPARTMENT = "appartment",
-  HALL = "hall",
+  HOTEL = "hotels",
+  CHALET = "chalets",
+  APPARTMENT = "appartments",
+  HALL = "halls",
   TERMSOFUSE = "terms_of_use",
 }
 

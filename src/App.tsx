@@ -41,11 +41,11 @@ function App() {
               <Route path={servicesPageEndpoint.main} element={<MainPage />} />
               {/* Apartments */}
               <Route
-                path={servicesPageEndpoint.apartments}
+                path={servicesPageEndpoint.appartments}
                 element={<ApartmentsPage />}
               />
               <Route
-                path={`${servicesPageEndpoint.apartments}/:id`}
+                path={`${servicesPageEndpoint.appartments}/:id`}
                 element={<AppartmentDetailsPage />}
               />
               {/* Halls */}

@@ -93,7 +93,7 @@ const ServicesBurgerDrawer = () => {
       href: PossibleSelectedTabs.HOTEL,
     },
     {
-      url: servicesPageEndpoint.apartments,
+      url: servicesPageEndpoint.appartments,
       lang: t(langKey.global.apartments),
       icon: ApartmentIcon,
       href: PossibleSelectedTabs.APPARTMENT,

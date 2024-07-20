@@ -89,7 +89,7 @@ const ServicesBurger = () => {
         <MenuItem onClick={handleClose}>
           <StyledBurgerMenuItem
             $isSelected={false}
-            to={servicesPageEndpoint.apartments}
+            to={servicesPageEndpoint.appartments}
           >
             {t(langKey.global.apartments)}
           </StyledBurgerMenuItem>

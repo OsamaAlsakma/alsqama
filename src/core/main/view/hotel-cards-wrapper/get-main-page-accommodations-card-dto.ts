@@ -69,7 +69,7 @@ export const fetchAccommodation = async (
         name: t(langKey.global.apartments),
         description: accommodation.appartments_description,
         length: accommodation.appartments_count,
-        endpoint: servicesPageEndpoint.apartments,
+        endpoint: servicesPageEndpoint.appartments,
         tabName: PossibleSelectedTabs.APPARTMENT,
       },
     ];

@@ -15,13 +15,13 @@ const AppartmentsCardsCardFooter = (props: IHallsCardsCardFooterProps) => {
   return (
     <ChaletsCardsCardActions>
       <CardActionsButtonWithLink
-        to={`${servicesPageEndpoint.apartments}/${hallId}`}
+        to={`${servicesPageEndpoint.appartments}/${hallId}`}
       >
         {t(langKey.global.more)}
       </CardActionsButtonWithLink>
 
       <CardActionsButtonWithLink
-        to={`${servicesPageEndpoint.apartments}/${hallId}`}
+        to={`${servicesPageEndpoint.appartments}/${hallId}`}
       >
         {t(langKey.global.bookNow)}
       </CardActionsButtonWithLink>
