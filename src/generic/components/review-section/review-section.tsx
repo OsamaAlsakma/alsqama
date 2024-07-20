@@ -23,7 +23,12 @@ import NUserStore from "~/support/login-signup-forms/store/i-user-store";
 import { userStoreKey } from "~/support/login-signup-forms/store/user-store";
 import { SwitchLoginSignupButton } from "~/support/login-signup-forms/style";
 
-const ReviewSection: React.FC = () => {
+interface IReviewSectionProps {
+  chaletSectionId?: string
+}
+
+const ReviewSection = (props:IReviewSectionProps) => {
+  const {chaletSectionId} = props
   const [rating, setRating] = useState<number | null>(0);
   const [review, setReview] = useState<string>("");
   const [open, setOpen] = useState(false);
@@ -70,7 +75,7 @@ const ReviewSection: React.FC = () => {
         {
           user_id: userId,
           entity_type: entityType,
-          entity_id: id,
+          entity_id: chaletSectionId|| id,
           rating: rating,
           comment: review,
         },

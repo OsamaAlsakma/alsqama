@@ -139,7 +139,7 @@ const ChaletDetailsPage = () => {
               reservedDates={chaletSection.reservedDates || []}
               chaletSectionId={chaletSection.id || ""}
             />
-            <ReviewSection />
+            <ReviewSection chaletSectionId={chaletSection.id} />
           </div>
         );
       })}
