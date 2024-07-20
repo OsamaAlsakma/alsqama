@@ -1,3 +1,4 @@
+import Rating from "@mui/material/Rating/Rating";
 import { useTranslation } from "react-i18next";
 import langKey from "~/bootstrap/i18n/langKey";
 import { ReviewType } from "~/core/chalets/page/chalet-details-page";
@@ -27,15 +28,22 @@ const ChaletsDetailsInfoTabsReviews = (
       {reviews.length !== 0 ? (
         reviews.map((review: ReviewType, index: number) => (
           <ChaletsDetailsInfoTabsReviewWrapper key={index}>
+            {/* icon and meta data */}
             <ChaletsDetailsInfoTabsReviewReviewerData>
               <ChaletsDetailsInfoTabsReviewReviewerIcon />
               <ChaletsDetailsInfoTabsReviewReviewerNameAndDate>
                 <ChaletsDetailsInfoTabsReviewReviewerName>
                   {review.reviewerName}
                 </ChaletsDetailsInfoTabsReviewReviewerName>
-                <span>{review.givenStars}</span>
+                <Rating
+                  readOnly
+                  name="user-rating"
+                  value={review.givenStars}
+                  size="small"
+                />
               </ChaletsDetailsInfoTabsReviewReviewerNameAndDate>
             </ChaletsDetailsInfoTabsReviewReviewerData>
+            {/* body */}
             <ChaletsDetailsInfoTabsReviewText>
               {review.reviewBody}
             </ChaletsDetailsInfoTabsReviewText>

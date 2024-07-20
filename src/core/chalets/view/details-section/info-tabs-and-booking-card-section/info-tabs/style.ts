@@ -161,7 +161,8 @@ export const ChaletsDetailsInfoTabsReviewReviewerData = styled.div`
 export const ChaletsDetailsInfoTabsReviewReviewerNameAndDate = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2px;
   padding: 12px 0px 2px;
 `;
 
@@ -171,4 +172,5 @@ export const ChaletsDetailsInfoTabsReviewReviewerName = styled.span`
 
 export const ChaletsDetailsInfoTabsReviewText = styled.p`
   margin: 6px 0px;
+  padding: 0 8px;
 `;
