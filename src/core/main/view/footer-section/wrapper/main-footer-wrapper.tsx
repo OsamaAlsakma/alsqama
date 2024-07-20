@@ -63,7 +63,7 @@ const MainFooterWrapper = () => {
             {t(langKey.global.halls)}
           </MainFooterMainService>
           <MainFooterMainService
-            to={servicesPageEndpoint.apartments}
+            to={servicesPageEndpoint.appartments}
             onClick={() => changeSelectedTab(PossibleSelectedTabs.APPARTMENT)}
           >
             {t(langKey.global.apartments)}
