@@ -50,4 +50,5 @@ export type ReviewResponse = {
   id: string;
   comment: string;
   rating: number;
+  user?: { name: string };
 };

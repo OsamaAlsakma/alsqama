@@ -18,7 +18,7 @@ export type HallDetailsResponse = {
     features: { name: string }[];
     bookingConditions: string;
     cancellingConditions: string;
-    reviews:ReviewResponse[]
+    reviews: ReviewResponse[];
     // TODO he needs to add
     // reservations:ResservedDateType[]
   };
@@ -49,8 +49,7 @@ export const getHallDetailsDTO = (
     reviews: response.accommodation.reviews.map((review) => ({
       givenStars: review.rating,
       reviewBody: review.comment,
-      // TODO edit
-      reviewerName: "مقيم",
+      reviewerName: review.user?.name || "مقيم",
     })),
     // TODO to be fixed
     reservedDates: [],

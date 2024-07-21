@@ -1,8 +1,6 @@
 import { ReviewResponse } from "~/bootstrap/helper/global-types";
 import { HotelItemDetailType } from "~/core/hotels/page/hotel-item-details-page";
 
-
-
 export type HotelItemDetailsResponse = {
   id: string;
   room_number: string; // room name
@@ -42,8 +40,7 @@ export const getHotelItemDetailsDTO = (
     reviews: response.reviews.map((review) => ({
       givenStars: review.rating,
       reviewBody: review.comment,
-      // TODO edit
-      reviewerName: "مقيم",
+      reviewerName: review.user?.name || "مقيم",
     })),
     reservedDates: response.reservations,
     roomsNumber: response.roomsNumber,

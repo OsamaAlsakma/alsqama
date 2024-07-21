@@ -16,7 +16,7 @@ export type ChaletSectionsResponse = {
   numberOfRooms?: string;
   features: { name: string }[];
   location?: string;
-  reviews:ReviewResponse[]
+  reviews: ReviewResponse[];
 };
 export const getChaletSectionsDTO = (
   response: ChaletSectionsResponse[]
@@ -42,8 +42,7 @@ export const getChaletSectionsDTO = (
       reviews: chaletSection.reviews.map((review) => ({
         givenStars: review.rating,
         reviewBody: review.comment,
-        // TODO edit
-        reviewerName: "مقيم",
+        reviewerName: review.user?.name || "مقيم",
       })),
       // TODO
       reservedDates: [],
