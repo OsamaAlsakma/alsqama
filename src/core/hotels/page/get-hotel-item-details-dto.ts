@@ -40,7 +40,7 @@ export const getHotelItemDetailsDTO = (
     reviews: response.reviews.map((review) => ({
       givenStars: review.rating,
       reviewBody: review.comment,
-      reviewerName: review.user?.name || "مقيم",
+      reviewerName: review.username || review.user?.name || "مقيم",
     })),
     reservedDates: response.reservations,
     roomsNumber: response.roomsNumber,
