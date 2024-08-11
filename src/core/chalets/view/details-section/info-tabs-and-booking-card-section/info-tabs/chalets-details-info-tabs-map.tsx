@@ -8,6 +8,9 @@ interface IChaletsDetailsInfoTabsMapProps {
   };
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                  Component                                 */
+/* -------------------------------------------------------------------------- */
 const ChaletsDetailsInfoTabsMap = (props: IChaletsDetailsInfoTabsMapProps) => {
   const { coordinates } = props;
 
