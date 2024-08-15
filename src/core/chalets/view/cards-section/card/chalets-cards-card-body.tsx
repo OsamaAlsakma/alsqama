@@ -16,33 +16,23 @@ type IChaletsCardsCardBodyProps = {
 };
 
 const ChaletsCardsCardBody = (props: IChaletsCardsCardBodyProps) => {
-  const { location, nearestTimeAvailable, numberOfRooms, price } =
-    props.cardBody;
+  const { location, numberOfRooms, price } = props.cardBody;
   return (
     <ChaletsCardsCardFeaturesWrapper>
-      <ChaletsCardsCardFeature>
+      <ChaletsCardsCardFeature style={{ width: "100%" }}>
         <PlaceIcon />
         <ChaletsCardsCardFeatureTitle>{location}</ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
-      <ChaletsCardsCardFeature>
+      <ChaletsCardsCardFeature style={{ width: "100%" }}>
         <ChaletsCardsCardFeatureIcon src={`/icons/money.svg`} alt="money" />
         <ChaletsCardsCardFeatureTitle>
-          {price}ريال \ ليلة
+          {price} ريال \ ليلة
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
-      <ChaletsCardsCardFeature>
+      <ChaletsCardsCardFeature style={{ width: "100%" }}>
         <ChaletsCardsCardFeatureIcon src={`/icons/rooms.svg`} alt="rooms" />
         <ChaletsCardsCardFeatureTitle>
           {numberOfRooms}
-        </ChaletsCardsCardFeatureTitle>
-      </ChaletsCardsCardFeature>
-      <ChaletsCardsCardFeature>
-        <ChaletsCardsCardFeatureIcon
-          src={`/icons/calender.svg`}
-          alt="calender"
-        />
-        <ChaletsCardsCardFeatureTitle>
-          {nearestTimeAvailable}
         </ChaletsCardsCardFeatureTitle>
       </ChaletsCardsCardFeature>
     </ChaletsCardsCardFeaturesWrapper>
