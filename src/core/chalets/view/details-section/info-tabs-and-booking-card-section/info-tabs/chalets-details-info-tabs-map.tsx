@@ -1,38 +1,50 @@
-import { FullscreenControl, Placemark, YMaps } from "@pbe/react-yandex-maps";
-import { ChaletsDetailsInfoTabsStyledMap } from "~/core/chalets/view/details-section/info-tabs-and-booking-card-section/info-tabs/style";
+import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 
 interface IChaletsDetailsInfoTabsMapProps {
   coordinates: {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
   };
 }
 
 const ChaletsDetailsInfoTabsMap = (props: IChaletsDetailsInfoTabsMapProps) => {
   const { coordinates } = props;
 
+  function extractSrc(iframeString: string): string | null {
+    if (typeof iframeString !== "string") {
+      throw new TypeError("Expected a string as input");
+    }
+
+    const srcMatch = iframeString.match(/src="([^"]+)"/);
+
+    if (srcMatch && srcMatch[1]) {
+      return srcMatch[1];
+    }
+
+    return null;
+  }
+
+  const mapLink = coordinates.latitude || coordinates.longitude || "";
+  const src = extractSrc(mapLink);
+
   return (
-    <YMaps query={{ lang: "en_US" }}>
-      <div>
-        <ChaletsDetailsInfoTabsStyledMap
-          defaultState={{
-            center: [coordinates.longitude, coordinates.longitude],
-            zoom: 9,
-          }}
-        >
-          <FullscreenControl />
-          <Placemark
-            geometry={[coordinates.longitude, coordinates.longitude]}
-            options={{
-              iconLayout: "default#image",
-              iconImageHref: "/icons/map-location.svg",
-              iconImageSize: [30, 30],
-              iconImageOffset: [-15, -30],
-            }}
-          />
-        </ChaletsDetailsInfoTabsStyledMap>
-      </div>
-    </YMaps>
+    <div>
+      {src ? (
+        <iframe
+          src={`${src}`}
+          width="100%"
+          height="400"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+      ) : (
+        <DetailsPageEdgeCaseMessage>
+          The location is not provided
+        </DetailsPageEdgeCaseMessage>
+      )}
+    </div>
   );
 };
 

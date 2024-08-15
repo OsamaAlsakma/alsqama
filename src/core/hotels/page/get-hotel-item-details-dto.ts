@@ -13,8 +13,8 @@ export type HotelItemDetailsResponse = {
   video: { url: string }[];
   reviews: ReviewResponse[];
   coordinates: {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
   };
   features: { name: string }[];
 

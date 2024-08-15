@@ -13,8 +13,8 @@ export type AppartmentDetailsResponse = {
     numberOfRooms?: string;
     pricePerNight: number;
     coordinates: {
-      latitude: number;
-      longitude: number;
+      latitude: string;
+      longitude: string;
     };
     images: { attachmentPath: string }[];
     video: { url: string }[];

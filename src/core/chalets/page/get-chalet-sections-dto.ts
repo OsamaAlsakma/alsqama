@@ -6,8 +6,8 @@ export type ChaletSectionsResponse = {
   name: string;
   pricePerNight: number;
   description: string;
-  latitude: number;
-  longitude: number;
+  latitude: string;
+  longitude: string;
   bookingConditions: string;
   cancellingConditions: string;
   images: { attachment_path: string }[];
@@ -31,7 +31,10 @@ export const getChaletSectionsDTO = (
       videos: chaletSection.video.map((video) => video.url),
       bookingConditions: chaletSection.bookingConditions,
       cancellingConditions: chaletSection.cancellingConditions,
-      coordinates: chaletSection,
+      coordinates: {
+        latitude: chaletSection.latitude,
+        longitude: chaletSection.longitude,
+      },
       features: chaletSection.features.map((feature) => feature.name),
 
       // fast desctription

@@ -26,7 +26,7 @@ export type HotelItemDetailType = {
   name: string;
   description: string;
   pricePerNight: number;
-  coordinates: { latitude: number; longitude: number };
+  coordinates: { latitude: string; longitude: string };
   images: string[];
   videos: string[];
   bookingConditions: string;
@@ -107,8 +107,8 @@ const HotelItemDetailsPage = () => {
           bookingConditions: hotelItemDetail?.bookingConditions || "",
           cancellingConditions: hotelItemDetail?.cancellingConditions || "",
           coordinates: hotelItemDetail?.coordinates || {
-            latitude: 0,
-            longitude: 0,
+            latitude: "",
+            longitude: "",
           },
           reviews: hotelItemDetail?.reviews || [],
         }}

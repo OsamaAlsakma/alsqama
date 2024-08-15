@@ -10,8 +10,8 @@ interface IChaletsDetailsInfoTabsAndBookingCardWrapperProps {
     bookingConditions: string;
     cancellingConditions: string;
     coordinates: {
-      latitude: number;
-      longitude: number;
+      latitude: string;
+      longitude: string;
     };
     reviews: ReviewType[];
   };

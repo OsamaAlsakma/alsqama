@@ -10,8 +10,8 @@ export type HallDetailsResponse = {
     numberOfRooms?: string; // capacity
     pricePerNight: number;
     coordinates: {
-      latitude: number;
-      longitude: number;
+      latitude: string;
+      longitude: string;
     };
     images: { attachmentPath: string }[];
     video: { url: string }[];

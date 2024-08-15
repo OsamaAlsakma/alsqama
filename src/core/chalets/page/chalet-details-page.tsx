@@ -40,8 +40,8 @@ export type ChaletSectionType = {
   bookingConditions: string;
   cancellingConditions: string;
   coordinates: {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
   };
   reviews: ReviewType[];
   reservedDates: ResservedDateType[];
@@ -129,8 +129,8 @@ const ChaletDetailsPage = () => {
                 bookingConditions: chaletSection?.bookingConditions || "",
                 cancellingConditions: chaletSection?.cancellingConditions || "",
                 coordinates: chaletSection?.coordinates || {
-                  latitude: 0,
-                  longitude: 0,
+                  latitude: "",
+                  longitude: "",
                 },
                 reviews: chaletSection?.reviews || [],
               }}

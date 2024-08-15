@@ -27,7 +27,7 @@ export type AppartmentDetailType = {
   name: string;
   description: string;
   pricePerNight: number;
-  coordinates: { latitude: number; longitude: number };
+  coordinates: { latitude: string; longitude: string };
   images: string[];
   videos: string[];
   bookingConditions: string;
@@ -112,8 +112,8 @@ const AppartmentDetailsPage = () => {
           bookingConditions: appartmentDetails?.bookingConditions || "",
           cancellingConditions: appartmentDetails?.cancellingConditions || "",
           coordinates: appartmentDetails?.coordinates || {
-            latitude: 0,
-            longitude: 0,
+            latitude: "",
+            longitude: "",
           },
           reviews: appartmentDetails?.reviews || [],
         }}
