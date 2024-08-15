@@ -49,6 +49,7 @@ const langKey = {
     cancelingConditions: "detailsPage.cancelingConditions",
     noBookingAndCancelingConditions:
       "detailsPage.noBookingAndCancelingConditions",
+    noMapProvided: "detailsPage.noMapProvided",
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "detailsPage.bookingStartDate",
     bookingEndDate: "detailsPage.bookingEndDate",

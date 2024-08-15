@@ -45,6 +45,7 @@ const ru: typeof langKey = {
     bookingConditions: "Условия бронирования",
     cancelingConditions: "Условия отмены бронирования",
     noBookingAndCancelingConditions: "Нет условий для бронирования и отмены",
+    noMapProvided: "Местоположение не указано",
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "Бронирование начинается с:",
     bookingEndDate: "Бронирование заканчивается в:",

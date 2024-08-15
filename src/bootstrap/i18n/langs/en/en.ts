@@ -45,6 +45,7 @@ const en: typeof langKey = {
     cancelingConditions: "Canceling conditions",
     noBookingAndCancelingConditions:
       "detailsPage.noBookingAndCancelingConditions",
+    noMapProvided: "The location on map is not provided",
     /* ------------------------------ booking card ------------------------------ */
     bookingStartDate: "Booking starts from:",
     bookingEndDate: "Booking ends at:",

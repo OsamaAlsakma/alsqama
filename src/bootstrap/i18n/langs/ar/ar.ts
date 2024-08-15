@@ -37,6 +37,7 @@ const ar: typeof langKey = {
     map: "الخريطة",
     reviews: "تقييمات",
     featuresAccessories: "ميزات وملحقات",
+    noMapProvided: "الموقع على الخريطة غير متوفر",
     /* ---------------------------------- tabs ---------------------------------- */
     noFeaturesToShow: "لا يوجد ميزات لعرضها",
     noReviewsToShow: "لا يوجد تقيمات لعرضها",

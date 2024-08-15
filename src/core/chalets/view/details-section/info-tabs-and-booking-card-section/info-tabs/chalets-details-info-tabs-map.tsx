@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+import langKey from "~/bootstrap/i18n/langKey";
 import { DetailsPageEdgeCaseMessage } from "~/core/chalets/page/style";
 
 interface IChaletsDetailsInfoTabsMapProps {
@@ -27,6 +29,7 @@ const ChaletsDetailsInfoTabsMap = (props: IChaletsDetailsInfoTabsMapProps) => {
   const mapLink = coordinates.latitude || coordinates.longitude || "";
   const src = extractSrc(mapLink);
 
+  const { t } = useTranslation();
   return (
     <div>
       {src ? (
@@ -41,7 +44,7 @@ const ChaletsDetailsInfoTabsMap = (props: IChaletsDetailsInfoTabsMapProps) => {
         ></iframe>
       ) : (
         <DetailsPageEdgeCaseMessage>
-          The location is not provided
+          {t(langKey.detailsPage.noMapProvided)}
         </DetailsPageEdgeCaseMessage>
       )}
     </div>
