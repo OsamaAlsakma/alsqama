@@ -1,5 +1,4 @@
 import TabPanel from "@mui/lab/TabPanel";
-import { Map } from "@pbe/react-yandex-maps";
 import styled from "styled-components";
 import StarIcon from "@mui/icons-material/Star";
 import TabList from "@mui/lab/TabList/TabList";
@@ -95,13 +94,6 @@ export const BookingCancelingConditionsEdgeCase = styled.p`
 export const TabPanelMapPadding = styled(TabPanel)`
   && {
     padding: 0px;
-  }
-`;
-
-export const ChaletsDetailsInfoTabsStyledMap = styled(Map)`
-  && {
-    width: 100%;
-    height: 400px;
   }
 `;
 
